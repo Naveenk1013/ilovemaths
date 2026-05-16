@@ -1,0 +1,432 @@
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font-sans)}
+.app{padding:1rem 1rem 2rem;max-width:680px}
+
+/* Tab nav */
+.tabs{display:flex;gap:4px;background:var(--color-background-secondary);border-radius:var(--border-radius-lg);padding:4px;margin-bottom:1.25rem}
+.tab{flex:1;padding:8px 6px;font-size:13px;font-weight:500;border:none;background:transparent;color:var(--color-text-secondary);border-radius:10px;cursor:pointer;transition:all .18s}
+.tab.active{background:var(--color-background-primary);color:var(--color-text-primary);box-shadow:0 1px 3px rgba(0,0,0,.08)}
+.tab:hover:not(.active){color:var(--color-text-primary)}
+
+/* Section */
+.section{display:none}.section.active{display:block}
+
+/* ── REFERENCE ── */
+.hero{background:var(--color-background-secondary);border:0.5px solid var(--color-border-secondary);border-radius:var(--border-radius-lg);padding:1.25rem 1.5rem;margin-bottom:1rem;display:flex;align-items:center;gap:1.25rem;flex-wrap:wrap}
+.formula-big{font-size:26px;font-weight:500;color:var(--color-text-primary);font-family:var(--font-mono);white-space:nowrap}
+.formula-big .eb{color:#185FA5}.formula-big .nc{color:#B07010}
+.hero-desc{font-size:13px;color:var(--color-text-secondary);flex:1;min-width:160px;line-height:1.65}
+.hero-desc strong{color:var(--color-text-primary);font-weight:500}
+
+.cards-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:8px;margin-bottom:1rem}
+.ref-card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:.9rem 1.1rem}
+.ref-card-top{display:flex;align-items:center;gap:8px;margin-bottom:8px}
+.badge{font-size:11px;font-weight:500;padding:3px 8px;border-radius:6px}
+.b-blue{background:#E6F1FB;color:#0C447C}.b-amber{background:#FAEEDA;color:#633806}
+.b-teal{background:#E1F5EE;color:#085041}.b-purple{background:#EEEDFE;color:#3C3489}
+.b-coral{background:#FAECE7;color:#712B13}.b-green{background:#EAF3DE;color:#27500A}
+@media(prefers-color-scheme:dark){
+  .b-blue{background:#0C447C;color:#B5D4F4}.b-amber{background:#633806;color:#FAC775}
+  .b-teal{background:#085041;color:#9FE1CB}.b-purple{background:#3C3489;color:#CECBF6}
+  .b-coral{background:#712B13;color:#F5C4B3}.b-green{background:#27500A;color:#C0DD97}
+}
+.ref-title{font-size:13px;font-weight:500;color:var(--color-text-primary)}
+.fbox{font-family:var(--font-mono);font-size:14px;padding:7px 10px;background:var(--color-background-secondary);border-radius:var(--border-radius-md);color:var(--color-text-primary);margin-bottom:6px}
+.fbox .hb{color:#185FA5}.fbox .ha{color:#B07010}.fbox .hc{color:#993C1D}.fbox .ht{color:#0F6E56}
+@media(prefers-color-scheme:dark){.fbox .hb{color:#85B7EB}.fbox .ha{color:#FAC775}.fbox .hc{color:#F0997B}.fbox .ht{color:#5DCAA5}}
+.eg{font-size:12px;color:var(--color-text-secondary);line-height:1.8}
+.eg span{font-family:var(--font-mono);color:var(--color-text-primary);font-size:12px}
+.eg .arr{color:var(--color-text-tertiary);margin:0 4px}
+
+.table-wrap{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);overflow:hidden;margin-bottom:1rem}
+table{width:100%;border-collapse:collapse;font-size:13px}
+thead tr{background:var(--color-background-secondary)}
+th{padding:8px 12px;text-align:left;font-weight:500;color:var(--color-text-secondary);font-size:11px;letter-spacing:.05em;text-transform:uppercase;border-bottom:0.5px solid var(--color-border-tertiary)}
+td{padding:8px 12px;border-bottom:0.5px solid var(--color-border-tertiary);color:var(--color-text-primary)}
+tr:last-child td{border-bottom:none}
+tbody tr:nth-child(even) td{background:var(--color-background-secondary)}
+.mn{font-family:var(--font-mono);font-size:13px}
+.nt{color:var(--color-text-secondary);font-size:12px}
+
+/* ── QUIZ ── */
+.quiz-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem}
+.quiz-header h3{font-size:16px;font-weight:500;color:var(--color-text-primary)}
+.score-pill{font-size:12px;font-weight:500;padding:4px 12px;border-radius:20px;background:var(--color-background-secondary);border:0.5px solid var(--color-border-tertiary);color:var(--color-text-secondary)}
+
+.progress-bar{height:4px;background:var(--color-background-secondary);border-radius:2px;margin-bottom:1.25rem;overflow:hidden}
+.progress-fill{height:100%;background:#185FA5;border-radius:2px;transition:width .4s ease}
+
+.q-card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:1.25rem;margin-bottom:.75rem}
+.q-meta{display:flex;align-items:center;gap:8px;margin-bottom:.75rem}
+.q-num{font-size:11px;font-weight:500;color:var(--color-text-tertiary);text-transform:uppercase;letter-spacing:.05em}
+.diff-badge{font-size:10px;font-weight:500;padding:2px 7px;border-radius:4px}
+.diff-easy{background:#EAF3DE;color:#27500A}.diff-med{background:#FAEEDA;color:#633806}.diff-hard{background:#FAECE7;color:#712B13}
+@media(prefers-color-scheme:dark){
+  .diff-easy{background:#27500A;color:#C0DD97}.diff-med{background:#633806;color:#FAC775}.diff-hard{background:#712B13;color:#F5C4B3}
+}
+.q-text{font-size:15px;font-weight:500;color:var(--color-text-primary);margin-bottom:.2rem;line-height:1.5}
+.q-expr{font-family:var(--font-mono);font-size:18px;font-weight:500;color:#185FA5;display:block;margin:.5rem 0 1rem;padding:10px 14px;background:var(--color-background-secondary);border-radius:var(--border-radius-md)}
+
+.options{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.opt{padding:10px 14px;border:0.5px solid var(--color-border-secondary);border-radius:var(--border-radius-md);background:var(--color-background-secondary);cursor:pointer;font-size:14px;font-family:var(--font-mono);font-weight:500;color:var(--color-text-primary);transition:all .15s;text-align:center}
+.opt:hover:not(.disabled){border-color:var(--color-border-primary);background:var(--color-background-primary)}
+.opt.correct{background:#EAF3DE;border-color:#3B6D11;color:#27500A}
+.opt.wrong{background:#FCEBEB;border-color:#A32D2D;color:#501313}
+.opt.disabled{cursor:default}
+@media(prefers-color-scheme:dark){
+  .opt.correct{background:#173404;border-color:#639922;color:#C0DD97}
+  .opt.wrong{background:#501313;border-color:#E24B4A;color:#F7C1C1}
+}
+
+.feedback{margin-top:.75rem;padding:10px 14px;border-radius:var(--border-radius-md);font-size:13px;line-height:1.6;display:none}
+.feedback.show{display:block}
+.feedback.ok{background:#EAF3DE;color:#27500A;border:0.5px solid #639922}
+.feedback.bad{background:#FCEBEB;color:#501313;border:0.5px solid #E24B4A}
+@media(prefers-color-scheme:dark){
+  .feedback.ok{background:#173404;color:#C0DD97;border-color:#639922}
+  .feedback.bad{background:#501313;color:#F7C1C1;border-color:#E24B4A}
+}
+.feedback strong{font-weight:500}
+
+.quiz-nav{display:flex;justify-content:space-between;align-items:center;margin-top:1rem}
+.btn{padding:9px 20px;border:0.5px solid var(--color-border-secondary);border-radius:var(--border-radius-md);background:var(--color-background-primary);color:var(--color-text-primary);font-size:13px;font-weight:500;cursor:pointer;transition:all .15s}
+.btn:hover{background:var(--color-background-secondary)}
+.btn-primary{background:#185FA5;border-color:#185FA5;color:#fff}
+.btn-primary:hover{background:#0C447C;border-color:#0C447C;color:#fff}
+.btn:disabled{opacity:.4;cursor:default}
+
+/* Result screen */
+.result-screen{text-align:center;padding:2rem 1rem}
+.result-big{font-size:52px;margin-bottom:.5rem}
+.result-score{font-size:28px;font-weight:500;color:var(--color-text-primary);margin-bottom:.5rem}
+.result-label{font-size:14px;color:var(--color-text-secondary);margin-bottom:1.5rem}
+.result-bars{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:1.5rem}
+.rbar{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:.75rem .5rem;text-align:center}
+.rbar-num{font-size:22px;font-weight:500;color:var(--color-text-primary)}
+.rbar-label{font-size:11px;color:var(--color-text-secondary);margin-top:2px}
+.rbar.green .rbar-num{color:#27500A}
+.rbar.red .rbar-num{color:#A32D2D}
+@media(prefers-color-scheme:dark){.rbar.green .rbar-num{color:#C0DD97}.rbar.red .rbar-num{color:#F7C1C1}}
+
+/* ── TIPS ── */
+.tips-intro{font-size:13px;color:var(--color-text-secondary);margin-bottom:1rem;line-height:1.6}
+.tip-group{margin-bottom:1.25rem}
+.tip-group-label{font-size:11px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--color-text-tertiary);margin-bottom:8px}
+.tip-card{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:1rem 1.15rem;margin-bottom:8px;border-left:3px solid transparent}
+.tip-card.blue{border-left-color:#185FA5}.tip-card.amber{border-left-color:#BA7517}.tip-card.coral{border-left-color:#993C1D}.tip-card.teal{border-left-color:#0F6E56}.tip-card.purple{border-left-color:#534AB7}.tip-card.green{border-left-color:#3B6D11}
+@media(prefers-color-scheme:dark){
+  .tip-card.blue{border-left-color:#85B7EB}.tip-card.amber{border-left-color:#EF9F27}.tip-card.coral{border-left-color:#F0997B}.tip-card.teal{border-left-color:#5DCAA5}.tip-card.purple{border-left-color:#AFA9EC}.tip-card.green{border-left-color:#97C459}
+}
+.tip-title{font-size:13px;font-weight:500;color:var(--color-text-primary);margin-bottom:4px}
+.tip-body{font-size:13px;color:var(--color-text-secondary);line-height:1.65}
+.tip-body .mono{font-family:var(--font-mono);font-size:12px;background:var(--color-background-secondary);padding:1px 5px;border-radius:4px;color:var(--color-text-primary)}
+.trick-card{background:var(--color-background-secondary);border-radius:var(--border-radius-lg);padding:1rem 1.15rem;margin-bottom:8px;display:flex;gap:12px;align-items:flex-start}
+.trick-icon{font-size:20px;line-height:1;flex-shrink:0;margin-top:1px}
+.trick-content .trick-title{font-size:13px;font-weight:500;color:var(--color-text-primary);margin-bottom:3px}
+.trick-content .trick-desc{font-size:13px;color:var(--color-text-secondary);line-height:1.6}
+.trick-content .mono{font-family:var(--font-mono);font-size:12px;background:var(--color-background-primary);padding:1px 5px;border-radius:4px;color:var(--color-text-primary)}
+
+.cheatbox{background:var(--color-background-secondary);border:0.5px solid var(--color-border-secondary);border-radius:var(--border-radius-lg);padding:1rem 1.25rem;margin-top:.5rem}
+.cheatbox-title{font-size:13px;font-weight:500;color:var(--color-text-primary);margin-bottom:.6rem}
+.cheat-row{display:flex;justify-content:space-between;align-items:center;padding:5px 0;border-bottom:0.5px solid var(--color-border-tertiary);font-size:12px}
+.cheat-row:last-child{border-bottom:none}
+.cheat-q{color:var(--color-text-secondary)}.cheat-a{font-family:var(--font-mono);font-weight:500;color:var(--color-text-primary)}
+</style>
+
+<div class="app">
+
+<!-- Tab nav -->
+<div class="tabs">
+  <button class="tab active" onclick="switchTab('ref')">📘 Reference</button>
+  <button class="tab" onclick="switchTab('quiz')">🧠 MCQ Quiz</button>
+  <button class="tab" onclick="switchTab('tips')">💡 Tips & Tricks</button>
+</div>
+
+<!-- ═══════════════ REFERENCE ═══════════════ -->
+<div id="ref" class="section active">
+  <div class="hero">
+    <div>
+      <div style="font-size:11px;color:var(--color-text-tertiary);margin-bottom:5px">Core formula</div>
+      <div class="formula-big">d/dx [x<sup class="eb">n</sup>] = <span class="nc">n</span>·x<sup class="eb">n−1</sup></div>
+      <div style="font-size:11px;color:var(--color-text-tertiary);font-family:var(--font-mono);margin-top:4px">f(x) = xⁿ → f′(x) = n·xⁿ⁻¹</div>
+    </div>
+    <div class="hero-desc"><strong>Bring the exponent down</strong> as a coefficient, then <strong>subtract 1</strong> from the exponent. Works for any real n.</div>
+  </div>
+
+  <div class="cards-grid">
+    <div class="ref-card">
+      <div class="ref-card-top"><span class="badge b-blue">Positive integer</span><span class="ref-title">Standard case</span></div>
+      <div class="fbox">d/dx [<span class="hb">xⁿ</span>] = <span class="ha">n</span>·<span class="hb">xⁿ⁻¹</span></div>
+      <div class="eg"><span>x⁵</span><span class="arr">→</span><span>5x⁴</span> &nbsp;|&nbsp; <span>x³</span><span class="arr">→</span><span>3x²</span></div>
+    </div>
+    <div class="ref-card">
+      <div class="ref-card-top"><span class="badge b-amber">With coefficient</span><span class="ref-title">Constant multiple</span></div>
+      <div class="fbox">d/dx [<span class="hc">c</span>·<span class="hb">xⁿ</span>] = <span class="hc">c</span>·<span class="ha">n</span>·<span class="hb">xⁿ⁻¹</span></div>
+      <div class="eg"><span>4x³</span><span class="arr">→</span><span>12x²</span> &nbsp;|&nbsp; <span>7x²</span><span class="arr">→</span><span>14x</span></div>
+    </div>
+    <div class="ref-card">
+      <div class="ref-card-top"><span class="badge b-teal">n = 0</span><span class="ref-title">Constant → zero</span></div>
+      <div class="fbox">d/dx [<span class="hc">c</span>] = <span class="hb">0</span></div>
+      <div class="eg"><span>d/dx[5] = 0</span> &nbsp;|&nbsp; <span>d/dx[π] = 0</span></div>
+    </div>
+    <div class="ref-card">
+      <div class="ref-card-top"><span class="badge b-coral">Negative exponent</span><span class="ref-title">Fractions / 1/xⁿ</span></div>
+      <div class="fbox">d/dx [<span class="hb">x⁻ⁿ</span>] = <span class="hc">−n</span>·<span class="hb">x⁻ⁿ⁻¹</span></div>
+      <div class="eg"><span>1/x = x⁻¹</span><span class="arr">→</span><span>−x⁻²</span></div>
+    </div>
+    <div class="ref-card">
+      <div class="ref-card-top"><span class="badge b-purple">n = 1 (linear)</span><span class="ref-title">Slope of x</span></div>
+      <div class="fbox">d/dx [<span class="hb">x</span>] = <span class="ht">1</span></div>
+      <div class="eg"><span>3x</span><span class="arr">→</span><span>3</span> &nbsp;|&nbsp; <span>−2x</span><span class="arr">→</span><span>−2</span></div>
+    </div>
+    <div class="ref-card">
+      <div class="ref-card-top"><span class="badge b-green">Fractional exponent</span><span class="ref-title">Roots / radicals</span></div>
+      <div class="fbox">d/dx [<span class="hb">x^(p/q)</span>] = <span class="ha">p/q</span>·<span class="hb">x^(p/q−1)</span></div>
+      <div class="eg"><span>√x</span><span class="arr">→</span><span>½x^(−½)</span></div>
+    </div>
+  </div>
+
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>f(x)</th><th>f′(x)</th><th>n</th><th>Note</th></tr></thead>
+      <tbody>
+        <tr><td class="mn">x²</td><td class="mn">2x</td><td class="mn">2</td><td class="nt">Classic parabola</td></tr>
+        <tr><td class="mn">x³</td><td class="mn">3x²</td><td class="mn">3</td><td class="nt">Cubic</td></tr>
+        <tr><td class="mn">5x⁴</td><td class="mn">20x³</td><td class="mn">4</td><td class="nt">5×4=20</td></tr>
+        <tr><td class="mn">7</td><td class="mn">0</td><td class="mn">0</td><td class="nt">Any constant → 0</td></tr>
+        <tr><td class="mn">√x</td><td class="mn">1/(2√x)</td><td class="mn">½</td><td class="nt">Rewrite as x^½</td></tr>
+        <tr><td class="mn">1/x²</td><td class="mn">−2/x³</td><td class="mn">−2</td><td class="nt">Rewrite as x⁻²</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ═══════════════ QUIZ ═══════════════ -->
+<div id="quiz" class="section">
+  <div id="quiz-main">
+    <div class="quiz-header">
+      <h3>Power rule quiz</h3>
+      <div class="score-pill" id="score-pill">Score: 0 / 0</div>
+    </div>
+    <div class="progress-bar"><div class="progress-fill" id="prog" style="width:0%"></div></div>
+
+    <div id="q-area"></div>
+
+    <div class="quiz-nav">
+      <span id="q-counter" style="font-size:12px;color:var(--color-text-tertiary)">Question 1 of 10</span>
+      <button class="btn btn-primary" id="next-btn" onclick="nextQ()" disabled>Next →</button>
+    </div>
+  </div>
+
+  <div id="result-screen" class="result-screen" style="display:none">
+    <div class="result-big" id="res-emoji">🎉</div>
+    <div class="result-score" id="res-score"></div>
+    <div class="result-label" id="res-label"></div>
+    <div class="result-bars">
+      <div class="rbar green"><div class="rbar-num" id="r-correct">0</div><div class="rbar-label">Correct</div></div>
+      <div class="rbar red"><div class="rbar-num" id="r-wrong">0</div><div class="rbar-label">Wrong</div></div>
+      <div class="rbar"><div class="rbar-num" id="r-pct">0%</div><div class="rbar-label">Accuracy</div></div>
+    </div>
+    <button class="btn btn-primary" onclick="restartQuiz()">Retry Quiz ↺</button>
+  </div>
+</div>
+
+<!-- ═══════════════ TIPS ═══════════════ -->
+<div id="tips" class="section">
+  <p class="tips-intro">Memorisation tricks, common traps, and mental models that will make the power rule second nature — fast.</p>
+
+  <div class="tip-group">
+    <div class="tip-group-label">🧠 Memorisation tricks</div>
+
+    <div class="tip-card blue">
+      <div class="tip-title">The "Bring Down, Knock Down" mantra</div>
+      <div class="tip-body">Chant this every time: <em>bring the exponent down in front, knock the exponent down by one.</em> Two moves, always in that order. For <span class="mono">x⁵</span> — bring 5 down → <span class="mono">5x</span>, knock exponent down → <span class="mono">5x⁴</span>. Done.</div>
+    </div>
+
+    <div class="tip-card amber">
+      <div class="tip-title">The "Stairs" visual</div>
+      <div class="tip-body">Picture the exponent climbing down one stair to become the coefficient. <span class="mono">x³ → 3x²</span> — the 3 steps down from the roof to the front door, and the power is now one floor lower. It literally descends.</div>
+    </div>
+
+    <div class="tip-card teal">
+      <div class="tip-title">Finger trick for quick mental math</div>
+      <div class="tip-body">Hold up fingers equal to n. That's your new coefficient. Then count one less — that's your new exponent. For <span class="mono">x⁶</span>: hold 6 fingers → coefficient is 6, count one less → <span class="mono">6x⁵</span>. Silly but it sticks.</div>
+    </div>
+  </div>
+
+  <div class="tip-group">
+    <div class="tip-group-label">⚠️ Common mistakes to avoid</div>
+
+    <div class="tip-card coral">
+      <div class="tip-title">Forgetting to multiply the existing coefficient</div>
+      <div class="tip-body">The most frequent error. <span class="mono">d/dx[4x³] ≠ 3x²</span>. You must multiply: 4 × 3 = 12, giving <span class="mono">12x²</span>. Every time there's a number in front of x, multiply it by n.</div>
+    </div>
+
+    <div class="tip-card coral">
+      <div class="tip-title">Not rewriting radicals and fractions first</div>
+      <div class="tip-body">You cannot apply the rule directly to <span class="mono">√x</span> or <span class="mono">1/x²</span>. Rewrite first: <span class="mono">√x = x^½</span>, then differentiate. <span class="mono">1/x² = x⁻²</span>, then differentiate. Rewrite → Apply → Simplify.</div>
+    </div>
+
+    <div class="tip-card coral">
+      <div class="tip-title">Thinking constants differentiate to themselves</div>
+      <div class="tip-body">A flat line has zero slope. <span class="mono">d/dx[8] = 0</span>, always. Constants vanish. This surprises beginners — remember, a constant has no rate of change, ever.</div>
+    </div>
+
+    <div class="tip-card coral">
+      <div class="tip-title">Forgetting the sign on negative exponents</div>
+      <div class="tip-body"><span class="mono">d/dx[x⁻³] = −3x⁻⁴</span> — the negative n becomes the coefficient, so the result is negative. Don't drop the minus sign when bringing the exponent down.</div>
+    </div>
+  </div>
+
+  <div class="tip-group">
+    <div class="tip-group-label">⚡ Speed tricks for exams</div>
+
+    <div class="trick-card">
+      <div class="trick-icon">🔁</div>
+      <div class="trick-content">
+        <div class="trick-title">Term-by-term shortcut for polynomials</div>
+        <div class="trick-desc">For <span class="mono">x³ + 5x² − 2x + 7</span>, hit each term separately in one pass: <span class="mono">3x² + 10x − 2 + 0</span>. Constants disappear automatically — don't even write them in your working.</div>
+      </div>
+    </div>
+
+    <div class="trick-card">
+      <div class="trick-icon">🔢</div>
+      <div class="trick-content">
+        <div class="trick-title">n × (n−1) pattern for x² and x³</div>
+        <div class="trick-desc">Derivatives of powers form a memorable sequence: <span class="mono">x → 1, x² → 2x, x³ → 3x², x⁴ → 4x³</span>. The coefficient and exponent always differ by 1 in this sequence. Memorise the first four and the rest follows.</div>
+      </div>
+    </div>
+
+    <div class="trick-card">
+      <div class="trick-icon">↕️</div>
+      <div class="trick-content">
+        <div class="trick-title">Fraction shortcut: flip and differentiate</div>
+        <div class="trick-desc">For <span class="mono">1/xⁿ</span>, the answer is always <span class="mono">−n/x^(n+1)</span>. The sign flips negative, the denominator exponent goes up by 1. <span class="mono">1/x⁴ → −4/x⁵</span>. Much faster than converting to negative exponent form.</div>
+      </div>
+    </div>
+
+    <div class="trick-card">
+      <div class="trick-icon">✅</div>
+      <div class="trick-content">
+        <div class="trick-title">Self-check: degree always drops by 1</div>
+        <div class="trick-desc">If your original function has degree n, the derivative must have degree n−1. Differentiate a cubic (degree 3)? Expect a quadratic (degree 2). If not — you made an error. Takes 1 second to verify.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cheatbox">
+    <div class="cheatbox-title">30-second mental flashcard drill</div>
+    <div class="cheat-row"><span class="cheat-q">d/dx of a constant?</span><span class="cheat-a">0</span></div>
+    <div class="cheat-row"><span class="cheat-q">d/dx [x]</span><span class="cheat-a">1</span></div>
+    <div class="cheat-row"><span class="cheat-q">d/dx [x²]</span><span class="cheat-a">2x</span></div>
+    <div class="cheat-row"><span class="cheat-q">d/dx [x³]</span><span class="cheat-a">3x²</span></div>
+    <div class="cheat-row"><span class="cheat-q">d/dx [√x]</span><span class="cheat-a">½x^(−½)</span></div>
+    <div class="cheat-row"><span class="cheat-q">d/dx [1/x]</span><span class="cheat-a">−1/x²</span></div>
+    <div class="cheat-row"><span class="cheat-q">d/dx [6x⁴]</span><span class="cheat-a">24x³</span></div>
+  </div>
+</div>
+
+</div>
+
+<script>
+function switchTab(id){
+  document.querySelectorAll('.tab').forEach((t,i)=>{t.classList.toggle('active',['ref','quiz','tips'][i]===id)});
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
+
+const questions=[
+  {q:"Find the derivative of",expr:"f(x) = x⁴",opts:["4x³","4x⁵","x³","3x⁴"],ans:0,diff:"easy",exp:"Bring 4 down, subtract 1 from exponent: 4·x^(4−1) = 4x³"},
+  {q:"Differentiate",expr:"f(x) = x⁷",opts:["x⁶","7x⁶","7x⁸","6x⁶"],ans:1,diff:"easy",exp:"Power rule: 7·x^(7−1) = 7x⁶"},
+  {q:"What is the derivative of",expr:"f(x) = 3x⁵",opts:["15x⁴","3x⁴","15x⁵","5x⁴"],ans:0,diff:"easy",exp:"Coefficient × n = 3×5 = 15, exponent drops by 1: 15x⁴"},
+  {q:"Find d/dx of",expr:"f(x) = 9",opts:["9x","1","0","9"],ans:2,diff:"easy",exp:"Any constant has derivative 0 — a flat line has no slope."},
+  {q:"Differentiate",expr:"f(x) = x",opts:["x","0","1","2x"],ans:2,diff:"easy",exp:"x = x¹ → 1·x⁰ = 1·1 = 1. The slope of y = x is always 1."},
+  {q:"What is the derivative of",expr:"f(x) = 5x³ − 2x + 8",opts:["15x² − 2","15x² − 2x","5x² − 2","10x² − 2"],ans:0,diff:"medium",exp:"Term by term: 5·3x² = 15x², then −2·1 = −2, then 8 → 0. Result: 15x² − 2"},
+  {q:"Differentiate",expr:"f(x) = √x",opts:["1/(2√x)","2√x","−½x^(−½)","½x^½"],ans:0,diff:"medium",exp:"√x = x^½ → ½·x^(½−1) = ½x^(−½) = 1/(2√x)"},
+  {q:"Find the derivative of",expr:"f(x) = 1/x",opts:["1/x²","−1/x","−1/x²","ln x"],ans:2,diff:"medium",exp:"Rewrite: x⁻¹ → −1·x^(−1−1) = −x⁻² = −1/x²"},
+  {q:"Differentiate",expr:"f(x) = 4x⁻³",opts:["−12x⁻⁴","−12x⁻²","12x⁻⁴","4x⁻⁴"],ans:0,diff:"medium",exp:"4 × (−3) = −12, exponent: −3−1 = −4. Result: −12x⁻⁴"},
+  {q:"What is d/dx of",expr:"f(x) = x^(2/3)",opts:["(2/3)x^(−1/3)","(3/2)x^(1/3)","(2/3)x^(1/3)","−(1/3)x^(2/3)"],ans:0,diff:"hard",exp:"p/q = 2/3, new exponent = 2/3 − 1 = −1/3. Result: (2/3)x^(−1/3)"},
+];
+
+let cur=0,score=0,answered=0,shuffled=[];
+
+function shuffle(arr){return [...arr].sort(()=>Math.random()-.5)}
+
+function renderQ(){
+  const q=shuffled[cur];
+  const diff=q.diff==='easy'?'diff-easy':q.diff==='medium'?'diff-med':'diff-hard';
+  document.getElementById('q-counter').textContent=`Question ${cur+1} of ${shuffled.length}`;
+  document.getElementById('prog').style.width=`${(cur/shuffled.length)*100}%`;
+  document.getElementById('next-btn').disabled=true;
+  document.getElementById('q-area').innerHTML=`
+    <div class="q-card">
+      <div class="q-meta">
+        <span class="q-num">Q${cur+1}</span>
+        <span class="diff-badge ${diff}">${q.diff}</span>
+      </div>
+      <div class="q-text">${q.q}</div>
+      <span class="q-expr">${q.expr}</span>
+      <div class="options" id="opts">
+        ${q.opts.map((o,i)=>`<button class="opt" onclick="pick(${i})" id="opt${i}">${o}</button>`).join('')}
+      </div>
+      <div class="feedback" id="fb"></div>
+    </div>`;
+}
+
+function pick(i){
+  const q=shuffled[cur];
+  const fb=document.getElementById('fb');
+  document.querySelectorAll('.opt').forEach(o=>o.classList.add('disabled'));
+  document.getElementById('opt'+q.ans).classList.add('correct');
+  if(i===q.ans){
+    score++;
+    fb.className='feedback show ok';
+    fb.innerHTML=`✓ <strong>Correct!</strong> ${q.exp}`;
+  } else {
+    document.getElementById('opt'+i).classList.add('wrong');
+    fb.className='feedback show bad';
+    fb.innerHTML=`✗ <strong>Not quite.</strong> The correct answer is <strong>${q.opts[q.ans]}</strong>. ${q.exp}`;
+  }
+  answered++;
+  document.getElementById('score-pill').textContent=`Score: ${score} / ${answered}`;
+  document.getElementById('next-btn').disabled=false;
+  if(cur===shuffled.length-1) document.getElementById('next-btn').textContent='See Results';
+}
+
+function nextQ(){
+  cur++;
+  if(cur>=shuffled.length){showResult();return;}
+  renderQ();
+}
+
+function showResult(){
+  document.getElementById('quiz-main').style.display='none';
+  const rs=document.getElementById('result-screen');rs.style.display='block';
+  const pct=Math.round((score/shuffled.length)*100);
+  const wrong=shuffled.length-score;
+  document.getElementById('r-correct').textContent=score;
+  document.getElementById('r-wrong').textContent=wrong;
+  document.getElementById('r-pct').textContent=pct+'%';
+  document.getElementById('res-score').textContent=`${score} / ${shuffled.length}`;
+  const levels=[[80,'🏆','Excellent! Power rule is yours.','#27500A'],[50,'👍','Good work — keep practicing.','#BA7517'],[0,'📚','Review the reference tab and retry!','#A32D2D']];
+  const [,em,lb]=levels.find(([t])=>pct>=t);
+  document.getElementById('res-emoji').textContent=em;
+  document.getElementById('res-label').textContent=lb;
+  document.getElementById('prog').style.width='100%';
+}
+
+function restartQuiz(){
+  cur=0;score=0;answered=0;
+  shuffled=shuffle(questions);
+  document.getElementById('result-screen').style.display='none';
+  document.getElementById('quiz-main').style.display='block';
+  document.getElementById('score-pill').textContent='Score: 0 / 0';
+  document.getElementById('next-btn').textContent='Next →';
+  renderQ();
+}
+
+shuffled=shuffle(questions);
+renderQ();
+</script>

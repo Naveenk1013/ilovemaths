@@ -1,0 +1,470 @@
+/* ═══════════════════════════════════════════════════════════
+   Topic Page Styles — Shared across all topic pages
+   Tabs, reference cards, tips, and cheatboxes
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── Tab Navigation ── */
+.topic-tabs {
+  display: flex;
+  gap: 4px;
+  background: var(--color-background-tertiary);
+  border-radius: var(--border-radius-lg);
+  padding: 4px;
+  margin-bottom: var(--space-xl);
+}
+
+.topic-tab {
+  flex: 1;
+  padding: 10px 8px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  font-family: var(--font-sans);
+  border: none;
+  background: transparent;
+  color: var(--color-text-secondary);
+  border-radius: var(--border-radius-md);
+  cursor: pointer;
+  transition: all 0.15s;
+  text-align: center;
+}
+
+.topic-tab.active {
+  background: var(--color-background-primary);
+  color: var(--color-text-primary);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+
+.topic-tab:hover:not(.active) {
+  color: var(--color-text-primary);
+}
+
+/* ── Tab Content ── */
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+/* ── Hero Formula ── */
+.formula-hero {
+  background: var(--color-background-primary);
+  border: 1px solid var(--color-border-tertiary);
+  border-radius: var(--border-radius-lg);
+  padding: var(--space-lg);
+  margin-bottom: var(--space-lg);
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+  flex-wrap: wrap;
+}
+
+.formula-hero-label {
+  font-size: 0.7rem;
+  color: var(--color-text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: var(--space-xs);
+}
+
+.formula-hero-big {
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: var(--color-text-primary);
+  font-family: var(--font-mono);
+  white-space: nowrap;
+}
+
+.formula-hero-big .exp {
+  color: var(--color-accent);
+}
+
+.formula-hero-big .coeff {
+  color: var(--color-warning);
+}
+
+.formula-hero-alt {
+  font-size: 0.7rem;
+  color: var(--color-text-tertiary);
+  font-family: var(--font-mono);
+  margin-top: var(--space-xs);
+}
+
+.formula-hero-desc {
+  font-size: 0.85rem;
+  color: var(--color-text-secondary);
+  flex: 1;
+  min-width: 160px;
+  line-height: 1.65;
+}
+
+.formula-hero-desc strong {
+  color: var(--color-text-primary);
+  font-weight: 500;
+}
+
+/* ── Reference Cards Grid ── */
+.ref-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--space-sm);
+  margin-bottom: var(--space-lg);
+}
+
+.ref-card {
+  background: var(--color-background-primary);
+  border: 1px solid var(--color-border-tertiary);
+  border-radius: var(--border-radius-lg);
+  padding: var(--space-md) var(--space-lg);
+}
+
+.ref-card-top {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-sm);
+}
+
+.ref-badge {
+  font-size: 0.65rem;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: var(--border-radius-sm);
+}
+
+.ref-badge.blue   { background: #dbeafe; color: #1e40af; }
+.ref-badge.amber  { background: #fef3c7; color: #92400e; }
+.ref-badge.teal   { background: #d1fae5; color: #065f46; }
+.ref-badge.purple { background: #ede9fe; color: #5b21b6; }
+.ref-badge.coral  { background: #fee2e2; color: #991b1b; }
+.ref-badge.green  { background: #dcfce7; color: #166534; }
+
+[data-theme="dark"] .ref-badge.blue   { background: #1e3a5f; color: #93c5fd; }
+[data-theme="dark"] .ref-badge.amber  { background: #3b2d0a; color: #fcd34d; }
+[data-theme="dark"] .ref-badge.teal   { background: #064e3b; color: #6ee7b7; }
+[data-theme="dark"] .ref-badge.purple { background: #2e1065; color: #c4b5fd; }
+[data-theme="dark"] .ref-badge.coral  { background: #450a0a; color: #fca5a5; }
+[data-theme="dark"] .ref-badge.green  { background: #14532d; color: #86efac; }
+
+.ref-card-title {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--color-text-primary);
+}
+
+.ref-formula-box {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  padding: 8px 12px;
+  background: var(--color-background-secondary);
+  border-radius: var(--border-radius-md);
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-sm);
+}
+
+.ref-formula-box .hb { color: var(--color-accent); }
+.ref-formula-box .ha { color: var(--color-warning); }
+.ref-formula-box .hc { color: #dc2626; }
+.ref-formula-box .ht { color: #059669; }
+
+[data-theme="dark"] .ref-formula-box .hc { color: #fca5a5; }
+[data-theme="dark"] .ref-formula-box .ht { color: #6ee7b7; }
+
+.ref-examples {
+  font-size: 0.8rem;
+  color: var(--color-text-secondary);
+  line-height: 1.8;
+}
+
+.ref-examples span {
+  font-family: var(--font-mono);
+  color: var(--color-text-primary);
+  font-size: 0.8rem;
+}
+
+.ref-examples .arr {
+  color: var(--color-text-tertiary);
+  margin: 0 4px;
+}
+
+/* ── Section Labels ── */
+.topic-section-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-tertiary);
+  margin-bottom: var(--space-sm);
+}
+
+/* ── Quick Reference Table ── */
+.ref-table-wrap {
+  background: var(--color-background-primary);
+  border: 1px solid var(--color-border-tertiary);
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  margin-bottom: var(--space-lg);
+}
+
+.ref-table-wrap table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+
+.ref-table-wrap thead tr {
+  background: var(--color-background-secondary);
+}
+
+.ref-table-wrap th {
+  padding: 10px 14px;
+  text-align: left;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--color-border-tertiary);
+}
+
+.ref-table-wrap td {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--color-border-tertiary);
+  color: var(--color-text-primary);
+}
+
+.ref-table-wrap tr:last-child td {
+  border-bottom: none;
+}
+
+.ref-table-wrap tbody tr:nth-child(even) td {
+  background: var(--color-background-secondary);
+}
+
+.td-mono {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+}
+
+.td-note {
+  color: var(--color-text-secondary);
+  font-size: 0.8rem;
+}
+
+/* ── Steps Card ── */
+.steps-card {
+  background: var(--color-background-primary);
+  border: 1px solid var(--color-border-tertiary);
+  border-radius: var(--border-radius-lg);
+  padding: var(--space-md) var(--space-lg);
+  margin-bottom: var(--space-lg);
+}
+
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 0;
+}
+
+.step-item {
+  padding: var(--space-md);
+  border-right: 1px solid var(--color-border-tertiary);
+}
+
+.step-item:last-child {
+  border-right: none;
+}
+
+.step-num {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--color-border-secondary);
+  line-height: 1;
+  margin-bottom: var(--space-xs);
+}
+
+.step-title {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: 2px;
+}
+
+.step-desc {
+  font-size: 0.78rem;
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+}
+
+/* ── Tips Section ── */
+.tips-intro {
+  font-size: 0.85rem;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-lg);
+  line-height: 1.65;
+}
+
+.tip-group {
+  margin-bottom: var(--space-xl);
+}
+
+.tip-group-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text-tertiary);
+  margin-bottom: var(--space-sm);
+}
+
+.tip-card {
+  background: var(--color-background-primary);
+  border: 1px solid var(--color-border-tertiary);
+  border-radius: var(--border-radius-lg);
+  padding: var(--space-md) var(--space-lg);
+  margin-bottom: var(--space-sm);
+  border-left: 3px solid transparent;
+}
+
+.tip-card.blue   { border-left-color: var(--color-accent); }
+.tip-card.amber  { border-left-color: var(--color-warning); }
+.tip-card.coral  { border-left-color: var(--color-error); }
+.tip-card.teal   { border-left-color: var(--color-success); }
+.tip-card.purple { border-left-color: #7c3aed; }
+.tip-card.green  { border-left-color: #16a34a; }
+
+.tip-title {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-xs);
+}
+
+.tip-body {
+  font-size: 0.85rem;
+  color: var(--color-text-secondary);
+  line-height: 1.65;
+}
+
+.tip-body .mono {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  background: var(--color-background-secondary);
+  padding: 1px 6px;
+  border-radius: 4px;
+  color: var(--color-text-primary);
+}
+
+/* ── Trick Cards ── */
+.trick-card {
+  background: var(--color-background-secondary);
+  border-radius: var(--border-radius-lg);
+  padding: var(--space-md) var(--space-lg);
+  margin-bottom: var(--space-sm);
+  display: flex;
+  gap: var(--space-md);
+  align-items: flex-start;
+}
+
+.trick-icon {
+  font-size: 1.3rem;
+  line-height: 1;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.trick-title {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: 3px;
+}
+
+.trick-desc {
+  font-size: 0.85rem;
+  color: var(--color-text-secondary);
+  line-height: 1.65;
+}
+
+.trick-desc .mono {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  background: var(--color-background-primary);
+  padding: 1px 6px;
+  border-radius: 4px;
+  color: var(--color-text-primary);
+}
+
+/* ── Cheatbox ── */
+.cheatbox {
+  background: var(--color-background-secondary);
+  border: 1px solid var(--color-border-secondary);
+  border-radius: var(--border-radius-lg);
+  padding: var(--space-md) var(--space-lg);
+  margin-top: var(--space-md);
+}
+
+.cheatbox-title {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-md);
+}
+
+.cheat-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 0;
+  border-bottom: 1px solid var(--color-border-tertiary);
+  font-size: 0.8rem;
+}
+
+.cheat-row:last-child {
+  border-bottom: none;
+}
+
+.cheat-q {
+  color: var(--color-text-secondary);
+}
+
+.cheat-a {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  color: var(--color-text-primary);
+}
+
+/* ── Responsive ── */
+@media (max-width: 640px) {
+  .formula-hero {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-md);
+  }
+
+  .formula-hero-big {
+    font-size: 1.3rem;
+  }
+
+  .ref-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .steps-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .step-item {
+    border-right: none;
+    border-bottom: 1px solid var(--color-border-tertiary);
+  }
+
+  .step-item:last-child {
+    border-bottom: none;
+  }
+
+  .topic-tabs {
+    font-size: 0.78rem;
+  }
+}

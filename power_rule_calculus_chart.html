@@ -1,0 +1,238 @@
+
+<style>
+  .pr-root { padding: 1.5rem 1rem 2rem; font-family: var(--font-sans); }
+  .pr-header { margin-bottom: 1.5rem; }
+  .pr-header h2 { font-size: 20px; font-weight: 500; color: var(--color-text-primary); margin: 0 0 4px; }
+  .pr-header p { font-size: 13px; color: var(--color-text-secondary); margin: 0; }
+
+  .pr-hero { background: var(--color-background-secondary); border: 0.5px solid var(--color-border-secondary); border-radius: var(--border-radius-lg); padding: 1.25rem 1.5rem; margin-bottom: 1.25rem; display: flex; align-items: center; gap: 1.5rem; }
+  .pr-formula-big { font-size: 28px; font-weight: 500; color: var(--color-text-primary); font-family: var(--font-mono); white-space: nowrap; }
+  .pr-formula-big .exp { color: #185FA5; }
+  .pr-formula-big .coeff { color: #B07010; }
+  .pr-hero-rule { font-size: 13px; color: var(--color-text-secondary); flex: 1; line-height: 1.6; }
+  .pr-hero-rule strong { color: var(--color-text-primary); font-weight: 500; }
+
+  .pr-section-label { font-size: 11px; font-weight: 500; letter-spacing: .06em; color: var(--color-text-tertiary); text-transform: uppercase; margin: 0 0 8px; }
+
+  .pr-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 10px; margin-bottom: 1.25rem; }
+  .pr-card { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 1rem 1.25rem; cursor: pointer; transition: border-color .15s; }
+  .pr-card:hover { border-color: var(--color-border-primary); }
+  .pr-card-head { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+  .pr-badge { font-size: 11px; font-weight: 500; padding: 3px 8px; border-radius: var(--border-radius-md); }
+  .badge-blue   { background: #E6F1FB; color: #0C447C; }
+  .badge-amber  { background: #FAEEDA; color: #633806; }
+  .badge-teal   { background: #E1F5EE; color: #085041; }
+  .badge-purple { background: #EEEDFE; color: #3C3489; }
+  .badge-coral  { background: #FAECE7; color: #712B13; }
+  .badge-green  { background: #EAF3DE; color: #27500A; }
+  @media (prefers-color-scheme: dark) {
+    .badge-blue   { background: #0C447C; color: #B5D4F4; }
+    .badge-amber  { background: #633806; color: #FAC775; }
+    .badge-teal   { background: #085041; color: #9FE1CB; }
+    .badge-purple { background: #3C3489; color: #CECBF6; }
+    .badge-coral  { background: #712B13; color: #F5C4B3; }
+    .badge-green  { background: #27500A; color: #C0DD97; }
+  }
+  .pr-card-title { font-size: 14px; font-weight: 500; color: var(--color-text-primary); }
+  .pr-formula { font-family: var(--font-mono); font-size: 16px; margin: 6px 0 8px; padding: 8px 12px; background: var(--color-background-secondary); border-radius: var(--border-radius-md); color: var(--color-text-primary); }
+  .pr-formula .hi-blue   { color: #185FA5; }
+  .pr-formula .hi-amber  { color: #B07010; }
+  .pr-formula .hi-coral  { color: #993C1D; }
+  .pr-formula .hi-teal   { color: #0F6E56; }
+  .pr-formula .hi-purple { color: #534AB7; }
+  @media (prefers-color-scheme: dark) {
+    .pr-formula .hi-blue   { color: #85B7EB; }
+    .pr-formula .hi-amber  { color: #FAC775; }
+    .pr-formula .hi-coral  { color: #F0997B; }
+    .pr-formula .hi-teal   { color: #5DCAA5; }
+    .pr-formula .hi-purple { color: #AFA9EC; }
+  }
+  .pr-example-row { display: flex; align-items: baseline; gap: 8px; margin: 2px 0; font-size: 13px; color: var(--color-text-secondary); }
+  .pr-example-row .mono { font-family: var(--font-mono); color: var(--color-text-primary); font-size: 13px; }
+  .pr-arrow { color: var(--color-text-tertiary); }
+
+  .pr-steps-card { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); padding: 1rem 1.25rem; margin-bottom: 1.25rem; }
+  .pr-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 0; }
+  .pr-step { padding: 10px 14px; border-right: 0.5px solid var(--color-border-tertiary); position: relative; }
+  .pr-step:last-child { border-right: none; }
+  .pr-step-num { font-size: 22px; font-weight: 500; color: var(--color-border-secondary); line-height: 1; margin-bottom: 4px; }
+  .pr-step-title { font-size: 13px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 2px; }
+  .pr-step-desc { font-size: 12px; color: var(--color-text-secondary); line-height: 1.5; }
+
+  .pr-table-wrap { background: var(--color-background-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-lg); overflow: hidden; margin-bottom: 1.25rem; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  thead tr { background: var(--color-background-secondary); }
+  th { padding: 9px 12px; text-align: left; font-weight: 500; color: var(--color-text-secondary); font-size: 11px; letter-spacing: .05em; text-transform: uppercase; border-bottom: 0.5px solid var(--color-border-tertiary); }
+  td { padding: 9px 12px; border-bottom: 0.5px solid var(--color-border-tertiary); color: var(--color-text-primary); }
+  tr:last-child td { border-bottom: none; }
+  tbody tr:nth-child(even) td { background: var(--color-background-secondary); }
+  .td-mono { font-family: var(--font-mono); font-size: 13px; }
+  .td-note { color: var(--color-text-secondary); font-size: 12px; }
+
+  .pr-tip { border: 0.5px solid var(--color-border-tertiary); border-left: 3px solid #185FA5; border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0; padding: 10px 14px; margin-bottom: 10px; font-size: 13px; color: var(--color-text-secondary); line-height: 1.6; }
+  .pr-tip strong { color: var(--color-text-primary); font-weight: 500; }
+  .pr-tip-coral { border-left-color: #993C1D; }
+  .pr-tip-teal  { border-left-color: #0F6E56; }
+  .pr-tip-purple { border-left-color: #534AB7; }
+  @media (prefers-color-scheme: dark) {
+    .pr-tip { border-left-color: #85B7EB; }
+    .pr-tip-coral { border-left-color: #F0997B; }
+    .pr-tip-teal  { border-left-color: #5DCAA5; }
+    .pr-tip-purple { border-left-color: #AFA9EC; }
+  }
+</style>
+
+<div class="pr-root">
+  <h2 style="display:none">Power Rule in Calculus – Complete Reference Chart</h2>
+
+  <div class="pr-header">
+    <h2>Power rule — calculus reference chart</h2>
+    <p>Everything you need to memorise from the first rule you'll use in differentiation</p>
+  </div>
+
+  <!-- Hero formula -->
+  <div class="pr-hero">
+    <div>
+      <div style="font-size:12px;color:var(--color-text-tertiary);margin-bottom:6px">The core rule</div>
+      <div class="pr-formula-big">
+        d/dx [x<sup class="exp">n</sup>] = <span class="coeff">n</span>·x<sup class="exp">n−1</sup>
+      </div>
+      <div style="font-size:11px;color:var(--color-text-tertiary);font-family:var(--font-mono);margin-top:4px">
+        f(x) = xⁿ &nbsp;→&nbsp; f′(x) = n·xⁿ⁻¹
+      </div>
+    </div>
+    <div class="pr-hero-rule">
+      <strong>Bring the exponent down</strong> as a coefficient, then <strong>subtract 1</strong> from the exponent. Works for any real number n — positive, negative, fraction, or zero.
+    </div>
+  </div>
+
+  <!-- Step-by-step -->
+  <div class="pr-section-label">3-step method</div>
+  <div class="pr-steps-card">
+    <div class="pr-steps">
+      <div class="pr-step">
+        <div class="pr-step-num">01</div>
+        <div class="pr-step-title">Identify n</div>
+        <div class="pr-step-desc">Spot the exponent on x. That number is n.</div>
+      </div>
+      <div class="pr-step">
+        <div class="pr-step-num">02</div>
+        <div class="pr-step-title">Multiply by n</div>
+        <div class="pr-step-desc">Write n in front as a coefficient (×any existing coefficient).</div>
+      </div>
+      <div class="pr-step">
+        <div class="pr-step-num">03</div>
+        <div class="pr-step-title">Decrease n by 1</div>
+        <div class="pr-step-desc">The new exponent is n − 1. That's your derivative.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 6 rule cards -->
+  <div class="pr-section-label">All cases you will encounter</div>
+  <div class="pr-grid">
+
+    <div class="pr-card">
+      <div class="pr-card-head">
+        <span class="pr-badge badge-blue">Positive integer</span>
+        <span class="pr-card-title">Most common case</span>
+      </div>
+      <div class="pr-formula">d/dx [x<span class="hi-blue">ⁿ</span>] = <span class="hi-amber">n</span>·x<span class="hi-blue">ⁿ⁻¹</span></div>
+      <div class="pr-example-row"><span class="mono">x⁵</span><span class="pr-arrow">→</span><span class="mono">5x⁴</span></div>
+      <div class="pr-example-row"><span class="mono">x³</span><span class="pr-arrow">→</span><span class="mono">3x²</span></div>
+      <div class="pr-example-row"><span class="mono">x²</span><span class="pr-arrow">→</span><span class="mono">2x¹ = 2x</span></div>
+    </div>
+
+    <div class="pr-card">
+      <div class="pr-card-head">
+        <span class="pr-badge badge-amber">With coefficient</span>
+        <span class="pr-card-title">Constant multiple</span>
+      </div>
+      <div class="pr-formula">d/dx [<span class="hi-coral">c</span>·x<span class="hi-blue">ⁿ</span>] = <span class="hi-coral">c</span>·<span class="hi-amber">n</span>·x<span class="hi-blue">ⁿ⁻¹</span></div>
+      <div class="pr-example-row"><span class="mono">4x³</span><span class="pr-arrow">→</span><span class="mono">4·3·x² = 12x²</span></div>
+      <div class="pr-example-row"><span class="mono">7x²</span><span class="pr-arrow">→</span><span class="mono">14x</span></div>
+      <div class="pr-example-row"><span class="mono">½x⁶</span><span class="pr-arrow">→</span><span class="mono">3x⁵</span></div>
+    </div>
+
+    <div class="pr-card">
+      <div class="pr-card-head">
+        <span class="pr-badge badge-teal">n = 0 (constant)</span>
+        <span class="pr-card-title">Zero rule</span>
+      </div>
+      <div class="pr-formula">d/dx [<span class="hi-coral">c</span>] = <span class="hi-blue">0</span></div>
+      <div class="pr-example-row" style="font-size:12px;color:var(--color-text-secondary);line-height:1.5;display:block">A constant has no slope — it doesn't change, so its rate of change is 0.</div>
+      <div class="pr-example-row"><span class="mono">d/dx [5] = 0</span></div>
+      <div class="pr-example-row"><span class="mono">d/dx [π] = 0</span></div>
+    </div>
+
+    <div class="pr-card">
+      <div class="pr-card-head">
+        <span class="pr-badge badge-purple">n = 1 (linear)</span>
+        <span class="pr-card-title">Slope of x</span>
+      </div>
+      <div class="pr-formula">d/dx [x<span class="hi-blue">¹</span>] = <span class="hi-amber">1</span>·x<span class="hi-blue">⁰</span> = <span class="hi-teal">1</span></div>
+      <div class="pr-example-row" style="font-size:12px;color:var(--color-text-secondary);line-height:1.5;display:block">y = x is a straight line with slope 1 everywhere.</div>
+      <div class="pr-example-row"><span class="mono">3x → 3</span></div>
+      <div class="pr-example-row"><span class="mono">-2x → -2</span></div>
+    </div>
+
+    <div class="pr-card">
+      <div class="pr-card-head">
+        <span class="pr-badge badge-coral">Negative exponent</span>
+        <span class="pr-card-title">Fraction / reciprocal</span>
+      </div>
+      <div class="pr-formula">d/dx [x<span class="hi-blue">⁻ⁿ</span>] = <span class="hi-coral">−n</span>·x<span class="hi-blue">⁻ⁿ⁻¹</span></div>
+      <div class="pr-example-row" style="font-size:12px;color:var(--color-text-secondary);display:block;margin-bottom:4px">Rewrite 1/xⁿ as x⁻ⁿ first, then apply rule.</div>
+      <div class="pr-example-row"><span class="mono">1/x = x⁻¹ → −x⁻²</span></div>
+      <div class="pr-example-row"><span class="mono">1/x³ = x⁻³ → −3x⁻⁴</span></div>
+    </div>
+
+    <div class="pr-card">
+      <div class="pr-card-head">
+        <span class="pr-badge badge-green">Fractional exponent</span>
+        <span class="pr-card-title">Roots / radicals</span>
+      </div>
+      <div class="pr-formula">d/dx [x<span class="hi-blue">^(p/q)</span>] = <span class="hi-amber">p/q</span>·x<span class="hi-blue">^(p/q−1)</span></div>
+      <div class="pr-example-row" style="font-size:12px;color:var(--color-text-secondary);display:block;margin-bottom:4px">Rewrite √x as x^(1/2) first.</div>
+      <div class="pr-example-row"><span class="mono">√x = x^½ → ½x^(−½)</span></div>
+      <div class="pr-example-row"><span class="mono">∛x = x^(1/3) → ⅓x^(−2/3)</span></div>
+    </div>
+
+  </div>
+
+  <!-- Quick reference table -->
+  <div class="pr-section-label">Quick-lookup table — common derivatives</div>
+  <div class="pr-table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>f(x)</th>
+          <th>f′(x)</th>
+          <th>n used</th>
+          <th>Note</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="td-mono">x</td><td class="td-mono">1</td><td class="td-mono">1</td><td class="td-note">Straight line, constant slope</td></tr>
+        <tr><td class="td-mono">x²</td><td class="td-mono">2x</td><td class="td-mono">2</td><td class="td-note">Parabola — classic example</td></tr>
+        <tr><td class="td-mono">x³</td><td class="td-mono">3x²</td><td class="td-mono">3</td><td class="td-note">Cubic function</td></tr>
+        <tr><td class="td-mono">x⁴</td><td class="td-mono">4x³</td><td class="td-mono">4</td><td class="td-note"></td></tr>
+        <tr><td class="td-mono">x¹⁰</td><td class="td-mono">10x⁹</td><td class="td-mono">10</td><td class="td-note">Pattern is obvious here</td></tr>
+        <tr><td class="td-mono">5</td><td class="td-mono">0</td><td class="td-mono">0</td><td class="td-note">Any constant → 0</td></tr>
+        <tr><td class="td-mono">3x⁴</td><td class="td-mono">12x³</td><td class="td-mono">4</td><td class="td-note">Coeff × n = 3×4</td></tr>
+        <tr><td class="td-mono">√x</td><td class="td-mono">1/(2√x)</td><td class="td-mono">½</td><td class="td-note">= ½x^(−½)</td></tr>
+        <tr><td class="td-mono">1/x</td><td class="td-mono">−1/x²</td><td class="td-mono">−1</td><td class="td-note">= −x⁻²</td></tr>
+        <tr><td class="td-mono">1/x²</td><td class="td-mono">−2/x³</td><td class="td-mono">−2</td><td class="td-note">= −2x⁻³</td></tr>
+        <tr><td class="td-mono">x^(2/3)</td><td class="td-mono">(2/3)x^(−1/3)</td><td class="td-mono">2/3</td><td class="td-note">Fractional n, same rule</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Tips -->
+  <div class="pr-section-label">Memory tips &amp; common mistakes</div>
+  <div class="pr-tip"><strong>Mnemonic — "Bring down, knock down":</strong> Bring the exponent down in front, knock the exponent down by 1. Two moves, done.</div>
+  <div class="pr-tip pr-tip-coral"><strong>Common mistake — forgetting the coefficient:</strong> d/dx [4x³] ≠ 3x². You must multiply: 4 × 3 = 12, giving 12x².</div>
+  <div class="pr-tip pr-tip-teal"><strong>Rewrite first:</strong> The rule needs the form xⁿ. Rewrite √x → x^½ and 1/x² → x⁻² before differentiating.</div>
+  <div class="pr-tip pr-tip-purple"><strong>Term-by-term:</strong> For a sum like x³ + 5x² − 2x + 7, apply the power rule to each term separately. Constants vanish.</div>
+
+</div>

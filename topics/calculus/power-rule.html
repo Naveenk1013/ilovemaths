@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Learn the Power Rule in Calculus — interactive reference, MCQ quiz, tips and tricks. Free math learning.">
+  <title>Power Rule — I Love Maths</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="../../css/topic.css">
+  <link rel="stylesheet" href="../../css/quiz.css">
+
+  <!-- Theme (loaded early to prevent flash) -->
+  <script src="../../js/theme.js"></script>
+</head>
+<body>
+
+  <!-- ═══ Header ═══ -->
+  <header class="site-header">
+    <div class="container">
+      <a href="../../index.html" class="site-logo">
+        <span class="logo-icon">π</span>
+        <span>I Love Maths</span>
+      </a>
+      <nav class="site-nav">
+        <a href="../../index.html">Topics</a>
+        <a href="../../index.html#about">About</a>
+        <div class="theme-toggle" id="theme-toggle"></div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="topic-page">
+    <div class="container container-narrow">
+
+      <!-- Breadcrumb -->
+      <div class="breadcrumb">
+        <a href="../../index.html">Home</a>
+        <span class="sep">›</span>
+        <a href="../../index.html#topics">Calculus</a>
+        <span class="sep">›</span>
+        <span>Power Rule</span>
+      </div>
+
+      <!-- Page Header -->
+      <div class="topic-page-header">
+        <h1>Power Rule</h1>
+        <p>The first and most used rule of differentiation. Master it here.</p>
+      </div>
+
+      <!-- ═══ Tabs ═══ -->
+      <div class="topic-tabs" id="topic-tabs">
+        <button class="topic-tab active" data-tab="reference">Reference</button>
+        <button class="topic-tab" data-tab="quiz">MCQ Quiz</button>
+        <button class="topic-tab" data-tab="tips">Tips & Tricks</button>
+      </div>
+
+      <!-- ═══════════ REFERENCE TAB ═══════════ -->
+      <div class="tab-content active" id="tab-reference">
+
+        <!-- Hero Formula -->
+        <div class="formula-hero">
+          <div>
+            <div class="formula-hero-label">Core Formula</div>
+            <div class="formula-hero-big">
+              d/dx [x<sup class="exp">n</sup>] = <span class="coeff">n</span>·x<sup class="exp">n−1</sup>
+            </div>
+            <div class="formula-hero-alt">f(x) = xⁿ → f′(x) = n·xⁿ⁻¹</div>
+          </div>
+          <div class="formula-hero-desc">
+            <strong>Bring the exponent down</strong> as a coefficient, then <strong>subtract 1</strong> from the exponent. Works for any real n.
+          </div>
+        </div>
+
+        <!-- 3-Step Method -->
+        <div class="topic-section-label">3-step method</div>
+        <div class="steps-card">
+          <div class="steps-grid">
+            <div class="step-item">
+              <div class="step-num">01</div>
+              <div class="step-title">Identify n</div>
+              <div class="step-desc">Spot the exponent on x. That number is n.</div>
+            </div>
+            <div class="step-item">
+              <div class="step-num">02</div>
+              <div class="step-title">Multiply by n</div>
+              <div class="step-desc">Write n in front as a coefficient (× any existing coefficient).</div>
+            </div>
+            <div class="step-item">
+              <div class="step-num">03</div>
+              <div class="step-title">Decrease n by 1</div>
+              <div class="step-desc">The new exponent is n − 1. That's your derivative.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- All Cases -->
+        <div class="topic-section-label">All cases you will encounter</div>
+        <div class="ref-grid">
+
+          <div class="ref-card">
+            <div class="ref-card-top">
+              <span class="ref-badge blue">Positive integer</span>
+              <span class="ref-card-title">Standard case</span>
+            </div>
+            <div class="ref-formula-box">d/dx [<span class="hb">xⁿ</span>] = <span class="ha">n</span>·<span class="hb">xⁿ⁻¹</span></div>
+            <div class="ref-examples"><span>x⁵</span><span class="arr">→</span><span>5x⁴</span> &nbsp;|&nbsp; <span>x³</span><span class="arr">→</span><span>3x²</span></div>
+          </div>
+
+          <div class="ref-card">
+            <div class="ref-card-top">
+              <span class="ref-badge amber">With coefficient</span>
+              <span class="ref-card-title">Constant multiple</span>
+            </div>
+            <div class="ref-formula-box">d/dx [<span class="hc">c</span>·<span class="hb">xⁿ</span>] = <span class="hc">c</span>·<span class="ha">n</span>·<span class="hb">xⁿ⁻¹</span></div>
+            <div class="ref-examples"><span>4x³</span><span class="arr">→</span><span>12x²</span> &nbsp;|&nbsp; <span>7x²</span><span class="arr">→</span><span>14x</span></div>
+          </div>
+
+          <div class="ref-card">
+            <div class="ref-card-top">
+              <span class="ref-badge teal">n = 0</span>
+              <span class="ref-card-title">Constant → zero</span>
+            </div>
+            <div class="ref-formula-box">d/dx [<span class="hc">c</span>] = <span class="hb">0</span></div>
+            <div class="ref-examples"><span>d/dx[5] = 0</span> &nbsp;|&nbsp; <span>d/dx[π] = 0</span></div>
+          </div>
+
+          <div class="ref-card">
+            <div class="ref-card-top">
+              <span class="ref-badge coral">Negative exponent</span>
+              <span class="ref-card-title">Fractions / 1/xⁿ</span>
+            </div>
+            <div class="ref-formula-box">d/dx [<span class="hb">x⁻ⁿ</span>] = <span class="hc">−n</span>·<span class="hb">x⁻ⁿ⁻¹</span></div>
+            <div class="ref-examples"><span>1/x = x⁻¹</span><span class="arr">→</span><span>−x⁻²</span></div>
+          </div>
+
+          <div class="ref-card">
+            <div class="ref-card-top">
+              <span class="ref-badge purple">n = 1 (linear)</span>
+              <span class="ref-card-title">Slope of x</span>
+            </div>
+            <div class="ref-formula-box">d/dx [<span class="hb">x</span>] = <span class="ht">1</span></div>
+            <div class="ref-examples"><span>3x</span><span class="arr">→</span><span>3</span> &nbsp;|&nbsp; <span>−2x</span><span class="arr">→</span><span>−2</span></div>
+          </div>
+
+          <div class="ref-card">
+            <div class="ref-card-top">
+              <span class="ref-badge green">Fractional exponent</span>
+              <span class="ref-card-title">Roots / radicals</span>
+            </div>
+            <div class="ref-formula-box">d/dx [<span class="hb">x^(p/q)</span>] = <span class="ha">p/q</span>·<span class="hb">x^(p/q−1)</span></div>
+            <div class="ref-examples"><span>√x</span><span class="arr">→</span><span>½x^(−½)</span></div>
+          </div>
+
+        </div>
+
+        <!-- Quick-lookup Table -->
+        <div class="topic-section-label">Quick-lookup table — common derivatives</div>
+        <div class="ref-table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>f(x)</th>
+                <th>f′(x)</th>
+                <th>n</th>
+                <th>Note</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td class="td-mono">x</td><td class="td-mono">1</td><td class="td-mono">1</td><td class="td-note">Straight line, constant slope</td></tr>
+              <tr><td class="td-mono">x²</td><td class="td-mono">2x</td><td class="td-mono">2</td><td class="td-note">Parabola — classic example</td></tr>
+              <tr><td class="td-mono">x³</td><td class="td-mono">3x²</td><td class="td-mono">3</td><td class="td-note">Cubic function</td></tr>
+              <tr><td class="td-mono">x⁴</td><td class="td-mono">4x³</td><td class="td-mono">4</td><td class="td-note"></td></tr>
+              <tr><td class="td-mono">x¹⁰</td><td class="td-mono">10x⁹</td><td class="td-mono">10</td><td class="td-note">Pattern is obvious here</td></tr>
+              <tr><td class="td-mono">5</td><td class="td-mono">0</td><td class="td-mono">0</td><td class="td-note">Any constant → 0</td></tr>
+              <tr><td class="td-mono">3x⁴</td><td class="td-mono">12x³</td><td class="td-mono">4</td><td class="td-note">Coeff × n = 3×4</td></tr>
+              <tr><td class="td-mono">√x</td><td class="td-mono">1/(2√x)</td><td class="td-mono">½</td><td class="td-note">= ½x^(−½)</td></tr>
+              <tr><td class="td-mono">1/x</td><td class="td-mono">−1/x²</td><td class="td-mono">−1</td><td class="td-note">= −x⁻²</td></tr>
+              <tr><td class="td-mono">1/x²</td><td class="td-mono">−2/x³</td><td class="td-mono">−2</td><td class="td-note">= −2x⁻³</td></tr>
+              <tr><td class="td-mono">x^(2/3)</td><td class="td-mono">(2/3)x^(−1/3)</td><td class="td-mono">2/3</td><td class="td-note">Fractional n, same rule</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+
+      <!-- ═══════════ QUIZ TAB ═══════════ -->
+      <div class="tab-content" id="tab-quiz">
+        <div id="quiz-container"></div>
+      </div>
+
+      <!-- ═══════════ TIPS TAB ═══════════ -->
+      <div class="tab-content" id="tab-tips">
+
+        <p class="tips-intro">Memorisation tricks, common traps, and mental models that will make the power rule second nature — fast.</p>
+
+        <!-- Memorisation tricks -->
+        <div class="tip-group">
+          <div class="tip-group-label">Memorisation tricks</div>
+
+          <div class="tip-card blue">
+            <div class="tip-title">The "Bring Down, Knock Down" mantra</div>
+            <div class="tip-body">Chant this every time: <em>bring the exponent down in front, knock the exponent down by one.</em> Two moves, always in that order. For <span class="mono">x⁵</span> — bring 5 down → <span class="mono">5x</span>, knock exponent down → <span class="mono">5x⁴</span>. Done.</div>
+          </div>
+
+          <div class="tip-card amber">
+            <div class="tip-title">The "Stairs" visual</div>
+            <div class="tip-body">Picture the exponent climbing down one stair to become the coefficient. <span class="mono">x³ → 3x²</span> — the 3 steps down from the roof to the front door, and the power is now one floor lower.</div>
+          </div>
+
+          <div class="tip-card teal">
+            <div class="tip-title">Finger trick for quick mental math</div>
+            <div class="tip-body">Hold up fingers equal to n. That's your new coefficient. Then count one less — that's your new exponent. For <span class="mono">x⁶</span>: hold 6 fingers → coefficient is 6, count one less → <span class="mono">6x⁵</span>.</div>
+          </div>
+        </div>
+
+        <!-- Common mistakes -->
+        <div class="tip-group">
+          <div class="tip-group-label">Common mistakes to avoid</div>
+
+          <div class="tip-card coral">
+            <div class="tip-title">Forgetting to multiply the existing coefficient</div>
+            <div class="tip-body"><span class="mono">d/dx[4x³] ≠ 3x²</span>. You must multiply: 4 × 3 = 12, giving <span class="mono">12x²</span>. Every time there's a number in front of x, multiply it by n.</div>
+          </div>
+
+          <div class="tip-card coral">
+            <div class="tip-title">Not rewriting radicals and fractions first</div>
+            <div class="tip-body">You cannot apply the rule directly to <span class="mono">√x</span> or <span class="mono">1/x²</span>. Rewrite first: <span class="mono">√x = x^½</span>, then differentiate. <span class="mono">1/x² = x⁻²</span>, then differentiate.</div>
+          </div>
+
+          <div class="tip-card coral">
+            <div class="tip-title">Thinking constants differentiate to themselves</div>
+            <div class="tip-body">A flat line has zero slope. <span class="mono">d/dx[8] = 0</span>, always. Constants vanish — they have no rate of change.</div>
+          </div>
+
+          <div class="tip-card coral">
+            <div class="tip-title">Forgetting the sign on negative exponents</div>
+            <div class="tip-body"><span class="mono">d/dx[x⁻³] = −3x⁻⁴</span> — the negative n becomes the coefficient, so the result is negative. Don't drop the minus sign.</div>
+          </div>
+        </div>
+
+        <!-- Speed tricks -->
+        <div class="tip-group">
+          <div class="tip-group-label">Speed tricks for exams</div>
+
+          <div class="trick-card">
+            <div class="trick-icon">→</div>
+            <div>
+              <div class="trick-title">Term-by-term shortcut for polynomials</div>
+              <div class="trick-desc">For <span class="mono">x³ + 5x² − 2x + 7</span>, hit each term separately: <span class="mono">3x² + 10x − 2 + 0</span>. Constants disappear automatically.</div>
+            </div>
+          </div>
+
+          <div class="trick-card">
+            <div class="trick-icon">#</div>
+            <div>
+              <div class="trick-title">n × (n−1) pattern for x² and x³</div>
+              <div class="trick-desc">Derivatives form a memorable sequence: <span class="mono">x → 1, x² → 2x, x³ → 3x², x⁴ → 4x³</span>. Memorise the first four and the rest follows.</div>
+            </div>
+          </div>
+
+          <div class="trick-card">
+            <div class="trick-icon">↕</div>
+            <div>
+              <div class="trick-title">Fraction shortcut: flip and differentiate</div>
+              <div class="trick-desc">For <span class="mono">1/xⁿ</span>, the answer is always <span class="mono">−n/x^(n+1)</span>. <span class="mono">1/x⁴ → −4/x⁵</span>. Much faster than converting.</div>
+            </div>
+          </div>
+
+          <div class="trick-card">
+            <div class="trick-icon">✓</div>
+            <div>
+              <div class="trick-title">Self-check: degree always drops by 1</div>
+              <div class="trick-desc">Differentiate a cubic (degree 3)? Expect a quadratic (degree 2). If not — you made an error.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cheatbox -->
+        <div class="cheatbox">
+          <div class="cheatbox-title">30-second mental flashcard drill</div>
+          <div class="cheat-row"><span class="cheat-q">d/dx of a constant?</span><span class="cheat-a">0</span></div>
+          <div class="cheat-row"><span class="cheat-q">d/dx [x]</span><span class="cheat-a">1</span></div>
+          <div class="cheat-row"><span class="cheat-q">d/dx [x²]</span><span class="cheat-a">2x</span></div>
+          <div class="cheat-row"><span class="cheat-q">d/dx [x³]</span><span class="cheat-a">3x²</span></div>
+          <div class="cheat-row"><span class="cheat-q">d/dx [√x]</span><span class="cheat-a">½x^(−½)</span></div>
+          <div class="cheat-row"><span class="cheat-q">d/dx [1/x]</span><span class="cheat-a">−1/x²</span></div>
+          <div class="cheat-row"><span class="cheat-q">d/dx [6x⁴]</span><span class="cheat-a">24x³</span></div>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ═══ Footer ═══ -->
+  <footer class="site-footer">
+    <div class="container">
+      <p class="footer-text">
+        Made with <span class="heart">♥</span> for students who want to learn maths
+        <br>
+        Free forever. No ads. No sign-up required.
+      </p>
+      <div class="footer-links">
+        <a href="https://naveen-kr1.netlify.app/" target="_blank" rel="noopener">Portfolio</a>
+        <span class="footer-sep">·</span>
+        <a href="https://github.com/Naveenk1013" target="_blank" rel="noopener">GitHub</a>
+        <span class="footer-sep">·</span>
+        <a href="https://www.linkedin.com/in/naveen-kumar-8a40bb170/" target="_blank" rel="noopener">LinkedIn</a>
+        <span class="footer-sep">·</span>
+        <a href="mailto:naveen.k1013@gmail.com">Email</a>
+      </div>
+      <p class="footer-managed">Managed by <a href="https://lancealot.in" target="_blank" rel="noopener">lancealot.in</a></p>
+    </div>
+  </footer>
+
+  <!-- ═══ Scripts ═══ -->
+  <script src="../../js/quiz-engine.js"></script>
+  <script>
+    /* ── Tab Switching ── */
+    const tabs = document.querySelectorAll('.topic-tab');
+    const panels = document.querySelectorAll('.tab-content');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const target = tab.dataset.tab;
+
+        tabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+
+        panels.forEach(p => {
+          p.classList.toggle('active', p.id === `tab-${target}`);
+        });
+      });
+    });
+
+    /* ── Power Rule Questions ── */
+    const powerRuleQuestions = [
+      { q: "Find the derivative of", expr: "f(x) = x⁴", opts: ["4x³", "4x⁵", "x³", "3x⁴"], ans: 0, diff: "easy", exp: "Bring 4 down, subtract 1 from exponent: 4·x^(4−1) = 4x³" },
+      { q: "Differentiate", expr: "f(x) = x⁷", opts: ["x⁶", "7x⁶", "7x⁸", "6x⁶"], ans: 1, diff: "easy", exp: "Power rule: 7·x^(7−1) = 7x⁶" },
+      { q: "What is the derivative of", expr: "f(x) = 3x⁵", opts: ["15x⁴", "3x⁴", "15x⁵", "5x⁴"], ans: 0, diff: "easy", exp: "Coefficient × n = 3×5 = 15, exponent drops by 1: 15x⁴" },
+      { q: "Find d/dx of", expr: "f(x) = 9", opts: ["9x", "1", "0", "9"], ans: 2, diff: "easy", exp: "Any constant has derivative 0 — a flat line has no slope." },
+      { q: "Differentiate", expr: "f(x) = x", opts: ["x", "0", "1", "2x"], ans: 2, diff: "easy", exp: "x = x¹ → 1·x⁰ = 1·1 = 1. The slope of y = x is always 1." },
+      { q: "What is the derivative of", expr: "f(x) = 5x³ − 2x + 8", opts: ["15x² − 2", "15x² − 2x", "5x² − 2", "10x² − 2"], ans: 0, diff: "medium", exp: "Term by term: 5·3x² = 15x², then −2·1 = −2, then 8 → 0. Result: 15x² − 2" },
+      { q: "Differentiate", expr: "f(x) = √x", opts: ["1/(2√x)", "2√x", "−½x^(−½)", "½x^½"], ans: 0, diff: "medium", exp: "√x = x^½ → ½·x^(½−1) = ½x^(−½) = 1/(2√x)" },
+      { q: "Find the derivative of", expr: "f(x) = 1/x", opts: ["1/x²", "−1/x", "−1/x²", "ln x"], ans: 2, diff: "medium", exp: "Rewrite: x⁻¹ → −1·x^(−1−1) = −x⁻² = −1/x²" },
+      { q: "Differentiate", expr: "f(x) = 4x⁻³", opts: ["−12x⁻⁴", "−12x⁻²", "12x⁻⁴", "4x⁻⁴"], ans: 0, diff: "medium", exp: "4 × (−3) = −12, exponent: −3−1 = −4. Result: −12x⁻⁴" },
+      { q: "What is d/dx of", expr: "f(x) = x^(2/3)", opts: ["(2/3)x^(−1/3)", "(3/2)x^(1/3)", "(2/3)x^(1/3)", "−(1/3)x^(2/3)"], ans: 0, diff: "hard", exp: "p/q = 2/3, new exponent = 2/3 − 1 = −1/3. Result: (2/3)x^(−1/3)" },
+    ];
+
+    /* ── Initialize Quiz ── */
+    const quiz = new QuizEngine({
+      containerId: 'quiz-container',
+      questions: powerRuleQuestions,
+    });
+    quiz.start();
+  </script>
+
+</body>
+</html>
