@@ -171,7 +171,8 @@ h4 { font-size: 1rem; }
 }
 
 .site-logo .logo-icon {
-  font-size: 1.4rem;
+  display: flex;
+  align-items: center;
 }
 
 .site-nav {
