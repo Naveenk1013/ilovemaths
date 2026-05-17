@@ -123,3 +123,7 @@ const ProgressTracker = (function () {
     }
   };
 })();
+
+// Explicitly bind to window for global access across ES6 scripts
+window.ProgressTracker = ProgressTracker;
+

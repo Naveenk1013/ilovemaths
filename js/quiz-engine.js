@@ -373,3 +373,7 @@ class QuizEngine {
     this.onComplete({ score: this.score, total, pct });
   }
 }
+
+// Explicitly bind to window for global access across ES6 scripts
+window.QuizEngine = QuizEngine;
+
