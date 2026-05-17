@@ -26,7 +26,7 @@ Each topic must follow this structure:
 
 STRICT RULES:
 - Do NOT overcomplicate UI
-- Do NOT introduce unnecessary libraries
+- Use authorized libraries only (KaTeX, MathJax, math.js, decimal.js, Chart.js, D3.js)
 - Keep code modular and readable
 - Always separate logic, UI, and data
 - Avoid hallucinating features outside project scope
@@ -34,8 +34,10 @@ STRICT RULES:
 - Maintain progress in progress.md
 
 TECH STACK:
-- HTML, CSS, Vanilla JS (initial phase)
-- Later scalable to React / backend if needed
+- HTML, CSS, Vanilla JS
+- Math Rendering: KaTeX, MathJax
+- Math Computation: math.js, decimal.js
+- Data Visualization: Chart.js, D3.js
 
 DESIGN PRINCIPLES:
 - Clean UI
