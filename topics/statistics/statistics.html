@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Learn Statistics: Mean, median, mode, variance, and standard deviation.">
+  <title>Statistics — I Love Maths</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="../../css/topic.css">
+  <link rel="stylesheet" href="../../css/quiz.css">
+
+  <script src="../../js/math-libs.js"></script>
+  <script src="../../js/theme.js"></script>
+  <script src="../../js/progress.js"></script>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="../../index.html" class="site-logo">
+        <span class="logo-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="url(#logo-grad)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <defs>
+              <linearGradient id="logo-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#3b82f6" />
+                <stop offset="100%" stop-color="#8b5cf6" />
+              </linearGradient>
+            </defs>
+            <path d="M12 12c-2-2.67-4-4-6-4a4 4 0 1 0 0 8c2 0 4-1.33 6-4zm0 0c2 2.67 4 4 6 4a4 4 0 1 0 0-8c-2 0-4 1.33-6 4z" />
+          </svg>
+        </span>
+        <span>I Love Maths</span>
+      </a>
+      <nav class="site-nav"><a href="../../index.html">Topics</a><a href="../../index.html#about">About</a><div class="theme-toggle" id="theme-toggle"></div></nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container container-narrow">
+      <div class="breadcrumb">
+        <a href="../../index.html">Topics</a><span class="sep">›</span><a href="../../index.html">Statistics</a><span class="sep">›</span><span>Descriptive Statistics</span>
+      </div>
+
+      <header class="topic-header">
+        <div class="topic-meta">
+          <span class="topic-badge badge-active">Unit 30</span><span class="topic-level level-med">Intermediate</span>
+        </div>
+        <h1 class="topic-title">Descriptive Statistics</h1>
+        <p class="topic-desc">Summarize large datasets into simple numbers: Mean, Median, Mode, and Standard Deviation.</p>
+        <div class="tab-nav">
+          <button class="tab-btn active" data-target="ref">Concept Reference</button>
+          <button class="tab-btn" data-target="quiz">Interactive Quiz</button>
+        </div>
+      </header>
+
+      <div class="tab-content-container">
+        <!-- CONCEPT REFERENCE -->
+        <div class="tab-pane active" id="pane-ref">
+          <div class="concept-section">
+            <h2 class="section-heading">Measures of Central Tendency</h2>
+            <p>Where is the "middle" of your data? Three different numbers answer this question in different ways.</p>
+          </div>
+
+          <div class="formula-hero">
+            <div class="formula-hero-main" style="font-size:1.5rem">$$ \bar{x} = \frac{\sum x_i}{n} $$</div>
+            <div class="formula-hero-desc">The Mean (Average). Sum everything up and divide by the count.</div>
+          </div>
+
+          <div class="ref-grid">
+            <div class="ref-card">
+              <div class="ref-card-header"><span class="ref-badge blue">Center</span><span class="ref-card-title">Median & Mode</span></div>
+              <p style="font-size:0.9rem; margin-bottom:10px;">Median is the exact middle value. Mode is the most frequent value.</p>
+            </div>
+            
+            <div class="ref-card">
+              <div class="ref-card-header"><span class="ref-badge teal">Spread</span><span class="ref-card-title">Variance ($\sigma^2$)</span></div>
+              <p style="font-size:0.9rem; margin-bottom:10px;">The average of the squared differences from the Mean.</p>
+              <div class="ref-formula-box" style="font-size:0.9rem;">
+                $$ \sigma^2 = \frac{\sum (x - \bar{x})^2}{n} $$
+              </div>
+            </div>
+
+            <div class="ref-card">
+              <div class="ref-card-header"><span class="ref-badge amber">Spread</span><span class="ref-card-title">Standard Deviation ($\sigma$)</span></div>
+              <p style="font-size:0.9rem; margin-bottom:10px;">The square root of the variance. It tells you how spread out the data is.</p>
+              <div class="ref-formula-box" style="font-size:0.9rem;">
+                $$ \sigma = \sqrt{\text{Variance}} $$
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- INTERACTIVE QUIZ -->
+        <div class="tab-pane" id="pane-quiz">
+          <div class="quiz-engine">
+            <div class="qe-header">
+              <div class="qe-progress-wrap"><div class="qe-progress-fill" id="qe-prog"></div></div>
+              <div class="qe-score" id="qe-score">Score: 0 / 0</div>
+            </div>
+            <div id="qe-container"></div>
+            <div class="qe-footer"><button class="btn btn-primary qe-next" id="qe-next" disabled>Next Question</button></div>
+          </div>
+          <div class="qe-result" id="qe-result"></div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer"><div class="container"><p class="footer-text">Made with <span class="heart">♥</span></p></div></footer>
+
+  <script src="../../js/quiz-engine.js"></script>
+  <script>
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+        btn.classList.add('active');
+        document.getElementById('pane-' + btn.dataset.target).classList.add('active');
+      });
+    });
+
+    const questions = [
+      { q: "What is the median of the dataset: 2, 4, 10, 14, 20?", expr: "", opts: ["$$ 10 $$", "$$ 12 $$", "$$ 14 $$", "$$ 50 $$"], ans: 0, diff: "easy", exp: "The median is the exact middle value of an ordered set. Here, it is 10." },
+      { q: "If the variance of a dataset is 25, what is the standard deviation?", expr: "", opts: ["$$ 5 $$", "$$ 12.5 $$", "$$ 625 $$", "$$ 50 $$"], ans: 0, diff: "easy", exp: "Standard deviation is the square root of the variance: $$ \\sqrt{25} = 5 $$." },
+      { q: "Which measure is most affected by extreme outliers?", expr: "", opts: ["Mean", "Median", "Mode", "They are all equally affected"], ans: 0, diff: "medium", exp: "The mean includes every value in its sum, so a massive outlier will heavily skew the average." }
+    ];
+
+    window.statQuiz = new QuizEngine('qe-container', questions, {
+      onComplete: (res) => {
+        if (res.pct >= 80 && window.ProgressTracker) ProgressTracker.markComplete('statistics');
+      }
+    });
+    window.statQuiz.start();
+  </script>
+</body>
+</html>

@@ -318,9 +318,9 @@
     "category": "Calculus",
     "icon": "dF",
     "difficulty": "advanced",
-    "status": "coming-soon",
-    "path": null,
-    "questionsCount": 0,
+    "status": "live",
+    "path": "topics/calculus/exact-equations.html",
+    "questionsCount": 1,
     "unit": 27
   },
   {
@@ -330,9 +330,9 @@
     "category": "Calculus",
     "icon": "dx",
     "difficulty": "advanced",
-    "status": "coming-soon",
-    "path": null,
-    "questionsCount": 0,
+    "status": "live",
+    "path": "topics/calculus/diff-equations-app.html",
+    "questionsCount": 2,
     "unit": 28
   },
   {
@@ -342,9 +342,9 @@
     "category": "Applied",
     "icon": "LP",
     "difficulty": "advanced",
-    "status": "coming-soon",
-    "path": null,
-    "questionsCount": 0,
+    "status": "live",
+    "path": "topics/applied/linear-programming.html",
+    "questionsCount": 2,
     "unit": 29
   },
   {
@@ -354,9 +354,9 @@
     "category": "Statistics",
     "icon": "x",
     "difficulty": "intermediate",
-    "status": "coming-soon",
-    "path": null,
-    "questionsCount": 0,
+    "status": "live",
+    "path": "topics/statistics/statistics.html",
+    "questionsCount": 3,
     "unit": 30
   },
   {
@@ -366,9 +366,9 @@
     "category": "Statistics",
     "icon": "r",
     "difficulty": "advanced",
-    "status": "coming-soon",
-    "path": null,
-    "questionsCount": 0,
+    "status": "live",
+    "path": "topics/statistics/correlation-regression.html",
+    "questionsCount": 2,
     "unit": 31
   },
   {
