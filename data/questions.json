@@ -1,0 +1,1312 @@
+{
+  "number-systems": [
+    {
+      "q": "Which of the following is NOT a Natural number?",
+      "expr": "",
+      "opts": [
+        "1",
+        "0",
+        "100",
+        "5"
+      ],
+      "ans": 1,
+      "diff": "easy",
+      "exp": "Natural numbers start from 1. Zero is a Whole number, but not a Natural number."
+    },
+    {
+      "q": "What type of number is $$ \\frac{3}{4} $$ ?",
+      "expr": "",
+      "opts": [
+        "Integer",
+        "Natural",
+        "Rational",
+        "Irrational"
+      ],
+      "ans": 2,
+      "diff": "easy",
+      "exp": "Any number that can be expressed as a fraction $$ \\frac{p}{q} $$ is a Rational number."
+    },
+    {
+      "q": "Which of these is an Irrational number?",
+      "expr": "",
+      "opts": [
+        "$$ \\sqrt{9} $$",
+        "$$ 3.14 $$",
+        "$$ \\frac{22}{7} $$",
+        "$$ \\sqrt{5} $$"
+      ],
+      "ans": 3,
+      "diff": "medium",
+      "exp": "$$ \\sqrt{9} = 3 $$ (Rational). $$ 3.14 $$ and $$ \\frac{22}{7} $$ are rational fractions. $$ \\sqrt{5} $$ cannot be simplified to a fraction, so it is Irrational."
+    },
+    {
+      "q": "Is the number $$ -5 $$ a Rational number?",
+      "expr": "",
+      "opts": [
+        "Yes",
+        "No"
+      ],
+      "ans": 0,
+      "diff": "medium",
+      "exp": "Yes. Every integer is a rational number because it can be written as a fraction over 1 (e.g. $$ \\frac{-5}{1} $$)."
+    },
+    {
+      "q": "What set does the number $$ 0.3333... $$ belong to?",
+      "expr": "",
+      "opts": [
+        "Irrational",
+        "Rational",
+        "Integer",
+        "Whole"
+      ],
+      "ans": 1,
+      "diff": "hard",
+      "exp": "Repeating decimals are Rational numbers because they can be converted to fractions. $$ 0.333... = \\frac{1}{3} $$."
+    },
+    {
+      "q": "True or False: Every Real number is either Rational or Irrational.",
+      "expr": "",
+      "opts": [
+        "True",
+        "False"
+      ],
+      "ans": 0,
+      "diff": "hard",
+      "exp": "True. The set of Real numbers ($$ \\mathbb{R} $$) is the union of Rational ($$ \\mathbb{Q} $$) and Irrational ($$ \\mathbb{Q}' $$) numbers."
+    }
+  ],
+  "real-number-system": [
+    {
+      "q": "Which property is shown here: $$ a + b = b + a $$?",
+      "expr": "",
+      "opts": [
+        "Associative",
+        "Distributive",
+        "Commutative",
+        "Identity"
+      ],
+      "ans": 2,
+      "diff": "easy",
+      "exp": "Commutative comes from 'commute' (to move around). The order doesn't change the sum."
+    },
+    {
+      "q": "Evaluate the absolute value: $$ |-12| $$",
+      "expr": "",
+      "opts": [
+        "$$ -12 $$",
+        "$$ 12 $$",
+        "$$ 0 $$",
+        "Undefined"
+      ],
+      "ans": 1,
+      "diff": "easy",
+      "exp": "Absolute value is distance from zero, which is always positive."
+    },
+    {
+      "q": "What does the interval $$ [3, 8) $$ mean?",
+      "expr": "",
+      "opts": [
+        "Between 3 and 8, excluding both",
+        "Between 3 and 8, including both",
+        "Includes 3, but excludes 8",
+        "Excludes 3, but includes 8"
+      ],
+      "ans": 2,
+      "diff": "medium",
+      "exp": "The bracket '[' means inclusive, and the parenthesis ')' means exclusive."
+    },
+    {
+      "q": "Solve for x: $$ |x| = -4 $$",
+      "expr": "",
+      "opts": [
+        "$$ x = 4 $$",
+        "$$ x = -4 $$",
+        "$$ x = 4, -4 $$",
+        "No solution"
+      ],
+      "ans": 3,
+      "diff": "medium",
+      "exp": "Absolute value is a distance, so it can NEVER be negative. Thus, there is no real number that satisfies this."
+    },
+    {
+      "q": "Which property is shown here: $$ 3(x + 4) = 3x + 12 $$?",
+      "expr": "",
+      "opts": [
+        "Associative",
+        "Distributive",
+        "Commutative",
+        "Inverse"
+      ],
+      "ans": 1,
+      "diff": "medium",
+      "exp": "The number 3 is 'distributed' or multiplied to both terms inside the parentheses."
+    },
+    {
+      "q": "How would you write 'all real numbers strictly greater than 5' in interval notation?",
+      "expr": "",
+      "opts": [
+        "$$ [5, \\infty) $$",
+        "$$ (5, \\infty) $$",
+        "$$ (5, \\infty] $$",
+        "$$ [5, \\infty] $$"
+      ],
+      "ans": 1,
+      "diff": "hard",
+      "exp": "Strictly greater means exclude 5 (use parentheses). Infinity ALWAYS uses parentheses."
+    }
+  ],
+  "logarithms": [
+    {
+      "q": "Rewrite the exponent equation as a logarithm: $$ 3^4 = 81 $$",
+      "expr": "",
+      "opts": [
+        "$$ \\log_4(81) = 3 $$",
+        "$$ \\log_3(81) = 4 $$",
+        "$$ \\log_{81}(3) = 4 $$",
+        "$$ \\log_4(3) = 81 $$"
+      ],
+      "ans": 1,
+      "diff": "easy",
+      "exp": "The base is 3, the exponent is 4, and the result is 81. So, $$ \\log_3(81) = 4 $$."
+    },
+    {
+      "q": "Evaluate: $$ \\log_{10}(1000) $$",
+      "expr": "",
+      "opts": [
+        "$$ 100 $$",
+        "$$ 10 $$",
+        "$$ 3 $$",
+        "$$ 4 $$"
+      ],
+      "ans": 2,
+      "diff": "easy",
+      "exp": "Ask yourself: 10 raised to what power is 1000? $$ 10^3 = 1000 $$, so the answer is 3."
+    },
+    {
+      "q": "Expand using log rules: $$ \\log(a \\cdot b) $$",
+      "expr": "",
+      "opts": [
+        "$$ \\log(a) \\cdot \\log(b) $$",
+        "$$ \\log(a) - \\log(b) $$",
+        "$$ \\log(a+b) $$",
+        "$$ \\log(a) + \\log(b) $$"
+      ],
+      "ans": 3,
+      "diff": "medium",
+      "exp": "The Product Rule states that the log of a product is the sum of the logs: $$ \\log(a) + \\log(b) $$."
+    },
+    {
+      "q": "Simplify using the Power Rule: $$ \\log_2(x^5) $$",
+      "expr": "",
+      "opts": [
+        "$$ 5 + \\log_2(x) $$",
+        "$$ x \\log_2(5) $$",
+        "$$ 5 \\log_2(x) $$",
+        "$$ \\log_2(5x) $$"
+      ],
+      "ans": 2,
+      "diff": "medium",
+      "exp": "The exponent '5' moves to the front as a multiplier: $$ 5 \\log_2(x) $$."
+    },
+    {
+      "q": "Evaluate: $$ \\log_5(1) $$",
+      "expr": "",
+      "opts": [
+        "$$ 1 $$",
+        "$$ 5 $$",
+        "$$ 0 $$",
+        "Undefined"
+      ],
+      "ans": 2,
+      "diff": "medium",
+      "exp": "Any base raised to the power of 0 equals 1. So, the log of 1 is always 0."
+    },
+    {
+      "q": "Which of the following is equivalent to $$ \\log_e(x) $$?",
+      "expr": "",
+      "opts": [
+        "$$ \\log(x) $$",
+        "$$ \\ln(x) $$",
+        "$$ \\text{lg}(x) $$",
+        "$$ 10^x $$"
+      ],
+      "ans": 1,
+      "diff": "hard",
+      "exp": "The natural logarithm (base $e$) is written as $$ \\ln(x) $$."
+    }
+  ],
+  "sets": [
+    {
+      "q": "If $$ A = \\{1, 5, 9\\} $$ and $$ B = \\{5, 9, 12\\} $$, what is $$ A \\cap B $$?",
+      "expr": "",
+      "opts": [
+        "$$ \\{1, 5, 9, 12\\} $$",
+        "$$ \\{5, 9\\} $$",
+        "$$ \\{1\\} $$",
+        "$$ \\emptyset $$"
+      ],
+      "ans": 1,
+      "diff": "easy",
+      "exp": "Intersection ($ \\cap $) means what they have in common. They both share 5 and 9."
+    },
+    {
+      "q": "If $$ A = \\{2, 4\\} $$ and $$ B = \\{4, 6\\} $$, what is $$ A \\cup B $$?",
+      "expr": "",
+      "opts": [
+        "$$ \\{2, 4, 6\\} $$",
+        "$$ \\{4\\} $$",
+        "$$ \\{2, 4, 4, 6\\} $$",
+        "$$ \\{2, 6\\} $$"
+      ],
+      "ans": 0,
+      "diff": "easy",
+      "exp": "Union ($ \\cup $) combines them. We do not repeat elements, so it's $$ \\{2, 4, 6\\} $$."
+    },
+    {
+      "q": "Which statement is true if $$ C = \\{3, 4, 5\\} $$?",
+      "expr": "",
+      "opts": [
+        "$$ 3 \\subset C $$",
+        "$$ \\{3\\} \\in C $$",
+        "$$ 4 \\in C $$",
+        "$$ C \\subset \\{3, 4\\} $$"
+      ],
+      "ans": 2,
+      "diff": "medium",
+      "exp": "$$ 4 \\in C $$ means 4 is an element of C. A number itself is an element ($ \\in $), while a set with a number is a subset ($ \\subset $)."
+    },
+    {
+      "q": "If $$ X = \\{1, 2, 3\\} $$ and $$ Y = \\{3, 4, 5\\} $$, what is $$ X - Y $$?",
+      "expr": "",
+      "opts": [
+        "$$ \\{1, 2\\} $$",
+        "$$ \\{4, 5\\} $$",
+        "$$ \\{3\\} $$",
+        "$$ \\{1, 2, 4, 5\\} $$"
+      ],
+      "ans": 0,
+      "diff": "medium",
+      "exp": "$$ X - Y $$ means start with X and remove anything that is also in Y. We remove 3. We are left with $$ \\{1, 2\\} $$."
+    },
+    {
+      "q": "What does $$ \\emptyset $$ represent?",
+      "expr": "",
+      "opts": [
+        "A set with 1 element",
+        "The universal set",
+        "The empty set",
+        "Zero"
+      ],
+      "ans": 2,
+      "diff": "easy",
+      "exp": "$$ \\emptyset $$ represents the Empty Set, a set containing absolutely nothing."
+    }
+  ],
+  "relations-functions": [
+    {
+      "q": "Is the relation $$ \\{(1, 2), (3, 4), (1, 5)\\} $$ a function?",
+      "expr": "",
+      "opts": [
+        "Yes",
+        "No"
+      ],
+      "ans": 1,
+      "diff": "easy",
+      "exp": "No, because the input 1 maps to both 2 and 5."
+    },
+    {
+      "q": "What is the domain of $$ f(x) = \\frac{1}{x-3} $$?",
+      "expr": "",
+      "opts": [
+        "$$ x \\neq 0 $$",
+        "$$ x \\neq 3 $$",
+        "All real numbers",
+        "$$ x > 3 $$"
+      ],
+      "ans": 1,
+      "diff": "medium",
+      "exp": "The denominator cannot be zero. Therefore, $$ x - 3 \\neq 0 \\implies x \\neq 3 $$."
+    },
+    {
+      "q": "A graph passes the Vertical Line Test. What does this mean?",
+      "expr": "",
+      "opts": [
+        "It is a function",
+        "It is not a function",
+        "It is a straight line",
+        "It is a relation but not a function"
+      ],
+      "ans": 0,
+      "diff": "easy",
+      "exp": "Passing the test means no vertical line crosses the graph more than once, ensuring one output per input."
+    },
+    {
+      "q": "If $$ f(x) = 2x + 1 $$, find $$ f(3) $$",
+      "expr": "",
+      "opts": [
+        "$$ 4 $$",
+        "$$ 7 $$",
+        "$$ 6 $$",
+        "$$ 5 $$"
+      ],
+      "ans": 1,
+      "diff": "easy",
+      "exp": "$$ f(3) = 2(3) + 1 = 6 + 1 = 7 $$."
+    }
+  ],
+  "binary-operations": [
+    {
+      "q": "Is subtraction commutative on integers?",
+      "expr": "",
+      "opts": [
+        "Yes",
+        "No"
+      ],
+      "ans": 1,
+      "diff": "easy",
+      "exp": "No. For example, $$ 5 - 3 \\neq 3 - 5 $$."
+    },
+    {
+      "q": "What is the identity element for standard addition?",
+      "expr": "",
+      "opts": [
+        "$$ 1 $$",
+        "$$ 0 $$",
+        "$$ -1 $$",
+        "Does not exist"
+      ],
+      "ans": 1,
+      "diff": "easy",
+      "exp": "$$ a + 0 = a $$. So 0 is the additive identity."
+    },
+    {
+      "q": "A binary operation $*$ on set $\\mathbb{R}$ is defined as $$ a * b = a + b + ab $$. Find $$ 2 * 3 $$.",
+      "expr": "",
+      "opts": [
+        "$$ 5 $$",
+        "$$ 6 $$",
+        "$$ 11 $$",
+        "$$ 10 $$"
+      ],
+      "ans": 2,
+      "diff": "medium",
+      "exp": "$$ 2 * 3 = 2 + 3 + (2 \\times 3) = 5 + 6 = 11 $$."
+    }
+  ],
+  "logic": [
+    {
+      "q": "If P is True and Q is False, what is the value of $$ P \\land Q $$?",
+      "expr": "",
+      "opts": [
+        "True",
+        "False"
+      ],
+      "ans": 1,
+      "diff": "easy",
+      "exp": "AND ($ \\land $) requires both to be True."
+    },
+    {
+      "q": "When is the implication $$ P \\implies Q $$ FALSE?",
+      "expr": "",
+      "opts": [
+        "When P is F and Q is F",
+        "When P is T and Q is T",
+        "When P is T and Q is F",
+        "When P is F and Q is T"
+      ],
+      "ans": 2,
+      "diff": "medium",
+      "exp": "An implication is only broken if the premise (P) happens but the promise (Q) does not."
+    },
+    {
+      "q": "What does $$ \\neg (\\neg P) $$ equal?",
+      "expr": "",
+      "opts": [
+        "$$ P $$",
+        "$$ \\neg P $$",
+        "True",
+        "False"
+      ],
+      "ans": 0,
+      "diff": "easy",
+      "exp": "Double negation brings you back to the original value."
+    }
+  ],
+  "combinatorics": [
+    {
+      "q": "You have 4 colors of paint and 3 types of brushes. How many unique paint-brush combinations can you make?",
+      "expr": "",
+      "opts": [
+        "7",
+        "12",
+        "1",
+        "4"
+      ],
+      "ans": 1,
+      "diff": "easy",
+      "exp": "Use the multiplication principle (AND): $$ 4 \\times 3 = 12 $$."
+    },
+    {
+      "q": "You can travel to the city by taking 1 of 5 trains OR 1 of 3 buses. How many ways can you travel?",
+      "expr": "",
+      "opts": [
+        "15",
+        "8",
+        "2",
+        "5"
+      ],
+      "ans": 1,
+      "diff": "easy",
+      "exp": "Use the addition principle (OR): $$ 5 + 3 = 8 $$."
+    },
+    {
+      "q": "If there are 367 people in a room, what does the Pigeonhole Principle guarantee?",
+      "expr": "",
+      "opts": [
+        "Everyone has a different birthday",
+        "At least two people share the same birthday",
+        "Someone was born on a leap year",
+        "None of the above"
+      ],
+      "ans": 1,
+      "diff": "medium",
+      "exp": "There are only 366 possible birthdays (including leap year). With 367 people, at least 2 must share a birthday."
+    }
+  ],
+  "permutations-combinations": [
+    {
+      "q": "What is the value of $$ 0! $$?",
+      "expr": "",
+      "opts": [
+        "$$ 0 $$",
+        "$$ 1 $$",
+        "Undefined",
+        "Infinity"
+      ],
+      "ans": 1,
+      "diff": "easy",
+      "exp": "By mathematical convention, the factorial of zero is 1."
+    },
+    {
+      "q": "Selecting 3 people from a group of 10 to form a committee. Is this a permutation or combination?",
+      "expr": "",
+      "opts": [
+        "Permutation",
+        "Combination"
+      ],
+      "ans": 1,
+      "diff": "easy",
+      "exp": "Order does not matter in a committee. A,B,C is the same committee as B,C,A."
+    },
+    {
+      "q": "What is $$ ^5C_2 $$?",
+      "expr": "",
+      "opts": [
+        "$$ 20 $$",
+        "$$ 120 $$",
+        "$$ 10 $$",
+        "$$ 60 $$"
+      ],
+      "ans": 2,
+      "diff": "medium",
+      "exp": "$$ ^5C_2 = \\frac{5!}{2!(5-2)!} = \\frac{120}{2 \\times 6} = 10 $$."
+    },
+    {
+      "q": "Entering a 4-digit PIN code. Is this a permutation or combination?",
+      "expr": "",
+      "opts": [
+        "Permutation",
+        "Combination"
+      ],
+      "ans": 0,
+      "diff": "easy",
+      "exp": "Order absolutely matters. 1234 is not the same PIN as 4321."
+    }
+  ],
+  "induction": [
+    {
+      "q": "What is the purpose of the Base Case?",
+      "expr": "",
+      "opts": [
+        "To prove the formula works for every number",
+        "To prove the formula works for the first number",
+        "To assume it works for k",
+        "To finish the proof"
+      ],
+      "ans": 1,
+      "diff": "easy",
+      "exp": "The base case (usually n=1) establishes the starting point. It's knocking over the first domino."
+    },
+    {
+      "q": "In the Inductive Step, what do we assume to be true?",
+      "expr": "",
+      "opts": [
+        "$$ P(n) $$",
+        "$$ P(1) $$",
+        "$$ P(k) $$",
+        "$$ P(k+1) $$"
+      ],
+      "ans": 2,
+      "diff": "easy",
+      "exp": "We assume the statement holds for an arbitrary integer k, written as $$ P(k) $$."
+    },
+    {
+      "q": "Mathematical Induction is used to prove statements for which set of numbers?",
+      "expr": "",
+      "opts": [
+        "Real Numbers ($$ \\mathbb{R} $$)",
+        "Natural Numbers ($$ \\mathbb{N} $$)",
+        "Rational Numbers ($$ \\mathbb{Q} $$)",
+        "Complex Numbers ($$ \\mathbb{C} $$)"
+      ],
+      "ans": 1,
+      "diff": "medium",
+      "exp": "Induction operates in discrete steps (1, 2, 3...) so it applies to Natural (or Whole) numbers."
+    }
+  ],
+  "sequence-series": [
+    {
+      "q": "Identify the type of sequence: $$ 5, 10, 20, 40, 80... $$",
+      "expr": "",
+      "opts": [
+        "Arithmetic",
+        "Geometric",
+        "Neither"
+      ],
+      "ans": 1,
+      "diff": "easy",
+      "exp": "Each term is multiplied by 2. That makes it a Geometric Progression (GP)."
+    },
+    {
+      "q": "In the AP $$ 2, 5, 8, 11... $$, what is the common difference (d)?",
+      "expr": "",
+      "opts": [
+        "$$ 2 $$",
+        "$$ 3 $$",
+        "$$ 4 $$",
+        "$$ -3 $$"
+      ],
+      "ans": 1,
+      "diff": "easy",
+      "exp": "Take any term and subtract the previous one: $$ 5 - 2 = 3 $$."
+    },
+    {
+      "q": "What is the sum to infinity of a GP with $$ a=1 $$ and $$ r=\\frac{1}{2} $$?",
+      "expr": "",
+      "opts": [
+        "$$ \\infty $$",
+        "$$ 1 $$",
+        "$$ 2 $$",
+        "$$ 0.5 $$"
+      ],
+      "ans": 2,
+      "diff": "medium",
+      "exp": "$$ S_\\infty = \\frac{a}{1-r} = \\frac{1}{1-0.5} = \\frac{1}{0.5} = 2 $$."
+    }
+  ],
+  "trigonometry": [
+    {
+      "q": "What does $$ \\tan(\\theta) $$ equal?",
+      "expr": "",
+      "opts": [
+        "$$ \\frac{\\cos}{\\sin} $$",
+        "$$ \\frac{\\sin}{\\cos} $$",
+        "$$ \\frac{1}{\\sin} $$",
+        "$$ 1 - \\sin $$"
+      ],
+      "ans": 1,
+      "diff": "easy",
+      "exp": "Tangent is Sine divided by Cosine."
+    },
+    {
+      "q": "Evaluate $$ \\sin^2(x) + \\cos^2(x) $$",
+      "expr": "",
+      "opts": [
+        "$$ 0 $$",
+        "$$ x $$",
+        "$$ 1 $$",
+        "$$ \\tan(x) $$"
+      ],
+      "ans": 2,
+      "diff": "easy",
+      "exp": "This is the fundamental Pythagorean identity. It always equals 1."
+    },
+    {
+      "q": "What is the reciprocal of Cosine ($$ \\cos $$)?",
+      "expr": "",
+      "opts": [
+        "$$ \\sin $$",
+        "$$ \\csc $$",
+        "$$ \\sec $$",
+        "$$ \\cot $$"
+      ],
+      "ans": 2,
+      "diff": "medium",
+      "exp": "$$ \\sec(\\theta) = \\frac{1}{\\cos(\\theta)} $$."
+    }
+  ],
+  "complex": [
+    {
+      "q": "What is the value of $$ i^2 $$?",
+      "expr": "",
+      "opts": [
+        "$$ 1 $$",
+        "$$ -1 $$",
+        "$$ i $$",
+        "$$ -i $$"
+      ],
+      "ans": 1,
+      "diff": "easy",
+      "exp": "By definition, $$ i = \\sqrt{-1} $$, so squaring it gives -1."
+    },
+    {
+      "q": "What is the complex conjugate of $$ 5 - 2i $$?",
+      "expr": "",
+      "opts": [
+        "$$ -5 + 2i $$",
+        "$$ 5 + 2i $$",
+        "$$ -5 - 2i $$",
+        "$$ 2 - 5i $$"
+      ],
+      "ans": 1,
+      "diff": "easy",
+      "exp": "To find the conjugate, flip the sign of the imaginary part."
+    },
+    {
+      "q": "Calculate the modulus of $$ 6 + 8i $$",
+      "expr": "",
+      "opts": [
+        "$$ 10 $$",
+        "$$ 14 $$",
+        "$$ 100 $$",
+        "$$ 2 $$"
+      ],
+      "ans": 0,
+      "diff": "medium",
+      "exp": "$$ \\sqrt{6^2 + 8^2} = \\sqrt{36 + 64} = \\sqrt{100} = 10 $$."
+    }
+  ],
+  "equations": [
+    {
+      "q": "Solve for x: $$ 3x + 9 = 0 $$",
+      "expr": "",
+      "opts": [
+        "$$ 3 $$",
+        "$$ -3 $$",
+        "$$ 0 $$",
+        "$$ -9 $$"
+      ],
+      "ans": 1,
+      "diff": "easy",
+      "exp": "$$ 3x = -9 \\implies x = -3 $$."
+    },
+    {
+      "q": "If the discriminant $$ b^2 - 4ac $$ is negative, what does this mean?",
+      "expr": "",
+      "opts": [
+        "Two real roots",
+        "One real root",
+        "No real roots (Complex roots)",
+        "The equation is broken"
+      ],
+      "ans": 2,
+      "diff": "medium",
+      "exp": "A negative discriminant means you are taking the square root of a negative number, which results in imaginary/complex roots."
+    },
+    {
+      "q": "Solve: $$ x^2 - 16 = 0 $$",
+      "expr": "",
+      "opts": [
+        "$$ x = 4 $$",
+        "$$ x = -4 $$",
+        "$$ x = \\pm 4 $$",
+        "$$ x = 16 $$"
+      ],
+      "ans": 2,
+      "diff": "easy",
+      "exp": "$$ x^2 = 16 \\implies x = 4 \\text{ or } -4 $$."
+    }
+  ],
+  "inequalities": [
+    {
+      "q": "Solve: $$ -3x \\ge 12 $$",
+      "expr": "",
+      "opts": [
+        "$$ x \\ge 4 $$",
+        "$$ x \\le -4 $$",
+        "$$ x \\ge -4 $$",
+        "$$ x \\le 4 $$"
+      ],
+      "ans": 1,
+      "diff": "medium",
+      "exp": "Divide by -3. Because we divided by a negative number, flip the sign: $$ x \\le -4 $$."
+    },
+    {
+      "q": "How is $$ x < 7 $$ represented on a number line?",
+      "expr": "",
+      "opts": [
+        "Open circle at 7, arrow right",
+        "Closed circle at 7, arrow left",
+        "Open circle at 7, arrow left",
+        "Closed circle at 7, arrow right"
+      ],
+      "ans": 2,
+      "diff": "easy",
+      "exp": "Less than means an open circle (not included) pointing left (smaller numbers)."
+    },
+    {
+      "q": "Write $$ -2 < x \\le 5 $$ in interval notation.",
+      "expr": "",
+      "opts": [
+        "$$ (-2, 5) $$",
+        "$$ [-2, 5] $$",
+        "$$ (-2, 5] $$",
+        "$$ [-2, 5) $$"
+      ],
+      "ans": 2,
+      "diff": "medium",
+      "exp": "Strict less than gets a parenthesis `(`. Less than or equal to gets a bracket `]`."
+    }
+  ],
+  "matrices": [
+    {
+      "q": "What is the dimension of a matrix with 3 rows and 2 columns?",
+      "expr": "",
+      "opts": [
+        "$$ 2 \\times 3 $$",
+        "$$ 3 \\times 2 $$",
+        "$$ 6 $$",
+        "Square"
+      ],
+      "ans": 1,
+      "diff": "easy",
+      "exp": "Dimensions are always stated as Rows by Columns (R x C)."
+    },
+    {
+      "q": "Can you add a $$ 2 \\times 3 $$ matrix and a $$ 3 \\times 2 $$ matrix?",
+      "expr": "",
+      "opts": [
+        "Yes",
+        "No"
+      ],
+      "ans": 1,
+      "diff": "easy",
+      "exp": "No. Matrices must have the exact same dimensions to be added or subtracted."
+    },
+    {
+      "q": "If A is a $$ 2 \\times 3 $$ matrix and B is a $$ 3 \\times 4 $$ matrix, what is the dimension of AB?",
+      "expr": "",
+      "opts": [
+        "$$ 2 \\times 4 $$",
+        "$$ 3 \\times 3 $$",
+        "$$ 4 \\times 2 $$",
+        "Cannot multiply"
+      ],
+      "ans": 0,
+      "diff": "medium",
+      "exp": "Inner dimensions must match (3=3). Outer dimensions give the size of the new matrix: $$ 2 \\times 4 $$."
+    }
+  ],
+  "determinants": [
+    {
+      "q": "Calculate the determinant: $$ \\det \\begin{pmatrix} 5 & 2 \\\\ 3 & 4 \\end{pmatrix} $$",
+      "expr": "",
+      "opts": [
+        "$$ 14 $$",
+        "$$ 26 $$",
+        "$$ 20 $$",
+        "$$ 6 $$"
+      ],
+      "ans": 0,
+      "diff": "easy",
+      "exp": "$$ (5 \\times 4) - (2 \\times 3) = 20 - 6 = 14 $$."
+    },
+    {
+      "q": "If the determinant of a matrix is 0, what do we call the matrix?",
+      "expr": "",
+      "opts": [
+        "Invertible",
+        "Singular",
+        "Identity",
+        "Orthogonal"
+      ],
+      "ans": 1,
+      "diff": "easy",
+      "exp": "A matrix with a determinant of 0 is called singular, meaning it cannot be inverted."
+    },
+    {
+      "q": "What is the determinant of the Identity matrix $$ I_2 $$?",
+      "expr": "",
+      "opts": [
+        "$$ 0 $$",
+        "$$ 1 $$",
+        "$$ 2 $$",
+        "$$ -1 $$"
+      ],
+      "ans": 1,
+      "diff": "medium",
+      "exp": "The determinant of any Identity matrix is 1. It preserves area perfectly."
+    }
+  ],
+  "matrices-determinants-app": [
+    {
+      "q": "If the determinant of the coefficient matrix $$ |A| = 0 $$, what does it mean for the system of equations?",
+      "expr": "",
+      "opts": [
+        "It has a unique solution",
+        "It has no unique solution",
+        "It equals zero",
+        "x = y = 0"
+      ],
+      "ans": 1,
+      "diff": "easy",
+      "exp": "If |A| = 0, the matrix is singular. Therefore, it has either no solutions or infinitely many solutions, but NOT a unique one."
+    },
+    {
+      "q": "In the matrix equation $$ AX = B $$, what does X represent?",
+      "expr": "",
+      "opts": [
+        "The coefficients",
+        "The constants",
+        "The variables (x, y, z)",
+        "The determinant"
+      ],
+      "ans": 2,
+      "diff": "easy",
+      "exp": "X is the column matrix of the variables we are trying to solve for."
+    }
+  ],
+  "vectors": [
+    {
+      "q": "Calculate the magnitude of vector $$ \\vec{v} = 3\\hat{i} + 4\\hat{j} $$",
+      "expr": "",
+      "opts": [
+        "$$ 7 $$",
+        "$$ 25 $$",
+        "$$ 5 $$",
+        "$$ 12 $$"
+      ],
+      "ans": 2,
+      "diff": "easy",
+      "exp": "$$ \\sqrt{3^2 + 4^2} = \\sqrt{9 + 16} = \\sqrt{25} = 5 $$."
+    },
+    {
+      "q": "If the dot product of two non-zero vectors is 0, what does that mean?",
+      "expr": "",
+      "opts": [
+        "They are parallel",
+        "They are perpendicular (orthogonal)",
+        "They are the same vector",
+        "One is zero"
+      ],
+      "ans": 1,
+      "diff": "medium",
+      "exp": "Since $$ \\cos(90^\\circ) = 0 $$, a dot product of 0 means the angle between them is 90 degrees."
+    },
+    {
+      "q": "What kind of result does the Cross Product produce?",
+      "expr": "",
+      "opts": [
+        "A scalar (number)",
+        "A vector",
+        "A matrix",
+        "Zero"
+      ],
+      "ans": 1,
+      "diff": "easy",
+      "exp": "The cross product produces a new vector that is orthogonal to the original two."
+    }
+  ],
+  "3d-geometry": [
+    {
+      "q": "What is the distance from the origin (0,0,0) to the point (2,3,6)?",
+      "expr": "",
+      "opts": [
+        "$$ 7 $$",
+        "$$ 11 $$",
+        "$$ 49 $$",
+        "$$ 36 $$"
+      ],
+      "ans": 0,
+      "diff": "medium",
+      "exp": "$$ \\sqrt{2^2 + 3^2 + 6^2} = \\sqrt{4 + 9 + 36} = \\sqrt{49} = 7 $$."
+    },
+    {
+      "q": "In the equation of a plane $$ 3x + 4y - 2z = 10 $$, what is the normal vector?",
+      "expr": "",
+      "opts": [
+        "$$ \\langle 3, 4, 10 \\rangle $$",
+        "$$ \\langle 3, 4, -2 \\rangle $$",
+        "$$ \\langle -3, -4, 2 \\rangle $$",
+        "None of these"
+      ],
+      "ans": 1,
+      "diff": "medium",
+      "exp": "The coefficients of x, y, and z form the normal vector: $$ \\langle 3, 4, -2 \\rangle $$."
+    }
+  ],
+  "diff-app": [
+    {
+      "q": "To find the critical points of a function, you must:",
+      "expr": "",
+      "opts": [
+        "Set the function to zero",
+        "Set the first derivative to zero",
+        "Set the second derivative to zero",
+        "Integrate the function"
+      ],
+      "ans": 1,
+      "diff": "easy",
+      "exp": "Critical points occur where the slope (first derivative) is zero."
+    },
+    {
+      "q": "If the second derivative at a critical point is positive, what type of point is it?",
+      "expr": "",
+      "opts": [
+        "Local Maximum",
+        "Local Minimum",
+        "Point of Inflection",
+        "None of the above"
+      ],
+      "ans": 1,
+      "diff": "medium",
+      "exp": "A positive second derivative means the curve is concave UP (like a smile), indicating a local minimum."
+    }
+  ],
+  "integration": [
+    {
+      "q": "What is the integral of $$ f(x) = 3x^2 $$?",
+      "expr": "",
+      "opts": [
+        "$$ x^3 + C $$",
+        "$$ 6x + C $$",
+        "$$ 3x^3 + C $$",
+        "$$ \\frac{x^3}{3} + C $$"
+      ],
+      "ans": 0,
+      "diff": "easy",
+      "exp": "Using the power rule: add 1 to power (3), divide by new power (3). $$ \\frac{3x^3}{3} = x^3 + C $$."
+    },
+    {
+      "q": "Why do we add $$ + C $$ to indefinite integrals?",
+      "expr": "",
+      "opts": [
+        "Because C stands for Calculus",
+        "To account for any constant that was lost during differentiation",
+        "It makes the equation solvable",
+        "It's a placeholder for zero"
+      ],
+      "ans": 1,
+      "diff": "medium",
+      "exp": "The derivative of any constant is 0. So when integrating backwards, we add C to represent that unknown constant."
+    }
+  ],
+  "int-app": [
+    {
+      "q": "To find the area between $$ y = x^2 $$ and the x-axis from x=0 to x=2, you evaluate:",
+      "expr": "",
+      "opts": [
+        "$$ \\int_0^2 x^2 \\, dx $$",
+        "$$ \\int_0^2 2x \\, dx $$",
+        "$$ \\pi \\int x^2 \\, dx $$",
+        "$$ \\int_0^2 x \\, dx $$"
+      ],
+      "ans": 0,
+      "diff": "easy",
+      "exp": "Just set up the definite integral of the function bounded by 0 and 2."
+    },
+    {
+      "q": "What physical quantity do you get when you integrate acceleration?",
+      "expr": "",
+      "opts": [
+        "Distance",
+        "Velocity",
+        "Mass",
+        "Force"
+      ],
+      "ans": 1,
+      "diff": "medium",
+      "exp": "Acceleration is the derivative of velocity. So integrating acceleration gives you velocity back."
+    }
+  ],
+  "linear-diff-equations": [
+    {
+      "q": "What is the integrating factor for $$ \\frac{dy}{dx} + 2y = e^x $$?",
+      "expr": "",
+      "opts": [
+        "$$ e^{2x} $$",
+        "$$ e^x $$",
+        "$$ 2x $$",
+        "$$ \\ln(2x) $$"
+      ],
+      "ans": 0,
+      "diff": "medium",
+      "exp": "$$ P(x) = 2 $$. Integrating factor $$ = e^{\\int 2 dx} = e^{2x} $$."
+    },
+    {
+      "q": "Solving a differential equation yields:",
+      "expr": "",
+      "opts": [
+        "A number",
+        "A matrix",
+        "A function",
+        "A derivative"
+      ],
+      "ans": 2,
+      "diff": "easy",
+      "exp": "A DE asks 'What function makes this relationship true?' So the answer is a function."
+    }
+  ],
+  "exact-equations": [
+    {
+      "q": "What makes the equation $$ M(x,y)dx + N(x,y)dy = 0 $$ exact?",
+      "expr": "",
+      "opts": [
+        "$$ \\frac{\\partial M}{\\partial x} = \\frac{\\partial N}{\\partial y} $$",
+        "$$ \\frac{\\partial M}{\\partial y} = \\frac{\\partial N}{\\partial x} $$",
+        "$$ M = N $$",
+        "$$ \\int M dx = \\int N dy $$"
+      ],
+      "ans": 1,
+      "diff": "medium",
+      "exp": "The mixed partial derivatives must be equal."
+    }
+  ],
+  "diff-equations-app": [
+    {
+      "q": "In the exponential growth model $$ P(t) = P_0 e^{kt} $$, what does $$ P_0 $$ represent?",
+      "expr": "",
+      "opts": [
+        "The rate constant",
+        "The final population",
+        "The initial population at t=0",
+        "Time"
+      ],
+      "ans": 2,
+      "diff": "easy",
+      "exp": "When t=0, $$ e^0 = 1 $$, so $$ P(0) = P_0 $$, the starting population."
+    },
+    {
+      "q": "Newton's Law of Cooling implies that a hot cup of coffee will cool down:",
+      "expr": "",
+      "opts": [
+        "At a constant rate",
+        "Faster initially, then slower as it nears room temperature",
+        "Slower initially, then faster",
+        "Never"
+      ],
+      "ans": 1,
+      "diff": "medium",
+      "exp": "The rate of cooling is proportional to the temperature difference. As it cools, the difference shrinks, so the rate slows down."
+    }
+  ],
+  "linear-programming": [
+    {
+      "q": "In a linear programming problem, where does the optimal solution occur?",
+      "expr": "",
+      "opts": [
+        "In the middle of the feasible region",
+        "At one of the corner points of the feasible region",
+        "At the origin",
+        "Outside the region"
+      ],
+      "ans": 1,
+      "diff": "easy",
+      "exp": "The Corner Point Theorem states that the max or min of the objective function will always occur at a vertex of the feasible region."
+    },
+    {
+      "q": "What does the inequality $$ x \\ge 0, y \\ge 0 $$ mean graphically?",
+      "expr": "",
+      "opts": [
+        "The graph is only in the first quadrant",
+        "The graph is a straight line",
+        "The region is empty",
+        "The objective function is zero"
+      ],
+      "ans": 0,
+      "diff": "easy",
+      "exp": "These non-negativity constraints restrict our graph to the upper-right (first) quadrant, representing real-world positive quantities."
+    }
+  ],
+  "statistics": [
+    {
+      "q": "What is the median of the dataset: 2, 4, 10, 14, 20?",
+      "expr": "",
+      "opts": [
+        "$$ 10 $$",
+        "$$ 12 $$",
+        "$$ 14 $$",
+        "$$ 50 $$"
+      ],
+      "ans": 0,
+      "diff": "easy",
+      "exp": "The median is the exact middle value of an ordered set. Here, it is 10."
+    },
+    {
+      "q": "If the variance of a dataset is 25, what is the standard deviation?",
+      "expr": "",
+      "opts": [
+        "$$ 5 $$",
+        "$$ 12.5 $$",
+        "$$ 625 $$",
+        "$$ 50 $$"
+      ],
+      "ans": 0,
+      "diff": "easy",
+      "exp": "Standard deviation is the square root of the variance: $$ \\sqrt{25} = 5 $$."
+    },
+    {
+      "q": "Which measure is most affected by extreme outliers?",
+      "expr": "",
+      "opts": [
+        "Mean",
+        "Median",
+        "Mode",
+        "They are all equally affected"
+      ],
+      "ans": 0,
+      "diff": "medium",
+      "exp": "The mean includes every value in its sum, so a massive outlier will heavily skew the average."
+    }
+  ],
+  "correlation-regression": [
+    {
+      "q": "What does a correlation coefficient of $$ r = 0.95 $$ indicate?",
+      "expr": "",
+      "opts": [
+        "A strong positive relationship",
+        "A weak positive relationship",
+        "A strong negative relationship",
+        "No relationship"
+      ],
+      "ans": 0,
+      "diff": "easy",
+      "exp": "An r value close to 1 means the variables strongly move up together."
+    },
+    {
+      "q": "What is the purpose of linear regression?",
+      "expr": "",
+      "opts": [
+        "To calculate the mean",
+        "To find the best fitting line for prediction",
+        "To prove causation",
+        "To measure the spread of data"
+      ],
+      "ans": 1,
+      "diff": "easy",
+      "exp": "Regression draws a line of best fit through the scatter plot, allowing us to predict y values for new x values."
+    }
+  ],
+  "probability": [
+    {
+      "q": "What is the probability of rolling an even number on a standard 6-sided die?",
+      "expr": "",
+      "opts": [
+        "$$ 1/6 $$",
+        "$$ 1/2 $$",
+        "$$ 1/3 $$",
+        "$$ 3 $$"
+      ],
+      "ans": 1,
+      "diff": "easy",
+      "exp": "There are 3 even numbers (2,4,6) out of 6 total possibilities. 3/6 simplifies to 1/2."
+    },
+    {
+      "q": "If the probability of it raining tomorrow is 0.3, what is the probability of it NOT raining?",
+      "expr": "",
+      "opts": [
+        "$$ 0 $$",
+        "$$ 0.3 $$",
+        "$$ 0.7 $$",
+        "$$ 1 $$"
+      ],
+      "ans": 2,
+      "diff": "easy",
+      "exp": "Use the complement rule: 1 - P(rain) = 1 - 0.3 = 0.7."
+    }
+  ],
+  "discrete-prob-dist": [
+    {
+      "q": "Which distribution would you use to model the number of customer arrivals at a bank in a 1-hour window?",
+      "expr": "",
+      "opts": [
+        "Binomial",
+        "Poisson",
+        "Normal",
+        "Uniform"
+      ],
+      "ans": 1,
+      "diff": "medium",
+      "exp": "The Poisson distribution is specifically designed for counting the number of events in a fixed interval of time."
+    },
+    {
+      "q": "In a Binomial Distribution, what does 'n' stand for?",
+      "expr": "",
+      "opts": [
+        "Probability of success",
+        "Probability of failure",
+        "Number of successes",
+        "Total number of trials"
+      ],
+      "ans": 3,
+      "diff": "easy",
+      "exp": "'n' is the fixed number of trials, like tossing a coin 10 times."
+    }
+  ],
+  "statistical-estimation": [
+    {
+      "q": "What does a 95% confidence interval mean?",
+      "expr": "",
+      "opts": [
+        "95% of the data falls in this interval",
+        "We are 95% confident the true population mean falls in this interval",
+        "There is a 5% chance the math is wrong",
+        "The sample size is 95"
+      ],
+      "ans": 1,
+      "diff": "medium",
+      "exp": "It means if we repeated the survey many times, 95% of the intervals generated would contain the true population mean."
+    },
+    {
+      "q": "To decrease the margin of error in a confidence interval, what should you do?",
+      "expr": "",
+      "opts": [
+        "Decrease sample size",
+        "Increase sample size",
+        "Change the mean",
+        "Nothing"
+      ],
+      "ans": 1,
+      "diff": "easy",
+      "exp": "A larger sample size (n) shrinks the standard error, making your estimate more precise."
+    }
+  ],
+  "differential-geometry": [
+    {
+      "q": "What does the curvature ($$\\kappa$$) of a straight line equal?",
+      "expr": "",
+      "opts": [
+        "$$ 1 $$",
+        "$$ \\infty $$",
+        "$$ 0 $$",
+        "$$ -1 $$"
+      ],
+      "ans": 2,
+      "diff": "easy",
+      "exp": "A straight line does not bend, so its curvature is zero."
+    },
+    {
+      "q": "Which property measures how much a curve twists out of a 2D plane?",
+      "expr": "",
+      "opts": [
+        "Curvature",
+        "Torsion",
+        "Arc length",
+        "Tangent"
+      ],
+      "ans": 1,
+      "diff": "medium",
+      "exp": "Torsion measures the 'twist' of a space curve."
+    }
+  ]
+}
