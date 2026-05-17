@@ -8,6 +8,7 @@
   let allTopics = [];
   let allCourses = [];
   let activeFilter = 'all';
+  let searchQuery = '';
 
   // ── Fetch data ──
   try {
@@ -30,11 +31,23 @@
   ];
 
   // ── Filter topics ──
-  function getFilteredTopics(courseId) {
-    if (courseId === 'all') return allTopics;
-    const course = allCourses.find(c => c.courseId === courseId);
-    if (!course) return allTopics;
-    return allTopics.filter(t => course.topics.includes(t.id));
+  function getFilteredTopics(courseId, query = '') {
+    let topics = allTopics;
+    if (courseId !== 'all') {
+      const course = allCourses.find(c => c.courseId === courseId);
+      if (course) {
+        topics = allTopics.filter(t => course.topics.includes(t.id));
+      }
+    }
+    if (query.trim() !== '') {
+      const q = query.toLowerCase().trim();
+      topics = topics.filter(t => 
+        t.title.toLowerCase().includes(q) || 
+        t.description.toLowerCase().includes(q) ||
+        t.category.toLowerCase().includes(q)
+      );
+    }
+    return topics;
   }
 
   // ── Group by category ──
@@ -93,10 +106,22 @@
 
   // ── Render entire topics grid ──
   function renderTopics() {
-    const filtered = getFilteredTopics(activeFilter);
+    const filtered = getFilteredTopics(activeFilter, searchQuery);
     const grouped = groupByCategory(filtered);
     const grid = document.getElementById('topics-grid');
     if (!grid) return;
+
+    if (filtered.length === 0) {
+      grid.innerHTML = `
+        <div class="search-empty-state">
+          <div class="empty-state-icon">🔍</div>
+          <div class="empty-state-title">No Topics Found</div>
+          <div class="empty-state-desc">We couldn't find any topics matching "${searchQuery.replace(/"/g, '&quot;')}". Try searching for something else like "matrices", "derivative", or "induction"!</div>
+        </div>
+      `;
+      updateStats([]);
+      return;
+    }
 
     let html = '';
     Object.entries(grouped).forEach(([category, topics]) => {
@@ -150,6 +175,15 @@
         renderTopics();
       });
     });
+
+    // Attach search listener
+    const searchInput = document.getElementById('topic-search');
+    if (searchInput) {
+      searchInput.addEventListener('input', (e) => {
+        searchQuery = e.target.value;
+        renderTopics();
+      });
+    }
   }
 
   // ── Render Activity Heatmap ──
