@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="../../css/style.css">
   <link rel="stylesheet" href="../../css/topic.css">
   <link rel="stylesheet" href="../../css/quiz.css">
+  <link rel="stylesheet" href="../../css/sandbox.css">
 
   <script src="../../js/math-libs.js"></script>
   <script src="../../js/theme.js"></script>
@@ -54,6 +55,7 @@
         <p class="topic-desc">Balancing the scales. Learn how to solve linear and quadratic equations for unknown variables.</p>
         <div class="tab-nav">
           <button class="tab-btn active" data-target="ref">Concept Reference</button>
+          <button class="tab-btn" data-target="sandbox">🔬 Interactive Graph</button>
           <button class="tab-btn" data-target="quiz">Interactive Quiz</button>
         </div>
       </header>
@@ -94,6 +96,15 @@
           </div>
         </div>
 
+        <!-- INTERACTIVE SANDBOX -->
+        <div class="tab-pane" id="pane-sandbox">
+          <div class="concept-section">
+            <h2 class="section-heading">Graph Explorer: y = mx + b</h2>
+            <p>Drag the sliders to see how the slope and y-intercept change the line in real time. This is what every linear equation looks like visually.</p>
+          </div>
+          <div id="linear-sandbox"></div>
+        </div>
+
         <!-- INTERACTIVE QUIZ -->
         <div class="tab-pane" id="pane-quiz">
           <div class="quiz-engine">
@@ -131,10 +142,12 @@
 
     window.eqQuiz = new QuizEngine('qe-container', questions, {
       onComplete: (res) => {
-        if (res.pct >= 80 && window.ProgressTracker) ProgressTracker.markComplete('', res.pct);
+        if (res.pct >= 80 && window.ProgressTracker) ProgressTracker.markComplete('equations', res.pct);
       }
     });
     window.eqQuiz.start();
   </script>
+  <script src="../../js/sandbox.js"></script>
+  <script>MathSandbox.create('linear-sandbox', 'linear');</script>
 </body>
 </html>

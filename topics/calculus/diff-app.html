@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="../../css/style.css">
   <link rel="stylesheet" href="../../css/topic.css">
   <link rel="stylesheet" href="../../css/quiz.css">
+  <link rel="stylesheet" href="../../css/sandbox.css">
 
   <script src="../../js/math-libs.js"></script>
   <script src="../../js/theme.js"></script>
@@ -54,6 +55,7 @@
         <p class="topic-desc">Use derivatives to find peaks, valleys, rates of change, and optimize real-world problems.</p>
         <div class="tab-nav">
           <button class="tab-btn active" data-target="ref">Concept Reference</button>
+          <button class="tab-btn" data-target="sandbox">🔬 Tangent Line Explorer</button>
           <button class="tab-btn" data-target="quiz">Interactive Quiz</button>
         </div>
       </header>
@@ -86,6 +88,15 @@
               </div>
             </div>
           </div>
+        </div>
+
+        <!-- INTERACTIVE SANDBOX -->
+        <div class="tab-pane" id="pane-sandbox">
+          <div class="concept-section">
+            <h2 class="section-heading">See the Derivative Live</h2>
+            <p>Drag the slider to move along the curve <strong>f(x) = x³ − 3x</strong>. The blue tangent line shows the exact slope at that point — that is the derivative!</p>
+          </div>
+          <div id="deriv-sandbox"></div>
         </div>
 
         <!-- INTERACTIVE QUIZ -->
@@ -124,10 +135,12 @@
 
     window.diffAppQuiz = new QuizEngine('qe-container', questions, {
       onComplete: (res) => {
-        if (res.pct >= 80 && window.ProgressTracker) ProgressTracker.markComplete('', res.pct);
+        if (res.pct >= 80 && window.ProgressTracker) ProgressTracker.markComplete('diff-app', res.pct);
       }
     });
     window.diffAppQuiz.start();
   </script>
+  <script src="../../js/sandbox.js"></script>
+  <script>MathSandbox.create('deriv-sandbox', 'derivative');</script>
 </body>
 </html>
