@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Learn 3D Geometry: Coordinate systems, distance formula, lines, and planes in 3D space.">
+  <title>Three Dimensional Geometry — I Love Maths</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="../../css/topic.css">
+  <link rel="stylesheet" href="../../css/quiz.css">
+
+  <script src="../../js/math-libs.js"></script>
+  <script src="../../js/theme.js"></script>
+  <script src="../../js/progress.js"></script>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="../../index.html" class="site-logo">
+        <span class="logo-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="url(#logo-grad)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <defs>
+              <linearGradient id="logo-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#3b82f6" />
+                <stop offset="100%" stop-color="#8b5cf6" />
+              </linearGradient>
+            </defs>
+            <path d="M12 12c-2-2.67-4-4-6-4a4 4 0 1 0 0 8c2 0 4-1.33 6-4zm0 0c2 2.67 4 4 6 4a4 4 0 1 0 0-8c-2 0-4 1.33-6 4z" />
+          </svg>
+        </span>
+        <span>I Love Maths</span>
+      </a>
+      <nav class="site-nav"><a href="../../index.html">Topics</a><a href="../../index.html#about">About</a><div class="theme-toggle" id="theme-toggle"></div></nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container container-narrow">
+      <div class="breadcrumb">
+        <a href="../../index.html">Topics</a><span class="sep">›</span><a href="../../index.html">Geometry</a><span class="sep">›</span><span>3D Geometry</span>
+      </div>
+
+      <header class="topic-header">
+        <div class="topic-meta">
+          <span class="topic-badge badge-active">Unit 21</span><span class="topic-level level-adv">Advanced</span>
+        </div>
+        <h1 class="topic-title">Three Dimensional Geometry</h1>
+        <p class="topic-desc">Expand beyond the flat plane. Learn about coordinates, lines, and planes in 3D space.</p>
+        <div class="tab-nav">
+          <button class="tab-btn active" data-target="ref">Concept Reference</button>
+          <button class="tab-btn" data-target="quiz">Interactive Quiz</button>
+        </div>
+      </header>
+
+      <div class="tab-content-container">
+        <!-- CONCEPT REFERENCE -->
+        <div class="tab-pane active" id="pane-ref">
+          <div class="concept-section">
+            <h2 class="section-heading">Adding the Z-Axis</h2>
+            <p>In 2D geometry, we have the x and y axes. In 3D geometry, we add depth with the z-axis, allowing us to describe points in real-world space.</p>
+          </div>
+
+          <div class="formula-hero">
+            <div class="formula-hero-main" style="font-size:1.5rem">$$ P(x, y, z) $$</div>
+            <div class="formula-hero-desc">Every point in 3D space requires three coordinates.</div>
+          </div>
+
+          <div class="ref-grid">
+            <div class="ref-card">
+              <div class="ref-card-header"><span class="ref-badge blue">Formula</span><span class="ref-card-title">Distance in 3D</span></div>
+              <p style="font-size:0.9rem; margin-bottom:10px;">The 3D Pythagorean theorem.</p>
+              <div class="ref-formula-box" style="font-size:0.9rem;">
+                $$ d = \sqrt{(x_2-x_1)^2 + (y_2-y_1)^2 + (z_2-z_1)^2} $$
+              </div>
+            </div>
+            
+            <div class="ref-card">
+              <div class="ref-card-header"><span class="ref-badge teal">Geometry</span><span class="ref-card-title">Equation of a Plane</span></div>
+              <p style="font-size:0.9rem; margin-bottom:10px;">Defined by a normal vector $\langle a,b,c \rangle$ and a point.</p>
+              <div class="ref-formula-box" style="font-size:0.9rem;">
+                $$ ax + by + cz = d $$
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- INTERACTIVE QUIZ -->
+        <div class="tab-pane" id="pane-quiz">
+          <div class="quiz-engine">
+            <div class="qe-header">
+              <div class="qe-progress-wrap"><div class="qe-progress-fill" id="qe-prog"></div></div>
+              <div class="qe-score" id="qe-score">Score: 0 / 0</div>
+            </div>
+            <div id="qe-container"></div>
+            <div class="qe-footer"><button class="btn btn-primary qe-next" id="qe-next" disabled>Next Question</button></div>
+          </div>
+          <div class="qe-result" id="qe-result"></div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer"><div class="container"><p class="footer-text">Made with <span class="heart">♥</span></p></div></footer>
+
+  <script src="../../js/quiz-engine.js"></script>
+  <script>
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+        btn.classList.add('active');
+        document.getElementById('pane-' + btn.dataset.target).classList.add('active');
+      });
+    });
+
+    const questions = [
+      { q: "What is the distance from the origin (0,0,0) to the point (2,3,6)?", expr: "", opts: ["$$ 7 $$", "$$ 11 $$", "$$ 49 $$", "$$ 36 $$"], ans: 0, diff: "medium", exp: "$$ \\sqrt{2^2 + 3^2 + 6^2} = \\sqrt{4 + 9 + 36} = \\sqrt{49} = 7 $$." },
+      { q: "In the equation of a plane $$ 3x + 4y - 2z = 10 $$, what is the normal vector?", expr: "", opts: ["$$ \\langle 3, 4, 10 \\rangle $$", "$$ \\langle 3, 4, -2 \\rangle $$", "$$ \\langle -3, -4, 2 \\rangle $$", "None of these"], ans: 1, diff: "medium", exp: "The coefficients of x, y, and z form the normal vector: $$ \\langle 3, 4, -2 \\rangle $$." }
+    ];
+
+    window.geo3dQuiz = new QuizEngine('qe-container', questions, {
+      onComplete: (res) => {
+        if (res.pct >= 80 && window.ProgressTracker) ProgressTracker.markComplete('3d-geometry');
+      }
+    });
+    window.geo3dQuiz.start();
+  </script>
+</body>
+</html>

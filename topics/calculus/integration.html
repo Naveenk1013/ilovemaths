@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Learn Integration: Antiderivatives, indefinite and definite integrals explained.">
+  <title>Integration — I Love Maths</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="../../css/topic.css">
+  <link rel="stylesheet" href="../../css/quiz.css">
+
+  <script src="../../js/math-libs.js"></script>
+  <script src="../../js/theme.js"></script>
+  <script src="../../js/progress.js"></script>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="../../index.html" class="site-logo">
+        <span class="logo-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="url(#logo-grad)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <defs>
+              <linearGradient id="logo-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#3b82f6" />
+                <stop offset="100%" stop-color="#8b5cf6" />
+              </linearGradient>
+            </defs>
+            <path d="M12 12c-2-2.67-4-4-6-4a4 4 0 1 0 0 8c2 0 4-1.33 6-4zm0 0c2 2.67 4 4 6 4a4 4 0 1 0 0-8c-2 0-4 1.33-6 4z" />
+          </svg>
+        </span>
+        <span>I Love Maths</span>
+      </a>
+      <nav class="site-nav"><a href="../../index.html">Topics</a><a href="../../index.html#about">About</a><div class="theme-toggle" id="theme-toggle"></div></nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container container-narrow">
+      <div class="breadcrumb">
+        <a href="../../index.html">Topics</a><span class="sep">›</span><a href="../../index.html">Calculus</a><span class="sep">›</span><span>Integration</span>
+      </div>
+
+      <header class="topic-header">
+        <div class="topic-meta">
+          <span class="topic-badge badge-active">Unit 24</span><span class="topic-level level-med">Intermediate</span>
+        </div>
+        <h1 class="topic-title">Integration</h1>
+        <p class="topic-desc">The opposite of differentiation. Finding the area under a curve by slicing it into infinite rectangles.</p>
+        <div class="tab-nav">
+          <button class="tab-btn active" data-target="ref">Concept Reference</button>
+          <button class="tab-btn" data-target="quiz">Interactive Quiz</button>
+        </div>
+      </header>
+
+      <div class="tab-content-container">
+        <!-- CONCEPT REFERENCE -->
+        <div class="tab-pane active" id="pane-ref">
+          <div class="concept-section">
+            <h2 class="section-heading">Accumulation</h2>
+            <p>If differentiation finds the rate of change, integration finds the accumulation of that quantity. It gives you the total area under a function's curve.</p>
+          </div>
+
+          <div class="formula-hero">
+            <div class="formula-hero-main" style="font-size:1.5rem">$$ \int x^n \, dx = \frac{x^{n+1}}{n+1} + C $$</div>
+            <div class="formula-hero-desc">The Power Rule for Integration. Add 1 to the power, divide by the new power. Always add $+C$!</div>
+          </div>
+
+          <div class="ref-grid">
+            <div class="ref-card">
+              <div class="ref-card-header"><span class="ref-badge blue">Concept</span><span class="ref-card-title">Indefinite Integrals</span></div>
+              <p style="font-size:0.9rem; margin-bottom:10px;">Finding the general antiderivative formula.</p>
+              <div class="ref-formula-box" style="font-size:0.9rem;">
+                $$ \int 2x \, dx = x^2 + C $$
+              </div>
+            </div>
+            
+            <div class="ref-card">
+              <div class="ref-card-header"><span class="ref-badge teal">Concept</span><span class="ref-card-title">Definite Integrals</span></div>
+              <p style="font-size:0.9rem; margin-bottom:10px;">Finding the exact numerical area between bounds.</p>
+              <div class="ref-formula-box" style="font-size:0.9rem;">
+                $$ \int_a^b f(x) \, dx $$
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- INTERACTIVE QUIZ -->
+        <div class="tab-pane" id="pane-quiz">
+          <div class="quiz-engine">
+            <div class="qe-header">
+              <div class="qe-progress-wrap"><div class="qe-progress-fill" id="qe-prog"></div></div>
+              <div class="qe-score" id="qe-score">Score: 0 / 0</div>
+            </div>
+            <div id="qe-container"></div>
+            <div class="qe-footer"><button class="btn btn-primary qe-next" id="qe-next" disabled>Next Question</button></div>
+          </div>
+          <div class="qe-result" id="qe-result"></div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer"><div class="container"><p class="footer-text">Made with <span class="heart">♥</span></p></div></footer>
+
+  <script src="../../js/quiz-engine.js"></script>
+  <script>
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+        btn.classList.add('active');
+        document.getElementById('pane-' + btn.dataset.target).classList.add('active');
+      });
+    });
+
+    const questions = [
+      { q: "What is the integral of $$ f(x) = 3x^2 $$?", expr: "", opts: ["$$ x^3 + C $$", "$$ 6x + C $$", "$$ 3x^3 + C $$", "$$ \\frac{x^3}{3} + C $$"], ans: 0, diff: "easy", exp: "Using the power rule: add 1 to power (3), divide by new power (3). $$ \\frac{3x^3}{3} = x^3 + C $$." },
+      { q: "Why do we add $$ + C $$ to indefinite integrals?", expr: "", opts: ["Because C stands for Calculus", "To account for any constant that was lost during differentiation", "It makes the equation solvable", "It's a placeholder for zero"], ans: 1, diff: "medium", exp: "The derivative of any constant is 0. So when integrating backwards, we add C to represent that unknown constant." }
+    ];
+
+    window.intQuiz = new QuizEngine('qe-container', questions, {
+      onComplete: (res) => {
+        if (res.pct >= 80 && window.ProgressTracker) ProgressTracker.markComplete('integration');
+      }
+    });
+    window.intQuiz.start();
+  </script>
+</body>
+</html>

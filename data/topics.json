@@ -246,9 +246,9 @@
     "category": "Geometry",
     "icon": "xyz",
     "difficulty": "advanced",
-    "status": "coming-soon",
-    "path": null,
-    "questionsCount": 0,
+    "status": "live",
+    "path": "topics/geometry/3d-geometry.html",
+    "questionsCount": 2,
     "unit": 21
   },
   {
@@ -270,9 +270,9 @@
     "category": "Calculus",
     "icon": "max",
     "difficulty": "advanced",
-    "status": "coming-soon",
-    "path": null,
-    "questionsCount": 0,
+    "status": "live",
+    "path": "topics/calculus/diff-app.html",
+    "questionsCount": 2,
     "unit": 23
   },
   {
@@ -282,9 +282,9 @@
     "category": "Calculus",
     "icon": "S",
     "difficulty": "intermediate",
-    "status": "coming-soon",
-    "path": null,
-    "questionsCount": 0,
+    "status": "live",
+    "path": "topics/calculus/integration.html",
+    "questionsCount": 2,
     "unit": 24
   },
   {
@@ -294,9 +294,9 @@
     "category": "Calculus",
     "icon": "A",
     "difficulty": "advanced",
-    "status": "coming-soon",
-    "path": null,
-    "questionsCount": 0,
+    "status": "live",
+    "path": "topics/calculus/int-app.html",
+    "questionsCount": 2,
     "unit": 25
   },
   {
@@ -306,9 +306,9 @@
     "category": "Calculus",
     "icon": "dy",
     "difficulty": "advanced",
-    "status": "coming-soon",
-    "path": null,
-    "questionsCount": 0,
+    "status": "live",
+    "path": "topics/calculus/linear-diff-equations.html",
+    "questionsCount": 2,
     "unit": 26
   },
   {
