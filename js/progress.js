@@ -16,13 +16,17 @@ const ProgressTracker = (function () {
   function _read() {
     try {
       let data = localStorage.getItem(STORAGE_KEY);
-      if (data) return JSON.parse(data);
+      if (data) {
+        const parsed = JSON.parse(data);
+        if (!parsed.activityLog) parsed.activityLog = {};
+        return parsed;
+      }
       
       // Migrate legacy array if exists
       const legacy = localStorage.getItem(LEGACY_KEY);
       if (legacy) {
         const parsed = JSON.parse(legacy);
-        const migrated = { topics: {} };
+        const migrated = { topics: {}, activityLog: {} };
         if (parsed.completedTopics) {
           parsed.completedTopics.forEach(id => {
             migrated.topics[id] = { scorePct: 100, lastPlayed: Date.now(), attempts: 1 };
@@ -32,9 +36,9 @@ const ProgressTracker = (function () {
         localStorage.removeItem(LEGACY_KEY);
         return migrated;
       }
-      return { topics: {} };
+      return { topics: {}, activityLog: {} };
     } catch {
-      return { topics: {} };
+      return { topics: {}, activityLog: {} };
     }
   }
 
@@ -49,6 +53,8 @@ const ProgressTracker = (function () {
     /** Mark a topic as completed with a score */
     markComplete(topicId, scorePct = 100) {
       const data = _read();
+      
+      // Log topic score
       if (!data.topics[topicId]) {
         data.topics[topicId] = { scorePct, lastPlayed: Date.now(), attempts: 1 };
       } else {
@@ -56,6 +62,11 @@ const ProgressTracker = (function () {
         data.topics[topicId].lastPlayed = Date.now();
         data.topics[topicId].attempts++;
       }
+
+      // Log daily activity for heatmap
+      const today = new Date().toISOString().split('T')[0];
+      data.activityLog[today] = (data.activityLog[today] || 0) + 1;
+
       _write(data);
     },
 
@@ -75,6 +86,11 @@ const ProgressTracker = (function () {
     /** Get stats object for a specific topic */
     getTopicData(topicId) {
       return _read().topics[topicId] || null;
+    },
+
+    /** Get the daily activity log */
+    getActivityLog() {
+      return _read().activityLog;
     },
 
     /** Get all completed topic IDs */

@@ -152,7 +152,71 @@
     });
   }
 
+  // ── Render Activity Heatmap ──
+  function renderHeatmap() {
+    const grid = document.getElementById('heatmap-grid');
+    const streakEl = document.getElementById('heatmap-streak');
+    if (!grid || !window.ProgressTracker) return;
+
+    const log = window.ProgressTracker.getActivityLog();
+    const DAYS = 98; // 14 weeks
+    const today = new Date();
+    
+    // Normalize today to start of day
+    today.setHours(0, 0, 0, 0);
+
+    let html = '';
+    let currentStreak = 0;
+    let streakActive = true;
+
+    // Calculate dates backwards
+    const dates = [];
+    for (let i = DAYS - 1; i >= 0; i--) {
+      const d = new Date(today);
+      d.setDate(d.getDate() - i);
+      const iso = d.toISOString().split('T')[0];
+      dates.push(iso);
+    }
+
+    // Determine current streak by checking backwards from today
+    for (let i = dates.length - 1; i >= 0; i--) {
+      const dateStr = dates[i];
+      const count = log[dateStr] || 0;
+      
+      // If it's today and count is 0, we don't break the streak immediately
+      // (they have all day to finish it), but if yesterday was 0, it's broken.
+      if (i === dates.length - 1 && count === 0) {
+        continue;
+      }
+      
+      if (count > 0) {
+        currentStreak++;
+      } else {
+        break; // streak broken
+      }
+    }
+
+    if (streakEl) {
+      streakEl.textContent = `${currentStreak} Day Streak 🔥`;
+    }
+
+    // Render cells
+    dates.forEach(dateStr => {
+      const count = log[dateStr] || 0;
+      let level = 0;
+      if (count > 0) level = 1;
+      if (count > 2) level = 2;
+      if (count > 4) level = 3;
+      if (count > 6) level = 4;
+
+      html += `<div class="heatmap-cell level-${level}" title="${dateStr}: ${count} quizzes"></div>`;
+    });
+
+    grid.innerHTML = html;
+  }
+
   // ── Initialize ──
   renderFilters();
   renderTopics();
+  renderHeatmap();
 })();
