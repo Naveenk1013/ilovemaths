@@ -66,9 +66,9 @@
     "category": "Algebra",
     "icon": "f(x)",
     "difficulty": "intermediate",
-    "status": "coming-soon",
-    "path": null,
-    "questionsCount": 0,
+    "status": "live",
+    "path": "topics/algebra/relations-functions.html",
+    "questionsCount": 4,
     "unit": 6
   },
   {
@@ -78,9 +78,9 @@
     "category": "Algebra",
     "icon": "*",
     "difficulty": "intermediate",
-    "status": "coming-soon",
-    "path": null,
-    "questionsCount": 0,
+    "status": "live",
+    "path": "topics/algebra/binary-operations.html",
+    "questionsCount": 3,
     "unit": 7
   },
   {
@@ -90,9 +90,9 @@
     "category": "Discrete",
     "icon": "^",
     "difficulty": "intermediate",
-    "status": "coming-soon",
-    "path": null,
-    "questionsCount": 0,
+    "status": "live",
+    "path": "topics/discrete/logic.html",
+    "questionsCount": 3,
     "unit": 8
   },
   {
@@ -102,9 +102,9 @@
     "category": "Discrete",
     "icon": "C",
     "difficulty": "intermediate",
-    "status": "coming-soon",
-    "path": null,
-    "questionsCount": 0,
+    "status": "live",
+    "path": "topics/discrete/combinatorics.html",
+    "questionsCount": 3,
     "unit": 9
   },
   {
@@ -114,9 +114,9 @@
     "category": "Discrete",
     "icon": "nCr",
     "difficulty": "intermediate",
-    "status": "coming-soon",
-    "path": null,
-    "questionsCount": 0,
+    "status": "live",
+    "path": "topics/discrete/permutations-combinations.html",
+    "questionsCount": 4,
     "unit": 10
   },
   {

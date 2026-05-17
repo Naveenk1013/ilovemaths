@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Learn Permutations and Combinations: Factorials, nPr, and nCr explained simply.">
+  <title>Permutations & Combinations — I Love Maths</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="../../css/topic.css">
+  <link rel="stylesheet" href="../../css/quiz.css">
+
+  <script src="../../js/math-libs.js"></script>
+  <script src="../../js/theme.js"></script>
+  <script src="../../js/progress.js"></script>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="../../index.html" class="site-logo">
+        <span class="logo-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="url(#logo-grad)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <defs>
+              <linearGradient id="logo-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#3b82f6" />
+                <stop offset="100%" stop-color="#8b5cf6" />
+              </linearGradient>
+            </defs>
+            <path d="M12 12c-2-2.67-4-4-6-4a4 4 0 1 0 0 8c2 0 4-1.33 6-4zm0 0c2 2.67 4 4 6 4a4 4 0 1 0 0-8c-2 0-4 1.33-6 4z" />
+          </svg>
+        </span>
+        <span>I Love Maths</span>
+      </a>
+      <nav class="site-nav"><a href="../../index.html">Topics</a><a href="../../index.html#about">About</a><div class="theme-toggle" id="theme-toggle"></div></nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container container-narrow">
+      <div class="breadcrumb">
+        <a href="../../index.html">Topics</a><span class="sep">›</span><a href="../../index.html">Discrete</a><span class="sep">›</span><span>Permutations & Combinations</span>
+      </div>
+
+      <header class="topic-header">
+        <div class="topic-meta">
+          <span class="topic-badge badge-active">Unit 10</span><span class="topic-level level-med">Intermediate</span>
+        </div>
+        <h1 class="topic-title">Permutations & Combinations</h1>
+        <p class="topic-desc">Understand when order matters and when it doesn't. Master factorials, nPr, and nCr formulas.</p>
+        <div class="tab-nav">
+          <button class="tab-btn active" data-target="ref">Concept Reference</button>
+          <button class="tab-btn" data-target="quiz">Interactive Quiz</button>
+        </div>
+      </header>
+
+      <div class="tab-content-container">
+        <!-- CONCEPT REFERENCE -->
+        <div class="tab-pane active" id="pane-ref">
+          <div class="concept-section">
+            <h2 class="section-heading">Does Order Matter?</h2>
+            <p>Choosing a president and a vice-president is different from choosing two equal committee members. If order matters, it's a <strong>Permutation</strong>. If order doesn't matter, it's a <strong>Combination</strong>.</p>
+          </div>
+
+          <div class="formula-hero">
+            <div class="formula-hero-main" style="font-size:1.5rem">$$ ^nC_r = \frac{n!}{r!(n-r)!} $$</div>
+            <div class="formula-hero-desc">The Combination formula. Divide by $r!$ to remove duplicate arrangements!</div>
+          </div>
+
+          <div class="ref-grid">
+            <div class="ref-card">
+              <div class="ref-card-header"><span class="ref-badge blue">Concept</span><span class="ref-card-title">Factorials ($n!$)</span></div>
+              <p style="font-size:0.9rem; margin-bottom:10px;">Multiply a number by all integers below it.</p>
+              <div class="ref-formula-box">$$ 4! = 4 \times 3 \times 2 \times 1 = 24 $$</div>
+              <div class="ref-examples">Note: $$ 0! = 1 $$</div>
+            </div>
+            
+            <div class="ref-card">
+              <div class="ref-card-header"><span class="ref-badge teal">Order Matters</span><span class="ref-card-title">Permutations ($^nP_r$)</span></div>
+              <p style="font-size:0.9rem; margin-bottom:10px;">Choosing $r$ objects from $n$, where sequence matters.</p>
+              <div class="ref-formula-box">$$ ^nP_r = \frac{n!}{(n-r)!} $$</div>
+              <div class="ref-examples">Ex: Passwords, race podiums.</div>
+            </div>
+
+            <div class="ref-card">
+              <div class="ref-card-header"><span class="ref-badge amber">Order Free</span><span class="ref-card-title">Combinations ($^nC_r$)</span></div>
+              <p style="font-size:0.9rem; margin-bottom:10px;">Choosing $r$ objects from $n$, where sequence DOES NOT matter.</p>
+              <div class="ref-formula-box">$$ ^nC_r = \frac{n!}{r!(n-r)!} $$</div>
+              <div class="ref-examples">Ex: Fruit salad, card hands.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- INTERACTIVE QUIZ -->
+        <div class="tab-pane" id="pane-quiz">
+          <div class="quiz-engine">
+            <div class="qe-header">
+              <div class="qe-progress-wrap"><div class="qe-progress-fill" id="qe-prog"></div></div>
+              <div class="qe-score" id="qe-score">Score: 0 / 0</div>
+            </div>
+            <div id="qe-container"></div>
+            <div class="qe-footer"><button class="btn btn-primary qe-next" id="qe-next" disabled>Next Question</button></div>
+          </div>
+          <div class="qe-result" id="qe-result"></div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer"><div class="container"><p class="footer-text">Made with <span class="heart">♥</span></p></div></footer>
+
+  <script src="../../js/quiz-engine.js"></script>
+  <script>
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+        btn.classList.add('active');
+        document.getElementById('pane-' + btn.dataset.target).classList.add('active');
+      });
+    });
+
+    const questions = [
+      { q: "What is the value of $$ 0! $$?", expr: "", opts: ["$$ 0 $$", "$$ 1 $$", "Undefined", "Infinity"], ans: 1, diff: "easy", exp: "By mathematical convention, the factorial of zero is 1." },
+      { q: "Selecting 3 people from a group of 10 to form a committee. Is this a permutation or combination?", expr: "", opts: ["Permutation", "Combination"], ans: 1, diff: "easy", exp: "Order does not matter in a committee. A,B,C is the same committee as B,C,A." },
+      { q: "What is $$ ^5C_2 $$?", expr: "", opts: ["$$ 20 $$", "$$ 120 $$", "$$ 10 $$", "$$ 60 $$"], ans: 2, diff: "medium", exp: "$$ ^5C_2 = \\frac{5!}{2!(5-2)!} = \\frac{120}{2 \\times 6} = 10 $$." },
+      { q: "Entering a 4-digit PIN code. Is this a permutation or combination?", expr: "", opts: ["Permutation", "Combination"], ans: 0, diff: "easy", exp: "Order absolutely matters. 1234 is not the same PIN as 4321." }
+    ];
+
+    window.permCombQuiz = new QuizEngine('qe-container', questions, {
+      onComplete: (res) => {
+        if (res.pct >= 80 && window.ProgressTracker) ProgressTracker.markComplete('permutations-combinations');
+      }
+    });
+    window.permCombQuiz.start();
+  </script>
+</body>
+</html>

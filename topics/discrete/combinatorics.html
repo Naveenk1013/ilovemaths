@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Learn Combinatorics: The fundamental counting principle, addition rule, and pigeonhole principle.">
+  <title>Combinatorics — I Love Maths</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="../../css/topic.css">
+  <link rel="stylesheet" href="../../css/quiz.css">
+
+  <script src="../../js/math-libs.js"></script>
+  <script src="../../js/theme.js"></script>
+  <script src="../../js/progress.js"></script>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="../../index.html" class="site-logo">
+        <span class="logo-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="url(#logo-grad)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <defs>
+              <linearGradient id="logo-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#3b82f6" />
+                <stop offset="100%" stop-color="#8b5cf6" />
+              </linearGradient>
+            </defs>
+            <path d="M12 12c-2-2.67-4-4-6-4a4 4 0 1 0 0 8c2 0 4-1.33 6-4zm0 0c2 2.67 4 4 6 4a4 4 0 1 0 0-8c-2 0-4 1.33-6 4z" />
+          </svg>
+        </span>
+        <span>I Love Maths</span>
+      </a>
+      <nav class="site-nav"><a href="../../index.html">Topics</a><a href="../../index.html#about">About</a><div class="theme-toggle" id="theme-toggle"></div></nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container container-narrow">
+      <div class="breadcrumb">
+        <a href="../../index.html">Topics</a><span class="sep">›</span><a href="../../index.html">Discrete</a><span class="sep">›</span><span>Combinatorics</span>
+      </div>
+
+      <header class="topic-header">
+        <div class="topic-meta">
+          <span class="topic-badge badge-active">Unit 9</span><span class="topic-level level-med">Intermediate</span>
+        </div>
+        <h1 class="topic-title">Combinatorics Basics</h1>
+        <p class="topic-desc">Learn how to count without actually counting. Discover the fundamental principles of probability and arrangements.</p>
+        <div class="tab-nav">
+          <button class="tab-btn active" data-target="ref">Concept Reference</button>
+          <button class="tab-btn" data-target="quiz">Interactive Quiz</button>
+        </div>
+      </header>
+
+      <div class="tab-content-container">
+        <!-- CONCEPT REFERENCE -->
+        <div class="tab-pane active" id="pane-ref">
+          <div class="concept-section">
+            <h2 class="section-heading">The Art of Counting</h2>
+            <p>Combinatorics is the branch of mathematics dealing with combinations of objects belonging to a finite set. It tells us how many ways an event can happen.</p>
+          </div>
+
+          <div class="formula-hero">
+            <div class="formula-hero-main" style="font-size:1.5rem">$$ m \times n \text{ ways} $$</div>
+            <div class="formula-hero-desc">Multiplication Principle: If task A can be done in $m$ ways and task B in $n$ ways, doing both takes $m \times n$ ways.</div>
+          </div>
+
+          <div class="ref-grid">
+            <div class="ref-card">
+              <div class="ref-card-header"><span class="ref-badge blue">Rule 1</span><span class="ref-card-title">Multiplication Principle (AND)</span></div>
+              <p style="font-size:0.9rem; margin-bottom:10px;">Used when events happen together or in sequence.</p>
+              <div class="ref-formula-box">$$ \text{Total} = m \times n $$</div>
+              <div class="ref-examples">3 shirts AND 2 pants = $ 3 \times 2 = 6 $ outfits.</div>
+            </div>
+            
+            <div class="ref-card">
+              <div class="ref-card-header"><span class="ref-badge teal">Rule 2</span><span class="ref-card-title">Addition Principle (OR)</span></div>
+              <p style="font-size:0.9rem; margin-bottom:10px;">Used when events are mutually exclusive (cannot happen at the same time).</p>
+              <div class="ref-formula-box">$$ \text{Total} = m + n $$</div>
+              <div class="ref-examples">Take a bus (3 routes) OR a train (2 routes) = $ 3 + 2 = 5 $ ways.</div>
+            </div>
+
+            <div class="ref-card">
+              <div class="ref-card-header"><span class="ref-badge amber">Theory</span><span class="ref-card-title">Pigeonhole Principle</span></div>
+              <p style="font-size:0.9rem; margin-bottom:10px;">If you have more pigeons than pigeonholes, at least one hole must contain more than one pigeon.</p>
+              <div class="ref-formula-box">If $ n > m $, a hole gets $ \ge 2 $.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- INTERACTIVE QUIZ -->
+        <div class="tab-pane" id="pane-quiz">
+          <div class="quiz-engine">
+            <div class="qe-header">
+              <div class="qe-progress-wrap"><div class="qe-progress-fill" id="qe-prog"></div></div>
+              <div class="qe-score" id="qe-score">Score: 0 / 0</div>
+            </div>
+            <div id="qe-container"></div>
+            <div class="qe-footer"><button class="btn btn-primary qe-next" id="qe-next" disabled>Next Question</button></div>
+          </div>
+          <div class="qe-result" id="qe-result"></div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer"><div class="container"><p class="footer-text">Made with <span class="heart">♥</span></p></div></footer>
+
+  <script src="../../js/quiz-engine.js"></script>
+  <script>
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+        btn.classList.add('active');
+        document.getElementById('pane-' + btn.dataset.target).classList.add('active');
+      });
+    });
+
+    const questions = [
+      { q: "You have 4 colors of paint and 3 types of brushes. How many unique paint-brush combinations can you make?", expr: "", opts: ["7", "12", "1", "4"], ans: 1, diff: "easy", exp: "Use the multiplication principle (AND): $$ 4 \\times 3 = 12 $$." },
+      { q: "You can travel to the city by taking 1 of 5 trains OR 1 of 3 buses. How many ways can you travel?", expr: "", opts: ["15", "8", "2", "5"], ans: 1, diff: "easy", exp: "Use the addition principle (OR): $$ 5 + 3 = 8 $$." },
+      { q: "If there are 367 people in a room, what does the Pigeonhole Principle guarantee?", expr: "", opts: ["Everyone has a different birthday", "At least two people share the same birthday", "Someone was born on a leap year", "None of the above"], ans: 1, diff: "medium", exp: "There are only 366 possible birthdays (including leap year). With 367 people, at least 2 must share a birthday." }
+    ];
+
+    window.combQuiz = new QuizEngine('qe-container', questions, {
+      onComplete: (res) => {
+        if (res.pct >= 80 && window.ProgressTracker) ProgressTracker.markComplete('combinatorics');
+      }
+    });
+    window.combQuiz.start();
+  </script>
+</body>
+</html>

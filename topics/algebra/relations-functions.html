@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Learn Relations and Functions: Domain, range, mappings, and the vertical line test explained simply with interactive quizzes.">
+  <title>Relations & Functions — I Love Maths</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="../../css/topic.css">
+  <link rel="stylesheet" href="../../css/quiz.css">
+
+  <!-- Math & Visualization Libraries -->
+  <script src="../../js/math-libs.js"></script>
+
+  <!-- Theme -->
+  <script src="../../js/theme.js"></script>
+  <script src="../../js/progress.js"></script>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <a href="../../index.html" class="site-logo">
+        <span class="logo-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="url(#logo-grad)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <defs>
+              <linearGradient id="logo-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#3b82f6" />
+                <stop offset="100%" stop-color="#8b5cf6" />
+              </linearGradient>
+            </defs>
+            <path d="M12 12c-2-2.67-4-4-6-4a4 4 0 1 0 0 8c2 0 4-1.33 6-4zm0 0c2 2.67 4 4 6 4a4 4 0 1 0 0-8c-2 0-4 1.33-6 4z" />
+          </svg>
+        </span>
+        <span>I Love Maths</span>
+      </a>
+      <nav class="site-nav">
+        <a href="../../index.html">Topics</a>
+        <a href="../../index.html#about">About</a>
+        <div class="theme-toggle" id="theme-toggle"></div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container container-narrow">
+
+      <div class="breadcrumb">
+        <a href="../../index.html">Topics</a>
+        <span class="sep">›</span>
+        <a href="../../index.html">Algebra</a>
+        <span class="sep">›</span>
+        <span>Relations & Functions</span>
+      </div>
+
+      <header class="topic-header">
+        <div class="topic-meta">
+          <span class="topic-badge badge-active">Unit 6</span>
+          <span class="topic-level level-med">Intermediate</span>
+        </div>
+        <h1 class="topic-title">Relations and Functions</h1>
+        <p class="topic-desc">Understand how inputs map to outputs, the difference between a relation and a function, and how to find domain and range.</p>
+        
+        <div class="tab-nav">
+          <button class="tab-btn active" data-target="ref">Concept Reference</button>
+          <button class="tab-btn" data-target="quiz">Interactive Quiz</button>
+          <button class="tab-btn" data-target="tips">Tips & Tricks</button>
+        </div>
+      </header>
+
+      <div class="tab-content-container">
+        
+        <!-- CONCEPT REFERENCE -->
+        <div class="tab-pane active" id="pane-ref">
+          
+          <div class="concept-section">
+            <h2 class="section-heading">Inputs and Outputs</h2>
+            <p>A relation is just a set of ordered pairs $(x, y)$. A function is a strict type of relation where every input has <strong>exactly one</strong> output. It's like a machine: you drop a number in, and a predictable number comes out.</p>
+          </div>
+
+          <!-- Hero Formula -->
+          <div class="formula-hero">
+            <div class="formula-hero-main" style="font-size:1.5rem">
+              $$ f: X \to Y $$
+            </div>
+            <div class="formula-hero-desc">
+              "Function $f$ maps elements from set $X$ (Domain) to elements in set $Y$ (Codomain)."
+            </div>
+          </div>
+
+          <div class="ref-grid">
+            
+            <div class="ref-card">
+              <div class="ref-card-header">
+                <span class="ref-badge blue">Vocabulary</span>
+                <span class="ref-card-title">Domain & Range</span>
+              </div>
+              <p style="font-size:0.9rem; margin-bottom:10px; color:var(--color-text-secondary);">The set of all possible inputs and outputs.</p>
+              <div class="ref-formula-box" style="font-size:0.9rem;">
+                Domain = All valid $x$ values <br>
+                Range = All resulting $y$ values
+              </div>
+            </div>
+
+            <div class="ref-card">
+              <div class="ref-card-header">
+                <span class="ref-badge teal">Rule</span>
+                <span class="ref-card-title">The Function Rule</span>
+              </div>
+              <p style="font-size:0.9rem; margin-bottom:10px; color:var(--color-text-secondary);">One input ($x$) cannot point to two different outputs ($y$).</p>
+              <div class="ref-formula-box">$$ (2, 3) \text{ and } (2, 5) \implies \text{Not a function} $$</div>
+              <div class="ref-examples"><strong>Analogy:</strong> Pressing the "Coca-Cola" button on a vending machine shouldn't randomly give you Coke or Sprite.</div>
+            </div>
+
+            <div class="ref-card">
+              <div class="ref-card-header">
+                <span class="ref-badge amber">Visual Test</span>
+                <span class="ref-card-title">Vertical Line Test</span>
+              </div>
+              <p style="font-size:0.9rem; margin-bottom:10px; color:var(--color-text-secondary);">If you draw a vertical line on a graph and it hits the curve more than once, it's NOT a function.</p>
+              <div class="ref-formula-box">Circle graph $\implies$ Fails test</div>
+            </div>
+
+          </div>
+
+          <div class="cheatbox">
+            <div class="cheatbox-title">Quick Revision Box</div>
+            <div class="cheat-row"><span class="cheat-q">Is $y = x^2$ a function?</span><span class="cheat-a">Yes. Every $x$ gives exactly one $y$.</span></div>
+            <div class="cheat-row"><span class="cheat-q">Is $x = y^2$ a function?</span><span class="cheat-a">No. If $x=4$, $y$ can be $2$ or $-2$ (Two outputs for one input).</span></div>
+            <div class="cheat-row"><span class="cheat-q">What's the domain of $f(x) = 1/x$?</span><span class="cheat-a">All real numbers except 0 ($x \neq 0$).</span></div>
+          </div>
+          
+        </div>
+
+        <!-- INTERACTIVE QUIZ -->
+        <div class="tab-pane" id="pane-quiz">
+          <div class="quiz-engine">
+            <div class="qe-header">
+              <div class="qe-progress-wrap"><div class="qe-progress-fill" id="qe-prog"></div></div>
+              <div class="qe-score" id="qe-score">Score: 0 / 0</div>
+            </div>
+            <div id="qe-container"></div>
+            <div class="qe-footer"><button class="btn btn-primary qe-next" id="qe-next" disabled>Next Question</button></div>
+          </div>
+          <div class="qe-result" id="qe-result"></div>
+        </div>
+
+        <!-- TIPS & TRICKS -->
+        <div class="tab-pane" id="pane-tips">
+          <div class="tips-grid">
+            <div class="tip-card">
+              <div class="tip-header"><span class="tip-icon">✓</span><span class="tip-title">Finding Domain Restrictions</span></div>
+              <div class="tip-body">Look out for two things: 1) Dividing by zero (denominator cannot be $0$). 2) Square roots of negative numbers (inside of a $\sqrt{}$ must be $\ge 0$).</div>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container"><p class="footer-text">Made with <span class="heart">♥</span> for students who want to learn maths</p></div>
+  </footer>
+
+  <script src="../../js/quiz-engine.js"></script>
+  <script>
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+        btn.classList.add('active');
+        document.getElementById('pane-' + btn.dataset.target).classList.add('active');
+      });
+    });
+
+    const questions = [
+      { q: "Is the relation $$ \\{(1, 2), (3, 4), (1, 5)\\} $$ a function?", expr: "", opts: ["Yes", "No"], ans: 1, diff: "easy", exp: "No, because the input 1 maps to both 2 and 5." },
+      { q: "What is the domain of $$ f(x) = \\frac{1}{x-3} $$?", expr: "", opts: ["$$ x \\neq 0 $$", "$$ x \\neq 3 $$", "All real numbers", "$$ x > 3 $$"], ans: 1, diff: "medium", exp: "The denominator cannot be zero. Therefore, $$ x - 3 \\neq 0 \\implies x \\neq 3 $$." },
+      { q: "A graph passes the Vertical Line Test. What does this mean?", expr: "", opts: ["It is a function", "It is not a function", "It is a straight line", "It is a relation but not a function"], ans: 0, diff: "easy", exp: "Passing the test means no vertical line crosses the graph more than once, ensuring one output per input." },
+      { q: "If $$ f(x) = 2x + 1 $$, find $$ f(3) $$", expr: "", opts: ["$$ 4 $$", "$$ 7 $$", "$$ 6 $$", "$$ 5 $$"], ans: 1, diff: "easy", exp: "$$ f(3) = 2(3) + 1 = 6 + 1 = 7 $$." }
+    ];
+
+    window.relFuncQuiz = new QuizEngine('qe-container', questions, {
+      onComplete: (res) => {
+        if (res.pct >= 80 && window.ProgressTracker) ProgressTracker.markComplete('relations-functions');
+      }
+    });
+    window.relFuncQuiz.start();
+  </script>
+</body>
+</html>
