@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Essential math rules and identities — sign rules, exponents, algebraic identities, and fractions. Quick visual reference for students.">
+  <title>Foundation — I Love Maths</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/foundation.css">
+
+  <!-- Theme (loaded early to prevent flash) -->
+  <script src="js/theme.js"></script>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="site-logo">
+        <span class="logo-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="url(#logo-grad)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <defs>
+              <linearGradient id="logo-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#3b82f6" />
+                <stop offset="100%" stop-color="#8b5cf6" />
+              </linearGradient>
+            </defs>
+            <path d="M12 12c-2-2.67-4-4-6-4a4 4 0 1 0 0 8c2 0 4-1.33 6-4zm0 0c2 2.67 4 4 6 4a4 4 0 1 0 0-8c-2 0-4 1.33-6 4z" />
+          </svg>
+        </span>
+        <span>I Love Maths</span>
+      </a>
+      <nav class="site-nav">
+        <a href="index.html">Topics</a>
+        <a href="index.html#about">About</a>
+        <div class="theme-toggle" id="theme-toggle"></div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container container-narrow">
+
+      <!-- Breadcrumb -->
+      <div class="breadcrumb">
+        <a href="index.html">Home</a>
+        <span class="sep">›</span>
+        <span>Foundation</span>
+      </div>
+
+      <!-- Hero -->
+      <section class="foundation-hero">
+        <h1>Math Foundation</h1>
+        <p>Every formula and rule you need before diving into any topic. Quick, visual, no fluff.</p>
+      </section>
+
+      <!-- Content rendered by JS from foundation.json -->
+      <div id="foundation-content">
+        <div class="foundation-loading">Loading foundation rules...</div>
+      </div>
+
+      <!-- CTA -->
+      <section class="foundation-cta">
+        <p>Got the basics? Start learning topics now.</p>
+        <a href="index.html#topics" class="btn btn-primary">Explore Topics</a>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <p class="footer-text">
+        Made with <span class="heart">&#9829;</span> for students who want to learn maths
+        <br>
+        Free forever. No ads. No sign-up required.
+      </p>
+      <div class="footer-links">
+        <a href="https://naveen-kr1.netlify.app/" target="_blank" rel="noopener">Portfolio</a>
+        <span class="footer-sep">&middot;</span>
+        <a href="https://github.com/Naveenk1013" target="_blank" rel="noopener">GitHub</a>
+        <span class="footer-sep">&middot;</span>
+        <a href="https://www.linkedin.com/in/naveen-kumar-8a40bb170/" target="_blank" rel="noopener">LinkedIn</a>
+        <span class="footer-sep">&middot;</span>
+        <a href="mailto:naveen.k1013@gmail.com">Email</a>
+      </div>
+      <p class="footer-managed">Managed by <a href="https://lancealot.in" target="_blank" rel="noopener">lancealot.in</a></p>
+    </div>
+  </footer>
+
+  <script>
+    /* Fetch and render foundation data */
+    (async function () {
+      try {
+        const res = await fetch('data/foundation.json');
+        const data = await res.json();
+        const container = document.getElementById('foundation-content');
+
+        let html = '';
+        data.categories.forEach(cat => {
+          html += `
+            <section class="foundation-category" id="cat-${cat.id}">
+              <div class="category-header">
+                <div class="category-title">${cat.title}</div>
+                <div class="category-desc">${cat.description}</div>
+              </div>
+              <div class="formula-grid">
+                ${cat.cards.map(card => `
+                  <div class="formula-card">
+                    <div class="formula-card-expr">${card.formula}</div>
+                    <div class="formula-card-note">${card.explanation}</div>
+                  </div>
+                `).join('')}
+              </div>
+            </section>
+          `;
+        });
+
+        container.innerHTML = html;
+      } catch (err) {
+        document.getElementById('foundation-content').innerHTML =
+          '<p style="text-align:center;color:var(--color-text-tertiary);">Could not load foundation data.</p>';
+      }
+    })();
+  </script>
+
+</body>
+</html>

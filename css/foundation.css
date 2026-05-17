@@ -1,0 +1,111 @@
+/* ═══════════════════════════════════════════════════════════
+   Foundation Page Styles — Basic rules & identity cards
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── Foundation Hero ── */
+.foundation-hero {
+  text-align: center;
+  padding: var(--space-2xl) 0 var(--space-xl);
+}
+
+.foundation-hero h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: var(--space-sm);
+}
+
+.foundation-hero p {
+  font-size: 0.95rem;
+  color: var(--color-text-secondary);
+  max-width: 480px;
+  margin: 0 auto;
+  line-height: 1.65;
+}
+
+/* ── Category Sections ── */
+.foundation-category {
+  margin-bottom: var(--space-2xl);
+}
+
+.category-header {
+  margin-bottom: var(--space-md);
+  padding-bottom: var(--space-sm);
+  border-bottom: 1px solid var(--color-border-tertiary);
+}
+
+.category-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: 2px;
+}
+
+.category-desc {
+  font-size: 0.82rem;
+  color: var(--color-text-tertiary);
+}
+
+/* ── Formula Cards Grid ── */
+.formula-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: var(--space-sm);
+}
+
+.formula-card {
+  background: var(--color-background-primary);
+  border: 1px solid var(--color-border-tertiary);
+  border-radius: var(--border-radius-lg);
+  padding: var(--space-md) var(--space-lg);
+  transition: border-color 0.15s;
+}
+
+.formula-card:hover {
+  border-color: var(--color-border-primary);
+}
+
+.formula-card-expr {
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--color-accent);
+  margin-bottom: var(--space-xs);
+  line-height: 1.5;
+}
+
+.formula-card-note {
+  font-size: 0.82rem;
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+}
+
+/* ── CTA at bottom ── */
+.foundation-cta {
+  text-align: center;
+  padding: var(--space-xl) 0 var(--space-2xl);
+}
+
+.foundation-cta p {
+  font-size: 0.95rem;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-lg);
+}
+
+/* ── Loading state ── */
+.foundation-loading {
+  text-align: center;
+  padding: var(--space-3xl) 0;
+  color: var(--color-text-tertiary);
+  font-size: 0.9rem;
+}
+
+/* ── Responsive ── */
+@media (max-width: 640px) {
+  .formula-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .foundation-hero h1 {
+    font-size: 1.6rem;
+  }
+}

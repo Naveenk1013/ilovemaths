@@ -19,7 +19,7 @@
 </head>
 <body>
 
-  <!-- ═══ Header ═══ -->
+  <!-- Header -->
   <header class="site-header">
     <div class="container">
       <a href="index.html" class="site-logo">
@@ -45,31 +45,34 @@
   </header>
 
   <main>
-    <!-- ═══ Hero ═══ -->
+    <!-- Hero -->
     <section class="hero-section">
       <div class="container">
         <h1>Learn maths the <span class="hero-accent">easy way</span></h1>
         <p class="hero-subtitle">
-          Free, interactive lessons that break complex concepts into simple steps. 
+          Free, interactive lessons that break complex concepts into simple steps.
           Understand, practice, and master — at your own pace.
         </p>
-        <a href="#topics" class="btn btn-primary btn-lg">Start Learning →</a>
+        <div class="hero-actions">
+          <a href="foundation.html" class="btn btn-primary btn-lg">Start from Basics</a>
+          <a href="#topics" class="btn btn-lg">Explore Topics</a>
+        </div>
       </div>
     </section>
 
-    <!-- ═══ Stats ═══ -->
+    <!-- Stats -->
     <div class="stats-bar">
       <div class="stat-item">
-        <div class="stat-number">1</div>
-        <div class="stat-label">Topic Live</div>
+        <div class="stat-number" id="stat-topics">--</div>
+        <div class="stat-label">Topics</div>
       </div>
       <div class="stat-item">
-        <div class="stat-number">10+</div>
+        <div class="stat-number" id="stat-live">--</div>
+        <div class="stat-label">Live Now</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number" id="stat-questions">--</div>
         <div class="stat-label">Questions</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-number">6</div>
-        <div class="stat-label">Case Types</div>
       </div>
       <div class="stat-item">
         <div class="stat-number">100%</div>
@@ -77,7 +80,7 @@
       </div>
     </div>
 
-    <!-- ═══ Topics Grid ═══ -->
+    <!-- Topics Section -->
     <section id="topics" class="container">
       <div class="section-header">
         <div class="section-label">Explore</div>
@@ -85,85 +88,16 @@
         <p class="section-desc">Pick a topic and start learning. Each includes concept explanation, examples, interactive quiz, and tips.</p>
       </div>
 
-      <div class="topics-grid">
+      <!-- Course Filter Pills -->
+      <div class="filter-bar" id="course-filters"></div>
 
-        <!-- Active: Power Rule -->
-        <a href="topics/calculus/power-rule.html" class="topic-card" id="topic-power-rule">
-          <div class="topic-card-icon">∫</div>
-          <div class="topic-card-title">Power Rule (Calculus)</div>
-          <div class="topic-card-desc">
-            Learn differentiation's most fundamental rule. Covers positive, negative, and fractional exponents with step-by-step examples.
-          </div>
-          <div class="topic-card-meta">
-            <span class="topic-badge badge-active">Live</span>
-            <span class="topic-questions">10 questions</span>
-          </div>
-        </a>
-
-        <!-- Coming Soon: Algebra Basics -->
-        <div class="topic-card coming-soon" id="topic-algebra">
-          <div class="topic-card-icon">x</div>
-          <div class="topic-card-title">Algebra Basics</div>
-          <div class="topic-card-desc">
-            Variables, expressions, and equations. The language of mathematics explained from scratch.
-          </div>
-          <div class="topic-card-meta">
-            <span class="topic-badge badge-soon">Coming Soon</span>
-          </div>
-        </div>
-
-        <!-- Coming Soon: Linear Equations -->
-        <div class="topic-card coming-soon" id="topic-linear">
-          <div class="topic-card-icon">/</div>
-          <div class="topic-card-title">Linear Equations</div>
-          <div class="topic-card-desc">
-            Solve for x, graph lines, and understand slope-intercept form with interactive visualizations.
-          </div>
-          <div class="topic-card-meta">
-            <span class="topic-badge badge-soon">Coming Soon</span>
-          </div>
-        </div>
-
-        <!-- Coming Soon: Quadratic Equations -->
-        <div class="topic-card coming-soon" id="topic-quadratic">
-          <div class="topic-card-icon">x²</div>
-          <div class="topic-card-title">Quadratic Equations</div>
-          <div class="topic-card-desc">
-            Factoring, quadratic formula, and graphing parabolas — all made simple and visual.
-          </div>
-          <div class="topic-card-meta">
-            <span class="topic-badge badge-soon">Coming Soon</span>
-          </div>
-        </div>
-
-        <!-- Coming Soon: Geometry Basics -->
-        <div class="topic-card coming-soon" id="topic-geometry">
-          <div class="topic-card-icon">△</div>
-          <div class="topic-card-title">Geometry Basics</div>
-          <div class="topic-card-desc">
-            Angles, triangles, circles, and area/perimeter calculations with visual diagrams.
-          </div>
-          <div class="topic-card-meta">
-            <span class="topic-badge badge-soon">Coming Soon</span>
-          </div>
-        </div>
-
-        <!-- Coming Soon: Trigonometry -->
-        <div class="topic-card coming-soon" id="topic-trig">
-          <div class="topic-card-icon">θ</div>
-          <div class="topic-card-title">Trigonometry</div>
-          <div class="topic-card-desc">
-            Sin, cos, tan — understand the ratios and the unit circle, visually and intuitively.
-          </div>
-          <div class="topic-card-meta">
-            <span class="topic-badge badge-soon">Coming Soon</span>
-          </div>
-        </div>
-
+      <!-- Dynamic Topic Grid (rendered by app.js) -->
+      <div id="topics-grid">
+        <p style="text-align:center;color:var(--color-text-tertiary);padding:2rem 0;">Loading topics...</p>
       </div>
     </section>
 
-    <!-- ═══ Learning Path ═══ -->
+    <!-- Learning Path -->
     <section class="container">
       <div class="learning-path">
         <div class="section-header">
@@ -200,36 +134,39 @@
       </div>
     </section>
 
-    <!-- ═══ CTA ═══ -->
+    <!-- CTA -->
     <section class="cta-section" id="about">
       <div class="container">
         <h2>Maths doesn't have to be scary</h2>
         <p>Start with one topic. Build from there. You've got this.</p>
-        <a href="#topics" class="btn btn-primary btn-lg">Explore Topics</a>
+        <a href="foundation.html" class="btn btn-primary btn-lg">Start from Foundation</a>
       </div>
     </section>
   </main>
 
-  <!-- ═══ Footer ═══ -->
+  <!-- Footer -->
   <footer class="site-footer">
     <div class="container">
       <p class="footer-text">
-        Made with <span class="heart">♥</span> for students who want to learn maths
+        Made with <span class="heart">&#9829;</span> for students who want to learn maths
         <br>
         Free forever. No ads. No sign-up required.
       </p>
       <div class="footer-links">
         <a href="https://naveen-kr1.netlify.app/" target="_blank" rel="noopener">Portfolio</a>
-        <span class="footer-sep">·</span>
+        <span class="footer-sep">&middot;</span>
         <a href="https://github.com/Naveenk1013" target="_blank" rel="noopener">GitHub</a>
-        <span class="footer-sep">·</span>
+        <span class="footer-sep">&middot;</span>
         <a href="https://www.linkedin.com/in/naveen-kumar-8a40bb170/" target="_blank" rel="noopener">LinkedIn</a>
-        <span class="footer-sep">·</span>
+        <span class="footer-sep">&middot;</span>
         <a href="mailto:naveen.k1013@gmail.com">Email</a>
       </div>
       <p class="footer-managed">Managed by <a href="https://lancealot.in" target="_blank" rel="noopener">lancealot.in</a></p>
     </div>
   </footer>
+
+  <!-- App (loads topics dynamically) -->
+  <script src="js/app.js"></script>
 
 </body>
 </html>

@@ -221,6 +221,14 @@ h4 { font-size: 1rem; }
   color: var(--color-accent);
 }
 
+.hero-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+}
+
 /* ── Stats Bar ── */
 .stats-bar {
   display: flex;
@@ -273,12 +281,60 @@ h4 { font-size: 1rem; }
   margin-top: var(--space-xs);
 }
 
+/* ── Course Filter Bar ── */
+.filter-bar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-xl);
+  flex-wrap: wrap;
+}
+
+.filter-pill {
+  padding: 7px 16px;
+  border: 1px solid var(--color-border-secondary);
+  border-radius: 20px;
+  background: transparent;
+  color: var(--color-text-secondary);
+  font-size: 0.8rem;
+  font-weight: 500;
+  font-family: var(--font-sans);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.filter-pill:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+.filter-pill.active {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: #ffffff;
+}
+
+/* ── Category Groups ── */
+.category-group {
+  margin-bottom: var(--space-xl);
+}
+
+.category-group-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-tertiary);
+  margin-bottom: var(--space-sm);
+  padding-left: 2px;
+}
+
 /* ── Topic Cards ── */
 .topics-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: var(--space-md);
-  margin-bottom: var(--space-3xl);
+  margin-bottom: var(--space-md);
 }
 
 .topic-card {
