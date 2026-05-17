@@ -21,10 +21,11 @@
  */
 
 class QuizEngine {
-  constructor({ containerId, questions, onComplete }) {
+  constructor(containerId, questions, options = {}) {
+    this.containerId = containerId;
     this.container = document.getElementById(containerId);
     this.allQuestions = questions;
-    this.onComplete = onComplete || function () {};
+    this.onComplete = options.onComplete || function () {};
 
     this.shuffled = [];
     this.current = 0;

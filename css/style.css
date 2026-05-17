@@ -57,6 +57,12 @@
 
   /* Page background */
   --page-bg: var(--color-background-secondary);
+
+  /* Semantic Aliases for Heatmap and Sandbox Components */
+  --color-surface: var(--color-background-primary);
+  --color-surface-hover: var(--color-background-secondary);
+  --color-border: var(--color-border-secondary);
+  --color-primary: var(--color-accent);
 }
 
 /* ── Dark Mode (applied via data-theme attribute) ── */
