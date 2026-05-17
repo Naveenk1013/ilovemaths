@@ -137,7 +137,29 @@
     const questions = [
       { q: "Solve for x: $$ 3x + 9 = 0 $$", expr: "", opts: ["$$ 3 $$", "$$ -3 $$", "$$ 0 $$", "$$ -9 $$"], ans: 1, diff: "easy", exp: "$$ 3x = -9 \\implies x = -3 $$." },
       { q: "If the discriminant $$ b^2 - 4ac $$ is negative, what does this mean?", expr: "", opts: ["Two real roots", "One real root", "No real roots (Complex roots)", "The equation is broken"], ans: 2, diff: "medium", exp: "A negative discriminant means you are taking the square root of a negative number, which results in imaginary/complex roots." },
-      { q: "Solve: $$ x^2 - 16 = 0 $$", expr: "", opts: ["$$ x = 4 $$", "$$ x = -4 $$", "$$ x = \\pm 4 $$", "$$ x = 16 $$"], ans: 2, diff: "easy", exp: "$$ x^2 = 16 \\implies x = 4 \\text{ or } -4 $$." }
+      { q: "Solve: $$ x^2 - 16 = 0 $$", expr: "", opts: ["$$ x = 4 $$", "$$ x = -4 $$", "$$ x = \\pm 4 $$", "$$ x = 16 $$"], ans: 2, diff: "easy", exp: "$$ x^2 = 16 \\implies x = 4 \\text{ or } -4 $$." },
+      {
+        type: "find-error",
+        q: "A student solved $$ 2x + 5 = 3x - 1 $$. Find the mistake.",
+        steps: [
+          "$$ 2x + 5 = 3x - 1 $$",
+          "Subtract $$ 2x $$ from both sides: $$ 5 = x - 1 $$",
+          "Subtract 1 from both sides: $$ 4 = x $$",
+          "Therefore $$ x = 4 $$"
+        ],
+        ans: 2,
+        diff: "medium",
+        exp: "Step 3 is wrong. You should ADD 1 to both sides: $$ 5 + 1 = x $$, giving $$ x = 6 $$."
+      },
+      {
+        type: "step-by-step",
+        q: "You are given the equation $$ 5x - 10 = 0 $$. What is the correct first step?",
+        scenario: "Solve for x.",
+        opts: ["Divide both sides by 5", "Add 10 to both sides", "Subtract 5 from both sides", "Square both sides"],
+        ans: 1,
+        diff: "easy",
+        exp: "First isolate the term with x: $$ 5x = 10 $$. Then divide by 5 to get $$ x = 2 $$."
+      }
     ];
 
     window.eqQuiz = new QuizEngine('qe-container', questions, {

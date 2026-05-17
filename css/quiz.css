@@ -282,3 +282,128 @@
     font-size: 1rem;
   }
 }
+
+/* ═══════════════════════════════════════════════
+   Phase 4: Advanced Question Types
+   ═══════════════════════════════════════════════ */
+
+/* ── Type Badges ── */
+.qe-type-badge {
+  font-size: 0.65rem;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-left: auto;
+}
+
+.error-badge {
+  background: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.step-badge {
+  background: rgba(139, 92, 246, 0.1);
+  color: #8b5cf6;
+  border: 1px solid rgba(139, 92, 246, 0.3);
+}
+
+/* ── Instruction text ── */
+.qe-instruction {
+  font-size: 0.85rem;
+  color: var(--color-text-secondary);
+  font-style: italic;
+  margin: var(--space-sm) 0 var(--space-md);
+}
+
+/* ── Find the Error: Step Lines ── */
+.qe-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.qe-step-line {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: 10px 14px;
+  border: 1px solid var(--color-border-secondary);
+  border-radius: var(--border-radius-md);
+  background: var(--color-background-secondary);
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s, transform 0.1s;
+}
+
+.qe-step-line:hover:not(.disabled) {
+  border-color: var(--color-border-primary);
+  background: var(--color-background-primary);
+  transform: translateX(4px);
+}
+
+.qe-step-num {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--color-text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+  min-width: 48px;
+}
+
+.qe-step-content {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  color: var(--color-text-primary);
+}
+
+.qe-step-line.disabled {
+  cursor: default;
+  opacity: 0.8;
+}
+
+.qe-step-line.step-ok {
+  border-color: var(--color-success);
+  background: var(--color-success-light);
+}
+
+.qe-step-line.step-ok .qe-step-num {
+  color: var(--color-success);
+}
+
+.qe-step-line.step-error {
+  border-color: #ef4444;
+  background: rgba(239, 68, 68, 0.1);
+}
+
+.qe-step-line.step-error .qe-step-num {
+  color: #ef4444;
+}
+
+.qe-step-line.step-error .qe-step-content {
+  text-decoration: line-through;
+  color: #ef4444;
+}
+
+.qe-step-line.step-found {
+  box-shadow: 0 0 0 2px var(--color-success);
+}
+
+.qe-step-line.step-wrong-pick {
+  box-shadow: 0 0 0 2px #ef4444;
+}
+
+/* ── Step-by-Step: Scenario ── */
+.qe-scenario {
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  background: var(--color-background-secondary);
+  border: 1px solid var(--color-border-tertiary);
+  border-radius: var(--border-radius-md);
+  padding: 12px 16px;
+  margin: var(--space-sm) 0 var(--space-md);
+  line-height: 1.7;
+  color: var(--color-text-primary);
+}

@@ -121,12 +121,34 @@
 
     const questions = [
       { q: "What is the integral of $$ f(x) = 3x^2 $$?", expr: "", opts: ["$$ x^3 + C $$", "$$ 6x + C $$", "$$ 3x^3 + C $$", "$$ \\frac{x^3}{3} + C $$"], ans: 0, diff: "easy", exp: "Using the power rule: add 1 to power (3), divide by new power (3). $$ \\frac{3x^3}{3} = x^3 + C $$." },
-      { q: "Why do we add $$ + C $$ to indefinite integrals?", expr: "", opts: ["Because C stands for Calculus", "To account for any constant that was lost during differentiation", "It makes the equation solvable", "It's a placeholder for zero"], ans: 1, diff: "medium", exp: "The derivative of any constant is 0. So when integrating backwards, we add C to represent that unknown constant." }
+      { q: "Why do we add $$ + C $$ to indefinite integrals?", expr: "", opts: ["Because C stands for Calculus", "To account for any constant that was lost during differentiation", "It makes the equation solvable", "It's a placeholder for zero"], ans: 1, diff: "medium", exp: "The derivative of any constant is 0. So when integrating backwards, we add C to represent that unknown constant." },
+      {
+        type: "find-error",
+        q: "A student integrated $$ \\int 4x^3 \\, dx $$. Find the mistake.",
+        steps: [
+          "Apply the power rule: add 1 to the exponent → $$ x^4 $$",
+          "Divide by the new exponent: $$ \\frac{4x^4}{4} $$",
+          "Simplify: $$ x^4 $$",
+          "Final answer: $$ x^4 $$ (no constant)"
+        ],
+        ans: 3,
+        diff: "medium",
+        exp: "Step 4 forgot the $$ + C $$. Every indefinite integral must include the constant of integration."
+      },
+      {
+        type: "step-by-step",
+        q: "You need to integrate $$ \\int 5x^4 \\, dx $$. What is the correct first step?",
+        scenario: "Apply the power rule for integration.",
+        opts: ["Multiply the exponent by the coefficient: $$ 20x^3 $$", "Add 1 to the exponent: $$ 5x^5 $$", "Divide by the coefficient: $$ x^4 $$", "Take the square root"],
+        ans: 1,
+        diff: "easy",
+        exp: "First add 1 to the exponent (4 → 5), giving $$ 5x^5 $$. Then divide by 5: $$ x^5 + C $$."
+      }
     ];
 
     window.intQuiz = new QuizEngine('qe-container', questions, {
       onComplete: (res) => {
-        if (res.pct >= 80 && window.ProgressTracker) ProgressTracker.markComplete('', res.pct);
+        if (res.pct >= 80 && window.ProgressTracker) ProgressTracker.markComplete('integration', res.pct);
       }
     });
     window.intQuiz.start();

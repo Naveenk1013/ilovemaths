@@ -104,12 +104,25 @@ class QuizEngine {
     document.getElementById('qe-next').disabled = true;
 
     // Reset next button text
-    if (this.current < this.shuffled.length - 1) {
-      document.getElementById('qe-next').textContent = 'Next →';
+    document.getElementById('qe-next').textContent = 'Next →';
+
+    // Branch by question type
+    const type = q.type || 'mcq';
+
+    if (type === 'find-error') {
+      this._renderFindError(area, q);
+    } else if (type === 'step-by-step') {
+      this._renderStepByStep(area, q);
     } else {
-      document.getElementById('qe-next').textContent = 'Next →';
+      this._renderMCQ(area, q);
     }
 
+    // Render KaTeX for the new question
+    this._triggerKaTeX();
+  }
+
+  /** Standard MCQ render */
+  _renderMCQ(area, q) {
     area.innerHTML = `
       <div class="qe-card">
         <div class="qe-meta">
@@ -117,7 +130,7 @@ class QuizEngine {
           <span class="qe-diff ${this._diffClass(q.diff)}">${q.diff}</span>
         </div>
         <div class="qe-text">${q.q}</div>
-        <span class="qe-expr">${q.expr}</span>
+        <span class="qe-expr">${q.expr || ''}</span>
         <div class="qe-options" id="qe-opts">
           ${q.opts.map((o, i) =>
       `<button class="qe-opt" data-idx="${i}" id="qe-opt-${i}">${o}</button>`
@@ -127,27 +140,96 @@ class QuizEngine {
       </div>
     `;
 
-    // Attach click listeners
     document.querySelectorAll('.qe-opt').forEach(btn => {
       btn.addEventListener('click', (e) => {
         this._pick(parseInt(e.target.dataset.idx));
       });
     });
+  }
 
-    // Render KaTeX for the new question
-    if (window.renderMathInElement) {
-      renderMathInElement(document.getElementById(this.containerId), {
-        delimiters: [
-          {left: '$$', right: '$$', display: true},
-          {left: '$', right: '$', display: false},
-          {left: '\\(', right: '\\)', display: false},
-          {left: '\\[', right: '\\]', display: true}
-        ]
+  /** "Find the Error" question type
+   *  q.steps = ["Step 1: ...", "Step 2: ...", ...]
+   *  q.ans = index of the incorrect step
+   */
+  _renderFindError(area, q) {
+    area.innerHTML = `
+      <div class="qe-card">
+        <div class="qe-meta">
+          <span class="qe-qnum">Q${this.current + 1}</span>
+          <span class="qe-diff ${this._diffClass(q.diff)}">${q.diff}</span>
+          <span class="qe-type-badge error-badge">🔍 Find the Error</span>
+        </div>
+        <div class="qe-text">${q.q}</div>
+        <p class="qe-instruction">A student solved this problem. One step has a mistake. Click the wrong step.</p>
+        <div class="qe-steps" id="qe-steps">
+          ${q.steps.map((s, i) =>
+      `<div class="qe-step-line" data-idx="${i}" id="qe-step-${i}">
+        <span class="qe-step-num">Step ${i + 1}</span>
+        <span class="qe-step-content">${s}</span>
+      </div>`
+    ).join('')}
+        </div>
+        <div class="qe-feedback" id="qe-fb"></div>
+      </div>
+    `;
+
+    document.querySelectorAll('.qe-step-line').forEach(line => {
+      line.addEventListener('click', () => {
+        this._pickFindError(parseInt(line.dataset.idx));
       });
+    });
+  }
+
+  /** "Step-by-Step" question type
+   *  q.scenario = "Problem statement"
+   *  q.opts = ["Do X", "Do Y", ...] — choices for the NEXT step
+   *  q.ans = index of correct next step
+   */
+  _renderStepByStep(area, q) {
+    area.innerHTML = `
+      <div class="qe-card">
+        <div class="qe-meta">
+          <span class="qe-qnum">Q${this.current + 1}</span>
+          <span class="qe-diff ${this._diffClass(q.diff)}">${q.diff}</span>
+          <span class="qe-type-badge step-badge">🧩 Next Step</span>
+        </div>
+        <div class="qe-text">${q.q}</div>
+        <div class="qe-scenario">${q.scenario || ''}</div>
+        <p class="qe-instruction">What is the correct next step?</p>
+        <div class="qe-options" id="qe-opts">
+          ${q.opts.map((o, i) =>
+      `<button class="qe-opt" data-idx="${i}" id="qe-opt-${i}">${o}</button>`
+    ).join('')}
+        </div>
+        <div class="qe-feedback" id="qe-fb"></div>
+      </div>
+    `;
+
+    document.querySelectorAll('.qe-opt').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        this._pick(parseInt(e.target.dataset.idx));
+      });
+    });
+  }
+
+  /** Trigger KaTeX rendering on the quiz container */
+  _triggerKaTeX() {
+    if (window.renderMathInElement) {
+      const el = this.container || document.getElementById(this.containerId);
+      if (el) {
+        renderMathInElement(el, {
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '$', right: '$', display: false},
+            {left: '\\(', right: '\\)', display: false},
+            {left: '\\[', right: '\\]', display: true}
+          ]
+        });
+      }
     }
   }
 
-  /** Handle answer selection */
+  /** Handle standard MCQ / step-by-step answer selection */
   _pick(idx) {
     const q = this.shuffled[this.current];
     const fb = document.getElementById('qe-fb');
@@ -180,16 +262,50 @@ class QuizEngine {
     }
 
     // Render KaTeX for feedback
-    if (window.renderMathInElement) {
-      renderMathInElement(fb, {
-        delimiters: [
-          {left: '$$', right: '$$', display: true},
-          {left: '$', right: '$', display: false},
-          {left: '\\(', right: '\\)', display: false},
-          {left: '\\[', right: '\\]', display: true}
-        ]
-      });
+    this._triggerKaTeX();
+  }
+
+  /** Handle "Find the Error" answer selection */
+  _pickFindError(idx) {
+    const q = this.shuffled[this.current];
+    const fb = document.getElementById('qe-fb');
+
+    // Disable all step lines
+    document.querySelectorAll('.qe-step-line').forEach(s => {
+      s.style.pointerEvents = 'none';
+      s.classList.add('disabled');
+    });
+
+    // Highlight the actual wrong step
+    document.getElementById(`qe-step-${q.ans}`).classList.add('step-error');
+
+    if (idx === q.ans) {
+      this.score++;
+      fb.className = 'qe-feedback show ok';
+      fb.innerHTML = `✓ <strong>Sharp eye!</strong> ${q.exp}`;
+      document.getElementById(`qe-step-${idx}`).classList.add('step-found');
+    } else {
+      document.getElementById(`qe-step-${idx}`).classList.add('step-wrong-pick');
+      fb.className = 'qe-feedback show bad';
+      fb.innerHTML = `✗ <strong>Not that one.</strong> The mistake is in Step ${q.ans + 1}. ${q.exp}`;
     }
+
+    // Mark all correct steps
+    q.steps.forEach((_, i) => {
+      if (i !== q.ans) {
+        document.getElementById(`qe-step-${i}`).classList.add('step-ok');
+      }
+    });
+
+    this.answered++;
+    document.getElementById('qe-score').textContent = `Score: ${this.score} / ${this.answered}`;
+    document.getElementById('qe-next').disabled = false;
+
+    if (this.current === this.shuffled.length - 1) {
+      document.getElementById('qe-next').textContent = 'See Results';
+    }
+
+    this._triggerKaTeX();
   }
 
   /** Go to next question or show results */
