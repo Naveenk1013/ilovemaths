@@ -186,9 +186,9 @@
     "category": "Algebra",
     "icon": "<",
     "difficulty": "intermediate",
-    "status": "coming-soon",
-    "path": null,
-    "questionsCount": 0,
+    "status": "live",
+    "path": "topics/algebra/inequalities.html",
+    "questionsCount": 3,
     "unit": 16
   },
   {
@@ -198,9 +198,9 @@
     "category": "Linear Algebra",
     "icon": "[]",
     "difficulty": "intermediate",
-    "status": "coming-soon",
-    "path": null,
-    "questionsCount": 0,
+    "status": "live",
+    "path": "topics/linear-algebra/matrices.html",
+    "questionsCount": 3,
     "unit": 17
   },
   {
@@ -210,9 +210,9 @@
     "category": "Linear Algebra",
     "icon": "||",
     "difficulty": "intermediate",
-    "status": "coming-soon",
-    "path": null,
-    "questionsCount": 0,
+    "status": "live",
+    "path": "topics/linear-algebra/determinants.html",
+    "questionsCount": 3,
     "unit": 18
   },
   {
@@ -222,9 +222,9 @@
     "category": "Linear Algebra",
     "icon": "Ax",
     "difficulty": "advanced",
-    "status": "coming-soon",
-    "path": null,
-    "questionsCount": 0,
+    "status": "live",
+    "path": "topics/linear-algebra/matrices-determinants-app.html",
+    "questionsCount": 2,
     "unit": 19
   },
   {
@@ -234,9 +234,9 @@
     "category": "Geometry",
     "icon": "v",
     "difficulty": "intermediate",
-    "status": "coming-soon",
-    "path": null,
-    "questionsCount": 0,
+    "status": "live",
+    "path": "topics/geometry/vectors.html",
+    "questionsCount": 3,
     "unit": 20
   },
   {
