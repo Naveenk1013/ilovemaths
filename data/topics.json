@@ -18,9 +18,9 @@
     "category": "Foundation",
     "icon": "#",
     "difficulty": "beginner",
-    "status": "coming-soon",
-    "path": null,
-    "questionsCount": 0,
+    "status": "live",
+    "path": "topics/foundation/number-systems.html",
+    "questionsCount": 6,
     "unit": 2
   },
   {

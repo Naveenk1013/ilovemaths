@@ -47,6 +47,20 @@ class QuizEngine {
     return diff === 'easy' ? 'diff-easy' : diff === 'medium' ? 'diff-med' : 'diff-hard';
   }
 
+  /** Trigger math rendering */
+  _renderMath() {
+    if (window.renderMathInElement) {
+      renderMathInElement(this.container, {
+        delimiters: [
+          {left: '$$', right: '$$', display: true},
+          {left: '$', right: '$', display: false},
+          {left: '\\(', right: '\\)', display: false},
+          {left: '\\[', right: '\\]', display: true}
+        ]
+      });
+    }
+  }
+
   /** Start or restart the quiz */
   start() {
     this.shuffled = this._shuffle(this.allQuestions);
@@ -119,6 +133,18 @@ class QuizEngine {
         this._pick(parseInt(e.target.dataset.idx));
       });
     });
+
+    // Render KaTeX for the new question
+    if (window.renderMathInElement) {
+      renderMathInElement(document.getElementById(this.containerId), {
+        delimiters: [
+          {left: '$$', right: '$$', display: true},
+          {left: '$', right: '$', display: false},
+          {left: '\\(', right: '\\)', display: false},
+          {left: '\\[', right: '\\]', display: true}
+        ]
+      });
+    }
   }
 
   /** Handle answer selection */
@@ -151,6 +177,18 @@ class QuizEngine {
 
     if (this.current === this.shuffled.length - 1) {
       document.getElementById('qe-next').textContent = 'See Results';
+    }
+
+    // Render KaTeX for feedback
+    if (window.renderMathInElement) {
+      renderMathInElement(fb, {
+        delimiters: [
+          {left: '$$', right: '$$', display: true},
+          {left: '$', right: '$', display: false},
+          {left: '\\(', right: '\\)', display: false},
+          {left: '\\[', right: '\\]', display: true}
+        ]
+      });
     }
   }
 
