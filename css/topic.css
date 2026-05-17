@@ -4,7 +4,8 @@
    ═══════════════════════════════════════════════════════════ */
 
 /* ── Tab Navigation ── */
-.topic-tabs {
+.topic-tabs,
+.tab-nav {
   display: flex;
   gap: 4px;
   background: var(--color-background-tertiary);
@@ -13,7 +14,8 @@
   margin-bottom: var(--space-xl);
 }
 
-.topic-tab {
+.topic-tab,
+.tab-btn {
   flex: 1;
   padding: 10px 8px;
   font-size: 0.85rem;
@@ -28,22 +30,26 @@
   text-align: center;
 }
 
-.topic-tab.active {
+.topic-tab.active,
+.tab-btn.active {
   background: var(--color-background-primary);
   color: var(--color-text-primary);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
 }
 
-.topic-tab:hover:not(.active) {
+.topic-tab:hover:not(.active),
+.tab-btn:hover:not(.active) {
   color: var(--color-text-primary);
 }
 
 /* ── Tab Content ── */
-.tab-content {
+.tab-content,
+.tab-pane {
   display: none;
 }
 
-.tab-content.active {
+.tab-content.active,
+.tab-pane.active {
   display: block;
 }
 
