@@ -30,9 +30,9 @@
     "category": "Foundation",
     "icon": "R",
     "difficulty": "beginner",
-    "status": "coming-soon",
-    "path": null,
-    "questionsCount": 0,
+    "status": "live",
+    "path": "topics/foundation/real-number-system.html",
+    "questionsCount": 6,
     "unit": 3
   },
   {

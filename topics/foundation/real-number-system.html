@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Master the Real Number System: Properties, Number Line, Intervals, and Absolute Value explained simply with interactive practice.">
+  <title>Real Number System — I Love Maths</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="../../css/topic.css">
+  <link rel="stylesheet" href="../../css/quiz.css">
+
+  <!-- Math & Visualization Libraries -->
+  <script src="../../js/math-libs.js"></script>
+
+  <!-- Theme -->
+  <script src="../../js/theme.js"></script>
+  <script src="../../js/progress.js"></script>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="../../index.html" class="site-logo">
+        <span class="logo-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="url(#logo-grad)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <defs>
+              <linearGradient id="logo-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#3b82f6" />
+                <stop offset="100%" stop-color="#8b5cf6" />
+              </linearGradient>
+            </defs>
+            <path d="M12 12c-2-2.67-4-4-6-4a4 4 0 1 0 0 8c2 0 4-1.33 6-4zm0 0c2 2.67 4 4 6 4a4 4 0 1 0 0-8c-2 0-4 1.33-6 4z" />
+          </svg>
+        </span>
+        <span>I Love Maths</span>
+      </a>
+      <nav class="site-nav">
+        <a href="../../index.html">Topics</a>
+        <a href="../../index.html#about">About</a>
+        <div class="theme-toggle" id="theme-toggle"></div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container container-narrow">
+
+      <!-- Breadcrumb -->
+      <div class="breadcrumb">
+        <a href="../../index.html">Topics</a>
+        <span class="sep">›</span>
+        <a href="../../index.html">Foundation</a>
+        <span class="sep">›</span>
+        <span>Real Number System</span>
+      </div>
+
+      <!-- Topic Header -->
+      <header class="topic-header">
+        <div class="topic-meta">
+          <span class="topic-badge badge-active">Unit 3</span>
+          <span class="topic-level level-beg">Beginner</span>
+        </div>
+        <h1 class="topic-title">Real Number System</h1>
+        <p class="topic-desc">Learn about the continuous number line, mathematical properties, intervals, and absolute value.</p>
+        
+        <div class="tab-nav">
+          <button class="tab-btn active" data-target="ref">Concept Reference</button>
+          <button class="tab-btn" data-target="quiz">Interactive Quiz</button>
+          <button class="tab-btn" data-target="tips">Tips & Tricks</button>
+        </div>
+      </header>
+
+      <div class="tab-content-container">
+        
+        <!-- =========================================
+             TAB 1: CONCEPT REFERENCE
+             ========================================= -->
+        <div class="tab-pane active" id="pane-ref">
+          
+          <div class="concept-section">
+            <h2 class="section-heading">What is the Real Number System?</h2>
+            <p>The set of Real Numbers ($ \mathbb{R} $) includes every single number that can be plotted on an infinite, continuous number line. There are no "gaps".</p>
+          </div>
+
+          <!-- Hero Formula -->
+          <div class="formula-hero">
+            <div class="formula-hero-main" style="font-size:1.5rem">
+              $$ \text{Distance from zero: } |x| = \begin{cases} x & \text{if } x \ge 0 \\ -x & \text{if } x < 0 \end{cases} $$
+            </div>
+            <div class="formula-hero-desc">
+              The absolute value measures how far a number is from zero, ignoring its direction. Distance is always positive!
+            </div>
+          </div>
+
+          <div class="ref-grid">
+            
+            <!-- Properties -->
+            <div class="ref-card">
+              <div class="ref-card-header">
+                <span class="ref-badge blue">Properties</span>
+                <span class="ref-card-title">Commutative & Associative</span>
+              </div>
+              <p style="font-size:0.9rem; margin-bottom:10px; color:var(--color-text-secondary);">Order and grouping don't matter for addition and multiplication.</p>
+              <div class="ref-formula-box" style="font-size:0.9rem;">
+                $$ a + b = b + a $$
+                $$ (a \times b) \times c = a \times (b \times c) $$
+              </div>
+              <div class="ref-examples"><strong>Analogy:</strong> Pouring milk then coffee is the same as pouring coffee then milk.</div>
+            </div>
+
+            <!-- Distributive Property -->
+            <div class="ref-card">
+              <div class="ref-card-header">
+                <span class="ref-badge teal">Properties</span>
+                <span class="ref-card-title">Distributive Property</span>
+              </div>
+              <p style="font-size:0.9rem; margin-bottom:10px; color:var(--color-text-secondary);">Multiplication distributes over addition.</p>
+              <div class="ref-formula-box">$$ a(b + c) = ab + ac $$</div>
+              <div class="ref-examples"><span>$$ 2(x + 3) = 2x + 6 $$</span></div>
+            </div>
+
+            <!-- Intervals -->
+            <div class="ref-card">
+              <div class="ref-card-header">
+                <span class="ref-badge amber">Notation</span>
+                <span class="ref-card-title">Open vs Closed Intervals</span>
+              </div>
+              <p style="font-size:0.9rem; margin-bottom:10px; color:var(--color-text-secondary);">Parentheses <code>()</code> exclude the endpoints. Brackets <code>[]</code> include them.</p>
+              <div class="ref-formula-box" style="font-size:0.9rem;">
+                $$ (a, b) \implies a < x < b $$
+                $$ [a, b] \implies a \le x \le b $$
+              </div>
+              <div class="ref-examples"><strong>Analogy:</strong> <code>(18, 65)</code> means "strictly between 18 and 65". <code>[18, 65]</code> means "from 18 to 65 inclusive".</div>
+            </div>
+
+            <!-- Absolute Value -->
+            <div class="ref-card">
+              <div class="ref-card-header">
+                <span class="ref-badge coral">Concept</span>
+                <span class="ref-card-title">Absolute Value $|x|$</span>
+              </div>
+              <p style="font-size:0.9rem; margin-bottom:10px; color:var(--color-text-secondary);">The physical distance of a number from zero on the number line.</p>
+              <div class="ref-formula-box">$$ |-5| = 5 \quad \text{and} \quad |5| = 5 $$</div>
+              <div class="ref-examples"><strong>Analogy:</strong> Walking 5 steps forward or 5 steps backward — you still walked 5 steps.</div>
+            </div>
+
+          </div>
+
+          <div class="cheatbox">
+            <div class="cheatbox-title">Quick Revision Box</div>
+            <div class="cheat-row"><span class="cheat-q">What is the Additive Identity?</span><span class="cheat-a">$$ 0 $$ (because $a + 0 = a$)</span></div>
+            <div class="cheat-row"><span class="cheat-q">What is the Multiplicative Identity?</span><span class="cheat-a">$$ 1 $$ (because $a \times 1 = a$)</span></div>
+            <div class="cheat-row"><span class="cheat-q">What does $(2, 5]$ mean?</span><span class="cheat-a">Greater than $2$, but less than or equal to $5$.</span></div>
+            <div class="cheat-row"><span class="cheat-q">Solve $|x| = -3$</span><span class="cheat-a">No solution! Distance cannot be negative.</span></div>
+          </div>
+          
+        </div>
+
+        <!-- =========================================
+             TAB 2: INTERACTIVE QUIZ
+             ========================================= -->
+        <div class="tab-pane" id="pane-quiz">
+          <div class="quiz-engine">
+            <div class="qe-header">
+              <div class="qe-progress-wrap">
+                <div class="qe-progress-fill" id="qe-prog"></div>
+              </div>
+              <div class="qe-score" id="qe-score">Score: 0 / 0</div>
+            </div>
+            
+            <div id="qe-container"></div>
+            
+            <div class="qe-footer">
+              <button class="btn btn-primary qe-next" id="qe-next" disabled>Next Question</button>
+            </div>
+          </div>
+
+          <div class="qe-result" id="qe-result"></div>
+        </div>
+
+        <!-- =========================================
+             TAB 3: TIPS & TRICKS
+             ========================================= -->
+        <div class="tab-pane" id="pane-tips">
+          <div class="tips-grid">
+            
+            <div class="tip-card">
+              <div class="tip-header">
+                <span class="tip-icon">✓</span>
+                <span class="tip-title">Infinity is not a number</span>
+              </div>
+              <div class="tip-body">
+                When using interval notation, you must <strong>always</strong> use an open parenthesis <code>)</code> or <code>(</code> next to infinity ($ \infty $) because you can never "reach" or "include" infinity. Example: $$ [0, \infty) $$.
+              </div>
+            </div>
+
+            <div class="tip-card">
+              <div class="tip-header">
+                <span class="tip-icon">#</span>
+                <span class="tip-title">Absolute Value Trick</span>
+              </div>
+              <div class="tip-body">
+                When solving an equation like $$ |x| = 7 $$, split it into two equations immediately: $$ x = 7 $$ AND $$ x = -7 $$. Both numbers are exactly 7 units away from zero.
+              </div>
+            </div>
+
+            <div class="tip-card">
+              <div class="tip-header">
+                <span class="tip-icon">→</span>
+                <span class="tip-title">Subtraction is NOT Commutative</span>
+              </div>
+              <div class="tip-body">
+                Remember that $ a + b = b + a $, but $ a - b \neq b - a $ (unless $a=b$). E.g., $ 5 - 3 = 2 $, but $ 3 - 5 = -2 $.
+              </div>
+            </div>
+
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p class="footer-text">
+        Made with <span class="heart">♥</span> for students who want to learn maths
+        <br>
+        Free forever. No ads. No sign-up required.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="../../js/quiz-engine.js"></script>
+  <script>
+    // Tab switching logic
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+        
+        btn.classList.add('active');
+        document.getElementById('pane-' + btn.dataset.target).classList.add('active');
+      });
+    });
+
+    // Quiz Questions for Real Number System
+    const questions = [
+      { q: "Which property is shown here: $$ a + b = b + a $$?", expr: "", opts: ["Associative", "Distributive", "Commutative", "Identity"], ans: 2, diff: "easy", exp: "Commutative comes from 'commute' (to move around). The order doesn't change the sum." },
+      { q: "Evaluate the absolute value: $$ |-12| $$", expr: "", opts: ["$$ -12 $$", "$$ 12 $$", "$$ 0 $$", "Undefined"], ans: 1, diff: "easy", exp: "Absolute value is distance from zero, which is always positive." },
+      { q: "What does the interval $$ [3, 8) $$ mean?", expr: "", opts: ["Between 3 and 8, excluding both", "Between 3 and 8, including both", "Includes 3, but excludes 8", "Excludes 3, but includes 8"], ans: 2, diff: "medium", exp: "The bracket '[' means inclusive, and the parenthesis ')' means exclusive." },
+      { q: "Solve for x: $$ |x| = -4 $$", expr: "", opts: ["$$ x = 4 $$", "$$ x = -4 $$", "$$ x = 4, -4 $$", "No solution"], ans: 3, diff: "medium", exp: "Absolute value is a distance, so it can NEVER be negative. Thus, there is no real number that satisfies this." },
+      { q: "Which property is shown here: $$ 3(x + 4) = 3x + 12 $$?", expr: "", opts: ["Associative", "Distributive", "Commutative", "Inverse"], ans: 1, diff: "medium", exp: "The number 3 is 'distributed' or multiplied to both terms inside the parentheses." },
+      { q: "How would you write 'all real numbers strictly greater than 5' in interval notation?", expr: "", opts: ["$$ [5, \\infty) $$", "$$ (5, \\infty) $$", "$$ (5, \\infty] $$", "$$ [5, \\infty] $$"], ans: 1, diff: "hard", exp: "Strictly greater means exclude 5 (use parentheses). Infinity ALWAYS uses parentheses." }
+    ];
+
+    // Initialize Quiz Engine
+    window.realNumberSystemQuiz = new QuizEngine('qe-container', questions, {
+      onComplete: (res) => {
+        if (res.pct >= 80 && window.ProgressTracker) {
+          ProgressTracker.markComplete('real-number-system');
+        }
+      }
+    });
+
+    window.realNumberSystemQuiz.start();
+  </script>
+
+</body>
+</html>
