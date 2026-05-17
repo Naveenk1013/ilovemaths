@@ -126,7 +126,7 @@
 
     window.diffEqQuiz = new QuizEngine('qe-container', questions, {
       onComplete: (res) => {
-        if (res.pct >= 80 && window.ProgressTracker) ProgressTracker.markComplete('linear-diff-equations');
+        if (res.pct >= 80 && window.ProgressTracker) ProgressTracker.markComplete('', res.pct);
       }
     });
     window.diffEqQuiz.start();

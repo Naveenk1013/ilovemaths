@@ -131,7 +131,7 @@
 
     window.inductionQuiz = new QuizEngine('qe-container', questions, {
       onComplete: (res) => {
-        if (res.pct >= 80 && window.ProgressTracker) ProgressTracker.markComplete('induction');
+        if (res.pct >= 80 && window.ProgressTracker) ProgressTracker.markComplete('', res.pct);
       }
     });
     window.inductionQuiz.start();

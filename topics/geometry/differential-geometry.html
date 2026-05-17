@@ -120,7 +120,7 @@
 
     window.diffGeoQuiz = new QuizEngine('qe-container', questions, {
       onComplete: (res) => {
-        if (res.pct >= 80 && window.ProgressTracker) ProgressTracker.markComplete('differential-geometry');
+        if (res.pct >= 80 && window.ProgressTracker) ProgressTracker.markComplete('', res.pct);
       }
     });
     window.diffGeoQuiz.start();

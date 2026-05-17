@@ -125,7 +125,7 @@
 
     window.lpQuiz = new QuizEngine('qe-container', questions, {
       onComplete: (res) => {
-        if (res.pct >= 80 && window.ProgressTracker) ProgressTracker.markComplete('linear-programming');
+        if (res.pct >= 80 && window.ProgressTracker) ProgressTracker.markComplete('', res.pct);
       }
     });
     window.lpQuiz.start();

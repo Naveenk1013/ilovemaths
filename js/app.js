@@ -67,6 +67,16 @@
     const questions = topic.questionsCount > 0
       ? `<span class="topic-questions">${topic.questionsCount} questions</span>` : '';
 
+    let masteryHtml = '';
+    if (isLive && window.ProgressTracker) {
+      const pData = window.ProgressTracker.getTopicData(topic.id);
+      if (pData && pData.scorePct >= 80) {
+        if (pData.scorePct === 100) masteryHtml = `<span class="mastery-badge gold" title="100% Score">🥇 Gold</span>`;
+        else if (pData.scorePct >= 90) masteryHtml = `<span class="mastery-badge silver" title="${pData.scorePct}% Score">🥈 Silver</span>`;
+        else masteryHtml = `<span class="mastery-badge bronze" title="${pData.scorePct}% Score">🥉 Bronze</span>`;
+      }
+    }
+
     return `
       <${tag}${href} class="topic-card${soonClass}" id="topic-${topic.id}">
         <div class="topic-card-icon">${topic.icon}</div>
@@ -75,6 +85,7 @@
         <div class="topic-card-meta">
           <span class="topic-badge ${badgeClass}">${badgeText}</span>
           ${questions}
+          ${masteryHtml}
         </div>
       </${tag}>
     `;

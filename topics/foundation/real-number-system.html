@@ -267,7 +267,7 @@
     window.realNumberSystemQuiz = new QuizEngine('qe-container', questions, {
       onComplete: (res) => {
         if (res.pct >= 80 && window.ProgressTracker) {
-          ProgressTracker.markComplete('real-number-system');
+          ProgressTracker.markComplete('', res.pct);
         }
       }
     });

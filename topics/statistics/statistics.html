@@ -132,7 +132,7 @@
 
     window.statQuiz = new QuizEngine('qe-container', questions, {
       onComplete: (res) => {
-        if (res.pct >= 80 && window.ProgressTracker) ProgressTracker.markComplete('statistics');
+        if (res.pct >= 80 && window.ProgressTracker) ProgressTracker.markComplete('', res.pct);
       }
     });
     window.statQuiz.start();

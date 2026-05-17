@@ -9,15 +9,32 @@
  */
 
 const ProgressTracker = (function () {
-  const STORAGE_KEY = 'ilm-progress';
+  const STORAGE_KEY = 'ilm-progress-v2';
+  const LEGACY_KEY = 'ilm-progress';
 
   /** Read saved progress */
   function _read() {
     try {
-      const raw = localStorage.getItem(STORAGE_KEY);
-      return raw ? JSON.parse(raw) : { completedTopics: [] };
+      let data = localStorage.getItem(STORAGE_KEY);
+      if (data) return JSON.parse(data);
+      
+      // Migrate legacy array if exists
+      const legacy = localStorage.getItem(LEGACY_KEY);
+      if (legacy) {
+        const parsed = JSON.parse(legacy);
+        const migrated = { topics: {} };
+        if (parsed.completedTopics) {
+          parsed.completedTopics.forEach(id => {
+            migrated.topics[id] = { scorePct: 100, lastPlayed: Date.now(), attempts: 1 };
+          });
+        }
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(migrated));
+        localStorage.removeItem(LEGACY_KEY);
+        return migrated;
+      }
+      return { topics: {} };
     } catch {
-      return { completedTopics: [] };
+      return { topics: {} };
     }
   }
 
@@ -29,35 +46,47 @@ const ProgressTracker = (function () {
   }
 
   return {
-    /** Mark a topic as completed */
-    markComplete(topicId) {
+    /** Mark a topic as completed with a score */
+    markComplete(topicId, scorePct = 100) {
       const data = _read();
-      if (!data.completedTopics.includes(topicId)) {
-        data.completedTopics.push(topicId);
-        _write(data);
+      if (!data.topics[topicId]) {
+        data.topics[topicId] = { scorePct, lastPlayed: Date.now(), attempts: 1 };
+      } else {
+        data.topics[topicId].scorePct = Math.max(data.topics[topicId].scorePct, scorePct);
+        data.topics[topicId].lastPlayed = Date.now();
+        data.topics[topicId].attempts++;
       }
+      _write(data);
     },
 
     /** Mark a topic as not completed */
     markIncomplete(topicId) {
       const data = _read();
-      data.completedTopics = data.completedTopics.filter(id => id !== topicId);
+      delete data.topics[topicId];
       _write(data);
     },
 
-    /** Check if a topic is completed */
+    /** Check if a topic is completed (score >= 80) */
     isComplete(topicId) {
-      return _read().completedTopics.includes(topicId);
+      const t = _read().topics[topicId];
+      return t ? t.scorePct >= 80 : false;
+    },
+
+    /** Get stats object for a specific topic */
+    getTopicData(topicId) {
+      return _read().topics[topicId] || null;
     },
 
     /** Get all completed topic IDs */
     getCompleted() {
-      return _read().completedTopics;
+      const topics = _read().topics;
+      return Object.keys(topics).filter(id => topics[id].scorePct >= 80);
     },
 
     /** Get stats for a set of topics */
     getStats(topicIds) {
-      const completed = _read().completedTopics;
+      const topics = _read().topics;
+      const completed = Object.keys(topics).filter(id => topics[id].scorePct >= 80);
       const done = topicIds
         ? topicIds.filter(id => completed.includes(id)).length
         : completed.length;
@@ -67,9 +96,14 @@ const ProgressTracker = (function () {
       };
     },
 
+    /** Get the raw topics object */
+    getAllData() {
+      return _read().topics;
+    },
+
     /** Reset all progress */
     reset() {
-      _write({ completedTopics: [] });
+      _write({ topics: {} });
     }
   };
 })();

@@ -281,7 +281,7 @@
     window.logarithmsQuiz = new QuizEngine('qe-container', questions, {
       onComplete: (res) => {
         if (res.pct >= 80 && window.ProgressTracker) {
-          ProgressTracker.markComplete('logarithms');
+          ProgressTracker.markComplete('', res.pct);
         }
       }
     });
