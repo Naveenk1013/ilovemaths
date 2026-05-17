@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Learn the fundamentals of Sets: Definition, notations, unions, intersections, and subsets with interactive practice.">
+  <title>Sets — I Love Maths</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="../../css/topic.css">
+  <link rel="stylesheet" href="../../css/quiz.css">
+
+  <!-- Math & Visualization Libraries -->
+  <script src="../../js/math-libs.js"></script>
+
+  <!-- Theme -->
+  <script src="../../js/theme.js"></script>
+  <script src="../../js/progress.js"></script>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="../../index.html" class="site-logo">
+        <span class="logo-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="url(#logo-grad)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <defs>
+              <linearGradient id="logo-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#3b82f6" />
+                <stop offset="100%" stop-color="#8b5cf6" />
+              </linearGradient>
+            </defs>
+            <path d="M12 12c-2-2.67-4-4-6-4a4 4 0 1 0 0 8c2 0 4-1.33 6-4zm0 0c2 2.67 4 4 6 4a4 4 0 1 0 0-8c-2 0-4 1.33-6 4z" />
+          </svg>
+        </span>
+        <span>I Love Maths</span>
+      </a>
+      <nav class="site-nav">
+        <a href="../../index.html">Topics</a>
+        <a href="../../index.html#about">About</a>
+        <div class="theme-toggle" id="theme-toggle"></div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container container-narrow">
+
+      <!-- Breadcrumb -->
+      <div class="breadcrumb">
+        <a href="../../index.html">Topics</a>
+        <span class="sep">›</span>
+        <a href="../../index.html">Foundation</a>
+        <span class="sep">›</span>
+        <span>Sets</span>
+      </div>
+
+      <!-- Topic Header -->
+      <header class="topic-header">
+        <div class="topic-meta">
+          <span class="topic-badge badge-active">Unit 5</span>
+          <span class="topic-level level-beg">Beginner</span>
+        </div>
+        <h1 class="topic-title">Sets & Operations</h1>
+        <p class="topic-desc">Learn how to group distinct objects together, how to write them, and how they interact using unions and intersections.</p>
+        
+        <div class="tab-nav">
+          <button class="tab-btn active" data-target="ref">Concept Reference</button>
+          <button class="tab-btn" data-target="quiz">Interactive Quiz</button>
+          <button class="tab-btn" data-target="tips">Tips & Tricks</button>
+        </div>
+      </header>
+
+      <div class="tab-content-container">
+        
+        <!-- =========================================
+             TAB 1: CONCEPT REFERENCE
+             ========================================= -->
+        <div class="tab-pane active" id="pane-ref">
+          
+          <div class="concept-section">
+            <h2 class="section-heading">What is a Set?</h2>
+            <p>A set is a well-defined collection of distinct objects, usually numbers. We use curly braces <code>{}</code> to enclose the members (or "elements") of a set.</p>
+          </div>
+
+          <!-- Hero Formula -->
+          <div class="formula-hero">
+            <div class="formula-hero-main" style="font-size:1.5rem">
+              $$ A \cup B = \{x \mid x \in A \text{ or } x \in B\} $$
+            </div>
+            <div class="formula-hero-desc">
+              The <strong>Union</strong> of two sets contains everything in $A$ combined with everything in $B$ (without repeating elements).
+            </div>
+          </div>
+
+          <div class="ref-grid">
+            
+            <!-- Notations -->
+            <div class="ref-card">
+              <div class="ref-card-header">
+                <span class="ref-badge blue">Basics</span>
+                <span class="ref-card-title">Roster vs Set-Builder</span>
+              </div>
+              <p style="font-size:0.9rem; margin-bottom:10px; color:var(--color-text-secondary);">Two ways to define a set.</p>
+              <div class="ref-formula-box" style="font-size:0.9rem;">
+                $$ A = \{1, 2, 3\} $$ (Roster) <br>
+                $$ B = \{x \mid 0 < x < 4, x \in \mathbb{N}\} $$ (Set-builder)
+              </div>
+            </div>
+
+            <!-- Union -->
+            <div class="ref-card">
+              <div class="ref-card-header">
+                <span class="ref-badge teal">Operation</span>
+                <span class="ref-card-title">Union ($ \cup $)</span>
+              </div>
+              <p style="font-size:0.9rem; margin-bottom:10px; color:var(--color-text-secondary);">Combine all elements from both sets.</p>
+              <div class="ref-formula-box">$$ A \cup B $$</div>
+              <div class="ref-examples">
+                If $ A=\{1,2\} $ and $ B=\{2,3\} $<br>
+                Then $ A \cup B = \{1,2,3\} $
+              </div>
+            </div>
+
+            <!-- Intersection -->
+            <div class="ref-card">
+              <div class="ref-card-header">
+                <span class="ref-badge amber">Operation</span>
+                <span class="ref-card-title">Intersection ($ \cap $)</span>
+              </div>
+              <p style="font-size:0.9rem; margin-bottom:10px; color:var(--color-text-secondary);">Only the elements they have in common.</p>
+              <div class="ref-formula-box">$$ A \cap B $$</div>
+              <div class="ref-examples">
+                If $ A=\{1,2,3\} $ and $ B=\{2,3,4\} $<br>
+                Then $ A \cap B = \{2,3\} $
+              </div>
+            </div>
+
+            <!-- Difference -->
+            <div class="ref-card">
+              <div class="ref-card-header">
+                <span class="ref-badge coral">Operation</span>
+                <span class="ref-card-title">Difference ($ - $)</span>
+              </div>
+              <p style="font-size:0.9rem; margin-bottom:10px; color:var(--color-text-secondary);">Elements in A that are NOT in B.</p>
+              <div class="ref-formula-box">$$ A - B $$</div>
+              <div class="ref-examples">
+                If $ A=\{1,2,3\} $ and $ B=\{2,3,4\} $<br>
+                Then $ A - B = \{1\} $
+              </div>
+            </div>
+
+            <!-- Subset -->
+            <div class="ref-card">
+              <div class="ref-card-header">
+                <span class="ref-badge purple">Relation</span>
+                <span class="ref-card-title">Subset ($ \subset $)</span>
+              </div>
+              <p style="font-size:0.9rem; margin-bottom:10px; color:var(--color-text-secondary);">When all elements of one set are completely inside another.</p>
+              <div class="ref-formula-box">$$ A \subset B $$</div>
+              <div class="ref-examples">
+                $ \{1,2\} \subset \{1,2,3\} $
+              </div>
+            </div>
+
+          </div>
+
+          <div class="cheatbox">
+            <div class="cheatbox-title">Quick Revision Box</div>
+            <div class="cheat-row"><span class="cheat-q">What does $\in$ mean?</span><span class="cheat-a">"Is an element of". E.g., $ 2 \in \{1,2,3\} $</span></div>
+            <div class="cheat-row"><span class="cheat-q">What is the Empty Set?</span><span class="cheat-a">A set with zero elements, written as $ \emptyset $ or $ \{\} $.</span></div>
+            <div class="cheat-row"><span class="cheat-q">Do sets have an order?</span><span class="cheat-a">No. $ \{1,2\} $ is the same as $ \{2,1\} $.</span></div>
+          </div>
+          
+        </div>
+
+        <!-- =========================================
+             TAB 2: INTERACTIVE QUIZ
+             ========================================= -->
+        <div class="tab-pane" id="pane-quiz">
+          <div class="quiz-engine">
+            <div class="qe-header">
+              <div class="qe-progress-wrap">
+                <div class="qe-progress-fill" id="qe-prog"></div>
+              </div>
+              <div class="qe-score" id="qe-score">Score: 0 / 0</div>
+            </div>
+            
+            <div id="qe-container"></div>
+            
+            <div class="qe-footer">
+              <button class="btn btn-primary qe-next" id="qe-next" disabled>Next Question</button>
+            </div>
+          </div>
+
+          <div class="qe-result" id="qe-result"></div>
+        </div>
+
+        <!-- =========================================
+             TAB 3: TIPS & TRICKS
+             ========================================= -->
+        <div class="tab-pane" id="pane-tips">
+          <div class="tips-grid">
+            
+            <div class="tip-card">
+              <div class="tip-header">
+                <span class="tip-icon">✓</span>
+                <span class="tip-title">U vs $\cap$ Memory Trick</span>
+              </div>
+              <div class="tip-body">
+                The $\cup$ looks like a bucket holding everything (<strong>Union</strong>).<br>
+                The $\cap$ looks like an archway that only lets the overlapping things through (<strong>Intersection</strong>).
+              </div>
+            </div>
+
+            <div class="tip-card">
+              <div class="tip-header">
+                <span class="tip-icon">#</span>
+                <span class="tip-title">Repeats don't matter</span>
+              </div>
+              <div class="tip-body">
+                A set only cares about <em>distinct</em> elements. Writing $$ \{1, 1, 2, 3, 3\} $$ is exactly the same as $$ \{1, 2, 3\} $$. Never list an element twice!
+              </div>
+            </div>
+
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p class="footer-text">
+        Made with <span class="heart">♥</span> for students who want to learn maths
+        <br>
+        Free forever. No ads. No sign-up required.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="../../js/quiz-engine.js"></script>
+  <script>
+    // Tab switching logic
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+        
+        btn.classList.add('active');
+        document.getElementById('pane-' + btn.dataset.target).classList.add('active');
+      });
+    });
+
+    // Quiz Questions for Sets
+    const questions = [
+      { q: "If $$ A = \\{1, 5, 9\\} $$ and $$ B = \\{5, 9, 12\\} $$, what is $$ A \\cap B $$?", expr: "", opts: ["$$ \\{1, 5, 9, 12\\} $$", "$$ \\{5, 9\\} $$", "$$ \\{1\\} $$", "$$ \\emptyset $$"], ans: 1, diff: "easy", exp: "Intersection ($ \\cap $) means what they have in common. They both share 5 and 9." },
+      { q: "If $$ A = \\{2, 4\\} $$ and $$ B = \\{4, 6\\} $$, what is $$ A \\cup B $$?", expr: "", opts: ["$$ \\{2, 4, 6\\} $$", "$$ \\{4\\} $$", "$$ \\{2, 4, 4, 6\\} $$", "$$ \\{2, 6\\} $$"], ans: 0, diff: "easy", exp: "Union ($ \\cup $) combines them. We do not repeat elements, so it's $$ \\{2, 4, 6\\} $$." },
+      { q: "Which statement is true if $$ C = \\{3, 4, 5\\} $$?", expr: "", opts: ["$$ 3 \\subset C $$", "$$ \\{3\\} \\in C $$", "$$ 4 \\in C $$", "$$ C \\subset \\{3, 4\\} $$"], ans: 2, diff: "medium", exp: "$$ 4 \\in C $$ means 4 is an element of C. A number itself is an element ($ \\in $), while a set with a number is a subset ($ \\subset $)." },
+      { q: "If $$ X = \\{1, 2, 3\\} $$ and $$ Y = \\{3, 4, 5\\} $$, what is $$ X - Y $$?", expr: "", opts: ["$$ \\{1, 2\\} $$", "$$ \\{4, 5\\} $$", "$$ \\{3\\} $$", "$$ \\{1, 2, 4, 5\\} $$"], ans: 0, diff: "medium", exp: "$$ X - Y $$ means start with X and remove anything that is also in Y. We remove 3. We are left with $$ \\{1, 2\\} $$." },
+      { q: "What does $$ \\emptyset $$ represent?", expr: "", opts: ["A set with 1 element", "The universal set", "The empty set", "Zero"], ans: 2, diff: "easy", exp: "$$ \\emptyset $$ represents the Empty Set, a set containing absolutely nothing." }
+    ];
+
+    // Initialize Quiz Engine
+    window.setsQuiz = new QuizEngine('qe-container', questions, {
+      onComplete: (res) => {
+        if (res.pct >= 80 && window.ProgressTracker) {
+          ProgressTracker.markComplete('sets');
+        }
+      }
+    });
+
+    window.setsQuiz.start();
+  </script>
+
+</body>
+</html>
