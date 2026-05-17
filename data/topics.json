@@ -378,9 +378,9 @@
     "category": "Statistics",
     "icon": "P",
     "difficulty": "intermediate",
-    "status": "coming-soon",
-    "path": null,
-    "questionsCount": 0,
+    "status": "live",
+    "path": "topics/statistics/probability.html",
+    "questionsCount": 2,
     "unit": 32
   },
   {
@@ -390,9 +390,9 @@
     "category": "Statistics",
     "icon": "Px",
     "difficulty": "advanced",
-    "status": "coming-soon",
-    "path": null,
-    "questionsCount": 0,
+    "status": "live",
+    "path": "topics/statistics/discrete-prob-dist.html",
+    "questionsCount": 2,
     "unit": 33
   },
   {
@@ -402,9 +402,9 @@
     "category": "Statistics",
     "icon": "CI",
     "difficulty": "advanced",
-    "status": "coming-soon",
-    "path": null,
-    "questionsCount": 0,
+    "status": "live",
+    "path": "topics/statistics/statistical-estimation.html",
+    "questionsCount": 2,
     "unit": 34
   },
   {
@@ -414,9 +414,9 @@
     "category": "Geometry",
     "icon": "k",
     "difficulty": "advanced",
-    "status": "coming-soon",
-    "path": null,
-    "questionsCount": 0,
+    "status": "live",
+    "path": "topics/geometry/differential-geometry.html",
+    "questionsCount": 2,
     "unit": 35
   }
 ]
