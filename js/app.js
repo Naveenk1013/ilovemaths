@@ -9,6 +9,7 @@
   let allCourses = [];
   let activeFilter = 'all';
   let searchQuery = '';
+  let activeView = localStorage.getItem('ilm-pref-view') || 'detailed';
 
   // ── Fetch data ──
   try {
@@ -128,7 +129,7 @@
       html += `
         <div class="category-group">
           <div class="category-group-label">${category}</div>
-          <div class="topics-grid">
+          <div class="topics-grid view-${activeView}">
             ${topics.map(renderCard).join('')}
           </div>
         </div>
@@ -182,6 +183,25 @@
       searchInput.addEventListener('input', (e) => {
         searchQuery = e.target.value;
         renderTopics();
+      });
+    }
+
+    // Attach view switcher listeners
+    const switcher = document.getElementById('view-switcher');
+    if (switcher) {
+      switcher.querySelectorAll('.view-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          activeView = btn.dataset.view;
+          localStorage.setItem('ilm-pref-view', activeView);
+          switcher.querySelectorAll('.view-btn').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          renderTopics();
+        });
+      });
+      // Set initial active state based on preference
+      switcher.querySelectorAll('.view-btn').forEach(b => {
+        if (b.dataset.view === activeView) b.classList.add('active');
+        else b.classList.remove('active');
       });
     }
   }

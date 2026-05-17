@@ -485,6 +485,163 @@ h4 { font-size: 1rem; }
   line-height: 1.6;
 }
 
+/* ── View Switcher UI ── */
+.search-row {
+  display: flex;
+  gap: var(--space-md);
+  align-items: center;
+  width: 100%;
+}
+
+.view-switcher {
+  display: flex;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 4px;
+  gap: 2px;
+  flex-shrink: 0;
+}
+
+.view-btn {
+  background: transparent;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 10px;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s;
+}
+
+.view-btn:hover {
+  color: var(--color-text-primary);
+  background: var(--color-surface-hover);
+}
+
+.view-btn.active {
+  color: var(--color-accent);
+  background: var(--color-background-primary);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+/* ── Compact Grid View ── */
+.view-compact {
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)) !important;
+  gap: var(--space-sm) !important;
+}
+
+.view-compact .topic-card {
+  padding: var(--space-sm) var(--space-md) !important;
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  gap: var(--space-sm) !important;
+  min-height: auto !important;
+}
+
+.view-compact .topic-card-icon {
+  font-size: 1.5rem !important;
+  margin-bottom: 0 !important;
+  width: 36px !important;
+  height: 36px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.view-compact .topic-card-title {
+  font-size: 0.85rem !important;
+  font-weight: 600 !important;
+  margin-bottom: 0 !important;
+}
+
+.view-compact .topic-card-desc {
+  display: none !important;
+}
+
+.view-compact .topic-card-meta {
+  display: none !important;
+}
+
+/* ── List View (Row layout) ── */
+.view-list {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: var(--space-xs) !important;
+}
+
+.view-list .topic-card {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  padding: 12px 16px !important;
+  min-height: auto !important;
+  gap: var(--space-md) !important;
+  border-radius: 10px !important;
+}
+
+.view-list .topic-card-icon {
+  font-size: 1.6rem !important;
+  margin-bottom: 0 !important;
+  flex-shrink: 0 !important;
+}
+
+.view-list .topic-card-title {
+  font-size: 0.9rem !important;
+  font-weight: 600 !important;
+  margin-bottom: 0 !important;
+  min-width: 160px;
+  max-width: 240px;
+  text-align: left !important;
+}
+
+.view-list .topic-card-desc {
+  font-size: 0.8rem !important;
+  margin-bottom: 0 !important;
+  flex: 1 !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  padding-right: var(--space-md) !important;
+  text-align: left !important;
+}
+
+.view-list .topic-card-meta {
+  display: flex !important;
+  align-items: center !important;
+  gap: var(--space-sm) !important;
+  margin-top: 0 !important;
+  flex-shrink: 0 !important;
+}
+
+@media (max-width: 768px) {
+  .search-row {
+    flex-direction: column-reverse;
+    align-items: stretch;
+  }
+  
+  .view-switcher {
+    justify-content: center;
+  }
+  
+  .view-list .topic-card {
+    flex-wrap: wrap !important;
+    gap: var(--space-sm) !important;
+  }
+  
+  .view-list .topic-card-desc {
+    width: 100% !important;
+    flex: none !important;
+    white-space: normal !important;
+    padding-right: 0 !important;
+  }
+}
+
+
 
 /* ── Category Groups ── */
 .category-group {
