@@ -1186,7 +1186,11 @@ h4 { font-size: 1rem; }
 /* Media Queries for Mobile Drawer Trigger Swap */
 @media (max-width: 768px) {
   .site-nav a {
-    display: none !important; /* Hide desktop links, keep theme toggle */
+    display: none !important; /* Hide desktop links */
+  }
+
+  .site-nav .theme-toggle {
+    display: none !important; /* Hide duplicate theme toggle in mobile header */
   }
 
   .nav-hamburger {
