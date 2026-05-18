@@ -69,8 +69,9 @@
 
       <!-- ═══ Tabs ═══ -->
       <div class="topic-tabs" id="topic-tabs">
-        <button class="topic-tab active" data-tab="reference">Reference</button>
-        <button class="topic-tab" data-tab="quiz">MCQ Quiz</button>
+        <button class="topic-tab active" data-tab="reference">Concept Reference</button>
+        <button class="topic-tab" data-tab="solved">Solved Examples</button>
+        <button class="topic-tab" data-tab="quiz">Interactive Quiz</button>
         <button class="topic-tab" data-tab="tips">Tips & Tricks</button>
       </div>
 
@@ -308,6 +309,181 @@
 
       </div>
 
+      <!-- ═══════════ SOLVED EXAMPLES TAB ═══════════ -->
+      <div class="tab-content" id="tab-solved">
+        <div class="solved-examples-container">
+
+          <!-- Example 1 -->
+          <div class="solved-example-card">
+            <div class="solved-example-header">
+              <span class="solved-badge">Example 1 · Polynomial</span>
+              <div class="solved-timer" id="timer-1">
+                <span class="timer-display">00:00</span>
+                <button class="timer-btn" onclick="toggleTimer(1)">Start Timer ⏱️</button>
+              </div>
+            </div>
+            <div class="solved-question">
+              Find the derivative of the polynomial:
+              <div style="margin-top:0.5rem;font-size:1.15rem;font-weight:600;">$$ f(x) = 3x^4 - 2x^2 + 5x - 9 $$</div>
+            </div>
+            <div class="solved-solution-wrap" id="solution-1">
+              <button class="btn btn-primary btn-reveal" onclick="revealSolution(1)">Reveal Step-by-Step Solution 👁️</button>
+              <div class="solved-steps" style="display: none;">
+                <div class="solved-step">
+                  <div class="step-num">Step 1</div>
+                  <div class="step-content">
+                    <div class="step-math">$$ f'(x) = \frac{d}{dx}[3x^4] - \frac{d}{dx}[2x^2] + \frac{d}{dx}[5x] - \frac{d}{dx}[9] $$</div>
+                    <div class="step-desc">Apply the sum and difference rules of differentiation to evaluate each term independently.</div>
+                  </div>
+                </div>
+                <div class="solved-step">
+                  <div class="step-num">Step 2</div>
+                  <div class="step-content">
+                    <div class="step-math">$$ \frac{d}{dx}[3x^4] = 3 \cdot 4x^{4-1} = 12x^3 $$</div>
+                    <div class="step-desc">Use the Power Rule on the first term: bring the exponent 4 down, multiply by the coefficient 3, and subtract 1 from the exponent.</div>
+                  </div>
+                </div>
+                <div class="solved-step">
+                  <div class="step-num">Step 3</div>
+                  <div class="step-content">
+                    <div class="step-math">$$ \frac{d}{dx}[-2x^2] = -2 \cdot 2x^{2-1} = -4x $$</div>
+                    <div class="step-desc">Apply the Power Rule to the second term similarly: bring the exponent 2 down and subtract 1.</div>
+                  </div>
+                </div>
+                <div class="solved-step">
+                  <div class="step-num">Step 4</div>
+                  <div class="step-content">
+                    <div class="step-math">$$ \frac{d}{dx}[5x] = 5 \quad \text{and} \quad \frac{d}{dx}[-9] = 0 $$</div>
+                    <div class="step-desc">Differentiate the linear term (the derivative of $$x$$ is 1) and the constant term (the derivative of any constant is 0).</div>
+                  </div>
+                </div>
+                <div class="solved-step">
+                  <div class="step-num">Step 5</div>
+                  <div class="step-content">
+                    <div class="step-math">$$ f'(x) = 12x^3 - 4x + 5 $$</div>
+                    <div class="step-desc">Combine all the derivative terms together to formulate the final derivative function.</div>
+                  </div>
+                </div>
+                <div class="solved-success-box">
+                  <strong>Final Answer:</strong> $$ f'(x) = 12x^3 - 4x + 5 $$
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Example 2 -->
+          <div class="solved-example-card">
+            <div class="solved-example-header">
+              <span class="solved-badge">Example 2 · Radical & Fraction</span>
+              <div class="solved-timer" id="timer-2">
+                <span class="timer-display">00:00</span>
+                <button class="timer-btn" onclick="toggleTimer(2)">Start Timer ⏱️</button>
+              </div>
+            </div>
+            <div class="solved-question">
+              Find the derivative of:
+              <div style="margin-top:0.5rem;font-size:1.15rem;font-weight:600;">$$ g(x) = \frac{4}{x^2} + 6\sqrt{x} $$</div>
+            </div>
+            <div class="solved-solution-wrap" id="solution-2">
+              <button class="btn btn-primary btn-reveal" onclick="revealSolution(2)">Reveal Step-by-Step Solution 👁️</button>
+              <div class="solved-steps" style="display: none;">
+                <div class="solved-step">
+                  <div class="step-num">Step 1</div>
+                  <div class="step-content">
+                    <div class="step-math">$$ g(x) = 4x^{-2} + 6x^{1/2} $$</div>
+                    <div class="step-desc">Rewrite the reciprocal and radical terms using fractional and negative exponents so they are in the standard form $$x^n$$.</div>
+                  </div>
+                </div>
+                <div class="solved-step">
+                  <div class="step-num">Step 2</div>
+                  <div class="step-content">
+                    <div class="step-math">$$ \frac{d}{dx}[4x^{-2}] = 4 \cdot (-2)x^{-2-1} = -8x^{-3} $$</div>
+                    <div class="step-desc">Differentiate the first term using the Power Rule: bring the exponent $$-2$$ down and subtract 1.</div>
+                  </div>
+                </div>
+                <div class="solved-step">
+                  <div class="step-num">Step 3</div>
+                  <div class="step-content">
+                    <div class="step-math">$$ \frac{d}{dx}[6x^{1/2}] = 6 \cdot \left(\frac{1}{2}\right)x^{1/2-1} = 3x^{-1/2} $$</div>
+                    <div class="step-desc">Differentiate the second term: bring the fractional exponent $$\frac{1}{2}$$ down and subtract 1.</div>
+                  </div>
+                </div>
+                <div class="solved-step">
+                  <div class="step-num">Step 4</div>
+                  <div class="step-content">
+                    <div class="step-math">$$ g'(x) = -8x^{-3} + 3x^{-1/2} $$</div>
+                    <div class="step-desc">Combine both evaluated terms to express the derivative in exponent form.</div>
+                  </div>
+                </div>
+                <div class="solved-step">
+                  <div class="step-num">Step 5</div>
+                  <div class="step-content">
+                    <div class="step-math">$$ g'(x) = -\frac{8}{x^3} + \frac{3}{\sqrt{x}} $$</div>
+                    <div class="step-desc">Convert the negative exponents back to positive denominators and fractional exponents back to standard radicals for a clean final expression.</div>
+                  </div>
+                </div>
+                <div class="solved-success-box">
+                  <strong>Final Answer:</strong> $$ g'(x) = -\frac{8}{x^3} + \frac{3}{\sqrt{x}} $$
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Example 3 -->
+          <div class="solved-example-card">
+            <div class="solved-example-header">
+              <span class="solved-badge">Example 3 · Differentiating at a Point</span>
+              <div class="solved-timer" id="timer-3">
+                <span class="timer-display">00:00</span>
+                <button class="timer-btn" onclick="toggleTimer(3)">Start Timer ⏱️</button>
+              </div>
+            </div>
+            <div class="solved-question">
+              Find the slope of the tangent line to the curve:
+              <div style="margin-top:0.5rem;font-size:1.15rem;font-weight:600;">$$ h(x) = 2x^3 - 5 $$</div>
+              at the specific point $$ (2, 11) $$.
+            </div>
+            <div class="solved-solution-wrap" id="solution-3">
+              <button class="btn btn-primary btn-reveal" onclick="revealSolution(3)">Reveal Step-by-Step Solution 👁️</button>
+              <div class="solved-steps" style="display: none;">
+                <div class="solved-step">
+                  <div class="step-num">Step 1</div>
+                  <div class="step-content">
+                    <div class="step-math">$$ h'(x) = \frac{d}{dx}[2x^3] - \frac{d}{dx}[5] $$</div>
+                    <div class="step-desc">Differentiate the function $$h(x)$$ to find the general expression for the tangent slope at any point $$x$$.</div>
+                  </div>
+                </div>
+                <div class="solved-step">
+                  <div class="step-num">Step 2</div>
+                  <div class="step-content">
+                    <div class="step-math">$$ h'(x) = 2 \cdot 3x^{3-1} - 0 = 6x^2 $$</div>
+                    <div class="step-desc">Apply the Power Rule to $$2x^3$$ (yielding $$6x^2$$) and the constant rule to $$5$$ (yielding $$0$$).</div>
+                  </div>
+                </div>
+                <div class="solved-step">
+                  <div class="step-num">Step 3</div>
+                  <div class="step-content">
+                    <div class="step-math">$$ h'(2) = 6(2)^2 $$</div>
+                    <div class="step-desc">Substitute the x-coordinate of the given point $$x = 2$$ into the derivative function $$h'(x)$$.</div>
+                  </div>
+                </div>
+                <div class="solved-step">
+                  <div class="step-num">Step 4</div>
+                  <div class="step-content">
+                    <div class="step-math">$$ h'(2) = 6 \cdot 4 = 24 $$</div>
+                    <div class="step-desc">Multiply out the square of 2 by the coefficient 6 to find the final numerical slope.</div>
+                  </div>
+                </div>
+                <div class="solved-success-box">
+                  <strong>Final Answer:</strong> The tangent slope at the point $$ (2, 11) $$ is $$ h'(2) = 24 $$.
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
     </div>
   </main>
 
@@ -351,6 +527,53 @@
         });
       });
     });
+
+    /* ── Solved Examples Active Logic ── */
+    const timers = {};
+    window.toggleTimer = function(id) {
+      const btn = document.querySelector(`#timer-${id} .timer-btn`);
+      const display = document.querySelector(`#timer-${id} .timer-display`);
+      
+      if (timers[id]) {
+        // Stop timer
+        clearInterval(timers[id].interval);
+        timers[id] = null;
+        btn.textContent = 'Start Timer ⏱️';
+        btn.classList.remove('running');
+      } else {
+        // Start timer
+        let seconds = 0;
+        btn.textContent = 'Pause ⏱️';
+        btn.classList.add('running');
+        
+        const interval = setInterval(() => {
+          seconds++;
+          const mins = Math.floor(seconds / 60).toString().padStart(2, '0');
+          const secs = (seconds % 60).toString().padStart(2, '0');
+          display.textContent = `${mins}:${secs}`;
+        }, 1000);
+        
+        timers[id] = { interval, seconds };
+      }
+    };
+
+    window.revealSolution = function(id) {
+      const wrap = document.getElementById(`solution-${id}`);
+      const btn = wrap.querySelector('.btn-reveal');
+      const steps = wrap.querySelector('.solved-steps');
+      
+      if (steps.style.display === 'none') {
+        steps.style.display = 'flex';
+        btn.innerHTML = 'Hide Solution 👁️';
+        btn.style.background = 'var(--color-surface-hover)';
+        btn.style.color = 'var(--color-text-primary)';
+      } else {
+        steps.style.display = 'none';
+        btn.innerHTML = 'Reveal Step-by-Step Solution 👁️';
+        btn.style.background = 'var(--color-accent)';
+        btn.style.color = '#ffffff';
+      }
+    };
 
     /* ── Power Rule Questions ── */
     const powerRuleQuestions = [
