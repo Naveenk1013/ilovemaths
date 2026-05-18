@@ -91,6 +91,7 @@
 
         
         
+        
         <!-- SOLVED EXAMPLES -->
         <div class="tab-pane" id="pane-solved">
           <div class="solved-examples-container">
@@ -105,7 +106,7 @@
               </div>
             </div>
             <div class="solved-question">
-              What is the probability of rolling an even number on a standard 6-sided die?
+              A coin is flipped and a standard 6-sided die is rolled. Find the probability of getting a Head AND rolling a 5.
               
             </div>
             <div class="solved-solution-wrap" id="solution-1">
@@ -118,7 +119,7 @@
                     <div class="step-desc">
                       Analyze the given options:
                       <ul style="margin-top:0.5rem; padding-left:1.2rem; list-style-type: none;">
-                        <li style="margin-bottom:0.4rem;text-align:left;"><strong>Option A:</strong> $ 1/6 $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option B:</strong> $ 1/2 $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option C:</strong> $ 1/3 $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option D:</strong> $ 3 $</li>
+                        <li style="margin-bottom:0.4rem;text-align:left;"><strong>Option A:</strong> $ 1/12 $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option B:</strong> $ 1/4 $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option C:</strong> $ 1/6 $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option D:</strong> $ 2/3 $</li>
                       </ul>
                     </div>
                   </div>
@@ -128,7 +129,7 @@
                   <div class="step-num">Step 2</div>
                   <div class="step-content">
                     <div class="step-math">$\text{Apply Core Principles}$</div>
-                    <div class="step-desc">There are 3 even numbers (2,4,6) out of 6 total possibilities. 3/6 simplifies to 1/2.</div>
+                    <div class="step-desc">Probability of flipping a Head is questions/2$. Probability of rolling a 5 is questions/6$. Since these are independent events, multiply them: $ \frac{1}{2} \times \frac{1}{6} = \frac{1}{12} $.</div>
                   </div>
                 </div>
 
@@ -136,13 +137,13 @@
                   <div class="step-num">Step 3</div>
                   <div class="step-content">
                     <div class="step-desc">
-                      Cross-reference choices to select the valid deduction. Option <strong>B</strong> perfectly aligns with the principles analyzed.
+                      Cross-reference choices to select the valid deduction. Option <strong>A</strong> perfectly aligns with the principles analyzed.
                     </div>
                   </div>
                 </div>
 
                 <div class="solved-success-box">
-                  <strong>Final Answer:</strong> Option B ($ 1/2 $)
+                  <strong>Final Answer:</strong> Option A ($ 1/12 $)
                 </div>
               </div>
             </div>
@@ -158,7 +159,7 @@
               </div>
             </div>
             <div class="solved-question">
-              If the probability of it raining tomorrow is 0.3, what is the probability of it NOT raining?
+              If $ P(A) = 0.6, \, P(B) = 0.4, \text{ and } P(A \cap B) = 0.2 $, find $ P(A \cup B) $
               
             </div>
             <div class="solved-solution-wrap" id="solution-2">
@@ -171,7 +172,7 @@
                     <div class="step-desc">
                       Analyze the given options:
                       <ul style="margin-top:0.5rem; padding-left:1.2rem; list-style-type: none;">
-                        <li style="margin-bottom:0.4rem;text-align:left;"><strong>Option A:</strong> $ 0 $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option B:</strong> $ 0.3 $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option C:</strong> $ 0.7 $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option D:</strong> $ 1 $</li>
+                        <li style="margin-bottom:0.4rem;text-align:left;"><strong>Option A:</strong> $ 0.8 $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option B:</strong> $ 1.0 $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option C:</strong> $ 0.6 $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option D:</strong> $ 0.4 $</li>
                       </ul>
                     </div>
                   </div>
@@ -181,7 +182,7 @@
                   <div class="step-num">Step 2</div>
                   <div class="step-content">
                     <div class="step-math">$\text{Apply Core Principles}$</div>
-                    <div class="step-desc">Use the complement rule: 1 - P(rain) = 1 - 0.3 = 0.7.</div>
+                    <div class="step-desc">Apply the addition rule of probability: $ P(A \cup B) = P(A) + P(B) - P(A \cap B) = 0.6 + 0.4 - 0.2 = 0.8 $.</div>
                   </div>
                 </div>
 
@@ -189,65 +190,178 @@
                   <div class="step-num">Step 3</div>
                   <div class="step-content">
                     <div class="step-desc">
-                      Cross-reference choices to select the valid deduction. Option <strong>C</strong> perfectly aligns with the principles analyzed.
+                      Cross-reference choices to select the valid deduction. Option <strong>A</strong> perfectly aligns with the principles analyzed.
                     </div>
                   </div>
                 </div>
 
                 <div class="solved-success-box">
-                  <strong>Final Answer:</strong> Option C ($ 0.7 $)
+                  <strong>Final Answer:</strong> Option A ($ 0.8 $)
                 </div>
               </div>
             </div>
           </div>
-          </div>
-        </div>
-  
-            <div class="solved-question">
-              A coin is flipped and a standard 6-sided die is rolled. Find the probability of getting a Head AND rolling a 5.
+
+          <!-- Example 3 -->
+          <div class="solved-example-card">
+            <div class="solved-example-header">
+              <span class="solved-badge">Example 3 · Concept Application</span>
+              <div class="solved-timer" id="timer-3">
+                <span class="timer-display">00:00</span>
+                <button class="timer-btn" onclick="toggleTimer(3)">Start Timer ⏱️</button>
+              </div>
             </div>
-            <div class="solved-solution-wrap" id="solution-1">
-              <button class="btn btn-primary btn-reveal" onclick="revealSolution(1)">Reveal Step-by-Step Solution 👁️</button>
+            <div class="solved-question">
+              What is the probability of drawing an Ace from a standard well-shuffled deck of 52 cards?
+              
+            </div>
+            <div class="solved-solution-wrap" id="solution-3">
+              <button class="btn btn-primary btn-reveal" onclick="revealSolution(3)">Reveal Step-by-Step Solution 👁️</button>
               <div class="solved-steps" style="display: none;">
                 
                 <div class="solved-step">
                   <div class="step-num">Step 1</div>
                   <div class="step-content">
-                    <div class="step-math">$P(\text{Head}) = \frac{1}{2}$</div>
-                    <div class="step-desc">Find the probability of flipping a Head.</div>
+                    <div class="step-desc">
+                      Analyze the given options:
+                      <ul style="margin-top:0.5rem; padding-left:1.2rem; list-style-type: none;">
+                        <li style="margin-bottom:0.4rem;text-align:left;"><strong>Option A:</strong> $ 1/13 $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option B:</strong> $ 1/52 $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option C:</strong> $ 4/13 $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option D:</strong> $ 1/4 $</li>
+                      </ul>
+                    </div>
                   </div>
                 </div>
+
                 <div class="solved-step">
                   <div class="step-num">Step 2</div>
                   <div class="step-content">
-                    <div class="step-math">$P(5) = \frac{1}{6}$</div>
-                    <div class="step-desc">Find the probability of rolling a 5.</div>
+                    <div class="step-math">$\text{Apply Core Principles}$</div>
+                    <div class="step-desc">There are 4 Aces in a deck of 52 cards. The probability is $ \frac{4}{52} = \frac{1}{13} $.</div>
                   </div>
                 </div>
+
                 <div class="solved-step">
                   <div class="step-num">Step 3</div>
                   <div class="step-content">
-                    <div class="step-math">$P(\text{Head } \cap \text{ 5}) = P(\text{Head}) \cdot P(5)$</div>
-                    <div class="step-desc">Since events are independent, multiply their individual probabilities.</div>
+                    <div class="step-desc">
+                      Cross-reference choices to select the valid deduction. Option <strong>A</strong> perfectly aligns with the principles analyzed.
+                    </div>
                   </div>
                 </div>
-                <div class="solved-step">
-                  <div class="step-num">Step 4</div>
-                  <div class="step-content">
-                    <div class="step-math">$P = \frac{1}{2} \cdot \frac{1}{6} = \frac{1}{12}$</div>
-                    <div class="step-desc">Multiply fractions to calculate the joint probability.</div>
-                  </div>
-                </div>
+
                 <div class="solved-success-box">
-                  <strong>Final Answer:</strong> $\frac{1}{12}$
+                  <strong>Final Answer:</strong> Option A ($ 1/13 $)
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Example 4 -->
+          <div class="solved-example-card">
+            <div class="solved-example-header">
+              <span class="solved-badge">Example 4 · Concept Application</span>
+              <div class="solved-timer" id="timer-4">
+                <span class="timer-display">00:00</span>
+                <button class="timer-btn" onclick="toggleTimer(4)">Start Timer ⏱️</button>
+              </div>
+            </div>
+            <div class="solved-question">
+              What is the conditional probability formula for $ P(A \mid B) $?
+              
+            </div>
+            <div class="solved-solution-wrap" id="solution-4">
+              <button class="btn btn-primary btn-reveal" onclick="revealSolution(4)">Reveal Step-by-Step Solution 👁️</button>
+              <div class="solved-steps" style="display: none;">
+                
+                <div class="solved-step">
+                  <div class="step-num">Step 1</div>
+                  <div class="step-content">
+                    <div class="step-desc">
+                      Analyze the given options:
+                      <ul style="margin-top:0.5rem; padding-left:1.2rem; list-style-type: none;">
+                        <li style="margin-bottom:0.4rem;text-align:left;"><strong>Option A:</strong> $ P(A \cap B) / P(B) $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option B:</strong> $ P(A \cup B) / P(B) $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option C:</strong> $ P(A) \cdot P(B) $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option D:</strong> $ P(A \cap B) / P(A) $</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="solved-step">
+                  <div class="step-num">Step 2</div>
+                  <div class="step-content">
+                    <div class="step-math">$\text{Apply Core Principles}$</div>
+                    <div class="step-desc">Conditional probability of $A$ given $B$ is the probability of both occurring divided by the probability of the condition: $ P(A \mid B) = \frac{P(A \cap B)}{P(B)} $ (for $P(B) > 0$).</div>
+                  </div>
+                </div>
+
+                <div class="solved-step">
+                  <div class="step-num">Step 3</div>
+                  <div class="step-content">
+                    <div class="step-desc">
+                      Cross-reference choices to select the valid deduction. Option <strong>A</strong> perfectly aligns with the principles analyzed.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="solved-success-box">
+                  <strong>Final Answer:</strong> Option A ($ P(A \cap B) / P(B) $)
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Example 5 -->
+          <div class="solved-example-card">
+            <div class="solved-example-header">
+              <span class="solved-badge">Example 5 · Concept Application</span>
+              <div class="solved-timer" id="timer-5">
+                <span class="timer-display">00:00</span>
+                <button class="timer-btn" onclick="toggleTimer(5)">Start Timer ⏱️</button>
+              </div>
+            </div>
+            <div class="solved-question">
+              According to Bayes' Theorem, what is $ P(A \mid B) $ equal to?
+              
+            </div>
+            <div class="solved-solution-wrap" id="solution-5">
+              <button class="btn btn-primary btn-reveal" onclick="revealSolution(5)">Reveal Step-by-Step Solution 👁️</button>
+              <div class="solved-steps" style="display: none;">
+                
+                <div class="solved-step">
+                  <div class="step-num">Step 1</div>
+                  <div class="step-content">
+                    <div class="step-desc">
+                      Analyze the given options:
+                      <ul style="margin-top:0.5rem; padding-left:1.2rem; list-style-type: none;">
+                        <li style="margin-bottom:0.4rem;text-align:left;"><strong>Option A:</strong> $ \frac{P(B \mid A)P(A)}{P(B)} $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option B:</strong> $ \frac{P(A \mid B)P(B)}{P(A)} $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option C:</strong> $ P(B \mid A)P(A) $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option D:</strong> $ P(A)P(B) $</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="solved-step">
+                  <div class="step-num">Step 2</div>
+                  <div class="step-content">
+                    <div class="step-math">$\text{Apply Core Principles}$</div>
+                    <div class="step-desc">Bayes' Theorem relates conditional and marginal probabilities: $ P(A \mid B) = \frac{P(B \mid A)P(A)}{P(B)} $.</div>
+                  </div>
+                </div>
+
+                <div class="solved-step">
+                  <div class="step-num">Step 3</div>
+                  <div class="step-content">
+                    <div class="step-desc">
+                      Cross-reference choices to select the valid deduction. Option <strong>A</strong> perfectly aligns with the principles analyzed.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="solved-success-box">
+                  <strong>Final Answer:</strong> Option A ($ \frac{P(B \mid A)P(A)}{P(B)} $)
                 </div>
               </div>
             </div>
           </div>
           </div>
         </div>
-  
-        <!-- INTERACTIVE QUIZ -->
         <div class="tab-pane" id="pane-quiz">
           <div class="quiz-engine">
             <div class="qe-header">
@@ -277,9 +391,72 @@
     });
 
     const questions = [
-      { q: "What is the probability of rolling an even number on a standard 6-sided die?", expr: "", opts: ["$$ 1/6 $$", "$$ 1/2 $$", "$$ 1/3 $$", "$$ 3 $$"], ans: 1, diff: "easy", exp: "There are 3 even numbers (2,4,6) out of 6 total possibilities. 3/6 simplifies to 1/2." },
-      { q: "If the probability of it raining tomorrow is 0.3, what is the probability of it NOT raining?", expr: "", opts: ["$$ 0 $$", "$$ 0.3 $$", "$$ 0.7 $$", "$$ 1 $$"], ans: 2, diff: "easy", exp: "Use the complement rule: 1 - P(rain) = 1 - 0.3 = 0.7." }
-    ];
+  {
+    "q": "A coin is flipped and a standard 6-sided die is rolled. Find the probability of getting a Head AND rolling a 5.",
+    "expr": "",
+    "opts": [
+      "$ 1/12 $",
+      "$ 1/4 $",
+      "$ 1/6 $",
+      "$ 2/3 $"
+    ],
+    "ans": 0,
+    "diff": "easy",
+    "exp": "Probability of flipping a Head is questions/2$. Probability of rolling a 5 is questions/6$. Since these are independent events, multiply them: $ \\frac{1}{2} \\times \\frac{1}{6} = \\frac{1}{12} $."
+  },
+  {
+    "q": "If $ P(A) = 0.6, \\, P(B) = 0.4, \\text{ and } P(A \\cap B) = 0.2 $, find $ P(A \\cup B) $",
+    "expr": "",
+    "opts": [
+      "$ 0.8 $",
+      "$ 1.0 $",
+      "$ 0.6 $",
+      "$ 0.4 $"
+    ],
+    "ans": 0,
+    "diff": "medium",
+    "exp": "Apply the addition rule of probability: $ P(A \\cup B) = P(A) + P(B) - P(A \\cap B) = 0.6 + 0.4 - 0.2 = 0.8 $."
+  },
+  {
+    "q": "What is the probability of drawing an Ace from a standard well-shuffled deck of 52 cards?",
+    "expr": "",
+    "opts": [
+      "$ 1/13 $",
+      "$ 1/52 $",
+      "$ 4/13 $",
+      "$ 1/4 $"
+    ],
+    "ans": 0,
+    "diff": "easy",
+    "exp": "There are 4 Aces in a deck of 52 cards. The probability is $ \\frac{4}{52} = \\frac{1}{13} $."
+  },
+  {
+    "q": "What is the conditional probability formula for $ P(A \\mid B) $?",
+    "expr": "",
+    "opts": [
+      "$ P(A \\cap B) / P(B) $",
+      "$ P(A \\cup B) / P(B) $",
+      "$ P(A) \\cdot P(B) $",
+      "$ P(A \\cap B) / P(A) $"
+    ],
+    "ans": 0,
+    "diff": "medium",
+    "exp": "Conditional probability of $A$ given $B$ is the probability of both occurring divided by the probability of the condition: $ P(A \\mid B) = \\frac{P(A \\cap B)}{P(B)} $ (for $P(B) > 0$)."
+  },
+  {
+    "q": "According to Bayes' Theorem, what is $ P(A \\mid B) $ equal to?",
+    "expr": "",
+    "opts": [
+      "$ \\frac{P(B \\mid A)P(A)}{P(B)} $",
+      "$ \\frac{P(A \\mid B)P(B)}{P(A)} $",
+      "$ P(B \\mid A)P(A) $",
+      "$ P(A)P(B) $"
+    ],
+    "ans": 0,
+    "diff": "hard",
+    "exp": "Bayes' Theorem relates conditional and marginal probabilities: $ P(A \\mid B) = \\frac{P(B \\mid A)P(A)}{P(B)} $."
+  }
+];
 
     window.probQuiz = new QuizEngine('qe-container', questions, {
       onComplete: (res) => {

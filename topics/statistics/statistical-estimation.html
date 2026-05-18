@@ -87,6 +87,7 @@
 
         
         
+        
         <!-- SOLVED EXAMPLES -->
         <div class="tab-pane" id="pane-solved">
           <div class="solved-examples-container">
@@ -101,7 +102,7 @@
               </div>
             </div>
             <div class="solved-question">
-              What does a 95% confidence interval mean?
+              Find a 95% Confidence Interval for sample mean $ \bar{x} = 50 $, standard deviation $ \sigma = 10 $, and sample size $ n = 100 $. (Use $z = 1.96$)
               
             </div>
             <div class="solved-solution-wrap" id="solution-1">
@@ -114,7 +115,7 @@
                     <div class="step-desc">
                       Analyze the given options:
                       <ul style="margin-top:0.5rem; padding-left:1.2rem; list-style-type: none;">
-                        <li style="margin-bottom:0.4rem;text-align:left;"><strong>Option A:</strong> 95% of the data falls in this interval</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option B:</strong> We are 95% confident the true population mean falls in this interval</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option C:</strong> There is a 5% chance the math is wrong</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option D:</strong> The sample size is 95</li>
+                        <li style="margin-bottom:0.4rem;text-align:left;"><strong>Option A:</strong> $ [48.04, 51.96] $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option B:</strong> $ [49.02, 50.98] $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option C:</strong> $ [40.00, 60.00] $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option D:</strong> $ [45.00, 55.00] $</li>
                       </ul>
                     </div>
                   </div>
@@ -124,7 +125,7 @@
                   <div class="step-num">Step 2</div>
                   <div class="step-content">
                     <div class="step-math">$\text{Apply Core Principles}$</div>
-                    <div class="step-desc">It means if we repeated the survey many times, 95% of the intervals generated would contain the true population mean.</div>
+                    <div class="step-desc">Standard error is $ SE = \frac{\sigma}{\sqrt{n}} = \frac{10}{\sqrt{100}} = 1 $. The margin of error is $ z \cdot SE = 1.96 \times 1 = 1.96 $. Thus, the 95% CI is $ [50 - 1.96, 50 + 1.96] = [48.04, 51.96] $.</div>
                   </div>
                 </div>
 
@@ -132,13 +133,13 @@
                   <div class="step-num">Step 3</div>
                   <div class="step-content">
                     <div class="step-desc">
-                      Cross-reference choices to select the valid deduction. Option <strong>B</strong> perfectly aligns with the principles analyzed.
+                      Cross-reference choices to select the valid deduction. Option <strong>A</strong> perfectly aligns with the principles analyzed.
                     </div>
                   </div>
                 </div>
 
                 <div class="solved-success-box">
-                  <strong>Final Answer:</strong> Option B (We are 95% confident the true population mean falls in this interval)
+                  <strong>Final Answer:</strong> Option A ($ [48.04, 51.96] $)
                 </div>
               </div>
             </div>
@@ -154,7 +155,7 @@
               </div>
             </div>
             <div class="solved-question">
-              To decrease the margin of error in a confidence interval, what should you do?
+              What is an unbiased estimator?
               
             </div>
             <div class="solved-solution-wrap" id="solution-2">
@@ -167,7 +168,7 @@
                     <div class="step-desc">
                       Analyze the given options:
                       <ul style="margin-top:0.5rem; padding-left:1.2rem; list-style-type: none;">
-                        <li style="margin-bottom:0.4rem;text-align:left;"><strong>Option A:</strong> Decrease sample size</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option B:</strong> Increase sample size</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option C:</strong> Change the mean</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option D:</strong> Nothing</li>
+                        <li style="margin-bottom:0.4rem;text-align:left;"><strong>Option A:</strong> An estimator whose expected value equals the true population parameter</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option B:</strong> An estimator with zero variance</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option C:</strong> An estimator based on a huge sample size</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option D:</strong> A rounded value</li>
                       </ul>
                     </div>
                   </div>
@@ -177,7 +178,7 @@
                   <div class="step-num">Step 2</div>
                   <div class="step-content">
                     <div class="step-math">$\text{Apply Core Principles}$</div>
-                    <div class="step-desc">A larger sample size (n) shrinks the standard error, making your estimate more precise.</div>
+                    <div class="step-desc">An estimator is unbiased if its mathematical expected value is equal to the actual population parameter being estimated: $ E(\hat{\theta}) = \theta $.</div>
                   </div>
                 </div>
 
@@ -185,58 +186,178 @@
                   <div class="step-num">Step 3</div>
                   <div class="step-content">
                     <div class="step-desc">
-                      Cross-reference choices to select the valid deduction. Option <strong>B</strong> perfectly aligns with the principles analyzed.
+                      Cross-reference choices to select the valid deduction. Option <strong>A</strong> perfectly aligns with the principles analyzed.
                     </div>
                   </div>
                 </div>
 
                 <div class="solved-success-box">
-                  <strong>Final Answer:</strong> Option B (Increase sample size)
+                  <strong>Final Answer:</strong> Option A (An estimator whose expected value equals the true population parameter)
                 </div>
               </div>
             </div>
           </div>
-          </div>
-        </div>
-  
-            <div class="solved-question">
-              Find a 95% Confidence Interval for sample mean $\bar{x} = 50$, standard deviation $\sigma = 10$, and sample size $n = 100$. (Use $z = 1.96$)
+
+          <!-- Example 3 -->
+          <div class="solved-example-card">
+            <div class="solved-example-header">
+              <span class="solved-badge">Example 3 · Concept Application</span>
+              <div class="solved-timer" id="timer-3">
+                <span class="timer-display">00:00</span>
+                <button class="timer-btn" onclick="toggleTimer(3)">Start Timer ⏱️</button>
+              </div>
             </div>
-            <div class="solved-solution-wrap" id="solution-1">
-              <button class="btn btn-primary btn-reveal" onclick="revealSolution(1)">Reveal Step-by-Step Solution 👁️</button>
+            <div class="solved-question">
+              What happens to the margin of error of a confidence interval as the sample size $n$ increases?
+              
+            </div>
+            <div class="solved-solution-wrap" id="solution-3">
+              <button class="btn btn-primary btn-reveal" onclick="revealSolution(3)">Reveal Step-by-Step Solution 👁️</button>
               <div class="solved-steps" style="display: none;">
                 
                 <div class="solved-step">
                   <div class="step-num">Step 1</div>
                   <div class="step-content">
-                    <div class="step-math">$\text{Margin of Error } E = z \cdot \frac{\sigma}{\sqrt{n}}$</div>
-                    <div class="step-desc">State the confidence interval error margin formula.</div>
+                    <div class="step-desc">
+                      Analyze the given options:
+                      <ul style="margin-top:0.5rem; padding-left:1.2rem; list-style-type: none;">
+                        <li style="margin-bottom:0.4rem;text-align:left;"><strong>Option A:</strong> It decreases</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option B:</strong> It increases</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option C:</strong> It remains unchanged</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option D:</strong> It becomes zero</li>
+                      </ul>
+                    </div>
                   </div>
                 </div>
+
                 <div class="solved-step">
                   <div class="step-num">Step 2</div>
                   <div class="step-content">
-                    <div class="step-math">$E = 1.96 \cdot \frac{10}{\sqrt{100}} = 1.96 \cdot 1 = 1.96$</div>
-                    <div class="step-desc">Substitute the given values into the formula and solve.</div>
+                    <div class="step-math">$\text{Apply Core Principles}$</div>
+                    <div class="step-desc">Since sample size $n$ sits in the denominator of the standard error formula ($ \sigma / \sqrt{n} $), increasing $n$ shrinks the standard error, thereby decreasing the margin of error.</div>
                   </div>
                 </div>
+
                 <div class="solved-step">
                   <div class="step-num">Step 3</div>
                   <div class="step-content">
-                    <div class="step-math">$\text{CI} = [50 - 1.96, \, 50 + 1.96] = [48.04, \, 51.96]$</div>
-                    <div class="step-desc">Subtract and add the margin of error from the sample mean.</div>
+                    <div class="step-desc">
+                      Cross-reference choices to select the valid deduction. Option <strong>A</strong> perfectly aligns with the principles analyzed.
+                    </div>
                   </div>
                 </div>
+
                 <div class="solved-success-box">
-                  <strong>Final Answer:</strong> $[48.04, \, 51.96]$
+                  <strong>Final Answer:</strong> Option A (It decreases)
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Example 4 -->
+          <div class="solved-example-card">
+            <div class="solved-example-header">
+              <span class="solved-badge">Example 4 · Concept Application</span>
+              <div class="solved-timer" id="timer-4">
+                <span class="timer-display">00:00</span>
+                <button class="timer-btn" onclick="toggleTimer(4)">Start Timer ⏱️</button>
+              </div>
+            </div>
+            <div class="solved-question">
+              Which value represents the degree of certainty we have that a confidence interval contains the true parameter?
+              
+            </div>
+            <div class="solved-solution-wrap" id="solution-4">
+              <button class="btn btn-primary btn-reveal" onclick="revealSolution(4)">Reveal Step-by-Step Solution 👁️</button>
+              <div class="solved-steps" style="display: none;">
+                
+                <div class="solved-step">
+                  <div class="step-num">Step 1</div>
+                  <div class="step-content">
+                    <div class="step-desc">
+                      Analyze the given options:
+                      <ul style="margin-top:0.5rem; padding-left:1.2rem; list-style-type: none;">
+                        <li style="margin-bottom:0.4rem;text-align:left;"><strong>Option A:</strong> Confidence Level (e.g. 95%)</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option B:</strong> Significance Level ($\alpha$)</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option C:</strong> Margin of Error</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option D:</strong> p-value</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="solved-step">
+                  <div class="step-num">Step 2</div>
+                  <div class="step-content">
+                    <div class="step-math">$\text{Apply Core Principles}$</div>
+                    <div class="step-desc">The **Confidence Level** (like 95% or 99%) expresses the probability that the estimated confidence interval contains the true population parameter over repeated samplings.</div>
+                  </div>
+                </div>
+
+                <div class="solved-step">
+                  <div class="step-num">Step 3</div>
+                  <div class="step-content">
+                    <div class="step-desc">
+                      Cross-reference choices to select the valid deduction. Option <strong>A</strong> perfectly aligns with the principles analyzed.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="solved-success-box">
+                  <strong>Final Answer:</strong> Option A (Confidence Level (e.g. 95%))
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Example 5 -->
+          <div class="solved-example-card">
+            <div class="solved-example-header">
+              <span class="solved-badge">Example 5 · Concept Application</span>
+              <div class="solved-timer" id="timer-5">
+                <span class="timer-display">00:00</span>
+                <button class="timer-btn" onclick="toggleTimer(5)">Start Timer ⏱️</button>
+              </div>
+            </div>
+            <div class="solved-question">
+              What is the standard error of the sample mean?
+              
+            </div>
+            <div class="solved-solution-wrap" id="solution-5">
+              <button class="btn btn-primary btn-reveal" onclick="revealSolution(5)">Reveal Step-by-Step Solution 👁️</button>
+              <div class="solved-steps" style="display: none;">
+                
+                <div class="solved-step">
+                  <div class="step-num">Step 1</div>
+                  <div class="step-content">
+                    <div class="step-desc">
+                      Analyze the given options:
+                      <ul style="margin-top:0.5rem; padding-left:1.2rem; list-style-type: none;">
+                        <li style="margin-bottom:0.4rem;text-align:left;"><strong>Option A:</strong> $ \sigma / \sqrt{n} $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option B:</strong> $ \sigma^2 / n $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option C:</strong> $ \sqrt{\sigma/n} $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option D:</strong> $ npq $</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="solved-step">
+                  <div class="step-num">Step 2</div>
+                  <div class="step-content">
+                    <div class="step-math">$\text{Apply Core Principles}$</div>
+                    <div class="step-desc">The standard deviation of the sampling distribution of the sample mean is called the Standard Error, computed as $ SE = \frac{\sigma}{\sqrt{n}} $.</div>
+                  </div>
+                </div>
+
+                <div class="solved-step">
+                  <div class="step-num">Step 3</div>
+                  <div class="step-content">
+                    <div class="step-desc">
+                      Cross-reference choices to select the valid deduction. Option <strong>A</strong> perfectly aligns with the principles analyzed.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="solved-success-box">
+                  <strong>Final Answer:</strong> Option A ($ \sigma / \sqrt{n} $)
                 </div>
               </div>
             </div>
           </div>
           </div>
         </div>
-  
-        <!-- INTERACTIVE QUIZ -->
         <div class="tab-pane" id="pane-quiz">
           <div class="quiz-engine">
             <div class="qe-header">
@@ -266,9 +387,72 @@
     });
 
     const questions = [
-      { q: "What does a 95% confidence interval mean?", expr: "", opts: ["95% of the data falls in this interval", "We are 95% confident the true population mean falls in this interval", "There is a 5% chance the math is wrong", "The sample size is 95"], ans: 1, diff: "medium", exp: "It means if we repeated the survey many times, 95% of the intervals generated would contain the true population mean." },
-      { q: "To decrease the margin of error in a confidence interval, what should you do?", expr: "", opts: ["Decrease sample size", "Increase sample size", "Change the mean", "Nothing"], ans: 1, diff: "easy", exp: "A larger sample size (n) shrinks the standard error, making your estimate more precise." }
-    ];
+  {
+    "q": "Find a 95% Confidence Interval for sample mean $ \\bar{x} = 50 $, standard deviation $ \\sigma = 10 $, and sample size $ n = 100 $. (Use $z = 1.96$)",
+    "expr": "",
+    "opts": [
+      "$ [48.04, 51.96] $",
+      "$ [49.02, 50.98] $",
+      "$ [40.00, 60.00] $",
+      "$ [45.00, 55.00] $"
+    ],
+    "ans": 0,
+    "diff": "medium",
+    "exp": "Standard error is $ SE = \\frac{\\sigma}{\\sqrt{n}} = \\frac{10}{\\sqrt{100}} = 1 $. The margin of error is $ z \\cdot SE = 1.96 \\times 1 = 1.96 $. Thus, the 95% CI is $ [50 - 1.96, 50 + 1.96] = [48.04, 51.96] $."
+  },
+  {
+    "q": "What is an unbiased estimator?",
+    "expr": "",
+    "opts": [
+      "An estimator whose expected value equals the true population parameter",
+      "An estimator with zero variance",
+      "An estimator based on a huge sample size",
+      "A rounded value"
+    ],
+    "ans": 0,
+    "diff": "easy",
+    "exp": "An estimator is unbiased if its mathematical expected value is equal to the actual population parameter being estimated: $ E(\\hat{\\theta}) = \\theta $."
+  },
+  {
+    "q": "What happens to the margin of error of a confidence interval as the sample size $n$ increases?",
+    "expr": "",
+    "opts": [
+      "It decreases",
+      "It increases",
+      "It remains unchanged",
+      "It becomes zero"
+    ],
+    "ans": 0,
+    "diff": "easy",
+    "exp": "Since sample size $n$ sits in the denominator of the standard error formula ($ \\sigma / \\sqrt{n} $), increasing $n$ shrinks the standard error, thereby decreasing the margin of error."
+  },
+  {
+    "q": "Which value represents the degree of certainty we have that a confidence interval contains the true parameter?",
+    "expr": "",
+    "opts": [
+      "Confidence Level (e.g. 95%)",
+      "Significance Level ($\\alpha$)",
+      "Margin of Error",
+      "p-value"
+    ],
+    "ans": 0,
+    "diff": "easy",
+    "exp": "The **Confidence Level** (like 95% or 99%) expresses the probability that the estimated confidence interval contains the true population parameter over repeated samplings."
+  },
+  {
+    "q": "What is the standard error of the sample mean?",
+    "expr": "",
+    "opts": [
+      "$ \\sigma / \\sqrt{n} $",
+      "$ \\sigma^2 / n $",
+      "$ \\sqrt{\\sigma/n} $",
+      "$ npq $"
+    ],
+    "ans": 0,
+    "diff": "medium",
+    "exp": "The standard deviation of the sampling distribution of the sample mean is called the Standard Error, computed as $ SE = \\frac{\\sigma}{\\sqrt{n}} $."
+  }
+];
 
     window.estQuiz = new QuizEngine('qe-container', questions, {
       onComplete: (res) => {

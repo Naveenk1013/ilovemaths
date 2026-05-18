@@ -101,6 +101,7 @@
 
         
         
+        
         <!-- SOLVED EXAMPLES -->
         <div class="tab-pane" id="pane-solved">
           <div class="solved-examples-container">
@@ -115,7 +116,7 @@
               </div>
             </div>
             <div class="solved-question">
-              If P is True and Q is False, what is the value of $ P \land Q $?
+              What is the contrapositive of the logical statement $ P \to Q $?
               
             </div>
             <div class="solved-solution-wrap" id="solution-1">
@@ -128,7 +129,7 @@
                     <div class="step-desc">
                       Analyze the given options:
                       <ul style="margin-top:0.5rem; padding-left:1.2rem; list-style-type: none;">
-                        <li style="margin-bottom:0.4rem;text-align:left;"><strong>Option A:</strong> True</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option B:</strong> False</li>
+                        <li style="margin-bottom:0.4rem;text-align:left;"><strong>Option A:</strong> $ \neg Q \to \neg P $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option B:</strong> $ Q \to P $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option C:</strong> $ \neg P \to \neg Q $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option D:</strong> $ P \land \neg Q $</li>
                       </ul>
                     </div>
                   </div>
@@ -138,7 +139,7 @@
                   <div class="step-num">Step 2</div>
                   <div class="step-content">
                     <div class="step-math">$\text{Apply Core Principles}$</div>
-                    <div class="step-desc">AND ($ \land $) requires both to be True.</div>
+                    <div class="step-desc">The contrapositive of $P \to Q$ is formed by negating both terms and reversing the implication arrow: $ \neg Q \to \neg P $. They are logically equivalent.</div>
                   </div>
                 </div>
 
@@ -146,13 +147,13 @@
                   <div class="step-num">Step 3</div>
                   <div class="step-content">
                     <div class="step-desc">
-                      Cross-reference choices to select the valid deduction. Option <strong>B</strong> perfectly aligns with the principles analyzed.
+                      Cross-reference choices to select the valid deduction. Option <strong>A</strong> perfectly aligns with the principles analyzed.
                     </div>
                   </div>
                 </div>
 
                 <div class="solved-success-box">
-                  <strong>Final Answer:</strong> Option B (False)
+                  <strong>Final Answer:</strong> Option A ($ \neg Q \to \neg P $)
                 </div>
               </div>
             </div>
@@ -168,7 +169,7 @@
               </div>
             </div>
             <div class="solved-question">
-              When is the implication $ P \implies Q $ FALSE?
+              What is the truth value of $ P \land (Q \lor \neg P) $ when $P$ is True and $Q$ is False?
               
             </div>
             <div class="solved-solution-wrap" id="solution-2">
@@ -181,7 +182,7 @@
                     <div class="step-desc">
                       Analyze the given options:
                       <ul style="margin-top:0.5rem; padding-left:1.2rem; list-style-type: none;">
-                        <li style="margin-bottom:0.4rem;text-align:left;"><strong>Option A:</strong> When P is F and Q is F</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option B:</strong> When P is T and Q is T</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option C:</strong> When P is T and Q is F</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option D:</strong> When P is F and Q is T</li>
+                        <li style="margin-bottom:0.4rem;text-align:left;"><strong>Option A:</strong> False</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option B:</strong> True</li>
                       </ul>
                     </div>
                   </div>
@@ -191,7 +192,7 @@
                   <div class="step-num">Step 2</div>
                   <div class="step-content">
                     <div class="step-math">$\text{Apply Core Principles}$</div>
-                    <div class="step-desc">An implication is only broken if the premise (P) happens but the promise (Q) does not.</div>
+                    <div class="step-desc">Evaluate: $P = T$, $Q = F$. First, $\neg P = F$. Then, $Q \lor \neg P = F \lor F = F$. Finally, $P \land F = T \land F = F$ (False).</div>
                   </div>
                 </div>
 
@@ -199,13 +200,13 @@
                   <div class="step-num">Step 3</div>
                   <div class="step-content">
                     <div class="step-desc">
-                      Cross-reference choices to select the valid deduction. Option <strong>C</strong> perfectly aligns with the principles analyzed.
+                      Cross-reference choices to select the valid deduction. Option <strong>A</strong> perfectly aligns with the principles analyzed.
                     </div>
                   </div>
                 </div>
 
                 <div class="solved-success-box">
-                  <strong>Final Answer:</strong> Option C (When P is T and Q is F)
+                  <strong>Final Answer:</strong> Option A (False)
                 </div>
               </div>
             </div>
@@ -221,7 +222,7 @@
               </div>
             </div>
             <div class="solved-question">
-              What does $ \neg (\neg P) $ equal?
+              A logical statement that is always true regardless of the truth values of its individual components is called what?
               
             </div>
             <div class="solved-solution-wrap" id="solution-3">
@@ -234,7 +235,7 @@
                     <div class="step-desc">
                       Analyze the given options:
                       <ul style="margin-top:0.5rem; padding-left:1.2rem; list-style-type: none;">
-                        <li style="margin-bottom:0.4rem;text-align:left;"><strong>Option A:</strong> $ P $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option B:</strong> $ \neg P $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option C:</strong> True</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option D:</strong> False</li>
+                        <li style="margin-bottom:0.4rem;text-align:left;"><strong>Option A:</strong> Tautology</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option B:</strong> Contradiction</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option C:</strong> Fallacy</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option D:</strong> Satisfiable</li>
                       </ul>
                     </div>
                   </div>
@@ -244,7 +245,7 @@
                   <div class="step-num">Step 2</div>
                   <div class="step-content">
                     <div class="step-math">$\text{Apply Core Principles}$</div>
-                    <div class="step-desc">Double negation brings you back to the original value.</div>
+                    <div class="step-desc">A statement that is True under all possible valuations of its variables is a **Tautology**.</div>
                   </div>
                 </div>
 
@@ -258,52 +259,119 @@
                 </div>
 
                 <div class="solved-success-box">
-                  <strong>Final Answer:</strong> Option A ($ P $)
+                  <strong>Final Answer:</strong> Option A (Tautology)
                 </div>
               </div>
             </div>
           </div>
-          </div>
-        </div>
-  
-            <div class="solved-question">
-              Construct a truth value analysis for the logical implication:<br>$P \to (Q \lor \neg P)$ when $P$ is True ($T$) and $Q$ is False ($F$).
+
+          <!-- Example 4 -->
+          <div class="solved-example-card">
+            <div class="solved-example-header">
+              <span class="solved-badge">Example 4 · Concept Application</span>
+              <div class="solved-timer" id="timer-4">
+                <span class="timer-display">00:00</span>
+                <button class="timer-btn" onclick="toggleTimer(4)">Start Timer ⏱️</button>
+              </div>
             </div>
-            <div class="solved-solution-wrap" id="solution-1">
-              <button class="btn btn-primary btn-reveal" onclick="revealSolution(1)">Reveal Step-by-Step Solution 👁️</button>
+            <div class="solved-question">
+              What is the negation of De Morgan's Law for $ \neg(P \lor Q) $?
+              
+            </div>
+            <div class="solved-solution-wrap" id="solution-4">
+              <button class="btn btn-primary btn-reveal" onclick="revealSolution(4)">Reveal Step-by-Step Solution 👁️</button>
               <div class="solved-steps" style="display: none;">
                 
                 <div class="solved-step">
                   <div class="step-num">Step 1</div>
                   <div class="step-content">
-                    <div class="step-math">$\neg P = \neg T = F$</div>
-                    <div class="step-desc">Evaluate the negation of statement $P$ first.</div>
+                    <div class="step-desc">
+                      Analyze the given options:
+                      <ul style="margin-top:0.5rem; padding-left:1.2rem; list-style-type: none;">
+                        <li style="margin-bottom:0.4rem;text-align:left;"><strong>Option A:</strong> $ \neg P \land \neg Q $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option B:</strong> $ \neg P \lor \neg Q $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option C:</strong> $ P \land Q $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option D:</strong> $ \neg P \to \neg Q $</li>
+                      </ul>
+                    </div>
                   </div>
                 </div>
+
                 <div class="solved-step">
                   <div class="step-num">Step 2</div>
                   <div class="step-content">
-                    <div class="step-math">$Q \lor \neg P = F \lor F = F$</div>
-                    <div class="step-desc">Evaluate the disjunction (OR) between $Q$ and $\neg P$.</div>
+                    <div class="step-math">$\text{Apply Core Principles}$</div>
+                    <div class="step-desc">De Morgan's Law states that the negation of a disjunction is the conjunction of the negations: $ \neg(P \lor Q) \equiv \neg P \land \neg Q $.</div>
                   </div>
                 </div>
+
                 <div class="solved-step">
                   <div class="step-num">Step 3</div>
                   <div class="step-content">
-                    <div class="step-math">$P \to (Q \lor \neg P) = T \to F = F$</div>
-                    <div class="step-desc">Apply conditional implication: $T \to F$ always evaluates to False ($F$).</div>
+                    <div class="step-desc">
+                      Cross-reference choices to select the valid deduction. Option <strong>A</strong> perfectly aligns with the principles analyzed.
+                    </div>
                   </div>
                 </div>
+
                 <div class="solved-success-box">
-                  <strong>Final Answer:</strong> The truth value is False ($F$).
+                  <strong>Final Answer:</strong> Option A ($ \neg P \land \neg Q $)
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Example 5 -->
+          <div class="solved-example-card">
+            <div class="solved-example-header">
+              <span class="solved-badge">Example 5 · Concept Application</span>
+              <div class="solved-timer" id="timer-5">
+                <span class="timer-display">00:00</span>
+                <button class="timer-btn" onclick="toggleTimer(5)">Start Timer ⏱️</button>
+              </div>
+            </div>
+            <div class="solved-question">
+              Under what single condition is the logical implication $ P \to Q $ False?
+              
+            </div>
+            <div class="solved-solution-wrap" id="solution-5">
+              <button class="btn btn-primary btn-reveal" onclick="revealSolution(5)">Reveal Step-by-Step Solution 👁️</button>
+              <div class="solved-steps" style="display: none;">
+                
+                <div class="solved-step">
+                  <div class="step-num">Step 1</div>
+                  <div class="step-content">
+                    <div class="step-desc">
+                      Analyze the given options:
+                      <ul style="margin-top:0.5rem; padding-left:1.2rem; list-style-type: none;">
+                        <li style="margin-bottom:0.4rem;text-align:left;"><strong>Option A:</strong> When $P$ is True and $Q$ is False</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option B:</strong> When both $P$ and $Q$ are False</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option C:</strong> When $P$ is False and $Q$ is True</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option D:</strong> It is never False</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="solved-step">
+                  <div class="step-num">Step 2</div>
+                  <div class="step-content">
+                    <div class="step-math">$\text{Apply Core Principles}$</div>
+                    <div class="step-desc">An implication $ P \to Q $ is conditionally defined as false if and only if the premise ($P$) is true but the conclusion ($Q$) is false.</div>
+                  </div>
+                </div>
+
+                <div class="solved-step">
+                  <div class="step-num">Step 3</div>
+                  <div class="step-content">
+                    <div class="step-desc">
+                      Cross-reference choices to select the valid deduction. Option <strong>A</strong> perfectly aligns with the principles analyzed.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="solved-success-box">
+                  <strong>Final Answer:</strong> Option A (When $P$ is True and $Q$ is False)
                 </div>
               </div>
             </div>
           </div>
           </div>
         </div>
-  
-        <!-- INTERACTIVE QUIZ -->
         <div class="tab-pane" id="pane-quiz">
           <div class="quiz-engine">
             <div class="qe-header">
@@ -333,10 +401,70 @@
     });
 
     const questions = [
-      { q: "If P is True and Q is False, what is the value of $$ P \\land Q $$?", expr: "", opts: ["True", "False"], ans: 1, diff: "easy", exp: "AND ($ \\land $) requires both to be True." },
-      { q: "When is the implication $$ P \\implies Q $$ FALSE?", expr: "", opts: ["When P is F and Q is F", "When P is T and Q is T", "When P is T and Q is F", "When P is F and Q is T"], ans: 2, diff: "medium", exp: "An implication is only broken if the premise (P) happens but the promise (Q) does not." },
-      { q: "What does $$ \\neg (\\neg P) $$ equal?", expr: "", opts: ["$$ P $$", "$$ \\neg P $$", "True", "False"], ans: 0, diff: "easy", exp: "Double negation brings you back to the original value." }
-    ];
+  {
+    "q": "What is the contrapositive of the logical statement $ P \\to Q $?",
+    "expr": "",
+    "opts": [
+      "$ \\neg Q \\to \\neg P $",
+      "$ Q \\to P $",
+      "$ \\neg P \\to \\neg Q $",
+      "$ P \\land \\neg Q $"
+    ],
+    "ans": 0,
+    "diff": "medium",
+    "exp": "The contrapositive of $P \\to Q$ is formed by negating both terms and reversing the implication arrow: $ \\neg Q \\to \\neg P $. They are logically equivalent."
+  },
+  {
+    "q": "What is the truth value of $ P \\land (Q \\lor \\neg P) $ when $P$ is True and $Q$ is False?",
+    "expr": "",
+    "opts": [
+      "False",
+      "True"
+    ],
+    "ans": 0,
+    "diff": "medium",
+    "exp": "Evaluate: $P = T$, $Q = F$. First, $\\neg P = F$. Then, $Q \\lor \\neg P = F \\lor F = F$. Finally, $P \\land F = T \\land F = F$ (False)."
+  },
+  {
+    "q": "A logical statement that is always true regardless of the truth values of its individual components is called what?",
+    "expr": "",
+    "opts": [
+      "Tautology",
+      "Contradiction",
+      "Fallacy",
+      "Satisfiable"
+    ],
+    "ans": 0,
+    "diff": "easy",
+    "exp": "A statement that is True under all possible valuations of its variables is a **Tautology**."
+  },
+  {
+    "q": "What is the negation of De Morgan's Law for $ \\neg(P \\lor Q) $?",
+    "expr": "",
+    "opts": [
+      "$ \\neg P \\land \\neg Q $",
+      "$ \\neg P \\lor \\neg Q $",
+      "$ P \\land Q $",
+      "$ \\neg P \\to \\neg Q $"
+    ],
+    "ans": 0,
+    "diff": "easy",
+    "exp": "De Morgan's Law states that the negation of a disjunction is the conjunction of the negations: $ \\neg(P \\lor Q) \\equiv \\neg P \\land \\neg Q $."
+  },
+  {
+    "q": "Under what single condition is the logical implication $ P \\to Q $ False?",
+    "expr": "",
+    "opts": [
+      "When $P$ is True and $Q$ is False",
+      "When both $P$ and $Q$ are False",
+      "When $P$ is False and $Q$ is True",
+      "It is never False"
+    ],
+    "ans": 0,
+    "diff": "easy",
+    "exp": "An implication $ P \\to Q $ is conditionally defined as false if and only if the premise ($P$) is true but the conclusion ($Q$) is false."
+  }
+];
 
     window.logicQuiz = new QuizEngine('qe-container', questions, {
       onComplete: (res) => {

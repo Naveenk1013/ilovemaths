@@ -93,6 +93,7 @@
 
         
         
+        
         <!-- SOLVED EXAMPLES -->
         <div class="tab-pane" id="pane-solved">
           <div class="solved-examples-container">
@@ -107,7 +108,7 @@
               </div>
             </div>
             <div class="solved-question">
-              If the determinant of the coefficient matrix $ |A| = 0 $, what does it mean for the system of equations?
+              By Cramer's Rule, how do we find variable $x$ in a system of linear equations?
               
             </div>
             <div class="solved-solution-wrap" id="solution-1">
@@ -120,7 +121,7 @@
                     <div class="step-desc">
                       Analyze the given options:
                       <ul style="margin-top:0.5rem; padding-left:1.2rem; list-style-type: none;">
-                        <li style="margin-bottom:0.4rem;text-align:left;"><strong>Option A:</strong> It has a unique solution</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option B:</strong> It has no unique solution</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option C:</strong> It equals zero</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option D:</strong> x = y = 0</li>
+                        <li style="margin-bottom:0.4rem;text-align:left;"><strong>Option A:</strong> $ x = D_x / D $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option B:</strong> $ x = D / D_x $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option C:</strong> $ x = D \cdot D_x $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option D:</strong> $ x = D_x - D $</li>
                       </ul>
                     </div>
                   </div>
@@ -130,7 +131,7 @@
                   <div class="step-num">Step 2</div>
                   <div class="step-content">
                     <div class="step-math">$\text{Apply Core Principles}$</div>
-                    <div class="step-desc">If |A| = 0, the matrix is singular. Therefore, it has either no solutions or infinitely many solutions, but NOT a unique one.</div>
+                    <div class="step-desc">Cramer's Rule states that each variable is computed as the ratio of the modified determinant to the main coefficient determinant: $ x = \frac{D_x}{D} $ (provided $D \neq 0$).</div>
                   </div>
                 </div>
 
@@ -138,13 +139,13 @@
                   <div class="step-num">Step 3</div>
                   <div class="step-content">
                     <div class="step-desc">
-                      Cross-reference choices to select the valid deduction. Option <strong>B</strong> perfectly aligns with the principles analyzed.
+                      Cross-reference choices to select the valid deduction. Option <strong>A</strong> perfectly aligns with the principles analyzed.
                     </div>
                   </div>
                 </div>
 
                 <div class="solved-success-box">
-                  <strong>Final Answer:</strong> Option B (It has no unique solution)
+                  <strong>Final Answer:</strong> Option A ($ x = D_x / D $)
                 </div>
               </div>
             </div>
@@ -160,7 +161,7 @@
               </div>
             </div>
             <div class="solved-question">
-              In the matrix equation $ AX = B $, what does X represent?
+              Under what condition is a system of linear equations $ AX = B $ guaranteed to have a unique solution?
               
             </div>
             <div class="solved-solution-wrap" id="solution-2">
@@ -173,7 +174,7 @@
                     <div class="step-desc">
                       Analyze the given options:
                       <ul style="margin-top:0.5rem; padding-left:1.2rem; list-style-type: none;">
-                        <li style="margin-bottom:0.4rem;text-align:left;"><strong>Option A:</strong> The coefficients</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option B:</strong> The constants</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option C:</strong> The variables (x, y, z)</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option D:</strong> The determinant</li>
+                        <li style="margin-bottom:0.4rem;text-align:left;"><strong>Option A:</strong> $ \det(A) \neq 0 $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option B:</strong> $ \det(A) = 0 $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option C:</strong> $ A \text{ is singular} $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option D:</strong> $ B = 0 $</li>
                       </ul>
                     </div>
                   </div>
@@ -183,7 +184,7 @@
                   <div class="step-num">Step 2</div>
                   <div class="step-content">
                     <div class="step-math">$\text{Apply Core Principles}$</div>
-                    <div class="step-desc">X is the column matrix of the variables we are trying to solve for.</div>
+                    <div class="step-desc">A system of equations has a unique solution if the coefficient matrix $A$ is invertible, which requires its determinant to be non-zero: $ \det(A) \neq 0 $.</div>
                   </div>
                 </div>
 
@@ -191,51 +192,178 @@
                   <div class="step-num">Step 3</div>
                   <div class="step-content">
                     <div class="step-desc">
-                      Cross-reference choices to select the valid deduction. Option <strong>C</strong> perfectly aligns with the principles analyzed.
+                      Cross-reference choices to select the valid deduction. Option <strong>A</strong> perfectly aligns with the principles analyzed.
                     </div>
                   </div>
                 </div>
 
                 <div class="solved-success-box">
-                  <strong>Final Answer:</strong> Option C (The variables (x, y, z))
+                  <strong>Final Answer:</strong> Option A ($ \det(A) \neq 0 $)
                 </div>
               </div>
             </div>
           </div>
-          </div>
-        </div>
-  
-            <div class="solved-question">
-              Solve the primary mathematical expression relating to this unit.
+
+          <!-- Example 3 -->
+          <div class="solved-example-card">
+            <div class="solved-example-header">
+              <span class="solved-badge">Example 3 · Concept Application</span>
+              <div class="solved-timer" id="timer-3">
+                <span class="timer-display">00:00</span>
+                <button class="timer-btn" onclick="toggleTimer(3)">Start Timer ⏱️</button>
+              </div>
             </div>
-            <div class="solved-solution-wrap" id="solution-1">
-              <button class="btn btn-primary btn-reveal" onclick="revealSolution(1)">Reveal Step-by-Step Solution 👁️</button>
+            <div class="solved-question">
+              What does it mean if a system of equations has no solution?
+              
+            </div>
+            <div class="solved-solution-wrap" id="solution-3">
+              <button class="btn btn-primary btn-reveal" onclick="revealSolution(3)">Reveal Step-by-Step Solution 👁️</button>
               <div class="solved-steps" style="display: none;">
                 
                 <div class="solved-step">
                   <div class="step-num">Step 1</div>
                   <div class="step-content">
-                    <div class="step-math">$\text{Step 1: Write given values}$</div>
-                    <div class="step-desc">Identify the variables and map out the solution structure.</div>
+                    <div class="step-desc">
+                      Analyze the given options:
+                      <ul style="margin-top:0.5rem; padding-left:1.2rem; list-style-type: none;">
+                        <li style="margin-bottom:0.4rem;text-align:left;"><strong>Option A:</strong> The system is inconsistent</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option B:</strong> The system is consistent</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option C:</strong> The system is homogenous</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option D:</strong> The system is singular</li>
+                      </ul>
+                    </div>
                   </div>
                 </div>
+
                 <div class="solved-step">
                   <div class="step-num">Step 2</div>
                   <div class="step-content">
-                    <div class="step-math">$\text{Step 2: Apply primary theorems}$</div>
-                    <div class="step-desc">Simplify terms step by step to solve the query.</div>
+                    <div class="step-math">$\text{Apply Core Principles}$</div>
+                    <div class="step-desc">A system of linear equations is called **Inconsistent** if there are no values that satisfy all equations simultaneously (i.e. no solution exists).</div>
                   </div>
                 </div>
+
+                <div class="solved-step">
+                  <div class="step-num">Step 3</div>
+                  <div class="step-content">
+                    <div class="step-desc">
+                      Cross-reference choices to select the valid deduction. Option <strong>A</strong> perfectly aligns with the principles analyzed.
+                    </div>
+                  </div>
+                </div>
+
                 <div class="solved-success-box">
-                  <strong>Final Answer:</strong> Successfully Solved!
+                  <strong>Final Answer:</strong> Option A (The system is inconsistent)
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Example 4 -->
+          <div class="solved-example-card">
+            <div class="solved-example-header">
+              <span class="solved-badge">Example 4 · Concept Application</span>
+              <div class="solved-timer" id="timer-4">
+                <span class="timer-display">00:00</span>
+                <button class="timer-btn" onclick="toggleTimer(4)">Start Timer ⏱️</button>
+              </div>
+            </div>
+            <div class="solved-question">
+              Solve for $x$ and $y$ using Cramer's rule: $ x + y = 5, \, x - y = 1 $
+              
+            </div>
+            <div class="solved-solution-wrap" id="solution-4">
+              <button class="btn btn-primary btn-reveal" onclick="revealSolution(4)">Reveal Step-by-Step Solution 👁️</button>
+              <div class="solved-steps" style="display: none;">
+                
+                <div class="solved-step">
+                  <div class="step-num">Step 1</div>
+                  <div class="step-content">
+                    <div class="step-desc">
+                      Analyze the given options:
+                      <ul style="margin-top:0.5rem; padding-left:1.2rem; list-style-type: none;">
+                        <li style="margin-bottom:0.4rem;text-align:left;"><strong>Option A:</strong> $ x=3, y=2 $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option B:</strong> $ x=2, y=3 $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option C:</strong> $ x=4, y=1 $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option D:</strong> $ x=5, y=0 $</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="solved-step">
+                  <div class="step-num">Step 2</div>
+                  <div class="step-content">
+                    <div class="step-math">$\text{Apply Core Principles}$</div>
+                    <div class="step-desc">Main determinant $ D = \begin{vmatrix} 1 & 1 \\ 1 & -1 \end{vmatrix} = -2 $. $ D_x = \begin{vmatrix} 5 & 1 \\ 1 & -1 \end{vmatrix} = -6 \implies x = -6/-2 = 3 $. $ D_y = \begin{vmatrix} 1 & 5 \\ 1 & 1 \end{vmatrix} = -4 \implies y = -4/-2 = 2 $. Hence, $x=3, y=2$.</div>
+                  </div>
+                </div>
+
+                <div class="solved-step">
+                  <div class="step-num">Step 3</div>
+                  <div class="step-content">
+                    <div class="step-desc">
+                      Cross-reference choices to select the valid deduction. Option <strong>A</strong> perfectly aligns with the principles analyzed.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="solved-success-box">
+                  <strong>Final Answer:</strong> Option A ($ x=3, y=2 $)
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Example 5 -->
+          <div class="solved-example-card">
+            <div class="solved-example-header">
+              <span class="solved-badge">Example 5 · Concept Application</span>
+              <div class="solved-timer" id="timer-5">
+                <span class="timer-display">00:00</span>
+                <button class="timer-btn" onclick="toggleTimer(5)">Start Timer ⏱️</button>
+              </div>
+            </div>
+            <div class="solved-question">
+              For a homogeneous system $ AX = 0 $, when does a non-trivial (non-zero) solution exist?
+              
+            </div>
+            <div class="solved-solution-wrap" id="solution-5">
+              <button class="btn btn-primary btn-reveal" onclick="revealSolution(5)">Reveal Step-by-Step Solution 👁️</button>
+              <div class="solved-steps" style="display: none;">
+                
+                <div class="solved-step">
+                  <div class="step-num">Step 1</div>
+                  <div class="step-content">
+                    <div class="step-desc">
+                      Analyze the given options:
+                      <ul style="margin-top:0.5rem; padding-left:1.2rem; list-style-type: none;">
+                        <li style="margin-bottom:0.4rem;text-align:left;"><strong>Option A:</strong> $ \det(A) = 0 $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option B:</strong> $ \det(A) \neq 0 $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option C:</strong> Always</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option D:</strong> Never</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="solved-step">
+                  <div class="step-num">Step 2</div>
+                  <div class="step-content">
+                    <div class="step-math">$\text{Apply Core Principles}$</div>
+                    <div class="step-desc">A homogeneous system always has the trivial solution $X=0$. A non-trivial solution exists if and only if matrix $A$ is non-invertible, which corresponds to $ \det(A) = 0 $.</div>
+                  </div>
+                </div>
+
+                <div class="solved-step">
+                  <div class="step-num">Step 3</div>
+                  <div class="step-content">
+                    <div class="step-desc">
+                      Cross-reference choices to select the valid deduction. Option <strong>A</strong> perfectly aligns with the principles analyzed.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="solved-success-box">
+                  <strong>Final Answer:</strong> Option A ($ \det(A) = 0 $)
                 </div>
               </div>
             </div>
           </div>
           </div>
         </div>
-  
-        <!-- INTERACTIVE QUIZ -->
         <div class="tab-pane" id="pane-quiz">
           <div class="quiz-engine">
             <div class="qe-header">
@@ -265,9 +393,72 @@
     });
 
     const questions = [
-      { q: "If the determinant of the coefficient matrix $$ |A| = 0 $$, what does it mean for the system of equations?", expr: "", opts: ["It has a unique solution", "It has no unique solution", "It equals zero", "x = y = 0"], ans: 1, diff: "easy", exp: "If |A| = 0, the matrix is singular. Therefore, it has either no solutions or infinitely many solutions, but NOT a unique one." },
-      { q: "In the matrix equation $$ AX = B $$, what does X represent?", expr: "", opts: ["The coefficients", "The constants", "The variables (x, y, z)", "The determinant"], ans: 2, diff: "easy", exp: "X is the column matrix of the variables we are trying to solve for." }
-    ];
+  {
+    "q": "By Cramer's Rule, how do we find variable $x$ in a system of linear equations?",
+    "expr": "",
+    "opts": [
+      "$ x = D_x / D $",
+      "$ x = D / D_x $",
+      "$ x = D \\cdot D_x $",
+      "$ x = D_x - D $"
+    ],
+    "ans": 0,
+    "diff": "easy",
+    "exp": "Cramer's Rule states that each variable is computed as the ratio of the modified determinant to the main coefficient determinant: $ x = \\frac{D_x}{D} $ (provided $D \\neq 0$)."
+  },
+  {
+    "q": "Under what condition is a system of linear equations $ AX = B $ guaranteed to have a unique solution?",
+    "expr": "",
+    "opts": [
+      "$ \\det(A) \\neq 0 $",
+      "$ \\det(A) = 0 $",
+      "$ A \\text{ is singular} $",
+      "$ B = 0 $"
+    ],
+    "ans": 0,
+    "diff": "easy",
+    "exp": "A system of equations has a unique solution if the coefficient matrix $A$ is invertible, which requires its determinant to be non-zero: $ \\det(A) \\neq 0 $."
+  },
+  {
+    "q": "What does it mean if a system of equations has no solution?",
+    "expr": "",
+    "opts": [
+      "The system is inconsistent",
+      "The system is consistent",
+      "The system is homogenous",
+      "The system is singular"
+    ],
+    "ans": 0,
+    "diff": "easy",
+    "exp": "A system of linear equations is called **Inconsistent** if there are no values that satisfy all equations simultaneously (i.e. no solution exists)."
+  },
+  {
+    "q": "Solve for $x$ and $y$ using Cramer's rule: $ x + y = 5, \\, x - y = 1 $",
+    "expr": "",
+    "opts": [
+      "$ x=3, y=2 $",
+      "$ x=2, y=3 $",
+      "$ x=4, y=1 $",
+      "$ x=5, y=0 $"
+    ],
+    "ans": 0,
+    "diff": "medium",
+    "exp": "Main determinant $ D = \\begin{vmatrix} 1 & 1 \\\\ 1 & -1 \\end{vmatrix} = -2 $. $ D_x = \\begin{vmatrix} 5 & 1 \\\\ 1 & -1 \\end{vmatrix} = -6 \\implies x = -6/-2 = 3 $. $ D_y = \\begin{vmatrix} 1 & 5 \\\\ 1 & 1 \\end{vmatrix} = -4 \\implies y = -4/-2 = 2 $. Hence, $x=3, y=2$."
+  },
+  {
+    "q": "For a homogeneous system $ AX = 0 $, when does a non-trivial (non-zero) solution exist?",
+    "expr": "",
+    "opts": [
+      "$ \\det(A) = 0 $",
+      "$ \\det(A) \\neq 0 $",
+      "Always",
+      "Never"
+    ],
+    "ans": 0,
+    "diff": "hard",
+    "exp": "A homogeneous system always has the trivial solution $X=0$. A non-trivial solution exists if and only if matrix $A$ is non-invertible, which corresponds to $ \\det(A) = 0 $."
+  }
+];
 
     window.appQuiz = new QuizEngine('qe-container', questions, {
       onComplete: (res) => {

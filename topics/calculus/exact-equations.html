@@ -90,6 +90,7 @@
 
         
         
+        
         <!-- SOLVED EXAMPLES -->
         <div class="tab-pane" id="pane-solved">
           <div class="solved-examples-container">
@@ -104,7 +105,7 @@
               </div>
             </div>
             <div class="solved-question">
-              What makes the equation $ M(x,y)dx + N(x,y)dy = 0 $ exact?
+              What is the condition for the differential equation $ M(x,y)dx + N(x,y)dy = 0 $ to be exact?
               
             </div>
             <div class="solved-solution-wrap" id="solution-1">
@@ -117,7 +118,7 @@
                     <div class="step-desc">
                       Analyze the given options:
                       <ul style="margin-top:0.5rem; padding-left:1.2rem; list-style-type: none;">
-                        <li style="margin-bottom:0.4rem;text-align:left;"><strong>Option A:</strong> $ \frac{\partial M}{\partial x} = \frac{\partial N}{\partial y} $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option B:</strong> $ \frac{\partial M}{\partial y} = \frac{\partial N}{\partial x} $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option C:</strong> $ M = N $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option D:</strong> $ \int M dx = \int N dy $</li>
+                        <li style="margin-bottom:0.4rem;text-align:left;"><strong>Option A:</strong> $ \frac{\partial M}{\partial y} = \frac{\partial N}{\partial x} $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option B:</strong> $ \frac{\partial M}{\partial x} = \frac{\partial N}{\partial y} $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option C:</strong> $ M_x + N_y = 0 $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option D:</strong> $ M = N $</li>
                       </ul>
                     </div>
                   </div>
@@ -127,7 +128,7 @@
                   <div class="step-num">Step 2</div>
                   <div class="step-content">
                     <div class="step-math">$\text{Apply Core Principles}$</div>
-                    <div class="step-desc">The mixed partial derivatives must be equal.</div>
+                    <div class="step-desc">A differential equation is exact if and only if the partial derivative of $M$ with respect to $y$ equals the partial derivative of $N$ with respect to $x$: $ \frac{\partial M}{\partial y} = \frac{\partial N}{\partial x} $.</div>
                   </div>
                 </div>
 
@@ -135,51 +136,231 @@
                   <div class="step-num">Step 3</div>
                   <div class="step-content">
                     <div class="step-desc">
-                      Cross-reference choices to select the valid deduction. Option <strong>B</strong> perfectly aligns with the principles analyzed.
+                      Cross-reference choices to select the valid deduction. Option <strong>A</strong> perfectly aligns with the principles analyzed.
                     </div>
                   </div>
                 </div>
 
                 <div class="solved-success-box">
-                  <strong>Final Answer:</strong> Option B ($ \frac{\partial M}{\partial y} = \frac{\partial N}{\partial x} $)
+                  <strong>Final Answer:</strong> Option A ($ \frac{\partial M}{\partial y} = \frac{\partial N}{\partial x} $)
                 </div>
               </div>
             </div>
           </div>
-          </div>
-        </div>
-  
-            <div class="solved-question">
-              Solve the primary mathematical expression relating to this unit.
+
+          <!-- Example 2 -->
+          <div class="solved-example-card">
+            <div class="solved-example-header">
+              <span class="solved-badge">Example 2 · Concept Application</span>
+              <div class="solved-timer" id="timer-2">
+                <span class="timer-display">00:00</span>
+                <button class="timer-btn" onclick="toggleTimer(2)">Start Timer ⏱️</button>
+              </div>
             </div>
-            <div class="solved-solution-wrap" id="solution-1">
-              <button class="btn btn-primary btn-reveal" onclick="revealSolution(1)">Reveal Step-by-Step Solution 👁️</button>
+            <div class="solved-question">
+              Is the differential equation $ (2xy + 3)dx + (x^2 - 1)dy = 0 $ exact?
+              
+            </div>
+            <div class="solved-solution-wrap" id="solution-2">
+              <button class="btn btn-primary btn-reveal" onclick="revealSolution(2)">Reveal Step-by-Step Solution 👁️</button>
               <div class="solved-steps" style="display: none;">
                 
                 <div class="solved-step">
                   <div class="step-num">Step 1</div>
                   <div class="step-content">
-                    <div class="step-math">$\text{Step 1: Write given values}$</div>
-                    <div class="step-desc">Identify the variables and map out the solution structure.</div>
+                    <div class="step-desc">
+                      Analyze the given options:
+                      <ul style="margin-top:0.5rem; padding-left:1.2rem; list-style-type: none;">
+                        <li style="margin-bottom:0.4rem;text-align:left;"><strong>Option A:</strong> Yes</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option B:</strong> No</li>
+                      </ul>
+                    </div>
                   </div>
                 </div>
+
                 <div class="solved-step">
                   <div class="step-num">Step 2</div>
                   <div class="step-content">
-                    <div class="step-math">$\text{Step 2: Apply primary theorems}$</div>
-                    <div class="step-desc">Simplify terms step by step to solve the query.</div>
+                    <div class="step-math">$\text{Apply Core Principles}$</div>
+                    <div class="step-desc">Here, $M = 2xy + 3 \implies \frac{\partial M}{\partial y} = 2x$. And $N = x^2 - 1 \implies \frac{\partial N}{\partial x} = 2x$. Since the partial derivatives are equal, the equation is exact.</div>
                   </div>
                 </div>
+
+                <div class="solved-step">
+                  <div class="step-num">Step 3</div>
+                  <div class="step-content">
+                    <div class="step-desc">
+                      Cross-reference choices to select the valid deduction. Option <strong>A</strong> perfectly aligns with the principles analyzed.
+                    </div>
+                  </div>
+                </div>
+
                 <div class="solved-success-box">
-                  <strong>Final Answer:</strong> Successfully Solved!
+                  <strong>Final Answer:</strong> Option A (Yes)
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Example 3 -->
+          <div class="solved-example-card">
+            <div class="solved-example-header">
+              <span class="solved-badge">Example 3 · Concept Application</span>
+              <div class="solved-timer" id="timer-3">
+                <span class="timer-display">00:00</span>
+                <button class="timer-btn" onclick="toggleTimer(3)">Start Timer ⏱️</button>
+              </div>
+            </div>
+            <div class="solved-question">
+              Solve the exact equation: $ 2xdx + 2ydy = 0 $
+              
+            </div>
+            <div class="solved-solution-wrap" id="solution-3">
+              <button class="btn btn-primary btn-reveal" onclick="revealSolution(3)">Reveal Step-by-Step Solution 👁️</button>
+              <div class="solved-steps" style="display: none;">
+                
+                <div class="solved-step">
+                  <div class="step-num">Step 1</div>
+                  <div class="step-content">
+                    <div class="step-desc">
+                      Analyze the given options:
+                      <ul style="margin-top:0.5rem; padding-left:1.2rem; list-style-type: none;">
+                        <li style="margin-bottom:0.4rem;text-align:left;"><strong>Option A:</strong> $ x^2 + y^2 = C $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option B:</strong> $ x + y = C $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option C:</strong> $ x^2 - y^2 = C $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option D:</strong> $ xy = C $</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="solved-step">
+                  <div class="step-num">Step 2</div>
+                  <div class="step-content">
+                    <div class="step-math">$\text{Apply Core Principles}$</div>
+                    <div class="step-desc">Integrate $M = 2x$ with respect to $x$: $ \int 2x dx = x^2 $. Integrate $N = 2y$ with respect to $y$: $ \int 2y dy = y^2 $. Combining gives the general solution: $ x^2 + y^2 = C $.</div>
+                  </div>
+                </div>
+
+                <div class="solved-step">
+                  <div class="step-num">Step 3</div>
+                  <div class="step-content">
+                    <div class="step-desc">
+                      Cross-reference choices to select the valid deduction. Option <strong>A</strong> perfectly aligns with the principles analyzed.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="solved-success-box">
+                  <strong>Final Answer:</strong> Option A ($ x^2 + y^2 = C $)
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Example 4 -->
+          <div class="solved-example-card">
+            <div class="solved-example-header">
+              <span class="solved-badge">Example 4 · Concept Application</span>
+              <div class="solved-timer" id="timer-4">
+                <span class="timer-display">00:00</span>
+                <button class="timer-btn" onclick="toggleTimer(4)">Start Timer ⏱️</button>
+              </div>
+            </div>
+            <div class="solved-question">
+              If an equation is not exact, what factor can sometimes multiply it to make it exact?
+              
+            </div>
+            <div class="solved-solution-wrap" id="solution-4">
+              <button class="btn btn-primary btn-reveal" onclick="revealSolution(4)">Reveal Step-by-Step Solution 👁️</button>
+              <div class="solved-steps" style="display: none;">
+                
+                <div class="solved-step">
+                  <div class="step-num">Step 1</div>
+                  <div class="step-content">
+                    <div class="step-desc">
+                      Analyze the given options:
+                      <ul style="margin-top:0.5rem; padding-left:1.2rem; list-style-type: none;">
+                        <li style="margin-bottom:0.4rem;text-align:left;"><strong>Option A:</strong> Integrating Factor</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option B:</strong> Differential Quotient</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option C:</strong> Exact Constant</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option D:</strong> Exponent Modifier</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="solved-step">
+                  <div class="step-num">Step 2</div>
+                  <div class="step-content">
+                    <div class="step-math">$\text{Apply Core Principles}$</div>
+                    <div class="step-desc">An **Integrating Factor** $\mu(x,y)$ is a function that makes an inexact differential equation exact when multiplied through.</div>
+                  </div>
+                </div>
+
+                <div class="solved-step">
+                  <div class="step-num">Step 3</div>
+                  <div class="step-content">
+                    <div class="step-desc">
+                      Cross-reference choices to select the valid deduction. Option <strong>A</strong> perfectly aligns with the principles analyzed.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="solved-success-box">
+                  <strong>Final Answer:</strong> Option A (Integrating Factor)
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Example 5 -->
+          <div class="solved-example-card">
+            <div class="solved-example-header">
+              <span class="solved-badge">Example 5 · Concept Application</span>
+              <div class="solved-timer" id="timer-5">
+                <span class="timer-display">00:00</span>
+                <button class="timer-btn" onclick="toggleTimer(5)">Start Timer ⏱️</button>
+              </div>
+            </div>
+            <div class="solved-question">
+              Find the general solution of the exact equation $ (y\cos x)dx + (\sin x)dy = 0 $
+              
+            </div>
+            <div class="solved-solution-wrap" id="solution-5">
+              <button class="btn btn-primary btn-reveal" onclick="revealSolution(5)">Reveal Step-by-Step Solution 👁️</button>
+              <div class="solved-steps" style="display: none;">
+                
+                <div class="solved-step">
+                  <div class="step-num">Step 1</div>
+                  <div class="step-content">
+                    <div class="step-desc">
+                      Analyze the given options:
+                      <ul style="margin-top:0.5rem; padding-left:1.2rem; list-style-type: none;">
+                        <li style="margin-bottom:0.4rem;text-align:left;"><strong>Option A:</strong> $ y\sin x = C $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option B:</strong> $ y\cos x = C $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option C:</strong> $ \sin x + y = C $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option D:</strong> $ y^2 \sin x = C $</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="solved-step">
+                  <div class="step-num">Step 2</div>
+                  <div class="step-content">
+                    <div class="step-math">$\text{Apply Core Principles}$</div>
+                    <div class="step-desc">Let $M = y\cos x$ and $N = \sin x$. Note $ \frac{\partial M}{\partial y} = \cos x = \frac{\partial N}{\partial x} $. Integrate $N$ with respect to $y$: $ \int \sin x dy = y\sin x $. Taking the partial derivative with respect to $x$ matches $M$. Hence, $ y\sin x = C $.</div>
+                  </div>
+                </div>
+
+                <div class="solved-step">
+                  <div class="step-num">Step 3</div>
+                  <div class="step-content">
+                    <div class="step-desc">
+                      Cross-reference choices to select the valid deduction. Option <strong>A</strong> perfectly aligns with the principles analyzed.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="solved-success-box">
+                  <strong>Final Answer:</strong> Option A ($ y\sin x = C $)
                 </div>
               </div>
             </div>
           </div>
           </div>
         </div>
-  
-        <!-- INTERACTIVE QUIZ -->
         <div class="tab-pane" id="pane-quiz">
           <div class="quiz-engine">
             <div class="qe-header">
@@ -209,8 +390,70 @@
     });
 
     const questions = [
-      { q: "What makes the equation $$ M(x,y)dx + N(x,y)dy = 0 $$ exact?", expr: "", opts: ["$$ \\frac{\\partial M}{\\partial x} = \\frac{\\partial N}{\\partial y} $$", "$$ \\frac{\\partial M}{\\partial y} = \\frac{\\partial N}{\\partial x} $$", "$$ M = N $$", "$$ \\int M dx = \\int N dy $$"], ans: 1, diff: "medium", exp: "The mixed partial derivatives must be equal." }
-    ];
+  {
+    "q": "What is the condition for the differential equation $ M(x,y)dx + N(x,y)dy = 0 $ to be exact?",
+    "expr": "",
+    "opts": [
+      "$ \\frac{\\partial M}{\\partial y} = \\frac{\\partial N}{\\partial x} $",
+      "$ \\frac{\\partial M}{\\partial x} = \\frac{\\partial N}{\\partial y} $",
+      "$ M_x + N_y = 0 $",
+      "$ M = N $"
+    ],
+    "ans": 0,
+    "diff": "easy",
+    "exp": "A differential equation is exact if and only if the partial derivative of $M$ with respect to $y$ equals the partial derivative of $N$ with respect to $x$: $ \\frac{\\partial M}{\\partial y} = \\frac{\\partial N}{\\partial x} $."
+  },
+  {
+    "q": "Is the differential equation $ (2xy + 3)dx + (x^2 - 1)dy = 0 $ exact?",
+    "expr": "",
+    "opts": [
+      "Yes",
+      "No"
+    ],
+    "ans": 0,
+    "diff": "medium",
+    "exp": "Here, $M = 2xy + 3 \\implies \\frac{\\partial M}{\\partial y} = 2x$. And $N = x^2 - 1 \\implies \\frac{\\partial N}{\\partial x} = 2x$. Since the partial derivatives are equal, the equation is exact."
+  },
+  {
+    "q": "Solve the exact equation: $ 2xdx + 2ydy = 0 $",
+    "expr": "",
+    "opts": [
+      "$ x^2 + y^2 = C $",
+      "$ x + y = C $",
+      "$ x^2 - y^2 = C $",
+      "$ xy = C $"
+    ],
+    "ans": 0,
+    "diff": "medium",
+    "exp": "Integrate $M = 2x$ with respect to $x$: $ \\int 2x dx = x^2 $. Integrate $N = 2y$ with respect to $y$: $ \\int 2y dy = y^2 $. Combining gives the general solution: $ x^2 + y^2 = C $."
+  },
+  {
+    "q": "If an equation is not exact, what factor can sometimes multiply it to make it exact?",
+    "expr": "",
+    "opts": [
+      "Integrating Factor",
+      "Differential Quotient",
+      "Exact Constant",
+      "Exponent Modifier"
+    ],
+    "ans": 0,
+    "diff": "easy",
+    "exp": "An **Integrating Factor** $\\mu(x,y)$ is a function that makes an inexact differential equation exact when multiplied through."
+  },
+  {
+    "q": "Find the general solution of the exact equation $ (y\\cos x)dx + (\\sin x)dy = 0 $",
+    "expr": "",
+    "opts": [
+      "$ y\\sin x = C $",
+      "$ y\\cos x = C $",
+      "$ \\sin x + y = C $",
+      "$ y^2 \\sin x = C $"
+    ],
+    "ans": 0,
+    "diff": "hard",
+    "exp": "Let $M = y\\cos x$ and $N = \\sin x$. Note $ \\frac{\\partial M}{\\partial y} = \\cos x = \\frac{\\partial N}{\\partial x} $. Integrate $N$ with respect to $y$: $ \\int \\sin x dy = y\\sin x $. Taking the partial derivative with respect to $x$ matches $M$. Hence, $ y\\sin x = C $."
+  }
+];
 
     window.exactEqQuiz = new QuizEngine('qe-container', questions, {
       onComplete: (res) => {

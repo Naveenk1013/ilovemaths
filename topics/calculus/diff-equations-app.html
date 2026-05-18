@@ -93,6 +93,7 @@
 
         
         
+        
         <!-- SOLVED EXAMPLES -->
         <div class="tab-pane" id="pane-solved">
           <div class="solved-examples-container">
@@ -107,7 +108,7 @@
               </div>
             </div>
             <div class="solved-question">
-              In the exponential growth model $ P(t) = P_0 e^{kt} $, what does $ P_0 $ represent?
+              According to Newton's Law of Cooling, the rate of change of temperature is proportional to what?
               
             </div>
             <div class="solved-solution-wrap" id="solution-1">
@@ -120,7 +121,7 @@
                     <div class="step-desc">
                       Analyze the given options:
                       <ul style="margin-top:0.5rem; padding-left:1.2rem; list-style-type: none;">
-                        <li style="margin-bottom:0.4rem;text-align:left;"><strong>Option A:</strong> The rate constant</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option B:</strong> The final population</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option C:</strong> The initial population at t=0</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option D:</strong> Time</li>
+                        <li style="margin-bottom:0.4rem;text-align:left;"><strong>Option A:</strong> The difference between the object temperature and the ambient temperature</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option B:</strong> The temperature of the object only</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option C:</strong> The square of the temperature difference</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option D:</strong> The elapsed time</li>
                       </ul>
                     </div>
                   </div>
@@ -130,7 +131,7 @@
                   <div class="step-num">Step 2</div>
                   <div class="step-content">
                     <div class="step-math">$\text{Apply Core Principles}$</div>
-                    <div class="step-desc">When t=0, $ e^0 = 1 $, so $ P(0) = P_0 $, the starting population.</div>
+                    <div class="step-desc">Newton's Law of Cooling states $ \frac{dT}{dt} = -k(T - T_m) $, which means the rate of cooling is directly proportional to the difference between the object's temperature ($T$) and its surrounding ambient temperature ($T_m$).</div>
                   </div>
                 </div>
 
@@ -138,13 +139,13 @@
                   <div class="step-num">Step 3</div>
                   <div class="step-content">
                     <div class="step-desc">
-                      Cross-reference choices to select the valid deduction. Option <strong>C</strong> perfectly aligns with the principles analyzed.
+                      Cross-reference choices to select the valid deduction. Option <strong>A</strong> perfectly aligns with the principles analyzed.
                     </div>
                   </div>
                 </div>
 
                 <div class="solved-success-box">
-                  <strong>Final Answer:</strong> Option C (The initial population at t=0)
+                  <strong>Final Answer:</strong> Option A (The difference between the object temperature and the ambient temperature)
                 </div>
               </div>
             </div>
@@ -160,7 +161,7 @@
               </div>
             </div>
             <div class="solved-question">
-              Newton's Law of Cooling implies that a hot cup of coffee will cool down:
+              If the population growth model is $ \frac{dP}{dt} = 0.05P $, what is the population $P(t)$ given initial population $P_0$?
               
             </div>
             <div class="solved-solution-wrap" id="solution-2">
@@ -173,7 +174,7 @@
                     <div class="step-desc">
                       Analyze the given options:
                       <ul style="margin-top:0.5rem; padding-left:1.2rem; list-style-type: none;">
-                        <li style="margin-bottom:0.4rem;text-align:left;"><strong>Option A:</strong> At a constant rate</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option B:</strong> Faster initially, then slower as it nears room temperature</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option C:</strong> Slower initially, then faster</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option D:</strong> Never</li>
+                        <li style="margin-bottom:0.4rem;text-align:left;"><strong>Option A:</strong> $ P(t) = P_0 e^{0.05t} $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option B:</strong> $ P(t) = P_0 + 0.05t $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option C:</strong> $ P(t) = 0.05 P_0 t $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option D:</strong> $ P(t) = P_0 e^{-0.05t} $</li>
                       </ul>
                     </div>
                   </div>
@@ -183,7 +184,7 @@
                   <div class="step-num">Step 2</div>
                   <div class="step-content">
                     <div class="step-math">$\text{Apply Core Principles}$</div>
-                    <div class="step-desc">The rate of cooling is proportional to the temperature difference. As it cools, the difference shrinks, so the rate slows down.</div>
+                    <div class="step-desc">This is a separable differential equation. Integrate $ \int \frac{1}{P} dP = \int 0.05 dt \implies \ln P = 0.05t + C \implies P(t) = P_0 e^{0.05t} $.</div>
                   </div>
                 </div>
 
@@ -191,51 +192,178 @@
                   <div class="step-num">Step 3</div>
                   <div class="step-content">
                     <div class="step-desc">
-                      Cross-reference choices to select the valid deduction. Option <strong>B</strong> perfectly aligns with the principles analyzed.
+                      Cross-reference choices to select the valid deduction. Option <strong>A</strong> perfectly aligns with the principles analyzed.
                     </div>
                   </div>
                 </div>
 
                 <div class="solved-success-box">
-                  <strong>Final Answer:</strong> Option B (Faster initially, then slower as it nears room temperature)
+                  <strong>Final Answer:</strong> Option A ($ P(t) = P_0 e^{0.05t} $)
                 </div>
               </div>
             </div>
           </div>
-          </div>
-        </div>
-  
-            <div class="solved-question">
-              Solve the primary mathematical expression relating to this unit.
+
+          <!-- Example 3 -->
+          <div class="solved-example-card">
+            <div class="solved-example-header">
+              <span class="solved-badge">Example 3 · Concept Application</span>
+              <div class="solved-timer" id="timer-3">
+                <span class="timer-display">00:00</span>
+                <button class="timer-btn" onclick="toggleTimer(3)">Start Timer ⏱️</button>
+              </div>
             </div>
-            <div class="solved-solution-wrap" id="solution-1">
-              <button class="btn btn-primary btn-reveal" onclick="revealSolution(1)">Reveal Step-by-Step Solution 👁️</button>
+            <div class="solved-question">
+              In radioactive decay, if half-life is 100 years, find the decay constant $k$.
+              
+            </div>
+            <div class="solved-solution-wrap" id="solution-3">
+              <button class="btn btn-primary btn-reveal" onclick="revealSolution(3)">Reveal Step-by-Step Solution 👁️</button>
               <div class="solved-steps" style="display: none;">
                 
                 <div class="solved-step">
                   <div class="step-num">Step 1</div>
                   <div class="step-content">
-                    <div class="step-math">$\text{Step 1: Write given values}$</div>
-                    <div class="step-desc">Identify the variables and map out the solution structure.</div>
+                    <div class="step-desc">
+                      Analyze the given options:
+                      <ul style="margin-top:0.5rem; padding-left:1.2rem; list-style-type: none;">
+                        <li style="margin-bottom:0.4rem;text-align:left;"><strong>Option A:</strong> $ \frac{\ln 2}{100} $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option B:</strong> $ 100 \ln 2 $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option C:</strong> $ 0.01 $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option D:</strong> $ 0.5 $</li>
+                      </ul>
+                    </div>
                   </div>
                 </div>
+
                 <div class="solved-step">
                   <div class="step-num">Step 2</div>
                   <div class="step-content">
-                    <div class="step-math">$\text{Step 2: Apply primary theorems}$</div>
-                    <div class="step-desc">Simplify terms step by step to solve the query.</div>
+                    <div class="step-math">$\text{Apply Core Principles}$</div>
+                    <div class="step-desc">The decay formula is $N(t) = N_0 e^{-kt}$. At $t = t_{1/2}$, $N(t) = 0.5 N_0 \implies e^{-k \cdot 100} = 0.5 \implies -100k = \ln(0.5) = -\ln 2 \implies k = \frac{\ln 2}{100}$.</div>
                   </div>
                 </div>
+
+                <div class="solved-step">
+                  <div class="step-num">Step 3</div>
+                  <div class="step-content">
+                    <div class="step-desc">
+                      Cross-reference choices to select the valid deduction. Option <strong>A</strong> perfectly aligns with the principles analyzed.
+                    </div>
+                  </div>
+                </div>
+
                 <div class="solved-success-box">
-                  <strong>Final Answer:</strong> Successfully Solved!
+                  <strong>Final Answer:</strong> Option A ($ \frac{\ln 2}{100} $)
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Example 4 -->
+          <div class="solved-example-card">
+            <div class="solved-example-header">
+              <span class="solved-badge">Example 4 · Concept Application</span>
+              <div class="solved-timer" id="timer-4">
+                <span class="timer-display">00:00</span>
+                <button class="timer-btn" onclick="toggleTimer(4)">Start Timer ⏱️</button>
+              </div>
+            </div>
+            <div class="solved-question">
+              What type of differential equation model represents logistic population growth?
+              
+            </div>
+            <div class="solved-solution-wrap" id="solution-4">
+              <button class="btn btn-primary btn-reveal" onclick="revealSolution(4)">Reveal Step-by-Step Solution 👁️</button>
+              <div class="solved-steps" style="display: none;">
+                
+                <div class="solved-step">
+                  <div class="step-num">Step 1</div>
+                  <div class="step-content">
+                    <div class="step-desc">
+                      Analyze the given options:
+                      <ul style="margin-top:0.5rem; padding-left:1.2rem; list-style-type: none;">
+                        <li style="margin-bottom:0.4rem;text-align:left;"><strong>Option A:</strong> $ \frac{dP}{dt} = rP(1 - \frac{P}{K}) $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option B:</strong> $ \frac{dP}{dt} = kP $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option C:</strong> $ \frac{dP}{dt} = -k(T - T_m) $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option D:</strong> $ \frac{d^2s}{dt^2} = -g $</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="solved-step">
+                  <div class="step-num">Step 2</div>
+                  <div class="step-content">
+                    <div class="step-math">$\text{Apply Core Principles}$</div>
+                    <div class="step-desc">The logistic growth model accounts for a carrying capacity $K$ and is modeled by the differential equation $ \frac{dP}{dt} = rP\left(1 - \frac{P}{K}\right) $.</div>
+                  </div>
+                </div>
+
+                <div class="solved-step">
+                  <div class="step-num">Step 3</div>
+                  <div class="step-content">
+                    <div class="step-desc">
+                      Cross-reference choices to select the valid deduction. Option <strong>A</strong> perfectly aligns with the principles analyzed.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="solved-success-box">
+                  <strong>Final Answer:</strong> Option A ($ \frac{dP}{dt} = rP(1 - \frac{P}{K}) $)
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Example 5 -->
+          <div class="solved-example-card">
+            <div class="solved-example-header">
+              <span class="solved-badge">Example 5 · Concept Application</span>
+              <div class="solved-timer" id="timer-5">
+                <span class="timer-display">00:00</span>
+                <button class="timer-btn" onclick="toggleTimer(5)">Start Timer ⏱️</button>
+              </div>
+            </div>
+            <div class="solved-question">
+              A tank contains 100L of brine with 10kg of salt. Pure water enters at 5L/min and leaves at 5L/min. Set up the differential equation for salt amount $A(t)$.
+              
+            </div>
+            <div class="solved-solution-wrap" id="solution-5">
+              <button class="btn btn-primary btn-reveal" onclick="revealSolution(5)">Reveal Step-by-Step Solution 👁️</button>
+              <div class="solved-steps" style="display: none;">
+                
+                <div class="solved-step">
+                  <div class="step-num">Step 1</div>
+                  <div class="step-content">
+                    <div class="step-desc">
+                      Analyze the given options:
+                      <ul style="margin-top:0.5rem; padding-left:1.2rem; list-style-type: none;">
+                        <li style="margin-bottom:0.4rem;text-align:left;"><strong>Option A:</strong> $ \frac{dA}{dt} = -0.05A $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option B:</strong> $ \frac{dA}{dt} = 5 - A $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option C:</strong> $ \frac{dA}{dt} = -5A $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option D:</strong> $ \frac{dA}{dt} = 0.05A $</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="solved-step">
+                  <div class="step-num">Step 2</div>
+                  <div class="step-content">
+                    <div class="step-math">$\text{Apply Core Principles}$</div>
+                    <div class="step-desc">Salt entering rate is 0. Salt leaving rate is $ 5 \times \frac{A}{100} = 0.05A $. Thus, the rate of change is $ \frac{dA}{dt} = \text{Rate In} - \text{Rate Out} = -0.05A $.</div>
+                  </div>
+                </div>
+
+                <div class="solved-step">
+                  <div class="step-num">Step 3</div>
+                  <div class="step-content">
+                    <div class="step-desc">
+                      Cross-reference choices to select the valid deduction. Option <strong>A</strong> perfectly aligns with the principles analyzed.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="solved-success-box">
+                  <strong>Final Answer:</strong> Option A ($ \frac{dA}{dt} = -0.05A $)
                 </div>
               </div>
             </div>
           </div>
           </div>
         </div>
-  
-        <!-- INTERACTIVE QUIZ -->
         <div class="tab-pane" id="pane-quiz">
           <div class="quiz-engine">
             <div class="qe-header">
@@ -265,9 +393,72 @@
     });
 
     const questions = [
-      { q: "In the exponential growth model $$ P(t) = P_0 e^{kt} $$, what does $$ P_0 $$ represent?", expr: "", opts: ["The rate constant", "The final population", "The initial population at t=0", "Time"], ans: 2, diff: "easy", exp: "When t=0, $$ e^0 = 1 $$, so $$ P(0) = P_0 $$, the starting population." },
-      { q: "Newton's Law of Cooling implies that a hot cup of coffee will cool down:", expr: "", opts: ["At a constant rate", "Faster initially, then slower as it nears room temperature", "Slower initially, then faster", "Never"], ans: 1, diff: "medium", exp: "The rate of cooling is proportional to the temperature difference. As it cools, the difference shrinks, so the rate slows down." }
-    ];
+  {
+    "q": "According to Newton's Law of Cooling, the rate of change of temperature is proportional to what?",
+    "expr": "",
+    "opts": [
+      "The difference between the object temperature and the ambient temperature",
+      "The temperature of the object only",
+      "The square of the temperature difference",
+      "The elapsed time"
+    ],
+    "ans": 0,
+    "diff": "easy",
+    "exp": "Newton's Law of Cooling states $ \\frac{dT}{dt} = -k(T - T_m) $, which means the rate of cooling is directly proportional to the difference between the object's temperature ($T$) and its surrounding ambient temperature ($T_m$)."
+  },
+  {
+    "q": "If the population growth model is $ \\frac{dP}{dt} = 0.05P $, what is the population $P(t)$ given initial population $P_0$?",
+    "expr": "",
+    "opts": [
+      "$ P(t) = P_0 e^{0.05t} $",
+      "$ P(t) = P_0 + 0.05t $",
+      "$ P(t) = 0.05 P_0 t $",
+      "$ P(t) = P_0 e^{-0.05t} $"
+    ],
+    "ans": 0,
+    "diff": "medium",
+    "exp": "This is a separable differential equation. Integrate $ \\int \\frac{1}{P} dP = \\int 0.05 dt \\implies \\ln P = 0.05t + C \\implies P(t) = P_0 e^{0.05t} $."
+  },
+  {
+    "q": "In radioactive decay, if half-life is 100 years, find the decay constant $k$.",
+    "expr": "",
+    "opts": [
+      "$ \\frac{\\ln 2}{100} $",
+      "$ 100 \\ln 2 $",
+      "$ 0.01 $",
+      "$ 0.5 $"
+    ],
+    "ans": 0,
+    "diff": "hard",
+    "exp": "The decay formula is $N(t) = N_0 e^{-kt}$. At $t = t_{1/2}$, $N(t) = 0.5 N_0 \\implies e^{-k \\cdot 100} = 0.5 \\implies -100k = \\ln(0.5) = -\\ln 2 \\implies k = \\frac{\\ln 2}{100}$."
+  },
+  {
+    "q": "What type of differential equation model represents logistic population growth?",
+    "expr": "",
+    "opts": [
+      "$ \\frac{dP}{dt} = rP(1 - \\frac{P}{K}) $",
+      "$ \\frac{dP}{dt} = kP $",
+      "$ \\frac{dP}{dt} = -k(T - T_m) $",
+      "$ \\frac{d^2s}{dt^2} = -g $"
+    ],
+    "ans": 0,
+    "diff": "medium",
+    "exp": "The logistic growth model accounts for a carrying capacity $K$ and is modeled by the differential equation $ \\frac{dP}{dt} = rP\\left(1 - \\frac{P}{K}\\right) $."
+  },
+  {
+    "q": "A tank contains 100L of brine with 10kg of salt. Pure water enters at 5L/min and leaves at 5L/min. Set up the differential equation for salt amount $A(t)$.",
+    "expr": "",
+    "opts": [
+      "$ \\frac{dA}{dt} = -0.05A $",
+      "$ \\frac{dA}{dt} = 5 - A $",
+      "$ \\frac{dA}{dt} = -5A $",
+      "$ \\frac{dA}{dt} = 0.05A $"
+    ],
+    "ans": 0,
+    "diff": "hard",
+    "exp": "Salt entering rate is 0. Salt leaving rate is $ 5 \\times \\frac{A}{100} = 0.05A $. Thus, the rate of change is $ \\frac{dA}{dt} = \\text{Rate In} - \\text{Rate Out} = -0.05A $."
+  }
+];
 
     window.diffEqAppQuiz = new QuizEngine('qe-container', questions, {
       onComplete: (res) => {

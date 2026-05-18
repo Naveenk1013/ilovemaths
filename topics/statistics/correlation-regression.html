@@ -90,6 +90,7 @@
 
         
         
+        
         <!-- SOLVED EXAMPLES -->
         <div class="tab-pane" id="pane-solved">
           <div class="solved-examples-container">
@@ -104,7 +105,7 @@
               </div>
             </div>
             <div class="solved-question">
-              What does a correlation coefficient of $ r = 0.95 $ indicate?
+              What is the range of values for Pearson's correlation coefficient $r$?
               
             </div>
             <div class="solved-solution-wrap" id="solution-1">
@@ -117,7 +118,7 @@
                     <div class="step-desc">
                       Analyze the given options:
                       <ul style="margin-top:0.5rem; padding-left:1.2rem; list-style-type: none;">
-                        <li style="margin-bottom:0.4rem;text-align:left;"><strong>Option A:</strong> A strong positive relationship</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option B:</strong> A weak positive relationship</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option C:</strong> A strong negative relationship</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option D:</strong> No relationship</li>
+                        <li style="margin-bottom:0.4rem;text-align:left;"><strong>Option A:</strong> $ [-1, 1] $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option B:</strong> $ [0, 1] $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option C:</strong> $ (-\infty, \infty) $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option D:</strong> $ [-10, 10] $</li>
                       </ul>
                     </div>
                   </div>
@@ -127,7 +128,7 @@
                   <div class="step-num">Step 2</div>
                   <div class="step-content">
                     <div class="step-math">$\text{Apply Core Principles}$</div>
-                    <div class="step-desc">An r value close to 1 means the variables strongly move up together.</div>
+                    <div class="step-desc">Pearson's correlation coefficient $r$ is bounded strictly between -1 and +1 inclusive: $ -1 \le r \le 1 $. Extremes represent perfect linear relationships.</div>
                   </div>
                 </div>
 
@@ -141,7 +142,7 @@
                 </div>
 
                 <div class="solved-success-box">
-                  <strong>Final Answer:</strong> Option A (A strong positive relationship)
+                  <strong>Final Answer:</strong> Option A ($ [-1, 1] $)
                 </div>
               </div>
             </div>
@@ -157,7 +158,7 @@
               </div>
             </div>
             <div class="solved-question">
-              What is the purpose of linear regression?
+              If the correlation coefficient $ r = -0.95 $, what does this indicate?
               
             </div>
             <div class="solved-solution-wrap" id="solution-2">
@@ -170,7 +171,7 @@
                     <div class="step-desc">
                       Analyze the given options:
                       <ul style="margin-top:0.5rem; padding-left:1.2rem; list-style-type: none;">
-                        <li style="margin-bottom:0.4rem;text-align:left;"><strong>Option A:</strong> To calculate the mean</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option B:</strong> To find the best fitting line for prediction</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option C:</strong> To prove causation</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option D:</strong> To measure the spread of data</li>
+                        <li style="margin-bottom:0.4rem;text-align:left;"><strong>Option A:</strong> Strong negative linear relationship</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option B:</strong> Strong positive relationship</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option C:</strong> Weak negative relationship</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option D:</strong> No relationship exists</li>
                       </ul>
                     </div>
                   </div>
@@ -180,7 +181,7 @@
                   <div class="step-num">Step 2</div>
                   <div class="step-content">
                     <div class="step-math">$\text{Apply Core Principles}$</div>
-                    <div class="step-desc">Regression draws a line of best fit through the scatter plot, allowing us to predict y values for new x values.</div>
+                    <div class="step-desc">Since $r$ is very close to -1, it represents an extremely strong negative linear relationship (as one variable increases, the other decreases).</div>
                   </div>
                 </div>
 
@@ -188,51 +189,178 @@
                   <div class="step-num">Step 3</div>
                   <div class="step-content">
                     <div class="step-desc">
-                      Cross-reference choices to select the valid deduction. Option <strong>B</strong> perfectly aligns with the principles analyzed.
+                      Cross-reference choices to select the valid deduction. Option <strong>A</strong> perfectly aligns with the principles analyzed.
                     </div>
                   </div>
                 </div>
 
                 <div class="solved-success-box">
-                  <strong>Final Answer:</strong> Option B (To find the best fitting line for prediction)
+                  <strong>Final Answer:</strong> Option A (Strong negative linear relationship)
                 </div>
               </div>
             </div>
           </div>
-          </div>
-        </div>
-  
-            <div class="solved-question">
-              Solve the primary mathematical expression relating to this unit.
+
+          <!-- Example 3 -->
+          <div class="solved-example-card">
+            <div class="solved-example-header">
+              <span class="solved-badge">Example 3 · Concept Application</span>
+              <div class="solved-timer" id="timer-3">
+                <span class="timer-display">00:00</span>
+                <button class="timer-btn" onclick="toggleTimer(3)">Start Timer ⏱️</button>
+              </div>
             </div>
-            <div class="solved-solution-wrap" id="solution-1">
-              <button class="btn btn-primary btn-reveal" onclick="revealSolution(1)">Reveal Step-by-Step Solution 👁️</button>
+            <div class="solved-question">
+              What does a correlation coefficient $ r = 0 $ mean?
+              
+            </div>
+            <div class="solved-solution-wrap" id="solution-3">
+              <button class="btn btn-primary btn-reveal" onclick="revealSolution(3)">Reveal Step-by-Step Solution 👁️</button>
               <div class="solved-steps" style="display: none;">
                 
                 <div class="solved-step">
                   <div class="step-num">Step 1</div>
                   <div class="step-content">
-                    <div class="step-math">$\text{Step 1: Write given values}$</div>
-                    <div class="step-desc">Identify the variables and map out the solution structure.</div>
+                    <div class="step-desc">
+                      Analyze the given options:
+                      <ul style="margin-top:0.5rem; padding-left:1.2rem; list-style-type: none;">
+                        <li style="margin-bottom:0.4rem;text-align:left;"><strong>Option A:</strong> No linear relationship exists</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option B:</strong> A perfect relationship exists</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option C:</strong> The variables are equal</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option D:</strong> There is positive relationship</li>
+                      </ul>
+                    </div>
                   </div>
                 </div>
+
                 <div class="solved-step">
                   <div class="step-num">Step 2</div>
                   <div class="step-content">
-                    <div class="step-math">$\text{Step 2: Apply primary theorems}$</div>
-                    <div class="step-desc">Simplify terms step by step to solve the query.</div>
+                    <div class="step-math">$\text{Apply Core Principles}$</div>
+                    <div class="step-desc">A value of $r = 0$ indicates that there is **no linear relationship** between the two variables.</div>
                   </div>
                 </div>
+
+                <div class="solved-step">
+                  <div class="step-num">Step 3</div>
+                  <div class="step-content">
+                    <div class="step-desc">
+                      Cross-reference choices to select the valid deduction. Option <strong>A</strong> perfectly aligns with the principles analyzed.
+                    </div>
+                  </div>
+                </div>
+
                 <div class="solved-success-box">
-                  <strong>Final Answer:</strong> Successfully Solved!
+                  <strong>Final Answer:</strong> Option A (No linear relationship exists)
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Example 4 -->
+          <div class="solved-example-card">
+            <div class="solved-example-header">
+              <span class="solved-badge">Example 4 · Concept Application</span>
+              <div class="solved-timer" id="timer-4">
+                <span class="timer-display">00:00</span>
+                <button class="timer-btn" onclick="toggleTimer(4)">Start Timer ⏱️</button>
+              </div>
+            </div>
+            <div class="solved-question">
+              In the regression line equation $ y = mx + c $, what does the coefficient $m$ represent?
+              
+            </div>
+            <div class="solved-solution-wrap" id="solution-4">
+              <button class="btn btn-primary btn-reveal" onclick="revealSolution(4)">Reveal Step-by-Step Solution 👁️</button>
+              <div class="solved-steps" style="display: none;">
+                
+                <div class="solved-step">
+                  <div class="step-num">Step 1</div>
+                  <div class="step-content">
+                    <div class="step-desc">
+                      Analyze the given options:
+                      <ul style="margin-top:0.5rem; padding-left:1.2rem; list-style-type: none;">
+                        <li style="margin-bottom:0.4rem;text-align:left;"><strong>Option A:</strong> The slope (change in $y$ per unit change in $x$)</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option B:</strong> The y-intercept</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option C:</strong> The correlation factor</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option D:</strong> The sample size</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="solved-step">
+                  <div class="step-num">Step 2</div>
+                  <div class="step-content">
+                    <div class="step-math">$\text{Apply Core Principles}$</div>
+                    <div class="step-desc">The coefficient $m$ is the **slope** of the regression line, representing how many units $y$ changes for each unit increase in $x$.</div>
+                  </div>
+                </div>
+
+                <div class="solved-step">
+                  <div class="step-num">Step 3</div>
+                  <div class="step-content">
+                    <div class="step-desc">
+                      Cross-reference choices to select the valid deduction. Option <strong>A</strong> perfectly aligns with the principles analyzed.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="solved-success-box">
+                  <strong>Final Answer:</strong> Option A (The slope (change in $y$ per unit change in $x$))
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Example 5 -->
+          <div class="solved-example-card">
+            <div class="solved-example-header">
+              <span class="solved-badge">Example 5 · Concept Application</span>
+              <div class="solved-timer" id="timer-5">
+                <span class="timer-display">00:00</span>
+                <button class="timer-btn" onclick="toggleTimer(5)">Start Timer ⏱️</button>
+              </div>
+            </div>
+            <div class="solved-question">
+              If the two regression lines are perpendicular, what is the correlation coefficient $r$?
+              
+            </div>
+            <div class="solved-solution-wrap" id="solution-5">
+              <button class="btn btn-primary btn-reveal" onclick="revealSolution(5)">Reveal Step-by-Step Solution 👁️</button>
+              <div class="solved-steps" style="display: none;">
+                
+                <div class="solved-step">
+                  <div class="step-num">Step 1</div>
+                  <div class="step-content">
+                    <div class="step-desc">
+                      Analyze the given options:
+                      <ul style="margin-top:0.5rem; padding-left:1.2rem; list-style-type: none;">
+                        <li style="margin-bottom:0.4rem;text-align:left;"><strong>Option A:</strong> $ 0 $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option B:</strong> $ 1 $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option C:</strong> $ -1 $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option D:</strong> $ \pm 0.5 $</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="solved-step">
+                  <div class="step-num">Step 2</div>
+                  <div class="step-content">
+                    <div class="step-math">$\text{Apply Core Principles}$</div>
+                    <div class="step-desc">Regression lines are perpendicular if there is zero linear association between the variables. Thus, their slopes do not influence each other, indicating $ r = 0 $.</div>
+                  </div>
+                </div>
+
+                <div class="solved-step">
+                  <div class="step-num">Step 3</div>
+                  <div class="step-content">
+                    <div class="step-desc">
+                      Cross-reference choices to select the valid deduction. Option <strong>A</strong> perfectly aligns with the principles analyzed.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="solved-success-box">
+                  <strong>Final Answer:</strong> Option A ($ 0 $)
                 </div>
               </div>
             </div>
           </div>
           </div>
         </div>
-  
-        <!-- INTERACTIVE QUIZ -->
         <div class="tab-pane" id="pane-quiz">
           <div class="quiz-engine">
             <div class="qe-header">
@@ -262,9 +390,72 @@
     });
 
     const questions = [
-      { q: "What does a correlation coefficient of $$ r = 0.95 $$ indicate?", expr: "", opts: ["A strong positive relationship", "A weak positive relationship", "A strong negative relationship", "No relationship"], ans: 0, diff: "easy", exp: "An r value close to 1 means the variables strongly move up together." },
-      { q: "What is the purpose of linear regression?", expr: "", opts: ["To calculate the mean", "To find the best fitting line for prediction", "To prove causation", "To measure the spread of data"], ans: 1, diff: "easy", exp: "Regression draws a line of best fit through the scatter plot, allowing us to predict y values for new x values." }
-    ];
+  {
+    "q": "What is the range of values for Pearson's correlation coefficient $r$?",
+    "expr": "",
+    "opts": [
+      "$ [-1, 1] $",
+      "$ [0, 1] $",
+      "$ (-\\infty, \\infty) $",
+      "$ [-10, 10] $"
+    ],
+    "ans": 0,
+    "diff": "easy",
+    "exp": "Pearson's correlation coefficient $r$ is bounded strictly between -1 and +1 inclusive: $ -1 \\le r \\le 1 $. Extremes represent perfect linear relationships."
+  },
+  {
+    "q": "If the correlation coefficient $ r = -0.95 $, what does this indicate?",
+    "expr": "",
+    "opts": [
+      "Strong negative linear relationship",
+      "Strong positive relationship",
+      "Weak negative relationship",
+      "No relationship exists"
+    ],
+    "ans": 0,
+    "diff": "easy",
+    "exp": "Since $r$ is very close to -1, it represents an extremely strong negative linear relationship (as one variable increases, the other decreases)."
+  },
+  {
+    "q": "What does a correlation coefficient $ r = 0 $ mean?",
+    "expr": "",
+    "opts": [
+      "No linear relationship exists",
+      "A perfect relationship exists",
+      "The variables are equal",
+      "There is positive relationship"
+    ],
+    "ans": 0,
+    "diff": "easy",
+    "exp": "A value of $r = 0$ indicates that there is **no linear relationship** between the two variables."
+  },
+  {
+    "q": "In the regression line equation $ y = mx + c $, what does the coefficient $m$ represent?",
+    "expr": "",
+    "opts": [
+      "The slope (change in $y$ per unit change in $x$)",
+      "The y-intercept",
+      "The correlation factor",
+      "The sample size"
+    ],
+    "ans": 0,
+    "diff": "easy",
+    "exp": "The coefficient $m$ is the **slope** of the regression line, representing how many units $y$ changes for each unit increase in $x$."
+  },
+  {
+    "q": "If the two regression lines are perpendicular, what is the correlation coefficient $r$?",
+    "expr": "",
+    "opts": [
+      "$ 0 $",
+      "$ 1 $",
+      "$ -1 $",
+      "$ \\pm 0.5 $"
+    ],
+    "ans": 0,
+    "diff": "hard",
+    "exp": "Regression lines are perpendicular if there is zero linear association between the variables. Thus, their slopes do not influence each other, indicating $ r = 0 $."
+  }
+];
 
     window.regQuiz = new QuizEngine('qe-container', questions, {
       onComplete: (res) => {

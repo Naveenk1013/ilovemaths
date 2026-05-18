@@ -88,6 +88,7 @@
         <!-- INTERACTIVE Quiz -->
         
         
+        
         <!-- SOLVED EXAMPLES -->
         <div class="tab-pane" id="pane-solved">
           <div class="solved-examples-container">
@@ -102,7 +103,7 @@
               </div>
             </div>
             <div class="solved-question">
-              What does the curvature ($\kappa$) of a straight line equal?
+              What does the curvature $\kappa$ of a space curve measure?
               
             </div>
             <div class="solved-solution-wrap" id="solution-1">
@@ -115,7 +116,7 @@
                     <div class="step-desc">
                       Analyze the given options:
                       <ul style="margin-top:0.5rem; padding-left:1.2rem; list-style-type: none;">
-                        <li style="margin-bottom:0.4rem;text-align:left;"><strong>Option A:</strong> $ 1 $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option B:</strong> $ \infty $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option C:</strong> $ 0 $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option D:</strong> $ -1 $</li>
+                        <li style="margin-bottom:0.4rem;text-align:left;"><strong>Option A:</strong> The rate of change of the tangent vector direction with respect to arc length</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option B:</strong> The speed of the curve</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option C:</strong> The acceleration vector length only</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option D:</strong> The deviation of the curve from being a plane</li>
                       </ul>
                     </div>
                   </div>
@@ -125,7 +126,7 @@
                   <div class="step-num">Step 2</div>
                   <div class="step-content">
                     <div class="step-math">$\text{Apply Core Principles}$</div>
-                    <div class="step-desc">A straight line does not bend, so its curvature is zero.</div>
+                    <div class="step-desc">Curvature $\kappa$ measures how sharply a curve bends, defined as the rate of change of the unit tangent vector direction with respect to arc length: $ \kappa = \left\| \frac{d\vec{T}}{ds} \right\| $.</div>
                   </div>
                 </div>
 
@@ -133,13 +134,13 @@
                   <div class="step-num">Step 3</div>
                   <div class="step-content">
                     <div class="step-desc">
-                      Cross-reference choices to select the valid deduction. Option <strong>C</strong> perfectly aligns with the principles analyzed.
+                      Cross-reference choices to select the valid deduction. Option <strong>A</strong> perfectly aligns with the principles analyzed.
                     </div>
                   </div>
                 </div>
 
                 <div class="solved-success-box">
-                  <strong>Final Answer:</strong> Option C ($ 0 $)
+                  <strong>Final Answer:</strong> Option A (The rate of change of the tangent vector direction with respect to arc length)
                 </div>
               </div>
             </div>
@@ -155,7 +156,7 @@
               </div>
             </div>
             <div class="solved-question">
-              Which property measures how much a curve twists out of a 2D plane?
+              What does the torsion $\tau$ of a 3D curve measure?
               
             </div>
             <div class="solved-solution-wrap" id="solution-2">
@@ -168,7 +169,7 @@
                     <div class="step-desc">
                       Analyze the given options:
                       <ul style="margin-top:0.5rem; padding-left:1.2rem; list-style-type: none;">
-                        <li style="margin-bottom:0.4rem;text-align:left;"><strong>Option A:</strong> Curvature</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option B:</strong> Torsion</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option C:</strong> Arc length</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option D:</strong> Tangent</li>
+                        <li style="margin-bottom:0.4rem;text-align:left;"><strong>Option A:</strong> The twisting of the curve out of the osculating plane</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option B:</strong> The rate of change of speed</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option C:</strong> The curvature of the path projection</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option D:</strong> The length of the binormal vector</li>
                       </ul>
                     </div>
                   </div>
@@ -178,7 +179,7 @@
                   <div class="step-num">Step 2</div>
                   <div class="step-content">
                     <div class="step-math">$\text{Apply Core Principles}$</div>
-                    <div class="step-desc">Torsion measures the 'twist' of a space curve.</div>
+                    <div class="step-desc">Torsion $\tau$ measures the twisting of a curve in 3D space, showing its deviation from being a completely flat 2D plane.</div>
                   </div>
                 </div>
 
@@ -186,50 +187,178 @@
                   <div class="step-num">Step 3</div>
                   <div class="step-content">
                     <div class="step-desc">
-                      Cross-reference choices to select the valid deduction. Option <strong>B</strong> perfectly aligns with the principles analyzed.
+                      Cross-reference choices to select the valid deduction. Option <strong>A</strong> perfectly aligns with the principles analyzed.
                     </div>
                   </div>
                 </div>
 
                 <div class="solved-success-box">
-                  <strong>Final Answer:</strong> Option B (Torsion)
+                  <strong>Final Answer:</strong> Option A (The twisting of the curve out of the osculating plane)
                 </div>
               </div>
             </div>
           </div>
-          </div>
-        </div>
-  
-            <div class="solved-question">
-              Solve the primary mathematical expression relating to this unit.
+
+          <!-- Example 3 -->
+          <div class="solved-example-card">
+            <div class="solved-example-header">
+              <span class="solved-badge">Example 3 · Concept Application</span>
+              <div class="solved-timer" id="timer-3">
+                <span class="timer-display">00:00</span>
+                <button class="timer-btn" onclick="toggleTimer(3)">Start Timer ⏱️</button>
+              </div>
             </div>
-            <div class="solved-solution-wrap" id="solution-1">
-              <button class="btn btn-primary btn-reveal" onclick="revealSolution(1)">Reveal Step-by-Step Solution 👁️</button>
+            <div class="solved-question">
+              What are the components of the Frenet-Serret frame for a 3D space curve?
+              
+            </div>
+            <div class="solved-solution-wrap" id="solution-3">
+              <button class="btn btn-primary btn-reveal" onclick="revealSolution(3)">Reveal Step-by-Step Solution 👁️</button>
               <div class="solved-steps" style="display: none;">
                 
                 <div class="solved-step">
                   <div class="step-num">Step 1</div>
                   <div class="step-content">
-                    <div class="step-math">$\text{Step 1: Write given values}$</div>
-                    <div class="step-desc">Identify the variables and map out the solution structure.</div>
+                    <div class="step-desc">
+                      Analyze the given options:
+                      <ul style="margin-top:0.5rem; padding-left:1.2rem; list-style-type: none;">
+                        <li style="margin-bottom:0.4rem;text-align:left;"><strong>Option A:</strong> Unit Tangent (T), Principal Normal (N), and Binormal (B)</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option B:</strong> Velocity, Acceleration, and Jerk</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option C:</strong> Slope, Curvature, and Torsion</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option D:</strong> X, Y, and Z coordinate directions</li>
+                      </ul>
+                    </div>
                   </div>
                 </div>
+
                 <div class="solved-step">
                   <div class="step-num">Step 2</div>
                   <div class="step-content">
-                    <div class="step-math">$\text{Step 2: Apply primary theorems}$</div>
-                    <div class="step-desc">Simplify terms step by step to solve the query.</div>
+                    <div class="step-math">$\text{Apply Core Principles}$</div>
+                    <div class="step-desc">The Frenet-Serret frame consists of three mutually orthogonal unit vectors: Tangent vector $\vec{T}$, Principal Normal vector $\vec{N}$, and Binormal vector $\vec{B}$.</div>
                   </div>
                 </div>
+
+                <div class="solved-step">
+                  <div class="step-num">Step 3</div>
+                  <div class="step-content">
+                    <div class="step-desc">
+                      Cross-reference choices to select the valid deduction. Option <strong>A</strong> perfectly aligns with the principles analyzed.
+                    </div>
+                  </div>
+                </div>
+
                 <div class="solved-success-box">
-                  <strong>Final Answer:</strong> Successfully Solved!
+                  <strong>Final Answer:</strong> Option A (Unit Tangent (T), Principal Normal (N), and Binormal (B))
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Example 4 -->
+          <div class="solved-example-card">
+            <div class="solved-example-header">
+              <span class="solved-badge">Example 4 · Concept Application</span>
+              <div class="solved-timer" id="timer-4">
+                <span class="timer-display">00:00</span>
+                <button class="timer-btn" onclick="toggleTimer(4)">Start Timer ⏱️</button>
+              </div>
+            </div>
+            <div class="solved-question">
+              Calculate the curvature of a circle of radius $R$.
+              
+            </div>
+            <div class="solved-solution-wrap" id="solution-4">
+              <button class="btn btn-primary btn-reveal" onclick="revealSolution(4)">Reveal Step-by-Step Solution 👁️</button>
+              <div class="solved-steps" style="display: none;">
+                
+                <div class="solved-step">
+                  <div class="step-num">Step 1</div>
+                  <div class="step-content">
+                    <div class="step-desc">
+                      Analyze the given options:
+                      <ul style="margin-top:0.5rem; padding-left:1.2rem; list-style-type: none;">
+                        <li style="margin-bottom:0.4rem;text-align:left;"><strong>Option A:</strong> $ 1/R $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option B:</strong> $ R $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option C:</strong> $ R^2 $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option D:</strong> $ 2\pi R $</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="solved-step">
+                  <div class="step-num">Step 2</div>
+                  <div class="step-content">
+                    <div class="step-math">$\text{Apply Core Principles}$</div>
+                    <div class="step-desc">A circle bends uniformly. The curvature is inversely proportional to its radius: $ \kappa = \frac{1}{R} $. Smaller circles bend more sharply.</div>
+                  </div>
+                </div>
+
+                <div class="solved-step">
+                  <div class="step-num">Step 3</div>
+                  <div class="step-content">
+                    <div class="step-desc">
+                      Cross-reference choices to select the valid deduction. Option <strong>A</strong> perfectly aligns with the principles analyzed.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="solved-success-box">
+                  <strong>Final Answer:</strong> Option A ($ 1/R $)
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Example 5 -->
+          <div class="solved-example-card">
+            <div class="solved-example-header">
+              <span class="solved-badge">Example 5 · Concept Application</span>
+              <div class="solved-timer" id="timer-5">
+                <span class="timer-display">00:00</span>
+                <button class="timer-btn" onclick="toggleTimer(5)">Start Timer ⏱️</button>
+              </div>
+            </div>
+            <div class="solved-question">
+              Which derivative relation is given by the Frenet-Serret formulas for $ \frac{d\vec{T}}{ds} $?
+              
+            </div>
+            <div class="solved-solution-wrap" id="solution-5">
+              <button class="btn btn-primary btn-reveal" onclick="revealSolution(5)">Reveal Step-by-Step Solution 👁️</button>
+              <div class="solved-steps" style="display: none;">
+                
+                <div class="solved-step">
+                  <div class="step-num">Step 1</div>
+                  <div class="step-content">
+                    <div class="step-desc">
+                      Analyze the given options:
+                      <ul style="margin-top:0.5rem; padding-left:1.2rem; list-style-type: none;">
+                        <li style="margin-bottom:0.4rem;text-align:left;"><strong>Option A:</strong> $ \kappa \vec{N} $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option B:</strong> $ -\kappa \vec{T} $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option C:</strong> $ \tau \vec{B} $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option D:</strong> $ \kappa \vec{B} - \tau \vec{N} $</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="solved-step">
+                  <div class="step-num">Step 2</div>
+                  <div class="step-content">
+                    <div class="step-math">$\text{Apply Core Principles}$</div>
+                    <div class="step-desc">The first Frenet-Serret equation relates the change in unit tangent vector to curvature and the principal normal: $ \frac{d\vec{T}}{ds} = \kappa \vec{N} $.</div>
+                  </div>
+                </div>
+
+                <div class="solved-step">
+                  <div class="step-num">Step 3</div>
+                  <div class="step-content">
+                    <div class="step-desc">
+                      Cross-reference choices to select the valid deduction. Option <strong>A</strong> perfectly aligns with the principles analyzed.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="solved-success-box">
+                  <strong>Final Answer:</strong> Option A ($ \kappa \vec{N} $)
                 </div>
               </div>
             </div>
           </div>
           </div>
         </div>
-  
         <div class="tab-pane" id="pane-quiz">
           <div class="quiz-engine">
             <div class="qe-header">
@@ -259,9 +388,72 @@
     });
 
     const questions = [
-      { q: "What does the curvature ($$\\kappa$$) of a straight line equal?", expr: "", opts: ["$$ 1 $$", "$$ \\infty $$", "$$ 0 $$", "$$ -1 $$"], ans: 2, diff: "easy", exp: "A straight line does not bend, so its curvature is zero." },
-      { q: "Which property measures how much a curve twists out of a 2D plane?", expr: "", opts: ["Curvature", "Torsion", "Arc length", "Tangent"], ans: 1, diff: "medium", exp: "Torsion measures the 'twist' of a space curve." }
-    ];
+  {
+    "q": "What does the curvature $\\kappa$ of a space curve measure?",
+    "expr": "",
+    "opts": [
+      "The rate of change of the tangent vector direction with respect to arc length",
+      "The speed of the curve",
+      "The acceleration vector length only",
+      "The deviation of the curve from being a plane"
+    ],
+    "ans": 0,
+    "diff": "easy",
+    "exp": "Curvature $\\kappa$ measures how sharply a curve bends, defined as the rate of change of the unit tangent vector direction with respect to arc length: $ \\kappa = \\left\\| \\frac{d\\vec{T}}{ds} \\right\\| $."
+  },
+  {
+    "q": "What does the torsion $\\tau$ of a 3D curve measure?",
+    "expr": "",
+    "opts": [
+      "The twisting of the curve out of the osculating plane",
+      "The rate of change of speed",
+      "The curvature of the path projection",
+      "The length of the binormal vector"
+    ],
+    "ans": 0,
+    "diff": "medium",
+    "exp": "Torsion $\\tau$ measures the twisting of a curve in 3D space, showing its deviation from being a completely flat 2D plane."
+  },
+  {
+    "q": "What are the components of the Frenet-Serret frame for a 3D space curve?",
+    "expr": "",
+    "opts": [
+      "Unit Tangent (T), Principal Normal (N), and Binormal (B)",
+      "Velocity, Acceleration, and Jerk",
+      "Slope, Curvature, and Torsion",
+      "X, Y, and Z coordinate directions"
+    ],
+    "ans": 0,
+    "diff": "easy",
+    "exp": "The Frenet-Serret frame consists of three mutually orthogonal unit vectors: Tangent vector $\\vec{T}$, Principal Normal vector $\\vec{N}$, and Binormal vector $\\vec{B}$."
+  },
+  {
+    "q": "Calculate the curvature of a circle of radius $R$.",
+    "expr": "",
+    "opts": [
+      "$ 1/R $",
+      "$ R $",
+      "$ R^2 $",
+      "$ 2\\pi R $"
+    ],
+    "ans": 0,
+    "diff": "medium",
+    "exp": "A circle bends uniformly. The curvature is inversely proportional to its radius: $ \\kappa = \\frac{1}{R} $. Smaller circles bend more sharply."
+  },
+  {
+    "q": "Which derivative relation is given by the Frenet-Serret formulas for $ \\frac{d\\vec{T}}{ds} $?",
+    "expr": "",
+    "opts": [
+      "$ \\kappa \\vec{N} $",
+      "$ -\\kappa \\vec{T} $",
+      "$ \\tau \\vec{B} $",
+      "$ \\kappa \\vec{B} - \\tau \\vec{N} $"
+    ],
+    "ans": 0,
+    "diff": "hard",
+    "exp": "The first Frenet-Serret equation relates the change in unit tangent vector to curvature and the principal normal: $ \\frac{d\\vec{T}}{ds} = \\kappa \\vec{N} $."
+  }
+];
 
     window.diffGeoQuiz = new QuizEngine('qe-container', questions, {
       onComplete: (res) => {

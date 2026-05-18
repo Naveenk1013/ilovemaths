@@ -97,6 +97,7 @@
 
         
         
+        
         <!-- SOLVED EXAMPLES -->
         <div class="tab-pane" id="pane-solved">
           <div class="solved-examples-container">
@@ -111,7 +112,7 @@
               </div>
             </div>
             <div class="solved-question">
-              What is the dimension of a matrix with 3 rows and 2 columns?
+              Find the product $AB$ given: $ A = \begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix}, \, B = \begin{pmatrix} 5 \\ 6 \end{pmatrix} $
               
             </div>
             <div class="solved-solution-wrap" id="solution-1">
@@ -124,7 +125,7 @@
                     <div class="step-desc">
                       Analyze the given options:
                       <ul style="margin-top:0.5rem; padding-left:1.2rem; list-style-type: none;">
-                        <li style="margin-bottom:0.4rem;text-align:left;"><strong>Option A:</strong> $ 2 \times 3 $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option B:</strong> $ 3 \times 2 $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option C:</strong> $ 6 $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option D:</strong> Square</li>
+                        <li style="margin-bottom:0.4rem;text-align:left;"><strong>Option A:</strong> $ \begin{pmatrix} 17 \\ 39 \end{pmatrix} $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option B:</strong> $ \begin{pmatrix} 17 & 39 \end{pmatrix} $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option C:</strong> $ \begin{pmatrix} 5 \\ 24 \end{pmatrix} $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option D:</strong> $ AB \text{ is undefined} $</li>
                       </ul>
                     </div>
                   </div>
@@ -134,7 +135,7 @@
                   <div class="step-num">Step 2</div>
                   <div class="step-content">
                     <div class="step-math">$\text{Apply Core Principles}$</div>
-                    <div class="step-desc">Dimensions are always stated as Rows by Columns (R x C).</div>
+                    <div class="step-desc">Multiply row elements by columns: $ AB = \begin{pmatrix} (1 \cdot 5) + (2 \cdot 6) \\ (3 \cdot 5) + (4 \cdot 6) \end{pmatrix} = \begin{pmatrix} 17 \\ 39 \end{pmatrix} $.</div>
                   </div>
                 </div>
 
@@ -142,13 +143,13 @@
                   <div class="step-num">Step 3</div>
                   <div class="step-content">
                     <div class="step-desc">
-                      Cross-reference choices to select the valid deduction. Option <strong>B</strong> perfectly aligns with the principles analyzed.
+                      Cross-reference choices to select the valid deduction. Option <strong>A</strong> perfectly aligns with the principles analyzed.
                     </div>
                   </div>
                 </div>
 
                 <div class="solved-success-box">
-                  <strong>Final Answer:</strong> Option B ($ 3 \times 2 $)
+                  <strong>Final Answer:</strong> Option A ($ \begin{pmatrix} 17 \\ 39 \end{pmatrix} $)
                 </div>
               </div>
             </div>
@@ -164,7 +165,7 @@
               </div>
             </div>
             <div class="solved-question">
-              Can you add a $ 2 \times 3 $ matrix and a $ 3 \times 2 $ matrix?
+              Find the inverse of matrix $ A = \begin{pmatrix} 4 & 7 \\ 1 & 2 \end{pmatrix} $
               
             </div>
             <div class="solved-solution-wrap" id="solution-2">
@@ -177,7 +178,7 @@
                     <div class="step-desc">
                       Analyze the given options:
                       <ul style="margin-top:0.5rem; padding-left:1.2rem; list-style-type: none;">
-                        <li style="margin-bottom:0.4rem;text-align:left;"><strong>Option A:</strong> Yes</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option B:</strong> No</li>
+                        <li style="margin-bottom:0.4rem;text-align:left;"><strong>Option A:</strong> $ \begin{pmatrix} 2 & -7 \\ -1 & 4 \end{pmatrix} $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option B:</strong> $ \begin{pmatrix} 2 & 7 \\ 1 & 4 \end{pmatrix} $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option C:</strong> $ \begin{pmatrix} -2 & 7 \\ 1 & -4 \end{pmatrix} $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option D:</strong> $ \begin{pmatrix} 4 & 1 \\ 7 & 2 \end{pmatrix} $</li>
                       </ul>
                     </div>
                   </div>
@@ -187,7 +188,7 @@
                   <div class="step-num">Step 2</div>
                   <div class="step-content">
                     <div class="step-math">$\text{Apply Core Principles}$</div>
-                    <div class="step-desc">No. Matrices must have the exact same dimensions to be added or subtracted.</div>
+                    <div class="step-desc">First, determinant $ \det(A) = 4(2) - 7(1) = 1 $. The inverse is $ \frac{1}{\det(A)} \text{adj}(A) = 1 \cdot \begin{pmatrix} 2 & -7 \\ -1 & 4 \end{pmatrix} = \begin{pmatrix} 2 & -7 \\ -1 & 4 \end{pmatrix} $.</div>
                   </div>
                 </div>
 
@@ -195,13 +196,13 @@
                   <div class="step-num">Step 3</div>
                   <div class="step-content">
                     <div class="step-desc">
-                      Cross-reference choices to select the valid deduction. Option <strong>B</strong> perfectly aligns with the principles analyzed.
+                      Cross-reference choices to select the valid deduction. Option <strong>A</strong> perfectly aligns with the principles analyzed.
                     </div>
                   </div>
                 </div>
 
                 <div class="solved-success-box">
-                  <strong>Final Answer:</strong> Option B (No)
+                  <strong>Final Answer:</strong> Option A ($ \begin{pmatrix} 2 & -7 \\ -1 & 4 \end{pmatrix} $)
                 </div>
               </div>
             </div>
@@ -217,7 +218,7 @@
               </div>
             </div>
             <div class="solved-question">
-              If A is a $ 2 \times 3 $ matrix and B is a $ 3 \times 4 $ matrix, what is the dimension of AB?
+              What is the transpose of a symmetric matrix equal to?
               
             </div>
             <div class="solved-solution-wrap" id="solution-3">
@@ -230,7 +231,7 @@
                     <div class="step-desc">
                       Analyze the given options:
                       <ul style="margin-top:0.5rem; padding-left:1.2rem; list-style-type: none;">
-                        <li style="margin-bottom:0.4rem;text-align:left;"><strong>Option A:</strong> $ 2 \times 4 $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option B:</strong> $ 3 \times 3 $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option C:</strong> $ 4 \times 2 $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option D:</strong> Cannot multiply</li>
+                        <li style="margin-bottom:0.4rem;text-align:left;"><strong>Option A:</strong> The matrix itself ($A^T = A$)</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option B:</strong> The negative of the matrix ($A^T = -A$)</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option C:</strong> The inverse matrix ($A^T = A^{-1}$)</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option D:</strong> The identity matrix ($A^T = I$)</li>
                       </ul>
                     </div>
                   </div>
@@ -240,7 +241,7 @@
                   <div class="step-num">Step 2</div>
                   <div class="step-content">
                     <div class="step-math">$\text{Apply Core Principles}$</div>
-                    <div class="step-desc">Inner dimensions must match (3=3). Outer dimensions give the size of the new matrix: $ 2 \times 4 $.</div>
+                    <div class="step-desc">A square matrix is symmetric if it is equal to its transpose: $ A^T = A $.</div>
                   </div>
                 </div>
 
@@ -254,52 +255,119 @@
                 </div>
 
                 <div class="solved-success-box">
-                  <strong>Final Answer:</strong> Option A ($ 2 \times 4 $)
+                  <strong>Final Answer:</strong> Option A (The matrix itself ($A^T = A$))
                 </div>
               </div>
             </div>
           </div>
-          </div>
-        </div>
-  
-            <div class="solved-question">
-              Find the product matrix $AB$ given:<br>$A = \begin{pmatrix} 1 & 2 \\ 3 & 4 \end{pmatrix}, \quad B = \begin{pmatrix} 5 \\ 6 \end{pmatrix}$
+
+          <!-- Example 4 -->
+          <div class="solved-example-card">
+            <div class="solved-example-header">
+              <span class="solved-badge">Example 4 · Concept Application</span>
+              <div class="solved-timer" id="timer-4">
+                <span class="timer-display">00:00</span>
+                <button class="timer-btn" onclick="toggleTimer(4)">Start Timer ⏱️</button>
+              </div>
             </div>
-            <div class="solved-solution-wrap" id="solution-1">
-              <button class="btn btn-primary btn-reveal" onclick="revealSolution(1)">Reveal Step-by-Step Solution 👁️</button>
+            <div class="solved-question">
+              What are the dimensions of product matrix $AB$ if $A$ is $3 \times 2$ and $B$ is $2 \times 5$?
+              
+            </div>
+            <div class="solved-solution-wrap" id="solution-4">
+              <button class="btn btn-primary btn-reveal" onclick="revealSolution(4)">Reveal Step-by-Step Solution 👁️</button>
               <div class="solved-steps" style="display: none;">
                 
                 <div class="solved-step">
                   <div class="step-num">Step 1</div>
                   <div class="step-content">
-                    <div class="step-math">$\text{Row 1} \cdot \text{Column} = (1 \cdot 5) + (2 \cdot 6)$</div>
-                    <div class="step-desc">Multiply elements of row 1 in $A$ by column elements of $B$.</div>
+                    <div class="step-desc">
+                      Analyze the given options:
+                      <ul style="margin-top:0.5rem; padding-left:1.2rem; list-style-type: none;">
+                        <li style="margin-bottom:0.4rem;text-align:left;"><strong>Option A:</strong> $ 3 \times 5 $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option B:</strong> $ 2 \times 2 $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option C:</strong> $ 3 \times 2 $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option D:</strong> $t$ product is undefined</li>
+                      </ul>
+                    </div>
                   </div>
                 </div>
+
                 <div class="solved-step">
                   <div class="step-num">Step 2</div>
                   <div class="step-content">
-                    <div class="step-math">$\text{Row 2} \cdot \text{Column} = (3 \cdot 5) + (4 \cdot 6)$</div>
-                    <div class="step-desc">Multiply elements of row 2 in $A$ by column elements of $B$.</div>
+                    <div class="step-math">$\text{Apply Core Principles}$</div>
+                    <div class="step-desc">Matrix multiplication of $(m \times n)$ by $(n \times p)$ yields a matrix of dimension $(m \times p)$. In this case: $(3 \times 2) \times (2 \times 5) \implies 3 \times 5$.</div>
                   </div>
                 </div>
+
                 <div class="solved-step">
                   <div class="step-num">Step 3</div>
                   <div class="step-content">
-                    <div class="step-math">$AB = \begin{pmatrix} 5 + 12 \\ 15 + 24 \end{pmatrix} = \begin{pmatrix} 17 \\ 39 \end{pmatrix}$</div>
-                    <div class="step-desc">Sum the individual multiplication products to build the final column matrix.</div>
+                    <div class="step-desc">
+                      Cross-reference choices to select the valid deduction. Option <strong>A</strong> perfectly aligns with the principles analyzed.
+                    </div>
                   </div>
                 </div>
+
                 <div class="solved-success-box">
-                  <strong>Final Answer:</strong> $AB = \begin{pmatrix} 17 \\ 39 \end{pmatrix}$
+                  <strong>Final Answer:</strong> Option A ($ 3 \times 5 $)
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Example 5 -->
+          <div class="solved-example-card">
+            <div class="solved-example-header">
+              <span class="solved-badge">Example 5 · Concept Application</span>
+              <div class="solved-timer" id="timer-5">
+                <span class="timer-display">00:00</span>
+                <button class="timer-btn" onclick="toggleTimer(5)">Start Timer ⏱️</button>
+              </div>
+            </div>
+            <div class="solved-question">
+              For any square matrix $A$, what is $ A \cdot A^{-1} $ equal to?
+              
+            </div>
+            <div class="solved-solution-wrap" id="solution-5">
+              <button class="btn btn-primary btn-reveal" onclick="revealSolution(5)">Reveal Step-by-Step Solution 👁️</button>
+              <div class="solved-steps" style="display: none;">
+                
+                <div class="solved-step">
+                  <div class="step-num">Step 1</div>
+                  <div class="step-content">
+                    <div class="step-desc">
+                      Analyze the given options:
+                      <ul style="margin-top:0.5rem; padding-left:1.2rem; list-style-type: none;">
+                        <li style="margin-bottom:0.4rem;text-align:left;"><strong>Option A:</strong> Identity Matrix ($I$)</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option B:</strong> Zero Matrix ($0$)</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option C:</strong> The matrix $A$ itself</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option D:</strong> Inverse matrix $A^{-1}$</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="solved-step">
+                  <div class="step-num">Step 2</div>
+                  <div class="step-content">
+                    <div class="step-math">$\text{Apply Core Principles}$</div>
+                    <div class="step-desc">By algebraic definition, multiplying any invertible matrix by its inverse yields the **Identity Matrix ($I$)**: $ A \cdot A^{-1} = I $.</div>
+                  </div>
+                </div>
+
+                <div class="solved-step">
+                  <div class="step-num">Step 3</div>
+                  <div class="step-content">
+                    <div class="step-desc">
+                      Cross-reference choices to select the valid deduction. Option <strong>A</strong> perfectly aligns with the principles analyzed.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="solved-success-box">
+                  <strong>Final Answer:</strong> Option A (Identity Matrix ($I$))
                 </div>
               </div>
             </div>
           </div>
           </div>
         </div>
-  
-        <!-- INTERACTIVE QUIZ -->
         <div class="tab-pane" id="pane-quiz">
           <div class="quiz-engine">
             <div class="qe-header">
@@ -329,10 +397,72 @@
     });
 
     const questions = [
-      { q: "What is the dimension of a matrix with 3 rows and 2 columns?", expr: "", opts: ["$$ 2 \\times 3 $$", "$$ 3 \\times 2 $$", "$$ 6 $$", "Square"], ans: 1, diff: "easy", exp: "Dimensions are always stated as Rows by Columns (R x C)." },
-      { q: "Can you add a $$ 2 \\times 3 $$ matrix and a $$ 3 \\times 2 $$ matrix?", expr: "", opts: ["Yes", "No"], ans: 1, diff: "easy", exp: "No. Matrices must have the exact same dimensions to be added or subtracted." },
-      { q: "If A is a $$ 2 \\times 3 $$ matrix and B is a $$ 3 \\times 4 $$ matrix, what is the dimension of AB?", expr: "", opts: ["$$ 2 \\times 4 $$", "$$ 3 \\times 3 $$", "$$ 4 \\times 2 $$", "Cannot multiply"], ans: 0, diff: "medium", exp: "Inner dimensions must match (3=3). Outer dimensions give the size of the new matrix: $$ 2 \\times 4 $$." }
-    ];
+  {
+    "q": "Find the product $AB$ given: $ A = \\begin{pmatrix} 1 & 2 \\\\ 3 & 4 \\end{pmatrix}, \\, B = \\begin{pmatrix} 5 \\\\ 6 \\end{pmatrix} $",
+    "expr": "",
+    "opts": [
+      "$ \\begin{pmatrix} 17 \\\\ 39 \\end{pmatrix} $",
+      "$ \\begin{pmatrix} 17 & 39 \\end{pmatrix} $",
+      "$ \\begin{pmatrix} 5 \\\\ 24 \\end{pmatrix} $",
+      "$ AB \\text{ is undefined} $"
+    ],
+    "ans": 0,
+    "diff": "medium",
+    "exp": "Multiply row elements by columns: $ AB = \\begin{pmatrix} (1 \\cdot 5) + (2 \\cdot 6) \\\\ (3 \\cdot 5) + (4 \\cdot 6) \\end{pmatrix} = \\begin{pmatrix} 17 \\\\ 39 \\end{pmatrix} $."
+  },
+  {
+    "q": "Find the inverse of matrix $ A = \\begin{pmatrix} 4 & 7 \\\\ 1 & 2 \\end{pmatrix} $",
+    "expr": "",
+    "opts": [
+      "$ \\begin{pmatrix} 2 & -7 \\\\ -1 & 4 \\end{pmatrix} $",
+      "$ \\begin{pmatrix} 2 & 7 \\\\ 1 & 4 \\end{pmatrix} $",
+      "$ \\begin{pmatrix} -2 & 7 \\\\ 1 & -4 \\end{pmatrix} $",
+      "$ \\begin{pmatrix} 4 & 1 \\\\ 7 & 2 \\end{pmatrix} $"
+    ],
+    "ans": 0,
+    "diff": "hard",
+    "exp": "First, determinant $ \\det(A) = 4(2) - 7(1) = 1 $. The inverse is $ \\frac{1}{\\det(A)} \\text{adj}(A) = 1 \\cdot \\begin{pmatrix} 2 & -7 \\\\ -1 & 4 \\end{pmatrix} = \\begin{pmatrix} 2 & -7 \\\\ -1 & 4 \\end{pmatrix} $."
+  },
+  {
+    "q": "What is the transpose of a symmetric matrix equal to?",
+    "expr": "",
+    "opts": [
+      "The matrix itself ($A^T = A$)",
+      "The negative of the matrix ($A^T = -A$)",
+      "The inverse matrix ($A^T = A^{-1}$)",
+      "The identity matrix ($A^T = I$)"
+    ],
+    "ans": 0,
+    "diff": "easy",
+    "exp": "A square matrix is symmetric if it is equal to its transpose: $ A^T = A $."
+  },
+  {
+    "q": "What are the dimensions of product matrix $AB$ if $A$ is $3 \\times 2$ and $B$ is $2 \\times 5$?",
+    "expr": "",
+    "opts": [
+      "$ 3 \\times 5 $",
+      "$ 2 \\times 2 $",
+      "$ 3 \\times 2 $",
+      "$t$ product is undefined"
+    ],
+    "ans": 0,
+    "diff": "easy",
+    "exp": "Matrix multiplication of $(m \\times n)$ by $(n \\times p)$ yields a matrix of dimension $(m \\times p)$. In this case: $(3 \\times 2) \\times (2 \\times 5) \\implies 3 \\times 5$."
+  },
+  {
+    "q": "For any square matrix $A$, what is $ A \\cdot A^{-1} $ equal to?",
+    "expr": "",
+    "opts": [
+      "Identity Matrix ($I$)",
+      "Zero Matrix ($0$)",
+      "The matrix $A$ itself",
+      "Inverse matrix $A^{-1}$"
+    ],
+    "ans": 0,
+    "diff": "easy",
+    "exp": "By algebraic definition, multiplying any invertible matrix by its inverse yields the **Identity Matrix ($I$)**: $ A \\cdot A^{-1} = I $."
+  }
+];
 
     window.matQuiz = new QuizEngine('qe-container', questions, {
       onComplete: (res) => {

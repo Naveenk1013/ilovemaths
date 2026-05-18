@@ -93,6 +93,7 @@
 
         
         
+        
         <!-- SOLVED EXAMPLES -->
         <div class="tab-pane" id="pane-solved">
           <div class="solved-examples-container">
@@ -107,7 +108,7 @@
               </div>
             </div>
             <div class="solved-question">
-              What is the integral of $ f(x) = 3x^2 $?
+              Evaluate: $ \int (3x^2 + 4x - 5) \, dx $
               
             </div>
             <div class="solved-solution-wrap" id="solution-1">
@@ -120,7 +121,7 @@
                     <div class="step-desc">
                       Analyze the given options:
                       <ul style="margin-top:0.5rem; padding-left:1.2rem; list-style-type: none;">
-                        <li style="margin-bottom:0.4rem;text-align:left;"><strong>Option A:</strong> $ x^3 + C $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option B:</strong> $ 6x + C $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option C:</strong> $ 3x^3 + C $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option D:</strong> $ \frac{x^3}{3} + C $</li>
+                        <li style="margin-bottom:0.4rem;text-align:left;"><strong>Option A:</strong> $ x^3 + 2x^2 - 5x + C $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option B:</strong> $ 3x^3 + 4x^2 - 5x + C $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option C:</strong> $ x^3 + 4x^2 - 5x + C $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option D:</strong> $ x^3 + 2x^2 + C $</li>
                       </ul>
                     </div>
                   </div>
@@ -130,7 +131,7 @@
                   <div class="step-num">Step 2</div>
                   <div class="step-content">
                     <div class="step-math">$\text{Apply Core Principles}$</div>
-                    <div class="step-desc">Using the power rule: add 1 to power (3), divide by new power (3). $ \frac{3x^3}{3} = x^3 + C $.</div>
+                    <div class="step-desc">Integrate term by term: $ \int 3x^2 dx = x^3 $, $ \int 4x dx = 2x^2 $, $ \int -5 dx = -5x $. Combine and append constant $C$: $ x^3 + 2x^2 - 5x + C $.</div>
                   </div>
                 </div>
 
@@ -144,7 +145,7 @@
                 </div>
 
                 <div class="solved-success-box">
-                  <strong>Final Answer:</strong> Option A ($ x^3 + C $)
+                  <strong>Final Answer:</strong> Option A ($ x^3 + 2x^2 - 5x + C $)
                 </div>
               </div>
             </div>
@@ -160,7 +161,7 @@
               </div>
             </div>
             <div class="solved-question">
-              Why do we add $ + C $ to indefinite integrals?
+              Evaluate the definite integral: $ \int_1^3 (2x + 1) \, dx $
               
             </div>
             <div class="solved-solution-wrap" id="solution-2">
@@ -173,7 +174,7 @@
                     <div class="step-desc">
                       Analyze the given options:
                       <ul style="margin-top:0.5rem; padding-left:1.2rem; list-style-type: none;">
-                        <li style="margin-bottom:0.4rem;text-align:left;"><strong>Option A:</strong> Because C stands for Calculus</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option B:</strong> To account for any constant that was lost during differentiation</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option C:</strong> It makes the equation solvable</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option D:</strong> It's a placeholder for zero</li>
+                        <li style="margin-bottom:0.4rem;text-align:left;"><strong>Option A:</strong> $ 10 $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option B:</strong> $ 8 $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option C:</strong> $ 12 $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option D:</strong> $ 9 $</li>
                       </ul>
                     </div>
                   </div>
@@ -183,7 +184,7 @@
                   <div class="step-num">Step 2</div>
                   <div class="step-content">
                     <div class="step-math">$\text{Apply Core Principles}$</div>
-                    <div class="step-desc">The derivative of any constant is 0. So when integrating backwards, we add C to represent that unknown constant.</div>
+                    <div class="step-desc">First find antiderivative: $ \int (2x + 1) dx = x^2 + x $. Now evaluate from 1 to 3: $ (3^2 + 3) - (1^2 + 1) = (9 + 3) - (1 + 1) = 12 - 2 = 10 $.</div>
                   </div>
                 </div>
 
@@ -191,13 +192,13 @@
                   <div class="step-num">Step 3</div>
                   <div class="step-content">
                     <div class="step-desc">
-                      Cross-reference choices to select the valid deduction. Option <strong>B</strong> perfectly aligns with the principles analyzed.
+                      Cross-reference choices to select the valid deduction. Option <strong>A</strong> perfectly aligns with the principles analyzed.
                     </div>
                   </div>
                 </div>
 
                 <div class="solved-success-box">
-                  <strong>Final Answer:</strong> Option B (To account for any constant that was lost during differentiation)
+                  <strong>Final Answer:</strong> Option A ($ 10 $)
                 </div>
               </div>
             </div>
@@ -213,7 +214,7 @@
               </div>
             </div>
             <div class="solved-question">
-              A student integrated $ \int 4x^3 \, dx $. Find the mistake.
+              Evaluate using substitution: $ \int 2x e^{x^2} \, dx $
               
             </div>
             <div class="solved-solution-wrap" id="solution-3">
@@ -226,7 +227,7 @@
                     <div class="step-desc">
                       Analyze the given options:
                       <ul style="margin-top:0.5rem; padding-left:1.2rem; list-style-type: none;">
-                        <li style="margin-bottom:0.4rem;text-align:left;"><strong>Option A:</strong> Yes</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option B:</strong> No</li>
+                        <li style="margin-bottom:0.4rem;text-align:left;"><strong>Option A:</strong> $ e^{x^2} + C $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option B:</strong> $ 2e^{x^2} + C $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option C:</strong> $ e^x + C $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option D:</strong> $ x^2 e^{x^2} + C $</li>
                       </ul>
                     </div>
                   </div>
@@ -236,7 +237,7 @@
                   <div class="step-num">Step 2</div>
                   <div class="step-content">
                     <div class="step-math">$\text{Apply Core Principles}$</div>
-                    <div class="step-desc">Step 4 forgot the $ + C $. Every indefinite integral must include the constant of integration.</div>
+                    <div class="step-desc">Let $u = x^2 \implies du = 2x dx$. The integral becomes $ \int e^u du = e^u + C = e^{x^2} + C $.</div>
                   </div>
                 </div>
 
@@ -244,13 +245,13 @@
                   <div class="step-num">Step 3</div>
                   <div class="step-content">
                     <div class="step-desc">
-                      Cross-reference choices to select the valid deduction. Option <strong>D</strong> perfectly aligns with the principles analyzed.
+                      Cross-reference choices to select the valid deduction. Option <strong>A</strong> perfectly aligns with the principles analyzed.
                     </div>
                   </div>
                 </div>
 
                 <div class="solved-success-box">
-                  <strong>Final Answer:</strong> Option D (Correct Option)
+                  <strong>Final Answer:</strong> Option A ($ e^{x^2} + C $)
                 </div>
               </div>
             </div>
@@ -266,7 +267,7 @@
               </div>
             </div>
             <div class="solved-question">
-              You need to integrate $ \int 5x^4 \, dx $. What is the correct first step?
+              What is the result of the integral $ \int \frac{1}{x} \, dx $?
               
             </div>
             <div class="solved-solution-wrap" id="solution-4">
@@ -279,7 +280,7 @@
                     <div class="step-desc">
                       Analyze the given options:
                       <ul style="margin-top:0.5rem; padding-left:1.2rem; list-style-type: none;">
-                        <li style="margin-bottom:0.4rem;text-align:left;"><strong>Option A:</strong> Multiply the exponent by the coefficient: $ 20x^3 $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option B:</strong> Add 1 to the exponent: $ 5x^5 $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option C:</strong> Divide by the coefficient: $ x^4 $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option D:</strong> Take the square root</li>
+                        <li style="margin-bottom:0.4rem;text-align:left;"><strong>Option A:</strong> $ \ln|x| + C $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option B:</strong> $ -\frac{1}{x^2} + C $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option C:</strong> $ x + C $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option D:</strong> $ e^x + C $</li>
                       </ul>
                     </div>
                   </div>
@@ -289,7 +290,7 @@
                   <div class="step-num">Step 2</div>
                   <div class="step-content">
                     <div class="step-math">$\text{Apply Core Principles}$</div>
-                    <div class="step-desc">First add 1 to the exponent (4 → 5), giving $ 5x^5 $. Then divide by 5: $ x^5 + C $.</div>
+                    <div class="step-desc">The standard integral of questions/x$ is the natural logarithm of the absolute value of $x$: $ \int \frac{1}{x} \, dx = \ln|x| + C $.</div>
                   </div>
                 </div>
 
@@ -297,65 +298,72 @@
                   <div class="step-num">Step 3</div>
                   <div class="step-content">
                     <div class="step-desc">
-                      Cross-reference choices to select the valid deduction. Option <strong>B</strong> perfectly aligns with the principles analyzed.
+                      Cross-reference choices to select the valid deduction. Option <strong>A</strong> perfectly aligns with the principles analyzed.
                     </div>
                   </div>
                 </div>
 
                 <div class="solved-success-box">
-                  <strong>Final Answer:</strong> Option B (Add 1 to the exponent: $ 5x^5 $)
+                  <strong>Final Answer:</strong> Option A ($ \ln|x| + C $)
                 </div>
               </div>
             </div>
           </div>
-          </div>
-        </div>
-  
-            <div class="solved-question">
-              Evaluate the indefinite integral:<br>$\int (3x^2 + 4x - 5) \, dx$
+
+          <!-- Example 5 -->
+          <div class="solved-example-card">
+            <div class="solved-example-header">
+              <span class="solved-badge">Example 5 · Concept Application</span>
+              <div class="solved-timer" id="timer-5">
+                <span class="timer-display">00:00</span>
+                <button class="timer-btn" onclick="toggleTimer(5)">Start Timer ⏱️</button>
+              </div>
             </div>
-            <div class="solved-solution-wrap" id="solution-1">
-              <button class="btn btn-primary btn-reveal" onclick="revealSolution(1)">Reveal Step-by-Step Solution 👁️</button>
+            <div class="solved-question">
+              Evaluate by parts: $ \int x \cos x \, dx $
+              
+            </div>
+            <div class="solved-solution-wrap" id="solution-5">
+              <button class="btn btn-primary btn-reveal" onclick="revealSolution(5)">Reveal Step-by-Step Solution 👁️</button>
               <div class="solved-steps" style="display: none;">
                 
                 <div class="solved-step">
                   <div class="step-num">Step 1</div>
                   <div class="step-content">
-                    <div class="step-math">$\int 3x^2 \, dx = 3 \cdot \frac{x^3}{3} = x^3$</div>
-                    <div class="step-desc">Integrate the first term using the power rule of integration.</div>
+                    <div class="step-desc">
+                      Analyze the given options:
+                      <ul style="margin-top:0.5rem; padding-left:1.2rem; list-style-type: none;">
+                        <li style="margin-bottom:0.4rem;text-align:left;"><strong>Option A:</strong> $ x \sin x + \cos x + C $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option B:</strong> $ x \sin x - \cos x + C $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option C:</strong> $ -x \sin x + \cos x + C $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option D:</strong> $ x \cos x + C $</li>
+                      </ul>
+                    </div>
                   </div>
                 </div>
+
                 <div class="solved-step">
                   <div class="step-num">Step 2</div>
                   <div class="step-content">
-                    <div class="step-math">$\int 4x \, dx = 4 \cdot \frac{x^2}{2} = 2x^2$</div>
-                    <div class="step-desc">Integrate the second term.</div>
+                    <div class="step-math">$\text{Apply Core Principles}$</div>
+                    <div class="step-desc">Let $u = x \implies du = dx$ and $dv = \cos x dx \implies v = \sin x$. By parts: $ \int u \, dv = uv - \int v \, du = x\sin x - \int \sin x dx = x\sin x + \cos x + C $.</div>
                   </div>
                 </div>
+
                 <div class="solved-step">
                   <div class="step-num">Step 3</div>
                   <div class="step-content">
-                    <div class="step-math">$\int -5 \, dx = -5x$</div>
-                    <div class="step-desc">Integrate the constant term.</div>
+                    <div class="step-desc">
+                      Cross-reference choices to select the valid deduction. Option <strong>A</strong> perfectly aligns with the principles analyzed.
+                    </div>
                   </div>
                 </div>
-                <div class="solved-step">
-                  <div class="step-num">Step 4</div>
-                  <div class="step-content">
-                    <div class="step-math">$x^3 + 2x^2 - 5x + C$</div>
-                    <div class="step-desc">Combine all integrated terms together and append the constant of integration ($C$).</div>
-                  </div>
-                </div>
+
                 <div class="solved-success-box">
-                  <strong>Final Answer:</strong> $x^3 + 2x^2 - 5x + C$
+                  <strong>Final Answer:</strong> Option A ($ x \sin x + \cos x + C $)
                 </div>
               </div>
             </div>
           </div>
           </div>
         </div>
-  
-        <!-- INTERACTIVE QUIZ -->
         <div class="tab-pane" id="pane-quiz">
           <div class="quiz-engine">
             <div class="qe-header">
@@ -385,31 +393,72 @@
     });
 
     const questions = [
-      { q: "What is the integral of $$ f(x) = 3x^2 $$?", expr: "", opts: ["$$ x^3 + C $$", "$$ 6x + C $$", "$$ 3x^3 + C $$", "$$ \\frac{x^3}{3} + C $$"], ans: 0, diff: "easy", exp: "Using the power rule: add 1 to power (3), divide by new power (3). $$ \\frac{3x^3}{3} = x^3 + C $$." },
-      { q: "Why do we add $$ + C $$ to indefinite integrals?", expr: "", opts: ["Because C stands for Calculus", "To account for any constant that was lost during differentiation", "It makes the equation solvable", "It's a placeholder for zero"], ans: 1, diff: "medium", exp: "The derivative of any constant is 0. So when integrating backwards, we add C to represent that unknown constant." },
-      {
-        type: "find-error",
-        q: "A student integrated $$ \\int 4x^3 \\, dx $$. Find the mistake.",
-        steps: [
-          "Apply the power rule: add 1 to the exponent → $$ x^4 $$",
-          "Divide by the new exponent: $$ \\frac{4x^4}{4} $$",
-          "Simplify: $$ x^4 $$",
-          "Final answer: $$ x^4 $$ (no constant)"
-        ],
-        ans: 3,
-        diff: "medium",
-        exp: "Step 4 forgot the $$ + C $$. Every indefinite integral must include the constant of integration."
-      },
-      {
-        type: "step-by-step",
-        q: "You need to integrate $$ \\int 5x^4 \\, dx $$. What is the correct first step?",
-        scenario: "Apply the power rule for integration.",
-        opts: ["Multiply the exponent by the coefficient: $$ 20x^3 $$", "Add 1 to the exponent: $$ 5x^5 $$", "Divide by the coefficient: $$ x^4 $$", "Take the square root"],
-        ans: 1,
-        diff: "easy",
-        exp: "First add 1 to the exponent (4 → 5), giving $$ 5x^5 $$. Then divide by 5: $$ x^5 + C $$."
-      }
-    ];
+  {
+    "q": "Evaluate: $ \\int (3x^2 + 4x - 5) \\, dx $",
+    "expr": "",
+    "opts": [
+      "$ x^3 + 2x^2 - 5x + C $",
+      "$ 3x^3 + 4x^2 - 5x + C $",
+      "$ x^3 + 4x^2 - 5x + C $",
+      "$ x^3 + 2x^2 + C $"
+    ],
+    "ans": 0,
+    "diff": "easy",
+    "exp": "Integrate term by term: $ \\int 3x^2 dx = x^3 $, $ \\int 4x dx = 2x^2 $, $ \\int -5 dx = -5x $. Combine and append constant $C$: $ x^3 + 2x^2 - 5x + C $."
+  },
+  {
+    "q": "Evaluate the definite integral: $ \\int_1^3 (2x + 1) \\, dx $",
+    "expr": "",
+    "opts": [
+      "$ 10 $",
+      "$ 8 $",
+      "$ 12 $",
+      "$ 9 $"
+    ],
+    "ans": 0,
+    "diff": "easy",
+    "exp": "First find antiderivative: $ \\int (2x + 1) dx = x^2 + x $. Now evaluate from 1 to 3: $ (3^2 + 3) - (1^2 + 1) = (9 + 3) - (1 + 1) = 12 - 2 = 10 $."
+  },
+  {
+    "q": "Evaluate using substitution: $ \\int 2x e^{x^2} \\, dx $",
+    "expr": "",
+    "opts": [
+      "$ e^{x^2} + C $",
+      "$ 2e^{x^2} + C $",
+      "$ e^x + C $",
+      "$ x^2 e^{x^2} + C $"
+    ],
+    "ans": 0,
+    "diff": "medium",
+    "exp": "Let $u = x^2 \\implies du = 2x dx$. The integral becomes $ \\int e^u du = e^u + C = e^{x^2} + C $."
+  },
+  {
+    "q": "What is the result of the integral $ \\int \\frac{1}{x} \\, dx $?",
+    "expr": "",
+    "opts": [
+      "$ \\ln|x| + C $",
+      "$ -\\frac{1}{x^2} + C $",
+      "$ x + C $",
+      "$ e^x + C $"
+    ],
+    "ans": 0,
+    "diff": "easy",
+    "exp": "The standard integral of questions/x$ is the natural logarithm of the absolute value of $x$: $ \\int \\frac{1}{x} \\, dx = \\ln|x| + C $."
+  },
+  {
+    "q": "Evaluate by parts: $ \\int x \\cos x \\, dx $",
+    "expr": "",
+    "opts": [
+      "$ x \\sin x + \\cos x + C $",
+      "$ x \\sin x - \\cos x + C $",
+      "$ -x \\sin x + \\cos x + C $",
+      "$ x \\cos x + C $"
+    ],
+    "ans": 0,
+    "diff": "hard",
+    "exp": "Let $u = x \\implies du = dx$ and $dv = \\cos x dx \\implies v = \\sin x$. By parts: $ \\int u \\, dv = uv - \\int v \\, du = x\\sin x - \\int \\sin x dx = x\\sin x + \\cos x + C $."
+  }
+];
 
     window.intQuiz = new QuizEngine('qe-container', questions, {
       onComplete: (res) => {

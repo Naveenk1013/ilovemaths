@@ -90,6 +90,7 @@
 
         
         
+        
         <!-- SOLVED EXAMPLES -->
         <div class="tab-pane" id="pane-solved">
           <div class="solved-examples-container">
@@ -104,7 +105,7 @@
               </div>
             </div>
             <div class="solved-question">
-              Which distribution would you use to model the number of customer arrivals at a bank in a 1-hour window?
+              What is the sum of all probabilities in a discrete probability distribution?
               
             </div>
             <div class="solved-solution-wrap" id="solution-1">
@@ -117,7 +118,7 @@
                     <div class="step-desc">
                       Analyze the given options:
                       <ul style="margin-top:0.5rem; padding-left:1.2rem; list-style-type: none;">
-                        <li style="margin-bottom:0.4rem;text-align:left;"><strong>Option A:</strong> Binomial</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option B:</strong> Poisson</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option C:</strong> Normal</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option D:</strong> Uniform</li>
+                        <li style="margin-bottom:0.4rem;text-align:left;"><strong>Option A:</strong> $ 1 $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option B:</strong> $ 0 $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option C:</strong> Depends on sample size</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option D:</strong> Infinite</li>
                       </ul>
                     </div>
                   </div>
@@ -127,7 +128,7 @@
                   <div class="step-num">Step 2</div>
                   <div class="step-content">
                     <div class="step-math">$\text{Apply Core Principles}$</div>
-                    <div class="step-desc">The Poisson distribution is specifically designed for counting the number of events in a fixed interval of time.</div>
+                    <div class="step-desc">For any valid probability distribution, the sum of all individual probabilities across the sample space must be exactly equal to 1: $ \sum P(x) = 1 $.</div>
                   </div>
                 </div>
 
@@ -135,13 +136,13 @@
                   <div class="step-num">Step 3</div>
                   <div class="step-content">
                     <div class="step-desc">
-                      Cross-reference choices to select the valid deduction. Option <strong>B</strong> perfectly aligns with the principles analyzed.
+                      Cross-reference choices to select the valid deduction. Option <strong>A</strong> perfectly aligns with the principles analyzed.
                     </div>
                   </div>
                 </div>
 
                 <div class="solved-success-box">
-                  <strong>Final Answer:</strong> Option B (Poisson)
+                  <strong>Final Answer:</strong> Option A ($ 1 $)
                 </div>
               </div>
             </div>
@@ -157,7 +158,7 @@
               </div>
             </div>
             <div class="solved-question">
-              In a Binomial Distribution, what does 'n' stand for?
+              Find the mean (expected value) of $X$ given: $ X \in \{1, 2\} $ with probabilities $ P(1)=0.4, P(2)=0.6 $.
               
             </div>
             <div class="solved-solution-wrap" id="solution-2">
@@ -170,7 +171,7 @@
                     <div class="step-desc">
                       Analyze the given options:
                       <ul style="margin-top:0.5rem; padding-left:1.2rem; list-style-type: none;">
-                        <li style="margin-bottom:0.4rem;text-align:left;"><strong>Option A:</strong> Probability of success</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option B:</strong> Probability of failure</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option C:</strong> Number of successes</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option D:</strong> Total number of trials</li>
+                        <li style="margin-bottom:0.4rem;text-align:left;"><strong>Option A:</strong> $ 1.6 $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option B:</strong> $ 1.5 $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option C:</strong> $ 2.0 $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option D:</strong> $ 1.4 $</li>
                       </ul>
                     </div>
                   </div>
@@ -180,7 +181,7 @@
                   <div class="step-num">Step 2</div>
                   <div class="step-content">
                     <div class="step-math">$\text{Apply Core Principles}$</div>
-                    <div class="step-desc">'n' is the fixed number of trials, like tossing a coin 10 times.</div>
+                    <div class="step-desc">Expected Value is $ E(X) = \sum x_i P(x_i) = (1 \cdot 0.4) + (2 \cdot 0.6) = 0.4 + 1.2 = 1.6 $.</div>
                   </div>
                 </div>
 
@@ -188,51 +189,178 @@
                   <div class="step-num">Step 3</div>
                   <div class="step-content">
                     <div class="step-desc">
-                      Cross-reference choices to select the valid deduction. Option <strong>D</strong> perfectly aligns with the principles analyzed.
+                      Cross-reference choices to select the valid deduction. Option <strong>A</strong> perfectly aligns with the principles analyzed.
                     </div>
                   </div>
                 </div>
 
                 <div class="solved-success-box">
-                  <strong>Final Answer:</strong> Option D (Total number of trials)
+                  <strong>Final Answer:</strong> Option A ($ 1.6 $)
                 </div>
               </div>
             </div>
           </div>
-          </div>
-        </div>
-  
-            <div class="solved-question">
-              Solve the primary mathematical expression relating to this unit.
+
+          <!-- Example 3 -->
+          <div class="solved-example-card">
+            <div class="solved-example-header">
+              <span class="solved-badge">Example 3 · Concept Application</span>
+              <div class="solved-timer" id="timer-3">
+                <span class="timer-display">00:00</span>
+                <button class="timer-btn" onclick="toggleTimer(3)">Start Timer ⏱️</button>
+              </div>
             </div>
-            <div class="solved-solution-wrap" id="solution-1">
-              <button class="btn btn-primary btn-reveal" onclick="revealSolution(1)">Reveal Step-by-Step Solution 👁️</button>
+            <div class="solved-question">
+              What are the parameters that completely define a Binomial Distribution?
+              
+            </div>
+            <div class="solved-solution-wrap" id="solution-3">
+              <button class="btn btn-primary btn-reveal" onclick="revealSolution(3)">Reveal Step-by-Step Solution 👁️</button>
               <div class="solved-steps" style="display: none;">
                 
                 <div class="solved-step">
                   <div class="step-num">Step 1</div>
                   <div class="step-content">
-                    <div class="step-math">$\text{Step 1: Write given values}$</div>
-                    <div class="step-desc">Identify the variables and map out the solution structure.</div>
+                    <div class="step-desc">
+                      Analyze the given options:
+                      <ul style="margin-top:0.5rem; padding-left:1.2rem; list-style-type: none;">
+                        <li style="margin-bottom:0.4rem;text-align:left;"><strong>Option A:</strong> Number of trials ($n$) and probability of success ($p$)</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option B:</strong> Mean and Variance</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option C:</strong> Standard Deviation only</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option D:</strong> Lambda ($\lambda$)</li>
+                      </ul>
+                    </div>
                   </div>
                 </div>
+
                 <div class="solved-step">
                   <div class="step-num">Step 2</div>
                   <div class="step-content">
-                    <div class="step-math">$\text{Step 2: Apply primary theorems}$</div>
-                    <div class="step-desc">Simplify terms step by step to solve the query.</div>
+                    <div class="step-math">$\text{Apply Core Principles}$</div>
+                    <div class="step-desc">A binomial distribution represents $n$ independent trials with a constant probability of success $p$. Hence, parameters $n$ and $p$ define it completely.</div>
                   </div>
                 </div>
+
+                <div class="solved-step">
+                  <div class="step-num">Step 3</div>
+                  <div class="step-content">
+                    <div class="step-desc">
+                      Cross-reference choices to select the valid deduction. Option <strong>A</strong> perfectly aligns with the principles analyzed.
+                    </div>
+                  </div>
+                </div>
+
                 <div class="solved-success-box">
-                  <strong>Final Answer:</strong> Successfully Solved!
+                  <strong>Final Answer:</strong> Option A (Number of trials ($n$) and probability of success ($p$))
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Example 4 -->
+          <div class="solved-example-card">
+            <div class="solved-example-header">
+              <span class="solved-badge">Example 4 · Concept Application</span>
+              <div class="solved-timer" id="timer-4">
+                <span class="timer-display">00:00</span>
+                <button class="timer-btn" onclick="toggleTimer(4)">Start Timer ⏱️</button>
+              </div>
+            </div>
+            <div class="solved-question">
+              What is the formula for the variance of a Binomial Distribution?
+              
+            </div>
+            <div class="solved-solution-wrap" id="solution-4">
+              <button class="btn btn-primary btn-reveal" onclick="revealSolution(4)">Reveal Step-by-Step Solution 👁️</button>
+              <div class="solved-steps" style="display: none;">
+                
+                <div class="solved-step">
+                  <div class="step-num">Step 1</div>
+                  <div class="step-content">
+                    <div class="step-desc">
+                      Analyze the given options:
+                      <ul style="margin-top:0.5rem; padding-left:1.2rem; list-style-type: none;">
+                        <li style="margin-bottom:0.4rem;text-align:left;"><strong>Option A:</strong> $ npq $ (where $q = 1-p$)</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option B:</strong> $ np $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option C:</strong> $ \sqrt{npq} $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option D:</strong> $ np(1+p) $</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="solved-step">
+                  <div class="step-num">Step 2</div>
+                  <div class="step-content">
+                    <div class="step-math">$\text{Apply Core Principles}$</div>
+                    <div class="step-desc">The mean is $np$, and the variance of a Binomial Distribution is $ \sigma^2 = npq $ where $q = 1 - p$ represents the probability of failure.</div>
+                  </div>
+                </div>
+
+                <div class="solved-step">
+                  <div class="step-num">Step 3</div>
+                  <div class="step-content">
+                    <div class="step-desc">
+                      Cross-reference choices to select the valid deduction. Option <strong>A</strong> perfectly aligns with the principles analyzed.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="solved-success-box">
+                  <strong>Final Answer:</strong> Option A ($ npq $ (where $q = 1-p$))
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Example 5 -->
+          <div class="solved-example-card">
+            <div class="solved-example-header">
+              <span class="solved-badge">Example 5 · Concept Application</span>
+              <div class="solved-timer" id="timer-5">
+                <span class="timer-display">00:00</span>
+                <button class="timer-btn" onclick="toggleTimer(5)">Start Timer ⏱️</button>
+              </div>
+            </div>
+            <div class="solved-question">
+              Which distribution models the number of events occurring in a fixed interval of time if events occur with a known constant mean rate?
+              
+            </div>
+            <div class="solved-solution-wrap" id="solution-5">
+              <button class="btn btn-primary btn-reveal" onclick="revealSolution(5)">Reveal Step-by-Step Solution 👁️</button>
+              <div class="solved-steps" style="display: none;">
+                
+                <div class="solved-step">
+                  <div class="step-num">Step 1</div>
+                  <div class="step-content">
+                    <div class="step-desc">
+                      Analyze the given options:
+                      <ul style="margin-top:0.5rem; padding-left:1.2rem; list-style-type: none;">
+                        <li style="margin-bottom:0.4rem;text-align:left;"><strong>Option A:</strong> Poisson Distribution</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option B:</strong> Binomial Distribution</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option C:</strong> Normal Distribution</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option D:</strong> Uniform Distribution</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="solved-step">
+                  <div class="step-num">Step 2</div>
+                  <div class="step-content">
+                    <div class="step-math">$\text{Apply Core Principles}$</div>
+                    <div class="step-desc">The **Poisson Distribution** models the probability of a number of events occurring within a fixed interval of time or space, characterized by parameter $\lambda$.</div>
+                  </div>
+                </div>
+
+                <div class="solved-step">
+                  <div class="step-num">Step 3</div>
+                  <div class="step-content">
+                    <div class="step-desc">
+                      Cross-reference choices to select the valid deduction. Option <strong>A</strong> perfectly aligns with the principles analyzed.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="solved-success-box">
+                  <strong>Final Answer:</strong> Option A (Poisson Distribution)
                 </div>
               </div>
             </div>
           </div>
           </div>
         </div>
-  
-        <!-- INTERACTIVE QUIZ -->
         <div class="tab-pane" id="pane-quiz">
           <div class="quiz-engine">
             <div class="qe-header">
@@ -262,9 +390,72 @@
     });
 
     const questions = [
-      { q: "Which distribution would you use to model the number of customer arrivals at a bank in a 1-hour window?", expr: "", opts: ["Binomial", "Poisson", "Normal", "Uniform"], ans: 1, diff: "medium", exp: "The Poisson distribution is specifically designed for counting the number of events in a fixed interval of time." },
-      { q: "In a Binomial Distribution, what does 'n' stand for?", expr: "", opts: ["Probability of success", "Probability of failure", "Number of successes", "Total number of trials"], ans: 3, diff: "easy", exp: "'n' is the fixed number of trials, like tossing a coin 10 times." }
-    ];
+  {
+    "q": "What is the sum of all probabilities in a discrete probability distribution?",
+    "expr": "",
+    "opts": [
+      "$ 1 $",
+      "$ 0 $",
+      "Depends on sample size",
+      "Infinite"
+    ],
+    "ans": 0,
+    "diff": "easy",
+    "exp": "For any valid probability distribution, the sum of all individual probabilities across the sample space must be exactly equal to 1: $ \\sum P(x) = 1 $."
+  },
+  {
+    "q": "Find the mean (expected value) of $X$ given: $ X \\in \\{1, 2\\} $ with probabilities $ P(1)=0.4, P(2)=0.6 $.",
+    "expr": "",
+    "opts": [
+      "$ 1.6 $",
+      "$ 1.5 $",
+      "$ 2.0 $",
+      "$ 1.4 $"
+    ],
+    "ans": 0,
+    "diff": "medium",
+    "exp": "Expected Value is $ E(X) = \\sum x_i P(x_i) = (1 \\cdot 0.4) + (2 \\cdot 0.6) = 0.4 + 1.2 = 1.6 $."
+  },
+  {
+    "q": "What are the parameters that completely define a Binomial Distribution?",
+    "expr": "",
+    "opts": [
+      "Number of trials ($n$) and probability of success ($p$)",
+      "Mean and Variance",
+      "Standard Deviation only",
+      "Lambda ($\\lambda$)"
+    ],
+    "ans": 0,
+    "diff": "easy",
+    "exp": "A binomial distribution represents $n$ independent trials with a constant probability of success $p$. Hence, parameters $n$ and $p$ define it completely."
+  },
+  {
+    "q": "What is the formula for the variance of a Binomial Distribution?",
+    "expr": "",
+    "opts": [
+      "$ npq $ (where $q = 1-p$)",
+      "$ np $",
+      "$ \\sqrt{npq} $",
+      "$ np(1+p) $"
+    ],
+    "ans": 0,
+    "diff": "medium",
+    "exp": "The mean is $np$, and the variance of a Binomial Distribution is $ \\sigma^2 = npq $ where $q = 1 - p$ represents the probability of failure."
+  },
+  {
+    "q": "Which distribution models the number of events occurring in a fixed interval of time if events occur with a known constant mean rate?",
+    "expr": "",
+    "opts": [
+      "Poisson Distribution",
+      "Binomial Distribution",
+      "Normal Distribution",
+      "Uniform Distribution"
+    ],
+    "ans": 0,
+    "diff": "medium",
+    "exp": "The **Poisson Distribution** models the probability of a number of events occurring within a fixed interval of time or space, characterized by parameter $\\lambda$."
+  }
+];
 
     window.distQuiz = new QuizEngine('qe-container', questions, {
       onComplete: (res) => {

@@ -92,6 +92,7 @@
 
         
         
+        
         <!-- SOLVED EXAMPLES -->
         <div class="tab-pane" id="pane-solved">
           <div class="solved-examples-container">
@@ -106,7 +107,7 @@
               </div>
             </div>
             <div class="solved-question">
-              In a linear programming problem, where does the optimal solution occur?
+              Maximize utility $ Z = 3x + 4y $ subject to corner constraints: $ (0,0), (4,0), (0,5), \text{ and } (2,3) $.
               
             </div>
             <div class="solved-solution-wrap" id="solution-1">
@@ -119,7 +120,7 @@
                     <div class="step-desc">
                       Analyze the given options:
                       <ul style="margin-top:0.5rem; padding-left:1.2rem; list-style-type: none;">
-                        <li style="margin-bottom:0.4rem;text-align:left;"><strong>Option A:</strong> In the middle of the feasible region</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option B:</strong> At one of the corner points of the feasible region</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option C:</strong> At the origin</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option D:</strong> Outside the region</li>
+                        <li style="margin-bottom:0.4rem;text-align:left;"><strong>Option A:</strong> $ Z = 20 $ at $ (0,5) $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option B:</strong> $ Z = 12 $ at $ (4,0) $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option C:</strong> $ Z = 18 $ at $ (2,3) $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option D:</strong> $ Z = 0 $ at $ (0,0) $</li>
                       </ul>
                     </div>
                   </div>
@@ -129,7 +130,7 @@
                   <div class="step-num">Step 2</div>
                   <div class="step-content">
                     <div class="step-math">$\text{Apply Core Principles}$</div>
-                    <div class="step-desc">The Corner Point Theorem states that the max or min of the objective function will always occur at a vertex of the feasible region.</div>
+                    <div class="step-desc">Evaluate $Z$ at each corner point: $Z(0,0)=0$, $Z(4,0)=12$, $Z(0,5)=20$, $Z(2,3)=6+12=18$. The maximum value is 20 at $(0,5)$.</div>
                   </div>
                 </div>
 
@@ -137,13 +138,13 @@
                   <div class="step-num">Step 3</div>
                   <div class="step-content">
                     <div class="step-desc">
-                      Cross-reference choices to select the valid deduction. Option <strong>B</strong> perfectly aligns with the principles analyzed.
+                      Cross-reference choices to select the valid deduction. Option <strong>A</strong> perfectly aligns with the principles analyzed.
                     </div>
                   </div>
                 </div>
 
                 <div class="solved-success-box">
-                  <strong>Final Answer:</strong> Option B (At one of the corner points of the feasible region)
+                  <strong>Final Answer:</strong> Option A ($ Z = 20 $ at $ (0,5) $)
                 </div>
               </div>
             </div>
@@ -159,7 +160,7 @@
               </div>
             </div>
             <div class="solved-question">
-              What does the inequality $ x \ge 0, y \ge 0 $ mean graphically?
+              What is the name of the region that satisfies all constraints in a Linear Programming Problem?
               
             </div>
             <div class="solved-solution-wrap" id="solution-2">
@@ -172,7 +173,7 @@
                     <div class="step-desc">
                       Analyze the given options:
                       <ul style="margin-top:0.5rem; padding-left:1.2rem; list-style-type: none;">
-                        <li style="margin-bottom:0.4rem;text-align:left;"><strong>Option A:</strong> The graph is only in the first quadrant</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option B:</strong> The graph is a straight line</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option C:</strong> The region is empty</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option D:</strong> The objective function is zero</li>
+                        <li style="margin-bottom:0.4rem;text-align:left;"><strong>Option A:</strong> Optimal region</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option B:</strong> Feasible region</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option C:</strong> Boundary region</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option D:</strong> Target region</li>
                       </ul>
                     </div>
                   </div>
@@ -182,7 +183,113 @@
                   <div class="step-num">Step 2</div>
                   <div class="step-content">
                     <div class="step-math">$\text{Apply Core Principles}$</div>
-                    <div class="step-desc">These non-negativity constraints restrict our graph to the upper-right (first) quadrant, representing real-world positive quantities.</div>
+                    <div class="step-desc">The solution set that satisfies all inequalities/constraints simultaneously is called the **Feasible Region**.</div>
+                  </div>
+                </div>
+
+                <div class="solved-step">
+                  <div class="step-num">Step 3</div>
+                  <div class="step-content">
+                    <div class="step-desc">
+                      Cross-reference choices to select the valid deduction. Option <strong>B</strong> perfectly aligns with the principles analyzed.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="solved-success-box">
+                  <strong>Final Answer:</strong> Option B (Feasible region)
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Example 3 -->
+          <div class="solved-example-card">
+            <div class="solved-example-header">
+              <span class="solved-badge">Example 3 · Concept Application</span>
+              <div class="solved-timer" id="timer-3">
+                <span class="timer-display">00:00</span>
+                <button class="timer-btn" onclick="toggleTimer(3)">Start Timer ⏱️</button>
+              </div>
+            </div>
+            <div class="solved-question">
+              Where does the optimal solution (maximum or minimum) of an LPP always occur?
+              
+            </div>
+            <div class="solved-solution-wrap" id="solution-3">
+              <button class="btn btn-primary btn-reveal" onclick="revealSolution(3)">Reveal Step-by-Step Solution 👁️</button>
+              <div class="solved-steps" style="display: none;">
+                
+                <div class="solved-step">
+                  <div class="step-num">Step 1</div>
+                  <div class="step-content">
+                    <div class="step-desc">
+                      Analyze the given options:
+                      <ul style="margin-top:0.5rem; padding-left:1.2rem; list-style-type: none;">
+                        <li style="margin-bottom:0.4rem;text-align:left;"><strong>Option A:</strong> At the origin</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option B:</strong> Along the boundary line only</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option C:</strong> At one of the corner points (vertices) of the feasible region</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option D:</strong> In the exact center of the region</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="solved-step">
+                  <div class="step-num">Step 2</div>
+                  <div class="step-content">
+                    <div class="step-math">$\text{Apply Core Principles}$</div>
+                    <div class="step-desc">According to the Corner Point Theorem, the optimal value of the objective function in any bounded LPP occurs at one of the corner points (vertices) of the feasible region.</div>
+                  </div>
+                </div>
+
+                <div class="solved-step">
+                  <div class="step-num">Step 3</div>
+                  <div class="step-content">
+                    <div class="step-desc">
+                      Cross-reference choices to select the valid deduction. Option <strong>C</strong> perfectly aligns with the principles analyzed.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="solved-success-box">
+                  <strong>Final Answer:</strong> Option C (At one of the corner points (vertices) of the feasible region)
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Example 4 -->
+          <div class="solved-example-card">
+            <div class="solved-example-header">
+              <span class="solved-badge">Example 4 · Concept Application</span>
+              <div class="solved-timer" id="timer-4">
+                <span class="timer-display">00:00</span>
+                <button class="timer-btn" onclick="toggleTimer(4)">Start Timer ⏱️</button>
+              </div>
+            </div>
+            <div class="solved-question">
+              If a constraint in an LPP is $ x + y \le 4 $, which side of the boundary line $ x + y = 4 $ represents the solution?
+              
+            </div>
+            <div class="solved-solution-wrap" id="solution-4">
+              <button class="btn btn-primary btn-reveal" onclick="revealSolution(4)">Reveal Step-by-Step Solution 👁️</button>
+              <div class="solved-steps" style="display: none;">
+                
+                <div class="solved-step">
+                  <div class="step-num">Step 1</div>
+                  <div class="step-content">
+                    <div class="step-desc">
+                      Analyze the given options:
+                      <ul style="margin-top:0.5rem; padding-left:1.2rem; list-style-type: none;">
+                        <li style="margin-bottom:0.4rem;text-align:left;"><strong>Option A:</strong> The half-plane containing the origin</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option B:</strong> The half-plane not containing the origin</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option C:</strong> Only points exactly on the line</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option D:</strong> The entire coordinate system</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="solved-step">
+                  <div class="step-num">Step 2</div>
+                  <div class="step-content">
+                    <div class="step-math">$\text{Apply Core Principles}$</div>
+                    <div class="step-desc">Test the origin $(0,0)$: $ 0 + 0 \le 4 $ (True). Since it is true, the feasible region is the half-plane containing the origin $(0,0)$.</div>
                   </div>
                 </div>
 
@@ -196,66 +303,66 @@
                 </div>
 
                 <div class="solved-success-box">
-                  <strong>Final Answer:</strong> Option A (The graph is only in the first quadrant)
+                  <strong>Final Answer:</strong> Option A (The half-plane containing the origin)
                 </div>
               </div>
             </div>
           </div>
-          </div>
-        </div>
-  
-            <div class="solved-question">
-              Maximize utility $Z = 3x + 4y$ subject to corner constraints: $(0,0)$, $(4,0)$, $(0,5)$, and $(2,3)$.
+
+          <!-- Example 5 -->
+          <div class="solved-example-card">
+            <div class="solved-example-header">
+              <span class="solved-badge">Example 5 · Concept Application</span>
+              <div class="solved-timer" id="timer-5">
+                <span class="timer-display">00:00</span>
+                <button class="timer-btn" onclick="toggleTimer(5)">Start Timer ⏱️</button>
+              </div>
             </div>
-            <div class="solved-solution-wrap" id="solution-1">
-              <button class="btn btn-primary btn-reveal" onclick="revealSolution(1)">Reveal Step-by-Step Solution 👁️</button>
+            <div class="solved-question">
+              What happens if the feasible region of an LPP is unbounded in the direction of maximization?
+              
+            </div>
+            <div class="solved-solution-wrap" id="solution-5">
+              <button class="btn btn-primary btn-reveal" onclick="revealSolution(5)">Reveal Step-by-Step Solution 👁️</button>
               <div class="solved-steps" style="display: none;">
                 
                 <div class="solved-step">
                   <div class="step-num">Step 1</div>
                   <div class="step-content">
-                    <div class="step-math">$Z(0,0) = 3(0) + 4(0) = 0$</div>
-                    <div class="step-desc">Evaluate objective function at vertex $(0,0)$.</div>
+                    <div class="step-desc">
+                      Analyze the given options:
+                      <ul style="margin-top:0.5rem; padding-left:1.2rem; list-style-type: none;">
+                        <li style="margin-bottom:0.4rem;text-align:left;"><strong>Option A:</strong> No solution exists</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option B:</strong> An optimal solution still exists at the origin</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option C:</strong> The objective function can grow infinitely, leading to an unbounded solution</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option D:</strong> Multiple optimal solutions exist</li>
+                      </ul>
+                    </div>
                   </div>
                 </div>
+
                 <div class="solved-step">
                   <div class="step-num">Step 2</div>
                   <div class="step-content">
-                    <div class="step-math">$Z(4,0) = 3(4) + 4(0) = 12$</div>
-                    <div class="step-desc">Evaluate objective function at vertex $(4,0)$.</div>
+                    <div class="step-math">$\text{Apply Core Principles}$</div>
+                    <div class="step-desc">If the feasible region is unbounded in the direction of maximization, the objective function value can grow without bound, meaning there is no finite maximum solution.</div>
                   </div>
                 </div>
+
                 <div class="solved-step">
                   <div class="step-num">Step 3</div>
                   <div class="step-content">
-                    <div class="step-math">$Z(0,5) = 3(0) + 4(5) = 20$</div>
-                    <div class="step-desc">Evaluate objective function at vertex $(0,5)$.</div>
+                    <div class="step-desc">
+                      Cross-reference choices to select the valid deduction. Option <strong>C</strong> perfectly aligns with the principles analyzed.
+                    </div>
                   </div>
                 </div>
-                <div class="solved-step">
-                  <div class="step-num">Step 4</div>
-                  <div class="step-content">
-                    <div class="step-math">$Z(2,3) = 3(2) + 4(3) = 6 + 12 = 18$</div>
-                    <div class="step-desc">Evaluate objective function at vertex $(2,3)$.</div>
-                  </div>
-                </div>
-                <div class="solved-step">
-                  <div class="step-num">Step 5</div>
-                  <div class="step-content">
-                    <div class="step-math">$\text{Max } Z = 20 \text{ at } (0,5)$</div>
-                    <div class="step-desc">Identify the highest value achieved across all evaluated vertices.</div>
-                  </div>
-                </div>
+
                 <div class="solved-success-box">
-                  <strong>Final Answer:</strong> Maximum value is $20$ at coordinates $(0, 5)$.
+                  <strong>Final Answer:</strong> Option C (The objective function can grow infinitely, leading to an unbounded solution)
                 </div>
               </div>
             </div>
           </div>
           </div>
         </div>
-  
-        <!-- INTERACTIVE QUIZ -->
         <div class="tab-pane" id="pane-quiz">
           <div class="quiz-engine">
             <div class="qe-header">
@@ -285,9 +392,72 @@
     });
 
     const questions = [
-      { q: "In a linear programming problem, where does the optimal solution occur?", expr: "", opts: ["In the middle of the feasible region", "At one of the corner points of the feasible region", "At the origin", "Outside the region"], ans: 1, diff: "easy", exp: "The Corner Point Theorem states that the max or min of the objective function will always occur at a vertex of the feasible region." },
-      { q: "What does the inequality $$ x \\ge 0, y \\ge 0 $$ mean graphically?", expr: "", opts: ["The graph is only in the first quadrant", "The graph is a straight line", "The region is empty", "The objective function is zero"], ans: 0, diff: "easy", exp: "These non-negativity constraints restrict our graph to the upper-right (first) quadrant, representing real-world positive quantities." }
-    ];
+  {
+    "q": "Maximize utility $ Z = 3x + 4y $ subject to corner constraints: $ (0,0), (4,0), (0,5), \\text{ and } (2,3) $.",
+    "expr": "",
+    "opts": [
+      "$ Z = 20 $ at $ (0,5) $",
+      "$ Z = 12 $ at $ (4,0) $",
+      "$ Z = 18 $ at $ (2,3) $",
+      "$ Z = 0 $ at $ (0,0) $"
+    ],
+    "ans": 0,
+    "diff": "medium",
+    "exp": "Evaluate $Z$ at each corner point: $Z(0,0)=0$, $Z(4,0)=12$, $Z(0,5)=20$, $Z(2,3)=6+12=18$. The maximum value is 20 at $(0,5)$."
+  },
+  {
+    "q": "What is the name of the region that satisfies all constraints in a Linear Programming Problem?",
+    "expr": "",
+    "opts": [
+      "Optimal region",
+      "Feasible region",
+      "Boundary region",
+      "Target region"
+    ],
+    "ans": 1,
+    "diff": "easy",
+    "exp": "The solution set that satisfies all inequalities/constraints simultaneously is called the **Feasible Region**."
+  },
+  {
+    "q": "Where does the optimal solution (maximum or minimum) of an LPP always occur?",
+    "expr": "",
+    "opts": [
+      "At the origin",
+      "Along the boundary line only",
+      "At one of the corner points (vertices) of the feasible region",
+      "In the exact center of the region"
+    ],
+    "ans": 2,
+    "diff": "easy",
+    "exp": "According to the Corner Point Theorem, the optimal value of the objective function in any bounded LPP occurs at one of the corner points (vertices) of the feasible region."
+  },
+  {
+    "q": "If a constraint in an LPP is $ x + y \\le 4 $, which side of the boundary line $ x + y = 4 $ represents the solution?",
+    "expr": "",
+    "opts": [
+      "The half-plane containing the origin",
+      "The half-plane not containing the origin",
+      "Only points exactly on the line",
+      "The entire coordinate system"
+    ],
+    "ans": 0,
+    "diff": "medium",
+    "exp": "Test the origin $(0,0)$: $ 0 + 0 \\le 4 $ (True). Since it is true, the feasible region is the half-plane containing the origin $(0,0)$."
+  },
+  {
+    "q": "What happens if the feasible region of an LPP is unbounded in the direction of maximization?",
+    "expr": "",
+    "opts": [
+      "No solution exists",
+      "An optimal solution still exists at the origin",
+      "The objective function can grow infinitely, leading to an unbounded solution",
+      "Multiple optimal solutions exist"
+    ],
+    "ans": 2,
+    "diff": "medium",
+    "exp": "If the feasible region is unbounded in the direction of maximization, the objective function value can grow without bound, meaning there is no finite maximum solution."
+  }
+];
 
     window.lpQuiz = new QuizEngine('qe-container', questions, {
       onComplete: (res) => {

@@ -93,6 +93,7 @@
 
         
         
+        
         <!-- SOLVED EXAMPLES -->
         <div class="tab-pane" id="pane-solved">
           <div class="solved-examples-container">
@@ -107,7 +108,7 @@
               </div>
             </div>
             <div class="solved-question">
-              What is the integrating factor for $ \frac{dy}{dx} + 2y = e^x $?
+              What is the integrating factor (IF) for the linear differential equation $ \frac{dy}{dx} + P(x)y = Q(x) $?
               
             </div>
             <div class="solved-solution-wrap" id="solution-1">
@@ -120,7 +121,7 @@
                     <div class="step-desc">
                       Analyze the given options:
                       <ul style="margin-top:0.5rem; padding-left:1.2rem; list-style-type: none;">
-                        <li style="margin-bottom:0.4rem;text-align:left;"><strong>Option A:</strong> $ e^{2x} $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option B:</strong> $ e^x $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option C:</strong> $ 2x $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option D:</strong> $ \ln(2x) $</li>
+                        <li style="margin-bottom:0.4rem;text-align:left;"><strong>Option A:</strong> $ e^{\int P(x)dx} $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option B:</strong> $ e^{-\int P(x)dx} $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option C:</strong> $ \int P(x)dx $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option D:</strong> $ e^{\int Q(x)dx} $</li>
                       </ul>
                     </div>
                   </div>
@@ -130,7 +131,7 @@
                   <div class="step-num">Step 2</div>
                   <div class="step-content">
                     <div class="step-math">$\text{Apply Core Principles}$</div>
-                    <div class="step-desc">$ P(x) = 2 $. Integrating factor $ = e^{\int 2 dx} = e^{2x} $.</div>
+                    <div class="step-desc">The standard integrating factor for a first-order linear differential equation is $ \text{I.F.} = e^{\int P(x) \, dx} $.</div>
                   </div>
                 </div>
 
@@ -144,7 +145,7 @@
                 </div>
 
                 <div class="solved-success-box">
-                  <strong>Final Answer:</strong> Option A ($ e^{2x} $)
+                  <strong>Final Answer:</strong> Option A ($ e^{\int P(x)dx} $)
                 </div>
               </div>
             </div>
@@ -160,7 +161,7 @@
               </div>
             </div>
             <div class="solved-question">
-              Solving a differential equation yields:
+              Find the Integrating Factor of: $ \frac{dy}{dx} + \frac{2}{x}y = x^3 $
               
             </div>
             <div class="solved-solution-wrap" id="solution-2">
@@ -173,7 +174,7 @@
                     <div class="step-desc">
                       Analyze the given options:
                       <ul style="margin-top:0.5rem; padding-left:1.2rem; list-style-type: none;">
-                        <li style="margin-bottom:0.4rem;text-align:left;"><strong>Option A:</strong> A number</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option B:</strong> A matrix</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option C:</strong> A function</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option D:</strong> A derivative</li>
+                        <li style="margin-bottom:0.4rem;text-align:left;"><strong>Option A:</strong> $ x^2 $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option B:</strong> $ x $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option C:</strong> $ e^{2x} $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option D:</strong> $ 2\ln x $</li>
                       </ul>
                     </div>
                   </div>
@@ -183,7 +184,7 @@
                   <div class="step-num">Step 2</div>
                   <div class="step-content">
                     <div class="step-math">$\text{Apply Core Principles}$</div>
-                    <div class="step-desc">A DE asks 'What function makes this relationship true?' So the answer is a function.</div>
+                    <div class="step-desc">Here, $P(x) = 2/x$. The integrating factor is $ e^{\int \frac{2}{x} dx} = e^{2\ln x} = e^{\ln(x^2)} = x^2 $.</div>
                   </div>
                 </div>
 
@@ -191,51 +192,178 @@
                   <div class="step-num">Step 3</div>
                   <div class="step-content">
                     <div class="step-desc">
-                      Cross-reference choices to select the valid deduction. Option <strong>C</strong> perfectly aligns with the principles analyzed.
+                      Cross-reference choices to select the valid deduction. Option <strong>A</strong> perfectly aligns with the principles analyzed.
                     </div>
                   </div>
                 </div>
 
                 <div class="solved-success-box">
-                  <strong>Final Answer:</strong> Option C (A function)
+                  <strong>Final Answer:</strong> Option A ($ x^2 $)
                 </div>
               </div>
             </div>
           </div>
-          </div>
-        </div>
-  
-            <div class="solved-question">
-              Solve the primary mathematical expression relating to this unit.
+
+          <!-- Example 3 -->
+          <div class="solved-example-card">
+            <div class="solved-example-header">
+              <span class="solved-badge">Example 3 · Concept Application</span>
+              <div class="solved-timer" id="timer-3">
+                <span class="timer-display">00:00</span>
+                <button class="timer-btn" onclick="toggleTimer(3)">Start Timer ⏱️</button>
+              </div>
             </div>
-            <div class="solved-solution-wrap" id="solution-1">
-              <button class="btn btn-primary btn-reveal" onclick="revealSolution(1)">Reveal Step-by-Step Solution 👁️</button>
+            <div class="solved-question">
+              Find the general solution of $ \frac{dy}{dx} - y = e^x $
+              
+            </div>
+            <div class="solved-solution-wrap" id="solution-3">
+              <button class="btn btn-primary btn-reveal" onclick="revealSolution(3)">Reveal Step-by-Step Solution 👁️</button>
               <div class="solved-steps" style="display: none;">
                 
                 <div class="solved-step">
                   <div class="step-num">Step 1</div>
                   <div class="step-content">
-                    <div class="step-math">$\text{Step 1: Write given values}$</div>
-                    <div class="step-desc">Identify the variables and map out the solution structure.</div>
+                    <div class="step-desc">
+                      Analyze the given options:
+                      <ul style="margin-top:0.5rem; padding-left:1.2rem; list-style-type: none;">
+                        <li style="margin-bottom:0.4rem;text-align:left;"><strong>Option A:</strong> $ y = x e^x + C e^x $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option B:</strong> $ y = e^x + C $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option C:</strong> $ y = x e^{-x} + C $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option D:</strong> $ y = e^{2x} + C $</li>
+                      </ul>
+                    </div>
                   </div>
                 </div>
+
                 <div class="solved-step">
                   <div class="step-num">Step 2</div>
                   <div class="step-content">
-                    <div class="step-math">$\text{Step 2: Apply primary theorems}$</div>
-                    <div class="step-desc">Simplify terms step by step to solve the query.</div>
+                    <div class="step-math">$\text{Apply Core Principles}$</div>
+                    <div class="step-desc">Here, $P(x) = -1 \implies \text{I.F.} = e^{\int -1 dx} = e^{-x}$. Multiply through: $ e^{-x} \frac{dy}{dx} - e^{-x}y = 1 \implies \frac{d}{dx}(y e^{-x}) = 1 \implies y e^{-x} = x + C \implies y = x e^x + C e^x $.</div>
                   </div>
                 </div>
+
+                <div class="solved-step">
+                  <div class="step-num">Step 3</div>
+                  <div class="step-content">
+                    <div class="step-desc">
+                      Cross-reference choices to select the valid deduction. Option <strong>A</strong> perfectly aligns with the principles analyzed.
+                    </div>
+                  </div>
+                </div>
+
                 <div class="solved-success-box">
-                  <strong>Final Answer:</strong> Successfully Solved!
+                  <strong>Final Answer:</strong> Option A ($ y = x e^x + C e^x $)
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Example 4 -->
+          <div class="solved-example-card">
+            <div class="solved-example-header">
+              <span class="solved-badge">Example 4 · Concept Application</span>
+              <div class="solved-timer" id="timer-4">
+                <span class="timer-display">00:00</span>
+                <button class="timer-btn" onclick="toggleTimer(4)">Start Timer ⏱️</button>
+              </div>
+            </div>
+            <div class="solved-question">
+              What is the order of the differential equation $ x^2 \frac{d^2y}{dx^2} + 5x \frac{dy}{dx} - 3y = 0 $?
+              
+            </div>
+            <div class="solved-solution-wrap" id="solution-4">
+              <button class="btn btn-primary btn-reveal" onclick="revealSolution(4)">Reveal Step-by-Step Solution 👁️</button>
+              <div class="solved-steps" style="display: none;">
+                
+                <div class="solved-step">
+                  <div class="step-num">Step 1</div>
+                  <div class="step-content">
+                    <div class="step-desc">
+                      Analyze the given options:
+                      <ul style="margin-top:0.5rem; padding-left:1.2rem; list-style-type: none;">
+                        <li style="margin-bottom:0.4rem;text-align:left;"><strong>Option A:</strong> $ 2 $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option B:</strong> $ 1 $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option C:</strong> $ 0 $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option D:</strong> $ 3 $</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="solved-step">
+                  <div class="step-num">Step 2</div>
+                  <div class="step-content">
+                    <div class="step-math">$\text{Apply Core Principles}$</div>
+                    <div class="step-desc">The order of a differential equation is the order of the highest derivative present. In this case, the highest derivative is $ \frac{d^2y}{dx^2} $, which is of second order.</div>
+                  </div>
+                </div>
+
+                <div class="solved-step">
+                  <div class="step-num">Step 3</div>
+                  <div class="step-content">
+                    <div class="step-desc">
+                      Cross-reference choices to select the valid deduction. Option <strong>A</strong> perfectly aligns with the principles analyzed.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="solved-success-box">
+                  <strong>Final Answer:</strong> Option A ($ 2 $)
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Example 5 -->
+          <div class="solved-example-card">
+            <div class="solved-example-header">
+              <span class="solved-badge">Example 5 · Concept Application</span>
+              <div class="solved-timer" id="timer-5">
+                <span class="timer-display">00:00</span>
+                <button class="timer-btn" onclick="toggleTimer(5)">Start Timer ⏱️</button>
+              </div>
+            </div>
+            <div class="solved-question">
+              Solve: $ \frac{dy}{dx} + y = 2 $
+              
+            </div>
+            <div class="solved-solution-wrap" id="solution-5">
+              <button class="btn btn-primary btn-reveal" onclick="revealSolution(5)">Reveal Step-by-Step Solution 👁️</button>
+              <div class="solved-steps" style="display: none;">
+                
+                <div class="solved-step">
+                  <div class="step-num">Step 1</div>
+                  <div class="step-content">
+                    <div class="step-desc">
+                      Analyze the given options:
+                      <ul style="margin-top:0.5rem; padding-left:1.2rem; list-style-type: none;">
+                        <li style="margin-bottom:0.4rem;text-align:left;"><strong>Option A:</strong> $ y = 2 + Ce^{-x} $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option B:</strong> $ y = 2 + Ce^x $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option C:</strong> $ y = Ce^{-x} $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option D:</strong> $ y = 2x + C $</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="solved-step">
+                  <div class="step-num">Step 2</div>
+                  <div class="step-content">
+                    <div class="step-math">$\text{Apply Core Principles}$</div>
+                    <div class="step-desc">This is linear with $P(x) = 1 \implies \text{I.F.} = e^x$. The equation becomes $ \frac{d}{dx}(y e^x) = 2e^x \implies y e^x = 2e^x + C \implies y = 2 + C e^{-x} $.</div>
+                  </div>
+                </div>
+
+                <div class="solved-step">
+                  <div class="step-num">Step 3</div>
+                  <div class="step-content">
+                    <div class="step-desc">
+                      Cross-reference choices to select the valid deduction. Option <strong>A</strong> perfectly aligns with the principles analyzed.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="solved-success-box">
+                  <strong>Final Answer:</strong> Option A ($ y = 2 + Ce^{-x} $)
                 </div>
               </div>
             </div>
           </div>
           </div>
         </div>
-  
-        <!-- INTERACTIVE QUIZ -->
         <div class="tab-pane" id="pane-quiz">
           <div class="quiz-engine">
             <div class="qe-header">
@@ -265,9 +393,72 @@
     });
 
     const questions = [
-      { q: "What is the integrating factor for $$ \\frac{dy}{dx} + 2y = e^x $$?", expr: "", opts: ["$$ e^{2x} $$", "$$ e^x $$", "$$ 2x $$", "$$ \\ln(2x) $$"], ans: 0, diff: "medium", exp: "$$ P(x) = 2 $$. Integrating factor $$ = e^{\\int 2 dx} = e^{2x} $$." },
-      { q: "Solving a differential equation yields:", expr: "", opts: ["A number", "A matrix", "A function", "A derivative"], ans: 2, diff: "easy", exp: "A DE asks 'What function makes this relationship true?' So the answer is a function." }
-    ];
+  {
+    "q": "What is the integrating factor (IF) for the linear differential equation $ \\frac{dy}{dx} + P(x)y = Q(x) $?",
+    "expr": "",
+    "opts": [
+      "$ e^{\\int P(x)dx} $",
+      "$ e^{-\\int P(x)dx} $",
+      "$ \\int P(x)dx $",
+      "$ e^{\\int Q(x)dx} $"
+    ],
+    "ans": 0,
+    "diff": "easy",
+    "exp": "The standard integrating factor for a first-order linear differential equation is $ \\text{I.F.} = e^{\\int P(x) \\, dx} $."
+  },
+  {
+    "q": "Find the Integrating Factor of: $ \\frac{dy}{dx} + \\frac{2}{x}y = x^3 $",
+    "expr": "",
+    "opts": [
+      "$ x^2 $",
+      "$ x $",
+      "$ e^{2x} $",
+      "$ 2\\ln x $"
+    ],
+    "ans": 0,
+    "diff": "medium",
+    "exp": "Here, $P(x) = 2/x$. The integrating factor is $ e^{\\int \\frac{2}{x} dx} = e^{2\\ln x} = e^{\\ln(x^2)} = x^2 $."
+  },
+  {
+    "q": "Find the general solution of $ \\frac{dy}{dx} - y = e^x $",
+    "expr": "",
+    "opts": [
+      "$ y = x e^x + C e^x $",
+      "$ y = e^x + C $",
+      "$ y = x e^{-x} + C $",
+      "$ y = e^{2x} + C $"
+    ],
+    "ans": 0,
+    "diff": "hard",
+    "exp": "Here, $P(x) = -1 \\implies \\text{I.F.} = e^{\\int -1 dx} = e^{-x}$. Multiply through: $ e^{-x} \\frac{dy}{dx} - e^{-x}y = 1 \\implies \\frac{d}{dx}(y e^{-x}) = 1 \\implies y e^{-x} = x + C \\implies y = x e^x + C e^x $."
+  },
+  {
+    "q": "What is the order of the differential equation $ x^2 \\frac{d^2y}{dx^2} + 5x \\frac{dy}{dx} - 3y = 0 $?",
+    "expr": "",
+    "opts": [
+      "$ 2 $",
+      "$ 1 $",
+      "$ 0 $",
+      "$ 3 $"
+    ],
+    "ans": 0,
+    "diff": "easy",
+    "exp": "The order of a differential equation is the order of the highest derivative present. In this case, the highest derivative is $ \\frac{d^2y}{dx^2} $, which is of second order."
+  },
+  {
+    "q": "Solve: $ \\frac{dy}{dx} + y = 2 $",
+    "expr": "",
+    "opts": [
+      "$ y = 2 + Ce^{-x} $",
+      "$ y = 2 + Ce^x $",
+      "$ y = Ce^{-x} $",
+      "$ y = 2x + C $"
+    ],
+    "ans": 0,
+    "diff": "medium",
+    "exp": "This is linear with $P(x) = 1 \\implies \\text{I.F.} = e^x$. The equation becomes $ \\frac{d}{dx}(y e^x) = 2e^x \\implies y e^x = 2e^x + C \\implies y = 2 + C e^{-x} $."
+  }
+];
 
     window.diffEqQuiz = new QuizEngine('qe-container', questions, {
       onComplete: (res) => {
