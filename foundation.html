@@ -130,6 +130,33 @@
         });
 
         container.innerHTML = html;
+
+        // Trigger KaTeX dynamic math rendering
+        function triggerMathRender() {
+          if (window.renderMathInElement) {
+            renderMathInElement(container, {
+              delimiters: [
+                {left: '$$', right: '$$', display: true},
+                {left: '$', right: '$', display: false},
+                {left: '\\(', right: '\\)', display: false},
+                {left: '\\[', right: '\\]', display: true}
+              ]
+            });
+            return true;
+          }
+          return false;
+        }
+
+        // Run immediately, or poll if library is still loading
+        if (!triggerMathRender()) {
+          const poll = setInterval(() => {
+            if (triggerMathRender()) {
+              clearInterval(poll);
+            }
+          }, 100);
+          setTimeout(() => clearInterval(poll), 6000); // 6s safety exit
+        }
+
       } catch (err) {
         document.getElementById('foundation-content').innerHTML =
           '<p style="text-align:center;color:var(--color-text-tertiary);">Could not load foundation data.</p>';
