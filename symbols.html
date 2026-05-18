@@ -1,0 +1,1947 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Unravel the story of math symbols — meet π, e, log, ln, Σ, ∫, √, ∞ and play with interactive visual labs to see maths from a new perspective.">
+  <title>Story of Symbols — I Love Maths</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,700;1,400&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/topic.css">
+
+  <!-- Math & Visualization Libraries -->
+  <script src="js/math-libs.js"></script>
+
+  <!-- Theme (loaded early to prevent flash) -->
+  <script src="js/theme.js"></script>
+
+  <style>
+    /* Custom adaptation for Symbols Storybook and Labs */
+    
+    .symbols-layout {
+      margin-top: 1.5rem;
+      margin-bottom: 3rem;
+    }
+
+    /* ── Symbol Stories (Book style) ── */
+    .book {
+      font-family: 'Lora', Georgia, serif;
+      color: var(--color-text-primary);
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 0;
+    }
+
+    .book .hero {
+      text-align: center;
+      padding: 1.5rem 1rem 2rem;
+      border-bottom: 0.5px solid var(--color-border-tertiary);
+      margin-bottom: 2rem;
+    }
+
+    .book .hero-eyebrow {
+      font-family: 'Lora', serif;
+      font-style: italic;
+      font-size: 13px;
+      color: var(--color-text-secondary);
+      letter-spacing: 0.08em;
+      margin-bottom: 0.75rem;
+    }
+
+    .book .hero-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 32px;
+      font-weight: 700;
+      line-height: 1.2;
+      color: var(--color-text-primary);
+      margin-bottom: 1rem;
+    }
+
+    .book .hero-sub {
+      font-size: 15px;
+      color: var(--color-text-secondary);
+      line-height: 1.8;
+      max-width: 480px;
+      margin: 0 auto 1.5rem;
+    }
+
+    .book .toc {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+      margin-bottom: 0;
+    }
+
+    .book .toc-chip {
+      font-family: 'Playfair Display', serif;
+      font-size: 14px;
+      font-weight: 700;
+      padding: 6px 14px;
+      border-radius: 999px;
+      border: 0.5px solid var(--color-border-secondary);
+      cursor: pointer;
+      background: var(--color-background-primary);
+      color: var(--color-text-primary);
+      transition: background 0.18s, border-color 0.18s, transform 0.1s;
+    }
+
+    .book .toc-chip:hover { 
+      background: var(--color-background-secondary); 
+      border-color: var(--color-border-primary); 
+      transform: translateY(-1px);
+    }
+
+    .book .chapter {
+      margin-bottom: 2.5rem;
+      border: 0.5px solid var(--color-border-tertiary);
+      border-radius: var(--border-radius-lg);
+      background: var(--color-background-primary);
+      overflow: hidden;
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+
+    .book .chapter.visible { opacity: 1; transform: translateY(0); }
+
+    .book .chapter-header {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      padding: 1.25rem 1.5rem;
+      background: var(--color-background-secondary);
+      border-bottom: 0.5px solid var(--color-border-tertiary);
+    }
+
+    .book .symbol-badge {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 36px;
+      font-weight: 700;
+      width: 64px;
+      height: 64px;
+      min-width: 64px;
+      border-radius: var(--border-radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 0.5px solid var(--color-border-secondary);
+    }
+
+    .book .badge-pi    { background: #EEEDFE; color: #3C3489; border-color: #AFA9EC; }
+    .book .badge-e     { background: #E1F5EE; color: #085041; border-color: #5DCAA5; }
+    .book .badge-log   { background: #FAEEDA; color: #633806; border-color: #EF9F27; }
+    .book .badge-ln    { background: #FAECE7; color: #712B13; border-color: #F0997B; }
+    .book .badge-sigma { background: #E6F1FB; color: #0C447C; border-color: #85B7EB; }
+    .book .badge-int   { background: #FBEAF0; color: #72243E; border-color: #ED93B1; }
+    .book .badge-sqrt  { background: #EAF3DE; color: #27500A; border-color: #97C459; }
+    .book .badge-inf   { background: #F1EFE8; color: #444441; border-color: #B4B2A9; }
+
+    [data-theme="dark"] .book .badge-pi    { background: #3C3489; color: #CECBF6; border-color: #534AB7; }
+    [data-theme="dark"] .book .badge-e     { background: #085041; color: #9FE1CB; border-color: #0F6E56; }
+    [data-theme="dark"] .book .badge-log   { background: #633806; color: #FAC775; border-color: #BA7517; }
+    [data-theme="dark"] .book .badge-ln    { background: #712B13; color: #F5C4B3; border-color: #993C1D; }
+    [data-theme="dark"] .book .badge-sigma { background: #0C447C; color: #B5D4F4; border-color: #185FA5; }
+    [data-theme="dark"] .book .badge-int   { background: #72243E; color: #F4C0D1; border-color: #993556; }
+    [data-theme="dark"] .book .badge-sqrt  { background: #27500A; color: #C0DD97; border-color: #3B6D11; }
+    [data-theme="dark"] .book .badge-inf   { background: #444441; color: #D3D1C7; border-color: #888780; }
+
+    .book .chapter-meta { flex: 1; }
+
+    .book .chapter-num {
+      font-size: 11px;
+      font-style: italic;
+      color: var(--color-text-tertiary);
+      margin-bottom: 3px;
+      letter-spacing: 0.05em;
+    }
+
+    .book .chapter-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--color-text-primary);
+      line-height: 1.25;
+    }
+
+    .book .chapter-tagline {
+      font-size: 13px;
+      font-style: italic;
+      color: var(--color-text-secondary);
+      margin-top: 3px;
+    }
+
+    .book .chapter-body {
+      padding: 1.5rem;
+    }
+
+    .book .story-para {
+      font-size: 15px;
+      line-height: 1.85;
+      color: var(--color-text-primary);
+      margin-bottom: 1rem;
+    }
+
+    .book .story-para:last-child { margin-bottom: 0; }
+
+    .book .callout {
+      border-left: 3px solid;
+      padding: 0.9rem 1.1rem;
+      margin: 1.25rem 0;
+      border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
+      font-size: 14px;
+      line-height: 1.75;
+    }
+
+    .book .callout-pi    { border-color: #534AB7; background: #EEEDFE; color: #26215C; }
+    .book .callout-e     { border-color: #0F6E56; background: #E1F5EE; color: #04342C; }
+    .book .callout-log   { border-color: #BA7517; background: #FAEEDA; color: #412402; }
+    .book .callout-ln    { border-color: #993C1D; background: #FAECE7; color: #4A1B0C; }
+    .book .callout-sigma { border-color: #185FA5; background: #E6F1FB; color: #042C53; }
+    .book .callout-int   { border-color: #993556; background: #FBEAF0; color: #4B1528; }
+    .book .callout-sqrt  { border-color: #3B6D11; background: #EAF3DE; color: #173404; }
+    .book .callout-inf   { border-color: #5F5E5A; background: #F1EFE8; color: #2C2C2A; }
+
+    [data-theme="dark"] .book .callout-pi    { border-color: #AFA9EC; background: #26215C; color: #CECBF6; }
+    [data-theme="dark"] .book .callout-e     { border-color: #5DCAA5; background: #04342C; color: #9FE1CB; }
+    [data-theme="dark"] .book .callout-log   { border-color: #EF9F27; background: #412402; color: #FAC775; }
+    [data-theme="dark"] .book .callout-ln    { border-color: #F0997B; background: #4A1B0C; color: #F5C4B3; }
+    [data-theme="dark"] .book .callout-sigma { border-color: #85B7EB; background: #042C53; color: #B5D4F4; }
+    [data-theme="dark"] .book .callout-int   { border-color: #ED93B1; background: #4B1528; color: #F4C0D1; }
+    [data-theme="dark"] .book .callout-sqrt  { border-color: #97C459; background: #173404; color: #C0DD97; }
+    [data-theme="dark"] .book .callout-inf   { border-color: #B4B2A9; background: #2C2C2A; color: #D3D1C7; }
+
+    .book .callout-label {
+      font-weight: 600;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+      opacity: 0.75;
+    }
+
+    .book .example-box {
+      background: var(--color-background-secondary);
+      border: 0.5px solid var(--color-border-tertiary);
+      border-radius: var(--border-radius-md);
+      padding: 1rem 1.25rem;
+      margin: 1.25rem 0;
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    .book .example-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-text-secondary);
+      margin-bottom: 8px;
+    }
+
+    .book .math-display {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 20px;
+      font-weight: 700;
+      text-align: center;
+      padding: 0.75rem 0;
+      color: var(--color-text-primary);
+    }
+
+    .book .fun-fact {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      padding: 0.8rem 1rem;
+      background: var(--color-background-secondary);
+      border-radius: var(--border-radius-md);
+      margin-top: 1.25rem;
+      font-size: 13px;
+      line-height: 1.7;
+      color: var(--color-text-secondary);
+      border: 0.5px solid var(--color-border-tertiary);
+    }
+
+    .book .fun-icon { font-size: 18px; line-height: 1.4; flex-shrink: 0; }
+
+    .book .divider {
+      text-align: center;
+      color: var(--color-text-tertiary);
+      font-size: 18px;
+      letter-spacing: 0.3em;
+      padding: 1rem 0;
+      margin: 1rem 0;
+      border-top: 0.5px solid var(--color-border-tertiary);
+      border-bottom: 0.5px solid var(--color-border-tertiary);
+    }
+
+    .book .finale {
+      text-align: center;
+      padding: 2rem 1rem 1.5rem;
+      border-top: 0.5px solid var(--color-border-tertiary);
+      margin-top: 1rem;
+    }
+
+    .book .finale-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+    }
+
+    .book .finale-text {
+      font-size: 14px;
+      line-height: 1.8;
+      color: var(--color-text-secondary);
+      max-width: 460px;
+      margin: 0 auto 1.25rem;
+    }
+
+    .book .ask-btn {
+      font-family: 'Lora', serif;
+      font-size: 14px;
+      padding: 10px 22px;
+      border-radius: 999px;
+      border: 0.5px solid var(--color-border-secondary);
+      background: var(--color-background-secondary);
+      color: var(--color-text-primary);
+      cursor: pointer;
+      transition: background 0.18s;
+    }
+
+    .book .ask-btn:hover { background: var(--color-background-tertiary); }
+
+
+    /* ── Interactive Deep Dives (Labs) ── */
+    .dd {
+      font-family: 'Lora', serif;
+      color: var(--color-text-primary);
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .dd .tab-row {
+      display: flex;
+      gap: 3px;
+      flex-wrap: wrap;
+      padding: 0.5rem 0 0;
+      border-bottom: .5px solid var(--color-border-tertiary);
+      margin-bottom: 1.5rem;
+      justify-content: center;
+    }
+
+    .dd .tb {
+      font-family: 'Playfair Display', serif;
+      font-size: 17px;
+      font-weight: 700;
+      width: 54px;
+      height: 42px;
+      border: .5px solid var(--color-border-tertiary);
+      border-bottom: none;
+      background: var(--color-background-secondary);
+      color: var(--color-text-secondary);
+      cursor: pointer;
+      border-radius: var(--border-radius-md) var(--border-radius-md) 0 0;
+      transition: .15s;
+    }
+
+    .dd .tb.on {
+      background: var(--color-background-primary);
+      color: var(--color-text-primary);
+      position: relative;
+    }
+
+    .dd .tb.on::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--color-background-primary);
+    }
+
+    .dd .pn { display: none; }
+    .dd .pn.on { display: block; }
+
+    .dd .dl-row {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 1.25rem;
+      justify-content: flex-start;
+    }
+
+    .dd .dl {
+      font-size: 12px;
+      padding: 4px 12px;
+      border: .5px solid var(--color-border-tertiary);
+      border-radius: 999px;
+      background: transparent;
+      color: var(--color-text-secondary);
+      cursor: pointer;
+      font-family: 'Lora', serif;
+      transition: .15s;
+    }
+
+    .dd .dl.on {
+      background: var(--color-background-secondary);
+      color: var(--color-text-primary);
+      border-color: var(--color-border-primary);
+    }
+
+    .dd .ly { display: none; }
+    .dd .ly.on { display: block; }
+
+    .dd .sp {
+      font-size: 15px;
+      line-height: 1.85;
+      color: var(--color-text-primary);
+      margin-bottom: .9rem;
+    }
+
+    .dd .hb {
+      border-left: 3px solid;
+      padding: .85rem 1.1rem;
+      margin: 1rem 0;
+      border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    .dd .pi-c { border-color:#534AB7; background:#EEEDFE; color:#26215C; }
+    .dd .e-c  { border-color:#0F6E56; background:#E1F5EE; color:#04342C; }
+    .dd .lo-c { border-color:#BA7517; background:#FAEEDA; color:#412402; }
+    .dd .ln-c { border-color:#993C1D; background:#FAECE7; color:#4A1B0C; }
+    .dd .si-c { border-color:#185FA5; background:#E6F1FB; color:#042C53; }
+    .dd .in-c { border-color:#993556; background:#FBEAF0; color:#4B1528; }
+    .dd .sq-c { border-color:#3B6D11; background:#EAF3DE; color:#173404; }
+    .dd .if-c { border-color:#5F5E5A; background:#F1EFE8; color:#2C2C2A; }
+
+    [data-theme="dark"] .dd .pi-c { border-color:#AFA9EC; background:#26215C; color:#CECBF6; }
+    [data-theme="dark"] .dd .e-c  { border-color:#5DCAA5; background:#04342C; color:#9FE1CB; }
+    [data-theme="dark"] .dd .lo-c { border-color:#EF9F27; background:#412402; color:#FAC775; }
+    [data-theme="dark"] .dd .ln-c { border-color:#F0997B; background:#4A1B0C; color:#F5C4B3; }
+    [data-theme="dark"] .dd .si-c { border-color:#85B7EB; background:#042C53; color:#B5D4F4; }
+    [data-theme="dark"] .dd .in-c { border-color:#ED93B1; background:#4B1528; color:#F4C0D1; }
+    [data-theme="dark"] .dd .sq-c { border-color:#97C459; background:#173404; color:#C0DD97; }
+    [data-theme="dark"] .dd .if-c { border-color:#B4B2A9; background:#2C2C2A; color:#D3D1C7; }
+
+    .dd .da {
+      border: .5px solid var(--color-border-tertiary);
+      border-radius: var(--border-radius-lg);
+      background: var(--color-background-primary);
+      overflow: hidden;
+      margin: 1.5rem 0;
+    }
+
+    .dd .dh {
+      background: var(--color-background-secondary);
+      padding: .65rem 1.2rem;
+      border-bottom: .5px solid var(--color-border-tertiary);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      color: var(--color-text-secondary);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .dd .db { padding: 1.25rem; }
+
+    .dd canvas {
+      display: block;
+      width: 100%;
+      background: var(--color-background-primary);
+    }
+
+    .dd .sr {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: .9rem;
+    }
+
+    .dd .sr label {
+      font-size: 13px;
+      color: var(--color-text-secondary);
+      min-width: 90px;
+    }
+
+    .dd .sr input[type=range] { flex: 1; }
+
+    .dd .sv {
+      font-family: 'Playfair Display', serif;
+      font-size: 16px;
+      font-weight: 700;
+      min-width: 52px;
+      text-align: right;
+      color: var(--color-text-primary);
+    }
+
+    .dd .rs {
+      display: flex;
+      gap: 8px;
+      margin-top: .9rem;
+      flex-wrap: wrap;
+    }
+
+    .dd .rc {
+      flex: 1;
+      min-width: 110px;
+      background: var(--color-background-secondary);
+      border: .5px solid var(--color-border-tertiary);
+      border-radius: var(--border-radius-md);
+      padding: .55rem .85rem;
+    }
+
+    .dd .rc .rl {
+      font-size: 10px;
+      color: var(--color-text-tertiary);
+      text-transform: uppercase;
+      letter-spacing: .07em;
+      margin-bottom: 3px;
+    }
+
+    .dd .rc .rv {
+      font-family: 'Playfair Display', serif;
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--color-text-primary);
+    }
+
+    .dd .at {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .09em;
+      color: var(--color-text-tertiary);
+      margin: .75rem 0;
+    }
+
+    .dd .ag {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 8px;
+      margin-bottom: 1.5rem;
+    }
+
+    .dd .ac {
+      background: var(--color-background-primary);
+      border: .5px solid var(--color-border-tertiary);
+      border-radius: var(--border-radius-md);
+      padding: .65rem .9rem;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .dd .ac strong {
+      display: block;
+      font-size: 11px;
+      margin-bottom: 2px;
+      color: var(--color-text-secondary);
+      font-weight: 600;
+    }
+
+    .dd .sb {
+      padding: 7px 18px;
+      border: .5px solid var(--color-border-secondary);
+      border-radius: 999px;
+      background: var(--color-background-secondary);
+      color: var(--color-text-primary);
+      font-family: 'Lora', serif;
+      font-size: 13px;
+      cursor: pointer;
+      margin-right: 6px;
+      transition: background 0.15s;
+    }
+
+    .dd .sb:hover { background: var(--color-background-tertiary); }
+
+    .dd .sn-row {
+      display: flex;
+      gap: 5px;
+      flex-wrap: wrap;
+      margin-bottom: .9rem;
+    }
+
+    .dd .sn {
+      width: 34px;
+      height: 34px;
+      border-radius: var(--border-radius-md);
+      border: .5px solid var(--color-border-tertiary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 14px;
+      font-weight: 700;
+      background: var(--color-background-secondary);
+      color: var(--color-text-secondary);
+      transition: .2s;
+    }
+
+    .dd .sn.ok {
+      background: #E1F5EE;
+      border-color: #5DCAA5;
+      color: #04342C;
+    }
+
+    [data-theme="dark"] .dd .sn.ok {
+      background: #085041;
+      border-color: #0F6E56;
+      color: #9FE1CB;
+    }
+
+    .dd .zb {
+      height: 46px;
+      background: var(--color-background-secondary);
+      border-radius: var(--border-radius-md);
+      border: .5px solid var(--color-border-tertiary);
+      margin: 1rem 0;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .dd .zf {
+      height: 100%;
+      transition: width .5s ease;
+      background: #534AB7;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding-right: 8px;
+    }
+
+    [data-theme="dark"] .dd .zf { background: #AFA9EC; }
+
+    .dd .zl {
+      font-size: 12px;
+      font-weight: 600;
+      color: #EEEDFE;
+    }
+
+    [data-theme="dark"] .dd .zl { color: #26215C; }
+
+    .dd .iid {
+      font-family: 'Playfair Display', serif;
+      font-size: 24px;
+      font-weight: 700;
+      text-align: center;
+      padding: 1rem;
+      letter-spacing: .04em;
+    }
+
+    .dd .ml {
+      font-family: 'Playfair Display', serif;
+      font-size: 17px;
+      font-weight: 700;
+      text-align: center;
+      padding: .7rem .5rem;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="site-logo">
+        <span class="logo-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="url(#logo-grad)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <defs>
+              <linearGradient id="logo-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#3b82f6" />
+                <stop offset="100%" stop-color="#8b5cf6" />
+              </linearGradient>
+            </defs>
+            <path d="M12 12c-2-2.67-4-4-6-4a4 4 0 1 0 0 8c2 0 4-1.33 6-4zm0 0c2 2.67 4 4 6 4a4 4 0 1 0 0-8c-2 0-4 1.33-6 4z" />
+          </svg>
+        </span>
+        <span>I Love Maths</span>
+      </a>
+      <nav class="site-nav">
+        <a href="index.html">Topics</a>
+        <a href="symbols.html" class="active">Story of Symbols</a>
+        <a href="gamezone.html">Game Zone</a>
+        <a href="index.html#about">About</a>
+        <div class="theme-toggle" id="theme-toggle"></div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container container-narrow">
+
+      <!-- Breadcrumb -->
+      <div class="breadcrumb">
+        <a href="index.html">Home</a>
+        <span class="sep">›</span>
+        <span>Story of Symbols</span>
+      </div>
+
+      <!-- Hero Header -->
+      <header class="topic-header" style="text-align: center;">
+        <div class="topic-meta" style="justify-content: center;">
+          <span class="topic-badge badge-active">Special Unit</span><span class="topic-level level-med" style="background:var(--color-accent-light);color:var(--color-accent);">Visual & Conceptual</span>
+        </div>
+        <h1 class="topic-title">The Story of Symbols</h1>
+        <p class="topic-desc">Those scary-looking symbols? They are just conceptual shortcuts. Meet the full gang and play with interactive visual labs to see maths in action.</p>
+        
+        <div class="tab-nav" style="max-width: 480px; margin: 2rem auto 1rem;">
+          <button class="tab-btn active" data-target="stories">📖 Symbol Stories</button>
+          <button class="tab-btn" data-target="labs">🔬 Interactive Labs</button>
+        </div>
+        
+        <div class="standalone-shortcuts" style="display: flex; justify-content: center; gap: 15px; margin: -0.5rem auto 1.5rem; font-size: 13px;">
+          <a href="storyofsymbols/story_of_symbol.html" target="_blank" style="color: var(--color-accent); text-decoration: none; display: flex; align-items: center; gap: 4px; font-weight: 500; transition: opacity 0.2s;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">
+            <span>📖 Clean Storybook View</span> <span style="font-size: 10px;">↗</span>
+          </a>
+          <span style="color: var(--color-border-tertiary);">|</span>
+          <a href="storyofsymbols/maths_deep_dive_all_symbols.html" target="_blank" style="color: var(--color-accent); text-decoration: none; display: flex; align-items: center; gap: 4px; font-weight: 500; transition: opacity 0.2s;" onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='1'">
+            <span>🔬 Fullscreen Sandbox Labs</span> <span style="font-size: 10px;">↗</span>
+          </a>
+        </div>
+      </header>
+
+      <!-- Main Content Tabs -->
+      <div class="symbols-layout">
+        
+        <!-- TAB 1: STORYBOOK -->
+        <div class="tab-pane active" id="pane-stories">
+          <div class="book">
+            <div class="hero">
+              <p class="hero-eyebrow">a storybook for curious minds</p>
+              <h2 class="hero-title">Maths is Just<br><em>Stories in Disguise</em></h2>
+              <p class="hero-sub">Mathematicians invented these shortcuts because they got tired of writing the same long sentences over and over. Let's meet them — one story at a time.</p>
+              <div class="toc">
+                <span class="toc-chip" onclick="document.getElementById('ch-pi').scrollIntoView({behavior:'smooth'})">π Pi</span>
+                <span class="toc-chip" onclick="document.getElementById('ch-e').scrollIntoView({behavior:'smooth'})">e Euler</span>
+                <span class="toc-chip" onclick="document.getElementById('ch-log').scrollIntoView({behavior:'smooth'})">log</span>
+                <span class="toc-chip" onclick="document.getElementById('ch-ln').scrollIntoView({behavior:'smooth'})">ln</span>
+                <span class="toc-chip" onclick="document.getElementById('ch-sigma').scrollIntoView({behavior:'smooth'})">Σ Sigma</span>
+                <span class="toc-chip" onclick="document.getElementById('ch-int').scrollIntoView({behavior:'smooth'})">∫ Integral</span>
+                <span class="toc-chip" onclick="document.getElementById('ch-sqrt').scrollIntoView({behavior:'smooth'})">√ Root</span>
+                <span class="toc-chip" onclick="document.getElementById('ch-inf').scrollIntoView({behavior:'smooth'})">∞ Infinity</span>
+              </div>
+            </div>
+
+            <!-- Pi -->
+            <div class="chapter" id="ch-pi">
+              <div class="chapter-header">
+                <div class="symbol-badge badge-pi">π</div>
+                <div class="chapter-meta">
+                  <p class="chapter-num">Chapter 1</p>
+                  <h3 class="chapter-title">Pi — The Circle's Secret</h3>
+                  <p class="chapter-tagline">≈ 3.14159… the number that never ends</p>
+                </div>
+              </div>
+              <div class="chapter-body">
+                <p class="story-para">Imagine you find a perfectly round plate. You want to know — how long is the edge of this plate? And how does that compare to how wide it is?</p>
+                <p class="story-para">So you take a thread, wrap it around the plate's edge, then stretch that thread straight. Surprise! That thread is always <em>exactly 3.14 times</em> the width of the plate. Always. For every circle in the universe. A coin, a pizza, the sun, a tiny button — all of them, same ratio.</p>
+
+                <div class="callout callout-pi">
+                  <p class="callout-label">The secret in plain words</p>
+                  <strong>π = how many times the width fits into the edge.</strong><br>
+                  Wrap a thread around any circle. Straighten it. Divide by the width. You always get 3.14159…
+                </div>
+
+                <p class="story-para">Ancient people discovered this thousands of years ago. They noticed it was always the same mysterious number — never exactly 3, never exactly 3.2 — and its decimal digits go on <em>forever, never repeating</em>. So they gave it a special name from the Greek alphabet: <strong>π (pi)</strong>.</p>
+
+                <div class="example-box">
+                  <p class="example-label">Real life example</p>
+                  <p>Your bicycle tyre has a width (diameter) of 60 cm.<br>
+                  How far do you travel in one full rotation of the wheel?</p>
+                  <p class="math-display">Distance = π × 60 = 3.14159 × 60 ≈ 188 cm</p>
+                  <p>One spin of the wheel carries you about 188 cm — almost 2 metres. That's π doing its job.</p>
+                </div>
+
+                <div class="fun-fact">
+                  <span class="fun-icon">💡</span>
+                  <span>People have memorised π to over 100,000 decimal places as a hobby. The digits go on forever — 3.14159265358979… — and no pattern ever repeats. It's a little bit magic.</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- E -->
+            <div class="chapter" id="ch-e">
+              <div class="chapter-header">
+                <div class="symbol-badge badge-e">e</div>
+                <div class="chapter-meta">
+                  <p class="chapter-num">Chapter 2</p>
+                  <h3 class="chapter-title">e — The Superpower of Growth</h3>
+                  <p class="chapter-tagline">≈ 2.71828… the number hiding inside every living thing</p>
+                </div>
+              </div>
+              <div class="chapter-body">
+                <p class="story-para">Imagine you have ₹100 in a bank. The bank gives you 100% interest per year. At the end of the year — great, you have ₹200. Simple.</p>
+                <p class="story-para">Now what if the bank gives you 50% every 6 months instead? You'd have more than ₹200 because the interest is growing on itself too. What if they gave interest every day? Every second? Every single tiny moment?</p>
+                <p class="story-para">When you keep splitting the interest into tinier and tinier chunks — approaching every <em>instant</em> — the answer doesn't shoot to infinity. It settles perfectly at one special number:</p>
+
+                <div class="callout callout-e">
+                  <p class="callout-label">e in plain words</p>
+                  <strong>e ≈ 2.71828…</strong><br>
+                  It is what ₹1 grows to when interest is compounded every single instant for one year at 100%. Nature uses this number to grow everything — bacteria, populations, radioactive decay, even your savings.
+                </div>
+
+                <p class="story-para">A single bacterium becomes 2 after an hour, 4 after two hours, 8 after three… This <em>doubling growth</em> is powered by <strong>e</strong>. The formula for any growing thing — cells, epidemics, investments, star explosions — almost always has <strong>e</strong> hiding somewhere inside it.</p>
+
+                <div class="example-box">
+                  <p class="example-label">Zombie apocalypse analogy</p>
+                  <p>One zombie appears in a city. Each zombie creates one new zombie every hour continuously. After just 3 hours:</p>
+                  <p class="math-display">Zombies = e³ ≈ 20 zombies</p>
+                  <p>That's the power of <em>e</em>. Continuous, relentless, exponential growth. Replace "zombie" with "bacteria" or "rupees" — same formula.</p>
+                </div>
+
+                <div class="fun-fact">
+                  <span class="fun-icon">🌱</span>
+                  <span>Snail shells spiral, flowers arrange their petals, and populations explode — all following patterns rooted in <em>e</em>. It is, perhaps, the most naturally occurring number in the universe.</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Log -->
+            <div class="chapter" id="ch-log">
+              <div class="chapter-header">
+                <div class="symbol-badge badge-log">log</div>
+                <div class="chapter-meta">
+                  <p class="chapter-num">Chapter 3</p>
+                  <h3 class="chapter-title">Logarithm — The "How Many Times?" Question</h3>
+                  <p class="chapter-tagline">The undo button for multiplication</p>
+                </div>
+              </div>
+              <div class="chapter-body">
+                <p class="story-para">You know multiplication. 10 × 10 = 100. 10 × 10 × 10 = 1000. But what if someone gives you 1,000,000 and asks — "how many times did someone multiply 10 by itself to get here?"</p>
+                <p class="story-para">You already know the answer — 6 times. That's exactly what <strong>log</strong> does. It asks: <em>how many times was this number multiplied by itself?</em></p>
+
+                <div class="callout callout-log">
+                  <p class="callout-label">log in plain words</p>
+                  <strong>log₁₀(1000) = 3</strong> means "10 was multiplied by itself 3 times to make 1000."<br><br>
+                  Think of it as the reverse of a power. If powers are <em>stairs going up</em>, log is <em>counting how many stairs you climbed</em>.
+                </div>
+
+                <p class="story-para">Why is this useful? Because the real world often grows in <em>multiplications</em>, not additions. An earthquake 100× stronger than another? Richter scale uses logs. Sound 1000× louder? Decibels use logs. The human ear itself perceives loudness on a log scale — that's why a whisper and a shout feel "not that different" even though the sound energy is astronomically different.</p>
+
+                <div class="example-box">
+                  <p class="example-label">The Richter scale story</p>
+                  <p>A magnitude 5 earthquake is not "1 more" than magnitude 4.</p>
+                  <p class="math-display">Magnitude 5 = 10× more powerful than Magnitude 4</p>
+                  <p>Magnitude 6 = 100× more. Magnitude 7 = 1000× more. Log compresses these enormous differences into small, human-readable numbers.</p>
+                </div>
+
+                <div class="fun-fact">
+                  <span class="fun-icon">👂</span>
+                  <span>Your brain is a log calculator. When music goes from 1× to 10× louder, you don't feel it as "10 times louder" — you feel it as "a little bit louder." Evolution built logarithms right into your senses.</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Ln -->
+            <div class="chapter" id="ch-ln">
+              <div class="chapter-header">
+                <div class="symbol-badge badge-ln">ln</div>
+                <div class="chapter-meta">
+                  <p class="chapter-num">Chapter 4</p>
+                  <h3 class="chapter-title">ln — The Natural Log, Log's Cooler Sibling</h3>
+                  <p class="chapter-tagline">log with e as the base — growth's own reverse gear</p>
+                </div>
+              </div>
+              <div class="chapter-body">
+                <p class="story-para">Remember our friend <strong>e</strong>? The number of continuous growth? Well, <strong>ln</strong> (the natural logarithm) is simply the log that uses <em>e</em> as its base instead of 10.</p>
+                <p class="story-para">If log asks "how many times was 10 multiplied?", ln asks "how many times was <em>e</em> multiplied?" And since <em>e</em> is the number behind all natural growth, <em>ln</em> is the number behind all natural <em>reversal</em> of growth.</p>
+
+                <div class="callout callout-ln">
+                  <p class="callout-label">ln in plain words</p>
+                  <strong>ln(x)</strong> = "How long did it take for continuous growth to reach x, starting from 1?"<br><br>
+                  If <em>e</em> is the accelerator pedal, <em>ln</em> is the odometer — it tells you how far you've come.
+                </div>
+
+                <div class="example-box">
+                  <p class="example-label">Carbon dating — real world superpower</p>
+                  <p>Scientists use ln to figure out how old ancient bones are. Radioactive carbon decays naturally (following e), and ln reverses that to calculate time:</p>
+                  <p class="math-display">Age = ln(remaining carbon / original) ÷ decay rate</p>
+                  <p>They found that a pharaoh's mummy has 60% of its original carbon. ln tells us exactly how many years ago it was alive. That's ln solving a 3,000-year-old mystery.</p>
+                </div>
+
+                <div class="fun-fact">
+                  <span class="fun-icon">⚛️</span>
+                  <span>ln is the most "natural" of all logarithms. It appears in physics, biology, economics, and information theory. Wherever e shows up — and that's everywhere — ln is right around the corner.</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Sigma -->
+            <div class="chapter" id="ch-sigma">
+              <div class="chapter-header">
+                <div class="symbol-badge badge-sigma">Σ</div>
+                <div class="chapter-meta">
+                  <p class="chapter-num">Chapter 5</p>
+                  <h3 class="chapter-title">Sigma — The Lazy Mathematician's Best Friend</h3>
+                  <p class="chapter-tagline">Because nobody wants to write "add everything" fifty times</p>
+                </div>
+              </div>
+              <div class="chapter-body">
+                <p class="story-para">Imagine you're a teacher and you want to add up the marks of 50 students. You could write:</p>
+                <p class="story-para" style="text-align:center; font-style: italic; color: var(--color-text-secondary);">marks₁ + marks₂ + marks₃ + marks₄ + … + marks₅₀</p>
+                <p class="story-para">That's exhausting just to write. So mathematicians invented a shorthand. They took the Greek letter <strong>Σ (Sigma)</strong> — which looks like a big S, standing for "Sum" — and turned it into a command:</p>
+
+                <div class="callout callout-sigma">
+                  <p class="callout-label">Σ in plain words</p>
+                  <strong>Σ means "add up all of these."</strong><br><br>
+                  The numbers on top and bottom tell you where to start and stop. The expression after it tells you what to add. It's like a "for loop" in coding — a compact instruction to repeat something many times.
+                </div>
+
+                <div class="example-box">
+                  <p class="example-label">What Σ actually says</p>
+                  <p>Instead of 1 + 2 + 3 + 4 + 5, a mathematician writes:</p>
+                  <p class="math-display">Σ (from i=1 to 5) of i</p>
+                  <p>Translation: "Start at 1, go to 5, add each number along the way." Result: 15.<br><br>
+                  In machine learning, when AI calculates your recommendation feed — it adds up weighted scores of hundreds of videos. That entire process is one big Σ.</p>
+                </div>
+
+                <p class="story-para">Every average you've ever calculated — your CGPA, a cricket batting average, a movie rating — uses Σ behind the scenes. It's the most quietly used symbol in all of mathematics.</p>
+
+                <div class="fun-fact">
+                  <span class="fun-icon">💻</span>
+                  <span>Every neural network — the technology inside ChatGPT, image recognition, voice assistants — is essentially a chain of Σ operations happening millions of times per second. Σ is the heartbeat of modern AI.</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Integral -->
+            <div class="chapter" id="ch-int">
+              <div class="chapter-header">
+                <div class="symbol-badge badge-int">∫</div>
+                <div class="chapter-meta">
+                  <p class="chapter-num">Chapter 6</p>
+                  <h3 class="chapter-title">Integral — Counting the Uncountable</h3>
+                  <p class="chapter-tagline">Like Σ but for infinitely thin slices</p>
+                </div>
+              </div>
+              <div class="chapter-body">
+                <p class="story-para">You know how to find the area of a rectangle — length × width. Easy. But what's the area of a curved shape? Like the area under a curvy hill? There are no straight edges to multiply.</p>
+                <p class="story-para">Here's a clever trick: slice the curved shape into thousands of super-thin rectangles. Each is so thin it's nearly a line. Find the area of each tiny rectangle. Add them all up. The more slices you use, the more accurate your answer gets.</p>
+                <p class="story-para">The <strong>∫ (integral)</strong> symbol is Σ taken to the extreme — it's "add up infinitely many, infinitely thin slices." The symbol itself is literally a stretched-out S, for "Sum."</p>
+
+                <div class="callout callout-int">
+                  <p class="callout-label">∫ in plain words</p>
+                  <strong>∫ means "slice into infinite tiny pieces and add them all up."</strong><br><br>
+                  If Σ is adding 50 student marks, ∫ is adding up every single point in a continuous curve — infinitely many of them.
+                </div>
+
+                <div class="example-box">
+                  <p class="example-label">How your Uber knows the fare</p>
+                  <p>Your Uber doesn't just measure straight-line distance. Your car curves, turns, slows down, speeds up. The app calculates the total distance by slicing your journey into thousands of tiny segments and adding them up:</p>
+                  <p class="math-display">Total distance = ∫ (speed at each tiny moment × that tiny moment of time)</p>
+                  <p>Every GPS navigation, every animation in a video game, every prediction of where a rocket lands — all powered by integration.</p>
+                </div>
+
+                <div class="fun-fact">
+                  <span class="fun-icon">🚀</span>
+                  <span>When NASA calculates a rocket's trajectory to Mars, they're solving enormous integrals — adding up millions of tiny forces (gravity, thrust, solar pressure) acting on the rocket over the course of months. ∫ sends things to space.</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Sqrt -->
+            <div class="chapter" id="ch-sqrt">
+              <div class="chapter-header">
+                <div class="symbol-badge badge-sqrt">√</div>
+                <div class="chapter-meta">
+                  <p class="chapter-num">Chapter 7</p>
+                  <h3 class="chapter-title">Square Root — Finding the Original</h3>
+                  <p class="chapter-tagline">If squaring is the question, √ is the answer</p>
+                </div>
+              </div>
+              <div class="chapter-body">
+                <p class="story-para">You have a square room with an area of 25 square metres. What is the length of one wall? That's it. That's the square root. √25 = 5. Simple as that.</p>
+                <p class="story-para">√ (read as "root") asks: <em>what number, when multiplied by itself, gives me this?</em> It's the undo button for squaring. If squaring is "fold the number onto itself," the root is "unfold it back."</p>
+
+                <div class="callout callout-sqrt">
+                  <p class="callout-label">√ in plain words</p>
+                  <strong>√9 = 3</strong> because 3 × 3 = 9.<br>
+                  <strong>√100 = 10</strong> because 10 × 10 = 100.<br><br>
+                  Think of it as finding the side of a square, if you already know its area.
+                </div>
+
+                <div class="example-box">
+                  <p class="example-label">The WhatsApp group photo problem</p>
+                  <p>You want to arrange 36 friends in a perfect square photo grid. How many columns and rows?</p>
+                  <p class="math-display">√36 = 6 rows × 6 columns = 36 friends ✓</p>
+                  <p>Engineers use this to split workloads evenly, designers use it to build perfect grids, architects use it to plan tiling — √ is quietly everywhere.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Infinity -->
+            <div class="chapter" id="ch-inf">
+              <div class="chapter-header">
+                <div class="symbol-badge badge-inf">∞</div>
+                <div class="chapter-meta">
+                  <p class="chapter-num">Chapter 8</p>
+                  <h3 class="chapter-title">Infinity — Not a Number, a Direction</h3>
+                  <p class="chapter-tagline">The concept that broke and rebuilt mathematics</p>
+                </div>
+              </div>
+              <div class="chapter-body">
+                <p class="story-para">Here's a question a child once asked a mathematician: "What's the biggest number?" The mathematician smiled and said, "There isn't one." Add 1 to any number, and you get a bigger number. Always. Forever.</p>
+                <p class="story-para"><strong>∞ (infinity)</strong> is not a number you can reach or touch. It's a <em>direction</em>. Like "north" — you can keep walking north forever, but "north" is not a place you arrive at. ∞ is the mathematical way of saying "keeps going, without stopping, forever."</p>
+
+                <div class="callout callout-inf">
+                  <p class="callout-label">∞ in plain words</p>
+                  <strong>∞ is a concept, not a quantity.</strong><br><br>
+                  You can't add ∞ + 1 and get "infinity plus one." That's why ∞ is written separately — it behaves by completely different rules than normal numbers.
+                </div>
+
+                <div class="example-box">
+                  <p class="example-label">The hotel with infinite rooms</p>
+                  <p>Imagine a hotel with infinite rooms, all occupied. A new guest arrives. Can they get a room?</p>
+                  <p>Yes! Move every guest from room N to room N+1. Room 1 is now free. This thought experiment — Hilbert's Hotel — shows that infinity + 1 = infinity. Infinity is wonderfully, maddingly weird.</p>
+                </div>
+
+                <div class="fun-fact">
+                  <span class="fun-icon">♾️</span>
+                  <span>There are different <em>sizes</em> of infinity. The infinity of whole numbers (1, 2, 3…) is actually smaller than the infinity of all decimal numbers between 0 and 1. Georg Cantor proved this in 1891. Infinity is not simple.</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="divider">· · · · ·</div>
+
+            <div class="finale">
+              <h3 class="finale-title">You just met the whole gang.</h3>
+              <p class="finale-text">π lives in every circle. <em>e</em> lives in every growing thing. log and ln reverse that growth. Σ adds everything up. ∫ adds up the infinitely tiny. √ unravels squares. And ∞ reminds us that maths is bigger than any answer we can write down.</p>
+              <p class="finale-text" style="font-style: italic;">Maths was never meant to be scary. It was meant to be <em>wonder</em>, written in shorthand.</p>
+              <a href="#topics" onclick="document.querySelector('[data-target=labs]').click(); window.scrollTo({top: 240, behavior: 'smooth'}); return false;" class="ask-btn" style="display:inline-block; text-decoration:none;">Go to Interactive Labs 🔬</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB 2: LABS -->
+        <div class="tab-pane" id="pane-labs">
+          <div class="dd">
+            <div class="tab-row">
+              <button class="tb on" data-t="pi">π</button>
+              <button class="tb" data-t="e">e</button>
+              <button class="tb" data-t="log">log</button>
+              <button class="tb" data-t="ln">ln</button>
+              <button class="tb" data-t="sg">Σ</button>
+              <button class="tb" data-t="it">∫</button>
+              <button class="tb" data-t="sq">√</button>
+              <button class="tb" data-t="if">∞</button>
+            </div>
+
+            <!-- PI -->
+            <div class="pn on" id="pn-pi">
+              <div class="dl-row">
+                <button class="dl on" data-pn="pi" data-lv="1">Basics</button>
+                <button class="dl" data-pn="pi" data-lv="2">Deeper</button>
+                <button class="dl" data-pn="pi" data-lv="3">Mind = Blown</button>
+              </div>
+              <div class="ly on" id="pi-1">
+                <p class="sp">Why does the thread-around-the-plate ratio always come out to 3.14159…? Because all circles are the <em>same shape</em>. A tiny coin and the orbit of Earth are both circles — just scaled. When you scale a circle, the circumference and diameter both scale by the same factor. Their ratio is permanently locked.</p>
+                <div class="hb pi-c"><strong>The unchangeable contract of circles:</strong> For any circle, anywhere in the universe — circumference ÷ diameter = π. It cannot be otherwise. It's not a measurement. It's a geometrical truth. Drag the slider and watch it stay exactly 3.14159… regardless of size.</div>
+              </div>
+              <div class="ly" id="pi-2">
+                <p class="sp">π appears in places with no circles in sight. The sum 1 + 1/4 + 1/9 + 1/16 + 1/25 + … (one over every perfect square) adds up to exactly <strong>π²/6</strong>. Why is π hiding in number theory?</p>
+                <div class="hb pi-c"><strong>Because circles are secretly the same as everything periodic.</strong> Sound waves, light, alternating current — all of these are circles unrolled through time. π is really the constant of oscillation. Circles are just the most visible place it lives. This is why π appears in quantum mechanics, signal processing, and probability distributions that look nothing like circles.</div>
+              </div>
+              <div class="ly" id="pi-3">
+                <p class="sp">Here is the most beautiful equation in all of mathematics. It was discovered by Euler in the 18th century and has been called "the most remarkable formula in mathematics" ever since:</p>
+                <div class="iid">e<sup style="font-size:16px">iπ</sup> + 1 = 0</div>
+                <div class="hb pi-c"><strong>Euler's Identity unites five fundamental constants:</strong> e (growth), i (imaginary unit, √−1), π (circles), 1 (the unit), and 0 (nothing). It says: rotate by π radians on the complex plane and add 1 — you arrive at zero. Mathematics is not a random collection of facts. It is one single, breathtaking, interconnected story.</div>
+              </div>
+              <div class="da">
+                <div class="dh"><span>Circle explorer</span><span id="pi-hd">C ÷ D = π always</span></div>
+                <div class="db">
+                  <canvas id="cv-pi" height="180"></canvas>
+                  <div class="sr"><label>Radius</label><input type="range" min="18" max="72" value="45" id="sl-pi" step="1"><span class="sv" id="sv-pi">45</span></div>
+                  <div class="rs">
+                    <div class="rc"><div class="rl">Diameter</div><div class="rv" id="r-diam">90</div></div>
+                    <div class="rc"><div class="rl">Circumference</div><div class="rv" id="r-circ">282.7</div></div>
+                    <div class="rc"><div class="rl">C ÷ D = always</div><div class="rv" id="r-pi">3.14159</div></div>
+                  </div>
+                </div>
+              </div>
+              <div class="at">Where π shows up</div>
+              <div class="ag">
+                <div class="ac"><strong>Engineering</strong>Gears, wheels, pipes — all circular</div>
+                <div class="ac"><strong>GPS satellites</strong>Earth's curvature calculations</div>
+                <div class="ac"><strong>Statistics</strong>Normal bell curve contains π</div>
+                <div class="ac"><strong>Music / Audio</strong>Fourier wave analysis</div>
+                <div class="ac"><strong>Physics</strong>Orbital mechanics, wave frequencies</div>
+                <div class="ac"><strong>Quantum mechanics</strong>Heisenberg uncertainty principle</div>
+              </div>
+            </div>
+
+            <!-- E -->
+            <div class="pn" id="pn-e">
+              <div class="dl-row">
+                <button class="dl on" data-pn="e" data-lv="1">Basics</button>
+                <button class="dl" data-pn="e" data-lv="2">Deeper</button>
+                <button class="dl" data-pn="e" data-lv="3">Mind = Blown</button>
+              </div>
+              <div class="ly on" id="e-1">
+                <p class="sp">The formula: split 100% annual interest into n compounding periods. As n grows, watch the result converge toward a fixed number — not 3, not 2.5, but exactly <strong>e ≈ 2.71828…</strong></p>
+                <div class="hb e-c"><strong>Formula: (1 + 1/n)ⁿ → e as n → ∞</strong><br>n=1 → 2.000 &nbsp;|&nbsp; n=12 → 2.613 &nbsp;|&nbsp; n=365 → 2.7146 &nbsp;|&nbsp; n=∞ → 2.71828…<br><br>It never goes to infinity. It homes in on e. Slide the control and watch it hunt it down.</div>
+              </div>
+              <div class="ly" id="e-2">
+                <p class="sp">The extraordinary thing about eˣ in calculus: its slope at every point equals its own height. It is the only function with this property.</p>
+                <div class="hb e-c"><strong>d/dx(eˣ) = eˣ</strong> — the rate of growth equals the amount.<br><br>This is why real growth in nature follows e. Bacteria, viral spread, compound interest — whenever growth is proportional to current size, e emerges automatically. eˣ is the unique solution to the equation "I grow at the same rate as I am tall."</div>
+              </div>
+              <div class="ly" id="e-3">
+                <p class="sp">e connects to probability in a stunning way. Shuffle a deck of cards completely randomly. What is the chance that no card ends up in its original position? As the deck grows:</p>
+                <div class="hb e-c"><strong>Probability → 1/e ≈ 36.79%… exactly.</strong><br><br>It doesn't matter if it's 10 cards or 10 million. The answer stabilises at 1/e. e is woven into the fabric of randomness itself.<br><br>Also: e = 1/0! + 1/1! + 1/2! + 1/3! + 1/4! + … — an infinite sum of fractions of factorials that adds up precisely to e. The most natural number in the universe, arriving from the most unexpected directions.</div>
+              </div>
+              <div class="da">
+                <div class="dh"><span>Compound interest growth curve</span><span id="e-hd">n = 1</span></div>
+                <div class="db">
+                  <canvas id="cv-e" height="190"></canvas>
+                  <div class="sr"><label>Periods (n)</label><input type="range" min="1" max="500" value="1" id="sl-e" step="1"><span class="sv" id="sv-e">1</span></div>
+                  <div class="rs">
+                    <div class="rc"><div class="rl">(1+1/n)ⁿ</div><div class="rv" id="r-eval">2.000</div></div>
+                    <div class="rc"><div class="rl">True e</div><div class="rv">2.71828</div></div>
+                    <div class="rc"><div class="rl">Gap remaining</div><div class="rv" id="r-eer">0.71828</div></div>
+                  </div>
+                </div>
+              </div>
+              <div class="at">Where e shows up</div>
+              <div class="ag">
+                <div class="ac"><strong>Finance</strong>Continuous compounding, Black-Scholes pricing</div>
+                <div class="ac"><strong>Biology</strong>Population growth, epidemic modelling</div>
+                <div class="ac"><strong>AI / ML</strong>Sigmoid & softmax activation functions</div>
+                <div class="ac"><strong>Physics</strong>Radioactive decay, Newton's cooling law</div>
+                <div class="ac"><strong>Probability</strong>Poisson distribution, birthday problem</div>
+                <div class="ac"><strong>Thermodynamics</strong>Entropy distribution</div>
+              </div>
+            </div>
+
+            <!-- LOG -->
+            <div class="pn" id="pn-log">
+              <div class="dl-row">
+                <button class="dl on" data-pn="log" data-lv="1">Basics</button>
+                <button class="dl" data-pn="log" data-lv="2">Deeper</button>
+                <button class="dl" data-pn="log" data-lv="3">Mind = Blown</button>
+              </div>
+              <div class="ly on" id="log-1">
+                <p class="sp">log can have any base. log₁₀(1000)=3 because 10³=1000. log₂(8)=3 because 2³=8. The base tells you "what number am I multiplying?" The result tells you "how many times?"</p>
+                <div class="hb lo-c"><strong>Three flavours:</strong> log₁₀ used in science (Richter, decibels, pH) · log₂ used in computing (binary, algorithm complexity) · ln used in calculus (because of e). When you see plain "log" with no base, it's usually log₁₀ in science or log₂ in CS. Context is everything.</div>
+              </div>
+              <div class="ly" id="log-2">
+                <p class="sp">The superpower: <strong>log turns multiplication into addition</strong>. This single property ran the entire financial and scientific world for 400 years before calculators.</p>
+                <div class="hb lo-c"><strong>log(A × B) = log(A) + log(B)</strong><br><br>To multiply two 7-digit numbers, you'd look up their logs in a table, add two small numbers, then reverse-lookup. Addition is trivially easy; multiplication is tedious and error-prone. The slide rule — a physical logarithm calculator — is what sent Apollo 11 to the moon. Logarithms are the original computing shortcut.</div>
+              </div>
+              <div class="ly" id="log-3">
+                <p class="sp">log₂ is the heart of computer science. Every time an algorithm halves its search space, it's using log₂ unknowingly:</p>
+                <div class="hb lo-c"><strong>Binary search in log₂(n) steps</strong><br>1,000 contacts → max 10 steps<br>1,000,000 contacts → max 20 steps<br>1,000,000,000 contacts → max 30 steps<br><br>The data size grew a million times over. The steps only grew by 20. That's logarithmic efficiency — and it's why Google searches the entire internet in milliseconds. Every "O(log n)" rating in software engineering is secretly a thank-you note to logarithms.</div>
+              </div>
+              <div class="da">
+                <div class="dh"><span>Linear vs logarithmic scale spacing</span></div>
+                <div class="db"><canvas id="cv-log" height="210"></canvas></div>
+              </div>
+              <div class="at">Where log shows up</div>
+              <div class="ag">
+                <div class="ac"><strong>Richter scale</strong>Each point = 10× more seismic energy</div>
+                <div class="ac"><strong>Decibels (dB)</strong>Every 10dB = 10× acoustic power</div>
+                <div class="ac"><strong>pH scale</strong>pH 4 is 10× more acidic than pH 5</div>
+                <div class="ac"><strong>Binary search</strong>O(log n) — the fastest search possible</div>
+                <div class="ac"><strong>Music</strong>Octaves are log₂ frequency doublings</div>
+                <div class="ac"><strong>Finance</strong>Log-returns for fair investment comparison</div>
+              </div>
+            </div>
+
+            <!-- LN -->
+            <div class="pn" id="pn-ln">
+              <div class="dl-row">
+                <button class="dl on" data-pn="ln" data-lv="1">Basics</button>
+                <button class="dl" data-pn="ln" data-lv="2">Deeper</button>
+                <button class="dl" data-pn="ln" data-lv="3">Mind = Blown</button>
+              </div>
+              <div class="ly on" id="ln-1">
+                <p class="sp">ln(x) asks: "how long does continuous growth take to reach x, starting from 1?" It's the reverse gear of eˣ. eˣ takes time and gives quantity. ln takes quantity and gives time.</p>
+                <div class="hb ln-c"><strong>e^(ln x) = x &nbsp;and&nbsp; ln(e&sup1;) = 1</strong><br><br>They are exact opposites. Wherever e multiplies, ln divides back. Like squaring and √ undoing each other — these two are inextricably linked. If you know one, you know the other.</div>
+              </div>
+              <div class="ly" id="ln-2">
+                <p class="sp">The geometric definition: ln(x) is literally the <em>area under the curve y = 1/t</em> from t=1 to t=x. The slider shows this directly — watch the shaded area equal ln(x) as you drag.</p>
+                <div class="hb ln-c"><strong>ln(x) = ∫₁ˣ (1/t) dt</strong><br><br>This was the original definition, found centuries before anyone linked it to e. Mathematicians computing areas under 1/x kept finding the same mysterious function. Much later they realised it was e's inverse — and the mathematical community was stunned.</div>
+              </div>
+              <div class="ly" id="ln-3">
+                <p class="sp">Claude Shannon's entropy formula — the foundation of all information theory, data compression, and cryptography — uses ln:</p>
+                <div class="ml">H = −Σ p · ln(p)</div>
+                <div class="hb ln-c">This says: the information content of a message equals the negative log of its probability. An unlikely surprise has high −ln(p) — lots of information. An expected "yes" has p≈1, so −ln(1)=0 — zero information.</div>
+              </div>
+              <div class="da">
+                <div class="dh"><span>ln(x) as area under y = 1/t</span><span id="ln-hd">ln(1) = 0</span></div>
+                <div class="db">
+                  <canvas id="cv-ln" height="190"></canvas>
+                  <div class="sr"><label>x value</label><input type="range" min="0" max="100" value="0" id="sl-ln" step="1"><span class="sv" id="sv-ln">1.0</span></div>
+                  <div class="rs">
+                    <div class="rc"><div class="rl">x</div><div class="rv" id="r-lnx">1.00</div></div>
+                    <div class="rc"><div class="rl">ln(x) = shaded area</div><div class="rv" id="r-lna">0.000</div></div>
+                    <div class="rc"><div class="rl">e^ln(x) = x ✓</div><div class="rv" id="r-lnc">1.00</div></div>
+                  </div>
+                </div>
+              </div>
+              <div class="at">Where ln shows up</div>
+              <div class="ag">
+                <div class="ac"><strong>Carbon dating</strong>ln reverses radioactive decay to find age</div>
+                <div class="ac"><strong>Information theory</strong>Shannon entropy = −Σ p·ln(p)</div>
+                <div class="ac"><strong>Finance</strong>Log-normal distribution for stock prices</div>
+                <div class="ac"><strong>Thermodynamics</strong>Entropy of physical systems</div>
+                <div class="ac"><strong>Calculus</strong>∫(1/x)dx = ln(x) — the defining integral</div>
+                <div class="ac"><strong>Biology</strong>Enzyme kinetics and growth modelling</div>
+              </div>
+            </div>
+
+            <!-- SIGMA -->
+            <div class="pn" id="pn-sg">
+              <div class="dl-row">
+                <button class="dl on" data-pn="sg" data-lv="1">Basics</button>
+                <button class="dl" data-pn="sg" data-lv="2">Deeper</button>
+                <button class="dl" data-pn="sg" data-lv="3">Mind = Blown</button>
+              </div>
+              <div class="ly on" id="sg-1">
+                <p class="sp">Σ is a compact instruction: "loop through these values and add them all." The Gauss story: asked to sum 1+2+…+100, nine-year-old Gauss saw that 1+100=101, 2+99=101… 50 such pairs. Answer: 50×101=5050. Instantly.</p>
+                <div class="hb si-c"><strong>Gauss's formula: Σᵢ₌₁ⁿ i = n(n+1)/2</strong><br><br>Instead of adding n numbers, do one multiplication. For n=15: sum = 15×16/2 = 120. The formula is derived from the same pairing trick. Press "Add next number" below — the Gauss formula column always matches the running sum column. That's the magic.</div>
+              </div>
+              <div class="ly" id="sg-2">
+                <p class="sp">Some infinite sums converge (settle at a finite number). Some don't. This distinction is one of the deepest ideas in mathematics.</p>
+                <div class="hb si-c"><strong>Convergent (finite sum):</strong> 1/2 + 1/4 + 1/8 + … = 1 exactly · 1 + 1/4 + 1/9 + 1/16 + … = π²/6<br><br><strong>Divergent (goes to ∞):</strong> 1 + 1/2 + 1/3 + 1/4 + … = ∞ (harmonic series)</div>
+              </div>
+              <div class="ly" id="sg-3">
+                <p class="sp">Fourier's revelation: any repeating signal — sound, light, temperature cycles — can be written as Σ of simple sine waves. This is the Fourier series.</p>
+                <div class="hb si-c"><strong>Square wave = Σ (4/πk) × sin(kx)</strong> for odd k = 1, 3, 5, 7…<br><br>A harsh, angular, digital square wave is secretly just infinitely many smooth sine waves added together. Decompress MP3 audio, JPEGs, and WiFi signals with Fourier waves!</div>
+              </div>
+              <div class="da">
+                <div class="dh"><span>Build a sum step by step</span></div>
+                <div class="db">
+                  <div class="sn-row" id="sn-row"></div>
+                  <div style="display:flex;align-items:center;gap:8px;margin-bottom:.9rem">
+                    <button class="sb" id="sg-add">Add next ↓</button>
+                    <button class="sb" id="sg-rst">Reset</button>
+                  </div>
+                  <div class="rs">
+                    <div class="rc"><div class="rl">Added so far</div><div class="rv" id="r-sgc">0</div></div>
+                    <div class="rc"><div class="rl">Running Σ</div><div class="rv" id="r-sgs">0</div></div>
+                    <div class="rc"><div class="rl">Gauss: n(n+1)/2</div><div class="rv" id="r-sgg">0</div></div>
+                  </div>
+                  <canvas id="cv-sg" height="110" style="margin-top:10px"></canvas>
+                </div>
+              </div>
+              <div class="at">Where Σ shows up</div>
+              <div class="ag">
+                <div class="ac"><strong>Statistics</strong>Mean and variance are both Σ operations</div>
+                <div class="ac"><strong>Neural networks</strong>Every layer = weighted Σ of inputs</div>
+                <div class="ac"><strong>Signal processing</strong>Fourier series — sound into frequencies</div>
+                <div class="ac"><strong>Finance</strong>Portfolio return = Σ(weight × return)</div>
+                <div class="ac"><strong>Physics</strong>Net force = Σ of all acting forces</div>
+                <div class="ac"><strong>Search ranking</strong>TF-IDF relevance is a weighted Σ</div>
+              </div>
+            </div>
+
+            <!-- INTEGRAL -->
+            <div class="pn" id="pn-it">
+              <div class="dl-row">
+                <button class="dl on" data-pn="it" data-lv="1">Basics</button>
+                <button class="dl" data-pn="it" data-lv="2">Deeper</button>
+                <button class="dl" data-pn="it" data-lv="3">Mind = Blown</button>
+              </div>
+              <div class="ly on" id="it-1">
+                <p class="sp">∫ is a stretched S, standing for Sum. Leibniz invented the notation in 1675. The idea: take Σ (sum of finite rectangles), make the rectangles infinitely thin (dx), and you have ∫. The slider shows exactly this transition.</p>
+                <div class="hb in-c"><strong>∫ₐᵇ f(x)dx</strong> = "Slice the area under f(x) from a to b into infinitely thin rectangles of height f(x) and width dx. Add them all."<br><br>More slices = thinner rectangles = more accurate area. At infinity slices: exact. Below, watch as you increase the number of rectangles and the area converges to the true value of 9.</div>
+              </div>
+              <div class="ly" id="it-2">
+                <p class="sp">The Fundamental Theorem of Calculus — perhaps the most important theorem in all of mathematics — says integration and differentiation are exact opposites:</p>
+                <div class="hb in-c"><strong>d/dx [∫ₐˣ f(t)dt] = f(x)</strong><br><br>Newton and Leibniz discovered this independently — sparking one of history's most bitter intellectual rivalry disputes, running for decades.</div>
+              </div>
+              <div class="ly" id="it-3">
+                <p class="sp">In probability, every calculation involving a continuous variable (height, temperature, time) is secretly an integral:</p>
+                <div class="hb in-c"><strong>P(a ≤ X ≤ b) = ∫ₐᵇ f(x)dx</strong><br><br>The probability that someone is between 170–175cm is the area under the normal bell curve between those values. All probability for continuous variables lives in intervals, computed by ∫.</div>
+              </div>
+              <div class="da">
+                <div class="dh"><span>Riemann sums — ∫₀³ x² dx = 9</span><span id="it-hd">n = 4</span></div>
+                <div class="db">
+                  <canvas id="cv-it" height="220"></canvas>
+                  <div class="sr"><label>Rectangles (n)</label><input type="range" min="1" max="120" value="4" id="sl-it" step="1"><span class="sv" id="sv-it">4</span></div>
+                  <div class="rs">
+                    <div class="rc"><div class="rl">Approx area</div><div class="rv" id="r-ita">—</div></div>
+                    <div class="rc"><div class="rl">Exact answer</div><div class="rv">9.000</div></div>
+                    <div class="rc"><div class="rl">Error</div><div class="rv" id="r-ite">—</div></div>
+                  </div>
+                </div>
+              </div>
+              <div class="at">Where ∫ shows up</div>
+              <div class="ag">
+                <div class="ac"><strong>Physics</strong>Work = ∫F·dx, impulse = ∫F·dt</div>
+                <div class="ac"><strong>GPS / Navigation</strong>Distance = ∫ speed · dt</div>
+                <div class="ac"><strong>Medicine</strong>Drug dosage = area under plasma curve</div>
+                <div class="ac"><strong>3D film / games</strong>Light rendering via path integral</div>
+                <div class="ac"><strong>Economics</strong>Consumer surplus = ∫ demand curve</div>
+                <div class="ac"><strong>Probability</strong>All continuous probabilities are integrals</div>
+              </div>
+            </div>
+
+            <!-- SQRT -->
+            <div class="pn" id="pn-sq">
+              <div class="dl-row">
+                <button class="dl on" data-pn="sq" data-lv="1">Basics</button>
+                <button class="dl" data-pn="sq" data-lv="2">Deeper</button>
+                <button class="dl" data-pn="sq" data-lv="3">Mind = Blown</button>
+              </div>
+              <div class="ly on" id="sq-1">
+                <p class="sp">√ means "find the side of a square given its area." But its real power is in the Pythagorean theorem: c = √(a²+b²). Every distance calculation in the universe uses this.</p>
+                <div class="hb sq-c"><strong>GPS uses √ 10 million times a second</strong> to compute your position from satellite distances. Google Maps uses it for every route segment. Every physics engine in every video game uses it to check distances between objects.</div>
+              </div>
+              <div class="ly" id="sq-2">
+                <p class="sp">The discovery of √2 nearly destroyed Greek mathematics. The Pythagoreans believed all numbers were ratios of whole numbers (fractions). Then someone asked: what is the diagonal of a unit square?</p>
+                <div class="hb sq-c"><strong>√2 = 1.41421356… (never ends, never repeats)</strong><br><br>The irrational numbers shattered the idea that all of mathematics could be built from counting numbers alone. Mathematics grew richer!</div>
+              </div>
+              <div class="ly" id="sq-3">
+                <p class="sp">What is √(−1)? No real number squared gives a negative. Rather than declaring "impossible," mathematicians invented a new number:</p>
+                <div class="hb sq-c"><strong>i = √(−1)</strong>, and i² = −1<br><br>This opened an entirely new dimension — the complex plane — where numbers have both real and imaginary parts. What seemed like a mathematical fantasy became the language of quantum mechanics.</div>
+              </div>
+              <div class="da">
+                <div class="dh"><span>Pythagorean theorem — interactive triangle</span></div>
+                <div class="db">
+                  <canvas id="cv-sq" height="215"></canvas>
+                  <div class="sr"><label>Side a</label><input type="range" min="1" max="9" value="3" id="sl-sqa" step="1"><span class="sv" id="sv-sqa">3</span></div>
+                  <div class="sr"><label>Side b</label><input type="range" min="1" max="9" value="4" id="sl-sqb" step="1"><span class="sv" id="sv-sqb">4</span></div>
+                  <div class="rs">
+                    <div class="rc"><div class="rl">a² + b²</div><div class="rv" id="r-sqab">25</div></div>
+                    <div class="rc"><div class="rl">c = √(a²+b²)</div><div class="rv" id="r-sqc">5.000</div></div>
+                  </div>
+                </div>
+              </div>
+              <div class="at">Where √ shows up</div>
+              <div class="ag">
+                <div class="ac"><strong>GPS / Maps</strong>Distance between any two coordinates</div>
+                <div class="ac"><strong>Statistics</strong>Standard deviation = √(variance)</div>
+                <div class="ac"><strong>Electrical eng.</strong>RMS voltage = √(mean of squares)</div>
+                <div class="ac"><strong>Architecture</strong>Diagonal measurements and structural loads</div>
+                <div class="ac"><strong>Quantum physics</strong>Wave functions involve complex √</div>
+                <div class="ac"><strong>Computer graphics</strong>Collision detection and vector lengths</div>
+              </div>
+            </div>
+
+            <!-- INFINITY -->
+            <div class="pn" id="pn-if">
+              <div class="dl-row">
+                <button class="dl on" data-pn="if" data-lv="1">Basics</button>
+                <button class="dl" data-pn="if" data-lv="2">Deeper</button>
+                <button class="dl" data-pn="if" data-lv="3">Mind = Blown</button>
+              </div>
+              <div class="ly on" id="if-1">
+                <p class="sp">∞ is not a destination. It's a direction — like north. You can keep heading north forever, but "north" is not a place. In calculus we never divide by ∞ directly; we ask what happens as numbers approach it.</p>
+                <div class="hb if-c"><strong>lim(x→∞) 1/x = 0</strong><br><br>As x grows without stopping, 1/x shrinks toward zero without ever quite reaching it. This is calculus's relationship with infinity. Press "Add term" below to see Zeno's paradox in action.</div>
+              </div>
+              <div class="ly" id="if-2">
+                <p class="sp">Georg Cantor proved in 1891 that there are different sizes of infinity. The counting numbers (1, 2, 3…) are a smaller infinity than the real numbers between 0 and 1.</p>
+                <div class="hb if-c"><strong>The diagonal argument (simplified):</strong> Reals are uncountably infinite. Georg Cantor called these different infinite levels ℵ₀ (aleph-null) and ℵ₁ (aleph-one).</div>
+              </div>
+              <div class="ly" id="if-3">
+                <p class="sp">The most mind-bending result: what is 0.9999… (nines repeating forever)?</p>
+                <div class="hb if-c"><strong>0.999… = 1. Exactly. Not "almost 1." Equal to 1.</strong><br><br>Proof: x = 0.999… → 10x = 9.999… → 10x − x = 9 → 9x = 9 → x = 1. The number line is not a row of discrete beads — it's an unbroken continuum.</div>
+              </div>
+              <div class="da">
+                <div class="dh"><span>Zeno's paradox — 1/2 + 1/4 + 1/8 + … = 1</span></div>
+                <div class="db">
+                  <p style="font-size:14px;color:var(--color-text-secondary);line-height:1.7;margin-bottom:.9rem">To cross a room, you must first cross half, then half of the remaining half, then half again... forever. Infinitely many steps — yet the sum converges to exactly 1. Add each term:</p>
+                  <div class="zb"><div class="zf" id="zf" style="width:0%"><span class="zl" id="zl"></span></div></div>
+                  <div style="display:flex;gap:8px;align-items:center">
+                    <button class="sb" id="z-add">Add term</button>
+                    <button class="sb" id="z-rst">Reset</button>
+                  </div>
+                  <div class="rs" style="margin-top:.9rem">
+                    <div class="rc"><div class="rl">Term added</div><div class="rv" id="r-zt">—</div></div>
+                    <div class="rc"><div class="rl">Running sum</div><div class="rv" id="r-zs">0</div></div>
+                    <div class="rc"><div class="rl">Distance to 1</div><div class="rv" id="r-zd">1</div></div>
+                  </div>
+                </div>
+              </div>
+              <div class="at">Where ∞ shows up</div>
+              <div class="ag">
+                <div class="ac"><strong>Calculus</strong>Limits, derivatives, and integrals all use ∞</div>
+                <div class="ac"><strong>Statistics</strong>Continuous distributions integrate to ∞</div>
+                <div class="ac"><strong>Finance</strong>A perpetuity has a finite price</div>
+                <div class="ac"><strong>Computer science</strong>Turing machines, halting problem</div>
+                <div class="ac"><strong>Cosmology</strong>Is the universe infinite? Unknown</div>
+                <div class="ac"><strong>Philosophy</strong>Paradoxes of infinite divisibility</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- CTA Bottom -->
+      <section class="foundation-cta" style="margin-top: 1rem;">
+        <p>Ready to master specific math subjects?</p>
+        <a href="index.html#topics" class="btn btn-primary">Explore Math Topics</a>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <p class="footer-text">
+        Made with <span class="heart">&#9829;</span> for students who want to learn maths
+        <br>
+        Free forever. No ads. No sign-up required.
+      </p>
+      <div class="footer-links">
+        <a href="https://naveen-kr1.netlify.app/" target="_blank" rel="noopener">Portfolio</a>
+        <span class="footer-sep">&middot;</span>
+        <a href="https://github.com/Naveenk1013" target="_blank" rel="noopener">GitHub</a>
+        <span class="footer-sep">&middot;</span>
+        <a href="https://www.linkedin.com/in/naveen-kumar-8a40bb170/" target="_blank" rel="noopener">LinkedIn</a>
+        <span class="footer-sep">&middot;</span>
+        <a href="mailto:naveen.k1013@gmail.com">Email</a>
+      </div>
+      <p class="footer-managed">Managed by <a href="https://lancealot.in" target="_blank" rel="noopener">lancealot.in</a></p>
+    </div>
+  </footer>
+
+  <!-- Combined Scripts -->
+  <script>
+    // Tab switching between Stories and Labs
+    document.querySelectorAll('.topic-header .tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.topic-header .tab-btn').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.symbols-layout > .tab-pane').forEach(p => p.classList.remove('active'));
+        btn.classList.add('active');
+        document.getElementById('pane-' + btn.dataset.target).classList.add('active');
+        if (btn.dataset.target === 'labs') {
+          setTimeout(redraw, 50);
+        }
+      });
+    });
+
+    // Storybook scrolling IntersectionObserver
+    const chapters = document.querySelectorAll('.chapter');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.08 });
+    chapters.forEach(c => observer.observe(c));
+
+    // Interactive Labs Script
+    (function(){
+      const $ = s => document.querySelector(s);
+      const $$ = s => document.querySelectorAll(s);
+
+      // Lab sub-tabs
+      $$('.tb').forEach(b => b.addEventListener('click', () => {
+        $$('.tb').forEach(x=>x.classList.remove('on'));
+        $$('.pn').forEach(x=>x.classList.remove('on'));
+        b.classList.add('on');
+        const p = $('#pn-'+b.dataset.t);
+        if(p) p.classList.add('on');
+        setTimeout(redraw, 40);
+      }));
+
+      // Depth levels
+      document.addEventListener('click', ev => {
+        const b = ev.target.closest('.dl');
+        if(!b) return;
+        const par = $('#pn-'+b.dataset.pn);
+        if(!par) return;
+        par.querySelectorAll('.dl').forEach(x=>x.classList.remove('on'));
+        par.querySelectorAll('.ly').forEach(x=>x.classList.remove('on'));
+        b.classList.add('on');
+        const ly = $('#'+b.dataset.pn+'-'+b.dataset.lv);
+        if(ly) ly.classList.add('on');
+      });
+
+      function theme(){
+        const dk = document.documentElement.getAttribute('data-theme') === 'dark' || 
+                   (document.documentElement.getAttribute('data-theme') !== 'light' && window.matchMedia('(prefers-color-scheme:dark)').matches);
+        return {
+          bg:dk?'#1c1b19':'#fff', bg2:dk?'#2c2c2a':'#f5f4f0',
+          tx:dk?'#e8e5dc':'#1a1a18', mu:dk?'#888780':'#b0aea6',
+          bd:dk?'#444441':'#d3d1c7',
+          a1:dk?'#AFA9EC':'#534AB7', a2:dk?'#5DCAA5':'#0F6E56',
+          a3:dk?'#FAC775':'#BA7517', a4:dk?'#85B7EB':'#185FA5',
+          a5:dk?'#ED93B1':'#993556', a6:dk?'#97C459':'#3B6D11',
+          rf:dk?'rgba(175,169,236,.22)':'rgba(83,74,183,.13)',
+          af:dk?'rgba(93,202,165,.28)':'rgba(15,110,86,.14)',
+        };
+      }
+
+      function cv(id, h){
+        const c = $(id);
+        if(!c) return null;
+        const dpr = window.devicePixelRatio || 1;
+        const w = c.offsetWidth || 620;
+        const H = h || parseInt(c.getAttribute('height')) || 200;
+        c.width = w*dpr; c.height = H*dpr;
+        c.style.width=w+'px'; c.style.height=H+'px';
+        const ctx = c.getContext('2d');
+        ctx.scale(dpr,dpr);
+        ctx.W=w; ctx.H=H;
+        return ctx;
+      }
+
+      // PI
+      function drawPi(){
+        const ctx = cv('#cv-pi');
+        if(!ctx) return;
+        const W=ctx.W, H=ctx.H, T=theme();
+        ctx.clearRect(0,0,W,H);
+        const r = parseInt($('#sl-pi').value);
+        const rad = Math.min(r*1.1, H*0.38, W*0.2);
+        const cx = W*0.22, cy = H*0.52;
+
+        ctx.beginPath(); ctx.arc(cx,cy,rad,0,Math.PI*2);
+        ctx.fillStyle=T.rf; ctx.fill();
+        ctx.strokeStyle=T.a1; ctx.lineWidth=2; ctx.stroke();
+
+        ctx.beginPath(); ctx.moveTo(cx-rad,cy); ctx.lineTo(cx+rad,cy);
+        ctx.strokeStyle=T.a3; ctx.lineWidth=2; ctx.stroke();
+        ctx.fillStyle=T.a3; ctx.font='11px Lora,serif'; ctx.textAlign='center';
+        ctx.fillText('d = '+(r*2).toFixed(0), cx, cy+rad+16);
+
+        const circ = 2*Math.PI*rad;
+        const sx = W*0.5, ey = H*0.5;
+        const avail = W - sx - 15;
+        const sc = avail/circ;
+
+        for(let i=0;i<=4;i++){
+          const x = sx + (rad*2*i)*sc;
+          if(x>W-8) break;
+          ctx.beginPath(); ctx.moveTo(x,ey-7); ctx.lineTo(x,ey+7);
+          ctx.strokeStyle=T.mu; ctx.lineWidth=1; ctx.stroke();
+          if(i>0){
+            ctx.fillStyle=T.mu; ctx.font='10px Lora,serif'; ctx.textAlign='center';
+            ctx.fillText(i+'D', sx+(rad*2*(i-.5))*sc, ey-12);
+          }
+        }
+        ctx.beginPath(); ctx.moveTo(sx,ey); ctx.lineTo(sx+circ*sc,ey);
+        ctx.strokeStyle=T.a1; ctx.lineWidth=3.5; ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(sx,ey-8); ctx.lineTo(sx,ey+8);
+        ctx.strokeStyle=T.a1; ctx.lineWidth=2; ctx.stroke();
+        const ex2=sx+circ*sc;
+        if(ex2<W-2){ ctx.beginPath(); ctx.moveTo(ex2,ey-8); ctx.lineTo(ex2,ey+8); ctx.strokeStyle=T.a1; ctx.lineWidth=2; ctx.stroke(); }
+
+        ctx.fillStyle=T.a1; ctx.font='bold 12px Lora,serif'; ctx.textAlign='center';
+        ctx.fillText('circumference = π × diameter', sx+circ*sc*0.5, ey+22);
+        ctx.fillStyle=T.tx; ctx.font='12px Lora,serif'; ctx.textAlign='left';
+        ctx.fillText('Unrolled circumference — always 3.14159… diameters long', sx, ey-22);
+      }
+
+      const slPi = $('#sl-pi');
+      if(slPi) {
+        slPi.addEventListener('input', ()=>{
+          const r=parseInt(slPi.value);
+          $('#sv-pi').textContent=r;
+          $('#r-diam').textContent=(r*2).toFixed(0);
+          $('#r-circ').textContent=(2*Math.PI*r).toFixed(2);
+          drawPi();
+        });
+      }
+
+      // E
+      function drawE(){
+        const ctx = cv('#cv-e');
+        if(!ctx) return;
+        const W=ctx.W, H=ctx.H, T=theme();
+        ctx.clearRect(0,0,W,H);
+        const n = parseInt($('#sl-e').value);
+        const pL=48,pR=18,pT=18,pB=28, pW=W-pL-pR, pH=H-pT-pB;
+        const yMn=1.8,yMx=3.0;
+        const toY=v=>pT+pH-(v-yMn)/(yMx-yMn)*pH;
+
+        const eY=toY(Math.E);
+        ctx.setLineDash([4,3]); ctx.beginPath(); ctx.moveTo(pL,eY); ctx.lineTo(pL+pW,eY);
+        ctx.strokeStyle=T.a2; ctx.lineWidth=1.5; ctx.stroke(); ctx.setLineDash([]);
+        ctx.fillStyle=T.a2; ctx.font='11px Lora,serif'; ctx.textAlign='left';
+        ctx.fillText('e = 2.71828…',pL+4,eY-5);
+
+        ctx.strokeStyle=T.bd; ctx.lineWidth=.5;
+        ctx.beginPath(); ctx.moveTo(pL,pT); ctx.lineTo(pL,pT+pH); ctx.lineTo(pL+pW,pT+pH); ctx.stroke();
+        [2.0,2.3,2.6,2.9].forEach(v=>{ 
+          const y=toY(v); 
+          ctx.fillStyle=T.mu; ctx.font='10px Lora,serif'; ctx.textAlign='right'; 
+          ctx.fillText(v.toFixed(1),pL-3,y+4); 
+          ctx.beginPath(); ctx.moveTo(pL,y); ctx.lineTo(pL+pW,y); 
+          ctx.strokeStyle=T.bd; ctx.lineWidth=.3; ctx.stroke(); 
+        });
+
+        const pts=[1,2,3,4,5,6,8,10,14,18,25,35,50,70,100,150,200,300,400,500];
+        const filtered=pts.filter(p=>p<=n);
+        if(n>0 && !filtered.includes(n)) filtered.push(n);
+        if(filtered.length<2){ filtered.unshift(1); }
+
+        ctx.beginPath();
+        filtered.forEach((p,i)=>{
+          const val=Math.pow(1+1/p,p);
+          const x=pL+(Math.log(p)/Math.log(500))*pW;
+          const y=toY(val);
+          if(i===0) ctx.moveTo(x,y); else ctx.lineTo(x,y);
+        });
+        ctx.strokeStyle=T.a1; ctx.lineWidth=2; ctx.stroke();
+
+        const cv2=Math.pow(1+1/n,n);
+        const cx=pL+(Math.log(Math.max(1,n))/Math.log(500))*pW;
+        const cy=toY(cv2);
+        ctx.beginPath(); ctx.arc(cx,cy,5,0,Math.PI*2);
+        ctx.fillStyle=T.a1; ctx.fill();
+        ctx.fillStyle=T.a1; ctx.font='bold 11px Lora,serif';
+        if(cx > W - 65) {
+          ctx.textAlign='right';
+          ctx.fillText(cv2.toFixed(4),cx-8,cy+4);
+        } else {
+          ctx.textAlign='left';
+          ctx.fillText(cv2.toFixed(4),cx+8,cy+4);
+        }
+
+        ctx.fillStyle=T.mu; ctx.font='10px Lora,serif'; ctx.textAlign='center';
+        ctx.fillText('n (log scale) →',pL+pW*0.5,H-4);
+      }
+
+      const slE = $('#sl-e');
+      if(slE) {
+        slE.addEventListener('input',()=>{
+          const n=parseInt(slE.value);
+          $('#sv-e').textContent=n;
+          const v=Math.pow(1+1/n,n);
+          $('#r-eval').textContent=v.toFixed(5);
+          $('#r-eer').textContent=Math.abs(Math.E-v).toFixed(5);
+          $('#e-hd').textContent='n = '+n;
+          drawE();
+        });
+      }
+
+      // LOG
+      function drawLog(){
+        const ctx=cv('#cv-log',210);
+        if(!ctx) return;
+        const W=ctx.W,H=ctx.H,T=theme();
+        ctx.clearRect(0,0,W,H);
+        const vals=[1,10,100,1000,10000,100000,1000000];
+        const lbls=['1','10','100','1K','10K','100K','1M'];
+        const pL=72,pR=18,lW=W-pL-pR;
+
+        const ly=60;
+        ctx.fillStyle=T.tx; ctx.font='12px Lora,serif'; ctx.textAlign='right';
+        ctx.fillText('Linear',pL-8,ly+4);
+        ctx.beginPath(); ctx.moveTo(pL,ly); ctx.lineTo(pL+lW,ly); ctx.strokeStyle=T.bd; ctx.lineWidth=1; ctx.stroke();
+        vals.forEach((v,i)=>{
+          const x=pL+(v/1000000)*lW;
+          ctx.beginPath(); ctx.moveTo(x,ly-6); ctx.lineTo(x,ly+6);
+          ctx.strokeStyle=T.a3; ctx.lineWidth=1.5; ctx.stroke();
+          if(v<=1000||v===1000000){ ctx.fillStyle=T.tx; ctx.font='10px Lora,serif'; ctx.textAlign='center'; ctx.fillText(lbls[i],x,ly+17); }
+        });
+        ctx.fillStyle=T.mu; ctx.font='10px Lora,serif'; ctx.textAlign='left';
+        ctx.fillText('All values 1–100K crushed in first 10% of line →', pL, ly-13);
+
+        ctx.beginPath(); ctx.moveTo(pL,ly-8); ctx.lineTo(pL+(100000/1000000)*lW,ly-8);
+        ctx.strokeStyle=T.a3; ctx.lineWidth=1; ctx.stroke();
+        ctx.beginPath(); ctx.arc(pL+(100000/1000000)*lW+3,ly-8,4,0,Math.PI*2);
+        ctx.fillStyle=T.a3; ctx.fill();
+
+        const ly2=150;
+        const logMax=Math.log10(1000000);
+        ctx.fillStyle=T.tx; ctx.font='12px Lora,serif'; ctx.textAlign='right';
+        ctx.fillText('Log₁₀',pL-8,ly2+4);
+        ctx.beginPath(); ctx.moveTo(pL,ly2); ctx.lineTo(pL+lW,ly2); ctx.strokeStyle=T.bd; ctx.lineWidth=1; ctx.stroke();
+        vals.forEach((v,i)=>{
+          const logV=v===1?0:Math.log10(v);
+          const x=pL+(logV/logMax)*lW;
+          ctx.beginPath(); ctx.moveTo(x,ly2-6); ctx.lineTo(x,ly2+6);
+          ctx.strokeStyle=T.a1; ctx.lineWidth=1.5; ctx.stroke();
+          ctx.fillStyle=T.tx; ctx.font='10px Lora,serif'; ctx.textAlign='center';
+          ctx.fillText(lbls[i],x,ly2+17);
+        });
+        ctx.fillStyle=T.mu; ctx.font='10px Lora,serif'; ctx.textAlign='center';
+        ctx.fillText('Each step = 10× bigger, yet all equally spaced.',pL+lW*0.5,ly2-13);
+
+        vals.forEach((v,i)=>{
+          const linX=pL+(v/1000000)*lW;
+          const logV=v===1?0:Math.log10(v);
+          const logX=pL+(logV/logMax)*lW;
+          ctx.beginPath(); ctx.moveTo(linX,ly+8); ctx.bezierCurveTo(linX,ly+45,logX,ly2-45,logX,ly2-8);
+          ctx.strokeStyle=T.mu; ctx.lineWidth=.5; ctx.stroke();
+        });
+
+        ctx.fillStyle=T.a3; ctx.font='11px Lora,serif'; ctx.textAlign='left';
+        ctx.fillText('■ Linear scale',pL,H-8);
+        ctx.fillStyle=T.a1;
+        ctx.fillText('■ Logarithmic scale',pL+90,H-8);
+      }
+
+      // LN
+      function drawLn(){
+        const ctx=cv('#cv-ln');
+        if(!ctx) return;
+        const W=ctx.W,H=ctx.H,T=theme();
+        ctx.clearRect(0,0,W,H);
+        const raw=parseInt($('#sl-ln').value);
+        const xV=1+(raw/100)*6;
+        const pL=36,pR=18,pT=16,pB=24,pW=W-pL-pR,pH=H-pT-pB;
+        const xMn=0.6,xMx=7.5,yMn=-0.8,yMx=2.8;
+        const toX=x=>pL+(x-xMn)/(xMx-xMn)*pW;
+        const toY=y=>pT+pH-(y-yMn)/(yMx-yMn)*pH;
+
+        ctx.strokeStyle=T.bd; ctx.lineWidth=.5;
+        ctx.beginPath(); ctx.moveTo(toX(1),pT); ctx.lineTo(toX(1),pT+pH); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(pL,toY(0)); ctx.lineTo(pL+pW,toY(0)); ctx.stroke();
+
+        if(xV>1.01){
+          ctx.beginPath(); ctx.moveTo(toX(1),toY(0));
+          for(let i=0;i<=200;i++){ 
+            const t=1+(xV-1)*i/200; 
+            if(t<.01) continue; 
+            ctx.lineTo(toX(t),toY(1/t)); 
+          }
+          ctx.lineTo(toX(xV),toY(0)); ctx.closePath();
+          ctx.fillStyle=T.af; ctx.fill();
+        }
+
+        ctx.beginPath(); let fi=true;
+        for(let px=0;px<=pW;px++){
+          const t=xMn+(px/pW)*(xMx-xMn);
+          if(t<.05) continue;
+          const y=1/t;
+          if(y>yMx+.5||y<yMn-.5){fi=true;continue;}
+          if(fi){ctx.moveTo(pL+px,toY(y));fi=false;}else ctx.lineTo(pL+px,toY(y));
+        }
+        ctx.strokeStyle=T.a2; ctx.lineWidth=2; ctx.stroke();
+
+        ctx.beginPath(); ctx.moveTo(toX(1),toY(0)-6); ctx.lineTo(toX(1),toY(0)+6); ctx.strokeStyle=T.tx; ctx.lineWidth=1; ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(toX(xV),toY(0)-6); ctx.lineTo(toX(xV),toY(0)+6); ctx.strokeStyle=T.a3; ctx.lineWidth=1.5; ctx.stroke();
+
+        ctx.fillStyle=T.mu; ctx.font='10px Lora,serif'; ctx.textAlign='center';
+        ctx.fillText('1',toX(1),toY(0)+14);
+        ctx.fillStyle=T.a3;
+        ctx.fillText('x='+xV.toFixed(2),toX(xV),toY(0)+14);
+
+        ctx.fillStyle=T.a2; ctx.font='italic 12px Lora,serif'; ctx.textAlign='left';
+        ctx.fillText('y = 1/t',toX(xMn+.1),toY(1.2));
+
+        if(xV>1.15){
+          const mid=(1+xV)/2;
+          ctx.fillStyle=T.a2; ctx.font='bold 12px Lora,serif'; ctx.textAlign='center';
+          ctx.fillText('area = ln('+xV.toFixed(2)+') = '+Math.log(xV).toFixed(3), toX(mid), toY(.45));
+        }
+
+        $('#sv-ln').textContent=xV.toFixed(2);
+        $('#r-lnx').textContent=xV.toFixed(2);
+        $('#r-lna').textContent=Math.log(xV).toFixed(4);
+        $('#r-lnc').textContent=Math.exp(Math.log(xV)).toFixed(3);
+        $('#ln-hd').textContent='ln('+xV.toFixed(2)+') = '+Math.log(xV).toFixed(3);
+      }
+
+      const slLn = $('#sl-ln');
+      if(slLn) {
+        slLn.addEventListener('input',drawLn);
+      }
+
+      // SIGMA
+      let sgState={cur:0,tot:0,max:15};
+      function initSg(){
+        const row=$('#sn-row'); 
+        if(!row) return;
+        row.innerHTML='';
+        for(let i=1;i<=sgState.max;i++){
+          const d=document.createElement('div'); d.className='sn'; d.textContent=i; d.id='sn'+i; row.appendChild(d);
+        }
+        sgState.cur=0; sgState.tot=0;
+        $('#r-sgc').textContent='0'; $('#r-sgs').textContent='0'; $('#r-sgg').textContent='0';
+        drawSgBar(0);
+      }
+
+      function drawSgBar(cur){
+        const ctx=cv('#cv-sg',110);
+        if(!ctx) return;
+        const W=ctx.W,H=ctx.H,T=theme();
+        ctx.clearRect(0,0,W,H);
+        const pL=45,pR=15,pT=16,pB=20,pW=W-pL-pR,pH=H-pT-pB;
+        const bw=(pW/sgState.max);
+        for(let i=1;i<=sgState.max;i++){
+          const frac=i/sgState.max;
+          const bh=pH*frac;
+          const x=pL+(i-1)*bw+1;
+          const by=pT+pH-bh;
+          ctx.fillStyle=i<=cur?T.a2:T.bg2;
+          ctx.beginPath(); ctx.rect(x,by,bw-2,bh); ctx.fill();
+          ctx.strokeStyle=T.bd; ctx.lineWidth=.4; ctx.stroke();
+        }
+        const tot=cur*(cur+1)/2;
+        ctx.fillStyle=T.tx; ctx.font='11px Lora,serif'; ctx.textAlign='left';
+        ctx.fillText('Σ 1 to '+cur+' = '+tot,pL,pT-3);
+      }
+
+      const sgAdd = $('#sg-add');
+      if(sgAdd) {
+        sgAdd.addEventListener('click',()=>{
+          if(sgState.cur>=sgState.max) return;
+          sgState.cur++; sgState.tot+=sgState.cur;
+          const el=$('#sn'+sgState.cur); if(el) el.classList.add('ok');
+          $('#r-sgc').textContent=sgState.cur;
+          $('#r-sgs').textContent=sgState.tot;
+          $('#r-sgg').textContent=sgState.cur*(sgState.cur+1)/2;
+          drawSgBar(sgState.cur);
+        });
+      }
+
+      const sgRst = $('#sg-rst');
+      if(sgRst) {
+        sgRst.addEventListener('click',initSg);
+      }
+
+      // INTEGRAL
+      function drawRiemann(){
+        const ctx=cv('#cv-it');
+        if(!ctx) return;
+        const W=ctx.W,H=ctx.H,T=theme();
+        ctx.clearRect(0,0,W,H);
+        const n=parseInt($('#sl-it').value);
+        const pL=38,pR=18,pT=14,pB=28,pW=W-pL-pR,pH=H-pT-pB;
+        const xMax=3,yMax=10;
+        const toX=x=>pL+(x/xMax)*pW;
+        const toY=y=>pT+pH-(y/yMax)*pH;
+        const dx=xMax/n;
+        let area=0;
+        for(let i=0;i<n;i++){
+          const xr=(i+1)*dx;
+          const fy=xr*xr;
+          area+=fy*dx;
+          ctx.fillStyle=T.rf;
+          ctx.beginPath(); ctx.rect(toX(i*dx),toY(fy),toX(dx)-toX(0),toY(0)-toY(fy));
+          ctx.fill(); ctx.strokeStyle=T.a5; ctx.lineWidth=.5; ctx.stroke();
+        }
+
+        ctx.beginPath(); let fi=true;
+        for(let px=0;px<=pW;px++){
+          const x=(px/pW)*xMax; const y=x*x;
+          if(fi){ctx.moveTo(pL+px,toY(y));fi=false;}else ctx.lineTo(pL+px,toY(y));
+        }
+        ctx.strokeStyle=T.a5; ctx.lineWidth=2.5; ctx.stroke();
+
+        ctx.strokeStyle=T.bd; ctx.lineWidth=.5;
+        ctx.beginPath(); ctx.moveTo(pL,pT); ctx.lineTo(pL,pT+pH); ctx.lineTo(pL+pW,pT+pH); ctx.stroke();
+        ['0','1','2','3'].forEach((l,i)=>{ ctx.fillStyle=T.mu; ctx.font='10px Lora,serif'; ctx.textAlign='center'; ctx.fillText(l,toX(i),toY(0)+13); });
+        [0,3,6,9].forEach(v=>{ ctx.fillStyle=T.mu; ctx.font='10px Lora,serif'; ctx.textAlign='right'; ctx.fillText(v,pL-3,toY(v)+4); });
+        ctx.fillStyle=T.a5; ctx.font='italic 13px Lora,serif'; ctx.textAlign='left';
+        ctx.fillText('f(x) = x²',toX(2.15),toY(7.8));
+        const err=Math.abs(area-9);
+        $('#r-ita').textContent=area.toFixed(3);
+        $('#r-ite').textContent=err.toFixed(3);
+        $('#it-hd').textContent='n = '+n;
+        $('#sv-it').textContent=n;
+      }
+
+      const slIt = $('#sl-it');
+      if(slIt) {
+        slIt.addEventListener('input',drawRiemann);
+      }
+
+      // SQRT
+      function drawSqrt(){
+        const ctx=cv('#cv-sq');
+        if(!ctx) return;
+        const W=ctx.W,H=ctx.H,T=theme();
+        ctx.clearRect(0,0,W,H);
+        const a=parseInt($('#sl-sqa').value), b=parseInt($('#sl-sqb').value);
+        const c=Math.sqrt(a*a+b*b);
+        const sc=Math.min(H*0.65/Math.max(a,b,c), W*0.38/Math.max(a,b,c));
+        const ox=W*0.14, oy=H*0.78;
+
+        const sq=9;
+        ctx.beginPath(); ctx.moveTo(ox+sq,oy); ctx.lineTo(ox+sq,oy-sq); ctx.lineTo(ox,oy-sq);
+        ctx.strokeStyle=T.mu; ctx.lineWidth=1; ctx.stroke();
+
+        ctx.beginPath(); ctx.moveTo(ox,oy); ctx.lineTo(ox+a*sc,oy); ctx.lineTo(ox,oy-b*sc); ctx.closePath();
+        ctx.fillStyle=T.rf; ctx.fill(); ctx.strokeStyle=T.a1; ctx.lineWidth=2; ctx.stroke();
+
+        ctx.fillStyle=T.a3; ctx.font='bold 13px Lora,serif'; ctx.textAlign='center';
+        ctx.fillText('a = '+a, ox+a*sc/2, oy+18);
+        ctx.textAlign='right';
+        ctx.fillText('b = '+b, ox-6, oy-b*sc/2+4);
+
+        const mhx=(ox+a*sc+ox)/2+10, mhy=(oy+oy-b*sc)/2;
+        ctx.fillStyle=T.a2; ctx.textAlign='left';
+        ctx.fillText('c = '+c.toFixed(3), mhx, mhy);
+
+        const fx=W*0.6;
+        ctx.fillStyle=T.tx; ctx.font='14px Lora,serif'; ctx.textAlign='left';
+        ctx.fillText('a² + b² = c²',fx,H*0.32);
+        ctx.fillStyle=T.mu; ctx.font='12px Lora,serif';
+        ctx.fillText(a+'² + '+b+'² = c²',fx,H*0.32+22);
+        ctx.fillText((a*a)+' + '+(b*b)+' = c²',fx,H*0.32+42);
+        ctx.beginPath(); ctx.moveTo(fx,H*0.32+52); ctx.lineTo(fx+130,H*0.32+52); ctx.strokeStyle=T.bd; ctx.lineWidth=.5; ctx.stroke();
+        ctx.fillStyle=T.a2; ctx.font='bold 13px Lora,serif';
+        ctx.fillText('c = √'+(a*a+b*b)+' = '+c.toFixed(3),fx,H*0.32+68);
+
+        $('#sv-sqa').textContent=a; $('#sv-sqb').textContent=b;
+        $('#r-sqab').textContent=(a*a+b*b);
+        $('#r-sqc').textContent=c.toFixed(3);
+      }
+
+      const slSqa = $('#sl-sqa');
+      const slSqb = $('#sl-sqb');
+      if(slSqa && slSqb) {
+        slSqa.addEventListener('input',drawSqrt);
+        slSqb.addEventListener('input',drawSqrt);
+      }
+
+      // ZENO
+      let zs={step:0,sum:0};
+      function upZ(){
+        const pct=zs.sum*100;
+        const zf = $('#zf');
+        if(!zf) return;
+        zf.style.width=pct+'%';
+        $('#r-zt').textContent=zs.step===0?'—':'1/'+Math.pow(2,zs.step);
+        $('#r-zs').textContent=zs.sum.toFixed(7);
+        $('#r-zd').textContent=(1-zs.sum).toFixed(7);
+        const zl = $('#zl');
+        if(zl) zl.textContent=pct>6?pct.toFixed(2)+'%':'';
+      }
+
+      const zAdd = $('#z-add');
+      if(zAdd) {
+        zAdd.addEventListener('click',()=>{
+          if(zs.step>=25) return;
+          zs.step++; zs.sum+=1/Math.pow(2,zs.step); upZ();
+        });
+      }
+
+      const zRst = $('#z-rst');
+      if(zRst) {
+        zRst.addEventListener('click',()=>{ zs={step:0,sum:0}; upZ(); });
+      }
+
+      // unified redrawing
+      window.redraw = function() {
+        const a = document.querySelector('.dd .pn.on');
+        if(!a) return;
+        const id=a.id.replace('pn-','');
+        if(id==='pi') drawPi();
+        else if(id==='e') drawE();
+        else if(id==='log') drawLog();
+        else if(id==='ln') drawLn();
+        else if(id==='sg') { initSg(); }
+        else if(id==='it') drawRiemann();
+        else if(id==='sq') drawSqrt();
+      }
+
+      // initial call
+      setTimeout(redraw, 100);
+
+      // Listen for theme toggle to redraw canvases instantly
+      new MutationObserver(()=>{ setTimeout(redraw,30); }).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
+      window.addEventListener('resize',()=>setTimeout(redraw,50));
+    })();
+  </script>
+</body>
+</html>

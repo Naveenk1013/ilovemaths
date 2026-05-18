@@ -5,6 +5,7 @@
     "description": "Complete BCS-012 syllabus covering foundation to advanced mathematics.",
     "level": "Beginner to Advanced",
     "topics": [
+      "story-of-symbols",
       "determinants",
       "matrices",
       "induction",

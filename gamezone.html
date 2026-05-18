@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Cognitive Game Zone — Scientifically aligned brain training modules. Speed arithmetic, pattern reasoning, working memory, and selective focus.">
+  <title>Cognitive Game Zone — I Love Maths</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/gamezone.css">
+
+  <!-- Theme & Tracker (early load) -->
+  <script src="js/theme.js"></script>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="site-logo">
+        <span class="logo-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="url(#logo-grad)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <defs>
+              <linearGradient id="logo-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#3b82f6" />
+                <stop offset="100%" stop-color="#8b5cf6" />
+              </linearGradient>
+            </defs>
+            <path d="M12 12c-2-2.67-4-4-6-4a4 4 0 1 0 0 8c2 0 4-1.33 6-4zm0 0c2 2.67 4 4 6 4a4 4 0 1 0 0-8c-2 0-4 1.33-6 4z" />
+          </svg>
+        </span>
+        <span>I Love Maths</span>
+      </a>
+      <nav class="site-nav">
+        <a href="index.html">Topics</a>
+        <a href="symbols.html">Story of Symbols</a>
+        <a href="gamezone.html" class="active">Game Zone</a>
+        <a href="index.html#about">About</a>
+        <div class="theme-toggle" id="theme-toggle"></div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container" style="margin-top: var(--space-xl); margin-bottom: var(--space-3xl);">
+
+    <!-- Section Header -->
+    <div class="section-header" style="margin-bottom: var(--space-xl);">
+      <div class="section-label">Brain Gym</div>
+      <h2 class="section-title">Cognitive Game Zone</h2>
+      <p class="section-desc">Unlock and maximize your brain's processing speed, numerical logic, active recall, and focus filtering through scientific gameplay loops.</p>
+    </div>
+
+    <!-- 1. GZ Dashboard Section -->
+    <div class="gz-dashboard">
+      
+      <!-- Profile Card (Left Panel) -->
+      <div class="gz-glass-panel gz-profile-wrap">
+        <div class="gz-level-ring-container">
+          <svg class="gz-level-ring-svg" viewBox="0 0 130 130">
+            <defs>
+              <linearGradient id="gz-ring-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#3b82f6" />
+                <stop offset="100%" stop-color="#8b5cf6" />
+              </linearGradient>
+            </defs>
+            <circle class="gz-level-ring-bg" cx="65" cy="65" r="58" />
+            <circle class="gz-level-ring-fill" id="gz-level-fill" cx="65" cy="65" r="58" />
+          </svg>
+          <div class="gz-level-center-text">
+            <div class="gz-level-num" id="gz-profile-level">1</div>
+            <div class="gz-level-label">Level</div>
+          </div>
+        </div>
+
+        <div class="gz-xp-label" id="gz-profile-xp">0 XP</div>
+        <div class="gz-streak-badge" id="gz-profile-streak">0 Day Streak 🔥</div>
+
+        <!-- Mastery Gauges -->
+        <div class="gz-mastery-list">
+          <div class="gz-mastery-item">
+            <div class="gz-mastery-header">
+              <span class="gz-mastery-name">Numerical Intelligence</span>
+              <span class="gz-mastery-val" id="gz-mastery-num-pct">0%</span>
+            </div>
+            <div class="gz-mastery-track">
+              <div class="gz-mastery-fill gz-fill-numerical" id="gz-mastery-num-fill"></div>
+            </div>
+          </div>
+          
+          <div class="gz-mastery-item">
+            <div class="gz-mastery-header">
+              <span class="gz-mastery-name">Logical Reasoning</span>
+              <span class="gz-mastery-val" id="gz-mastery-log-pct">0%</span>
+            </div>
+            <div class="gz-mastery-track">
+              <div class="gz-mastery-fill gz-fill-logical" id="gz-mastery-log-fill"></div>
+            </div>
+          </div>
+
+          <div class="gz-mastery-item">
+            <div class="gz-mastery-header">
+              <span class="gz-mastery-name">Memory Training</span>
+              <span class="gz-mastery-val" id="gz-mastery-mem-pct">0%</span>
+            </div>
+            <div class="gz-mastery-track">
+              <div class="gz-mastery-fill gz-fill-memory" id="gz-mastery-mem-fill"></div>
+            </div>
+          </div>
+
+          <div class="gz-mastery-item">
+            <div class="gz-mastery-header">
+              <span class="gz-mastery-name">Attention & Focus</span>
+              <span class="gz-mastery-val" id="gz-mastery-foc-pct">0%</span>
+            </div>
+            <div class="gz-mastery-track">
+              <div class="gz-mastery-fill gz-fill-focus" id="gz-mastery-foc-fill"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Analytics Graph (Right Panel) -->
+      <div class="gz-glass-panel">
+        <div class="gz-analytics-panel">
+          <div class="gz-analytics-header">
+            <h3 class="gz-analytics-title">Cognitive Progression Trend</h3>
+            <span style="font-size: 0.75rem; color: var(--color-text-tertiary); font-weight: 500;">Last 7 Days</span>
+          </div>
+          <div class="gz-analytics-canvas-container">
+            <canvas class="gz-analytics-canvas" id="gz-chart"></canvas>
+          </div>
+          <div class="gz-insights-box" id="gz-insights-text">
+            Play games in any cognitive domain to begin recording and charting your performance trends.
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- 2. Games Catalog -->
+    <h3 class="gz-section-title">Select Cognitive Challenge</h3>
+    <div class="gz-games-grid">
+
+      <!-- Speed Math (Numerical) -->
+      <div class="gz-game-card gc-numerical" onclick="openGame('speed-math')">
+        <div class="gz-card-top">
+          <div class="gz-card-meta">
+            <span class="gz-card-category">Numerical</span>
+            <span class="gz-card-icon">⚡</span>
+          </div>
+          <h4 class="gz-card-title">Speed Arithmetic</h4>
+          <p class="gz-card-desc">Solve equations at lightning speed. Sharpen mental calculations, division structures, and immediate recall multipliers.</p>
+        </div>
+        <div class="gz-card-stats">
+          <div class="gz-card-outcome">Skill: Speed Math</div>
+          <div class="gz-card-highscore">Best: <span id="hs-speed-math">0</span></div>
+        </div>
+      </div>
+
+      <!-- Pattern Completion (Logic) -->
+      <div class="gz-game-card gc-logical" onclick="openGame('pattern-matrix')">
+        <div class="gz-card-top">
+          <div class="gz-card-meta">
+            <span class="gz-card-category">Logical</span>
+            <span class="gz-card-icon">🧩</span>
+          </div>
+          <h4 class="gz-card-title">Pattern Matrix</h4>
+          <p class="gz-card-desc">Determine missing parts in visual matrices. Excels structural reasoning, spatial transformations, and pattern sequence analysis.</p>
+        </div>
+        <div class="gz-card-stats">
+          <div class="gz-card-outcome">Skill: Logical Deduction</div>
+          <div class="gz-card-highscore">Best: <span id="hs-pattern-matrix">0</span></div>
+        </div>
+      </div>
+
+      <!-- Spatial Recall (Memory) -->
+      <div class="gz-game-card gc-memory" onclick="openGame('sequence-recall')">
+        <div class="gz-card-top">
+          <div class="gz-card-meta">
+            <span class="gz-card-category">Memory</span>
+            <span class="gz-card-icon">🧠</span>
+          </div>
+          <h4 class="gz-card-title">Matrix Recall</h4>
+          <p class="gz-card-desc">Remember and re-tap glowing grid sequences. Expands short-term spatial memory capacity and chunking intelligence limits.</p>
+        </div>
+        <div class="gz-card-stats">
+          <div class="gz-card-outcome">Skill: Spatial Memory</div>
+          <div class="gz-card-highscore">Best: <span id="hs-sequence-recall">0</span></div>
+        </div>
+      </div>
+
+      <!-- Stroop Test (Attention) -->
+      <div class="gz-game-card gc-focus" onclick="openGame('focus-filter')">
+        <div class="gz-card-top">
+          <div class="gz-card-meta">
+            <span class="gz-card-category">Attention</span>
+            <span class="gz-card-icon">🎯</span>
+          </div>
+          <h4 class="gz-card-title">Focus Filter</h4>
+          <p class="gz-card-desc">Differentiate conflicting color words rapidly. Boosts cognitive flexibility, response inhibition, and distraction filtering.</p>
+        </div>
+        <div class="gz-card-stats">
+          <div class="gz-card-outcome">Skill: Selective Focus</div>
+          <div class="gz-card-highscore">Best: <span id="hs-focus-filter">0</span></div>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- 3. Fullscreen Game Overlay -->
+  <div class="gz-overlay" id="gz-overlay">
+    <div class="gz-overlay-container">
+      
+      <!-- SCREEN 1: Game Launchpad Info -->
+      <div class="gz-screen active" id="screen-info">
+        <div class="gz-info-card">
+          <div class="gz-info-header">
+            <div>
+              <span class="gz-card-category" id="info-game-cat" style="font-size: 0.8rem; margin-bottom: var(--space-xs); display: inline-block;">Numerical</span>
+              <h2 class="gz-info-title" id="info-game-title">Speed Arithmetic</h2>
+            </div>
+            <button class="gz-info-close" onclick="closeGameOverlay()">&times;</button>
+          </div>
+          <p class="gz-info-desc" id="info-game-desc">Detailed scientific game instructions go here.</p>
+
+          <h4 class="gz-modes-title">Choose Game Mode</h4>
+          <div class="gz-modes-row">
+            <div class="gz-mode-select-btn active" id="mode-practice" onclick="setMode('practice')">
+              <span class="gz-mode-icon">📖</span>
+              <span class="gz-mode-name">Practice Mode</span>
+              <span class="gz-mode-desc">No timer pressure. Learn loops and patterns at your own speed.</span>
+            </div>
+            <div class="gz-mode-select-btn" id="mode-timed" onclick="setMode('timed')">
+              <span class="gz-mode-icon">⏱️</span>
+              <span class="gz-mode-name">Timed Challenge</span>
+              <span class="gz-mode-desc">30-second speed run. Correct acts add time; incorrect ones subtract.</span>
+            </div>
+            <div class="gz-mode-select-btn" id="mode-challenge" onclick="setMode('challenge')">
+              <span class="gz-mode-icon">⚡</span>
+              <span class="gz-mode-name">Survival Mode</span>
+              <span class="gz-mode-desc">High difficulty waves. One mistake terminates the session.</span>
+            </div>
+          </div>
+
+          <button class="btn btn-primary btn-lg" style="width:100%; border-radius: var(--border-radius-md); font-weight: 700; padding: var(--space-md);" onclick="startGame()">Launch Training Session</button>
+        </div>
+      </div>
+
+      <!-- SCREEN 2: Gameplay Dashboard -->
+      <div class="gz-screen" id="screen-play">
+        <!-- HUD -->
+        <div class="gz-play-hud">
+          <div class="gz-hud-item">
+            <span class="gz-hud-lbl">Domain Mode</span>
+            <span class="gz-hud-val" id="hud-mode-text" style="color:var(--color-primary);">Practice</span>
+          </div>
+          <div class="gz-hud-item" style="text-align: center;">
+            <span class="gz-hud-lbl">Multiplier combo</span>
+            <span class="gz-hud-val gz-hud-multiplier" id="hud-combo">x1 🔥</span>
+          </div>
+          <div class="gz-hud-item" style="text-align: right;">
+            <span class="gz-hud-lbl">Current Score</span>
+            <span class="gz-hud-val" id="hud-score" style="font-family: var(--font-mono);">0000</span>
+          </div>
+        </div>
+
+        <!-- Timer bar -->
+        <div class="gz-timer-track" id="timer-track" style="visibility: hidden;">
+          <div class="gz-timer-bar" id="timer-fill"></div>
+        </div>
+
+        <!-- Game Board Panel -->
+        <div class="gz-play-board" id="play-board">
+          <canvas id="gz-particle-canvas"></canvas>
+          
+          <!-- Game screens will be dynamically injected here by gamezone.js -->
+        </div>
+
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <span style="font-size: 0.8rem; color: var(--color-text-tertiary);" id="play-extra-hint">Keyboard hotkeys active.</span>
+          <button class="btn" style="background:var(--color-background-tertiary); color:var(--color-text-primary); border-radius: var(--border-radius-sm); font-size: 0.85rem;" onclick="closeGameOverlay()">Quit Training</button>
+        </div>
+      </div>
+
+      <!-- SCREEN 3: Analytics Feedback (Post Game) -->
+      <div class="gz-screen" id="screen-summary">
+        <div class="gz-summary-card">
+          <div class="gz-summary-trophy">🏆</div>
+          <h2 class="gz-summary-title">Training Session Complete!</h2>
+          <p class="gz-info-desc" id="summary-phrase" style="margin-bottom:0;">Awesome job! Your brain is firing on all cylinders.</p>
+          
+          <div class="gz-summary-stats-grid">
+            <div class="gz-summary-stat-box">
+              <div class="gz-summary-stat-val" id="sum-score">0</div>
+              <div class="gz-summary-stat-lbl">Final Score</div>
+            </div>
+            <div class="gz-summary-stat-box">
+              <div class="gz-summary-stat-val xp-val" id="sum-xp">+0 XP</div>
+              <div class="gz-summary-stat-lbl">Cognitive XP</div>
+            </div>
+            <div class="gz-summary-stat-box">
+              <div class="gz-summary-stat-val" id="sum-accuracy">0%</div>
+              <div class="gz-summary-stat-lbl">Accuracy</div>
+            </div>
+            <div class="gz-summary-stat-box">
+              <div class="gz-summary-stat-val" id="sum-speed">0ms</div>
+              <div class="gz-summary-stat-lbl">Avg Response</div>
+            </div>
+          </div>
+
+          <div class="gz-insights-box" id="sum-insight" style="width:100%; max-width:440px; text-align:left;">
+            Keep playing to unlock advanced challenges and track daily trends.
+          </div>
+
+          <div style="display:flex; gap: var(--space-md); width: 100%; max-width:440px; margin-top:var(--space-md);">
+            <button class="btn" style="flex:1; background:var(--color-background-tertiary); color:var(--color-text-primary); border-radius: var(--border-radius-md); padding:var(--space-md); font-weight:700;" onclick="closeGameOverlay()">Exit to Lobby</button>
+            <button class="btn btn-primary" style="flex:1; border-radius: var(--border-radius-md); padding:var(--space-md); font-weight:700;" onclick="restartActiveGame()">Train Again</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <p class="footer-text">
+        Free forever. No ads. No sign-up required.
+      </p>
+      <div class="footer-links">
+        <a href="https://naveen-kr1.netlify.app/" target="_blank" rel="noopener">Portfolio</a>
+        <span class="footer-sep">&middot;</span>
+        <a href="https://github.com/Naveenk1013" target="_blank" rel="noopener">GitHub</a>
+        <span class="footer-sep">&middot;</span>
+        <a href="https://www.linkedin.com/in/naveen-kumar-8a40bb170/" target="_blank" rel="noopener">LinkedIn</a>
+        <span class="footer-sep">&middot;</span>
+        <a href="mailto:naveen.k1013@gmail.com">Email</a>
+      </div>
+      <p class="footer-managed">Managed by <a href="https://lancealot.in" target="_blank" rel="noopener">lancealot.in</a></p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/progress.js"></script>
+  <script src="js/gamezone.js"></script>
+
+</body>
+</html>

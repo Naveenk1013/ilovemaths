@@ -1,0 +1,600 @@
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Lora:ital,wght@0,400;0,600;1,400&display=swap');
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  .book {
+    font-family: 'Lora', Georgia, serif;
+    color: var(--color-text-primary);
+    max-width: 680px;
+    padding: 0;
+  }
+
+  .hero {
+    text-align: center;
+    padding: 2.5rem 1rem 2rem;
+    border-bottom: 0.5px solid var(--color-border-tertiary);
+    margin-bottom: 2rem;
+  }
+
+  .hero-eyebrow {
+    font-family: 'Lora', serif;
+    font-style: italic;
+    font-size: 13px;
+    color: var(--color-text-secondary);
+    letter-spacing: 0.08em;
+    margin-bottom: 0.75rem;
+  }
+
+  .hero-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--color-text-primary);
+    margin-bottom: 1rem;
+  }
+
+  .hero-sub {
+    font-size: 15px;
+    color: var(--color-text-secondary);
+    line-height: 1.8;
+    max-width: 480px;
+    margin: 0 auto 1.5rem;
+  }
+
+  .toc {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    margin-bottom: 0;
+  }
+
+  .toc-chip {
+    font-family: 'Playfair Display', serif;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 6px 14px;
+    border-radius: 999px;
+    border: 0.5px solid var(--color-border-secondary);
+    cursor: pointer;
+    background: var(--color-background-secondary);
+    color: var(--color-text-primary);
+    transition: background 0.18s, border-color 0.18s;
+  }
+
+  .toc-chip:hover { background: var(--color-background-tertiary); border-color: var(--color-border-primary); }
+
+  .chapter {
+    margin-bottom: 2.5rem;
+    border: 0.5px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 0.55s ease, transform 0.55s ease;
+  }
+
+  .chapter.visible { opacity: 1; transform: translateY(0); }
+
+  .chapter-header {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    padding: 1.25rem 1.5rem;
+    background: var(--color-background-secondary);
+    border-bottom: 0.5px solid var(--color-border-tertiary);
+  }
+
+  .symbol-badge {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 36px;
+    font-weight: 700;
+    width: 64px;
+    height: 64px;
+    min-width: 64px;
+    border-radius: var(--border-radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 0.5px solid var(--color-border-secondary);
+  }
+
+  .badge-pi    { background: #EEEDFE; color: #3C3489; border-color: #AFA9EC; }
+  .badge-e     { background: #E1F5EE; color: #085041; border-color: #5DCAA5; }
+  .badge-log   { background: #FAEEDA; color: #633806; border-color: #EF9F27; }
+  .badge-ln    { background: #FAECE7; color: #712B13; border-color: #F0997B; }
+  .badge-sigma { background: #E6F1FB; color: #0C447C; border-color: #85B7EB; }
+  .badge-int   { background: #FBEAF0; color: #72243E; border-color: #ED93B1; }
+  .badge-sqrt  { background: #EAF3DE; color: #27500A; border-color: #97C459; }
+  .badge-inf   { background: #F1EFE8; color: #444441; border-color: #B4B2A9; }
+
+  @media (prefers-color-scheme: dark) {
+    .badge-pi    { background: #3C3489; color: #CECBF6; border-color: #534AB7; }
+    .badge-e     { background: #085041; color: #9FE1CB; border-color: #0F6E56; }
+    .badge-log   { background: #633806; color: #FAC775; border-color: #BA7517; }
+    .badge-ln    { background: #712B13; color: #F5C4B3; border-color: #993C1D; }
+    .badge-sigma { background: #0C447C; color: #B5D4F4; border-color: #185FA5; }
+    .badge-int   { background: #72243E; color: #F4C0D1; border-color: #993556; }
+    .badge-sqrt  { background: #27500A; color: #C0DD97; border-color: #3B6D11; }
+    .badge-inf   { background: #444441; color: #D3D1C7; border-color: #888780; }
+  }
+
+  .chapter-meta { flex: 1; }
+
+  .chapter-num {
+    font-size: 11px;
+    font-style: italic;
+    color: var(--color-text-tertiary);
+    margin-bottom: 3px;
+    letter-spacing: 0.05em;
+  }
+
+  .chapter-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    line-height: 1.25;
+  }
+
+  .chapter-tagline {
+    font-size: 13px;
+    font-style: italic;
+    color: var(--color-text-secondary);
+    margin-top: 3px;
+  }
+
+  .chapter-body {
+    padding: 1.5rem;
+  }
+
+  .story-para {
+    font-size: 15px;
+    line-height: 1.85;
+    color: var(--color-text-primary);
+    margin-bottom: 1rem;
+  }
+
+  .story-para:last-child { margin-bottom: 0; }
+
+  .callout {
+    border-left: 3px solid;
+    padding: 0.9rem 1.1rem;
+    margin: 1.25rem 0;
+    border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
+    font-size: 14px;
+    line-height: 1.75;
+  }
+
+  .callout-pi    { border-color: #534AB7; background: #EEEDFE; color: #26215C; }
+  .callout-e     { border-color: #0F6E56; background: #E1F5EE; color: #04342C; }
+  .callout-log   { border-color: #BA7517; background: #FAEEDA; color: #412402; }
+  .callout-ln    { border-color: #993C1D; background: #FAECE7; color: #4A1B0C; }
+  .callout-sigma { border-color: #185FA5; background: #E6F1FB; color: #042C53; }
+  .callout-int   { border-color: #993556; background: #FBEAF0; color: #4B1528; }
+  .callout-sqrt  { border-color: #3B6D11; background: #EAF3DE; color: #173404; }
+  .callout-inf   { border-color: #5F5E5A; background: #F1EFE8; color: #2C2C2A; }
+
+  @media (prefers-color-scheme: dark) {
+    .callout-pi    { border-color: #AFA9EC; background: #26215C; color: #CECBF6; }
+    .callout-e     { border-color: #5DCAA5; background: #04342C; color: #9FE1CB; }
+    .callout-log   { border-color: #EF9F27; background: #412402; color: #FAC775; }
+    .callout-ln    { border-color: #F0997B; background: #4A1B0C; color: #F5C4B3; }
+    .callout-sigma { border-color: #85B7EB; background: #042C53; color: #B5D4F4; }
+    .callout-int   { border-color: #ED93B1; background: #4B1528; color: #F4C0D1; }
+    .callout-sqrt  { border-color: #97C459; background: #173404; color: #C0DD97; }
+    .callout-inf   { border-color: #B4B2A9; background: #2C2C2A; color: #D3D1C7; }
+  }
+
+  .callout-label {
+    font-weight: 600;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+    opacity: 0.75;
+  }
+
+  .example-box {
+    background: var(--color-background-secondary);
+    border: 0.5px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-md);
+    padding: 1rem 1.25rem;
+    margin: 1.25rem 0;
+    font-size: 14px;
+    line-height: 1.8;
+  }
+
+  .example-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-text-secondary);
+    margin-bottom: 8px;
+  }
+
+  .math-display {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+    padding: 0.75rem 0;
+    color: var(--color-text-primary);
+  }
+
+  .fun-fact {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    padding: 0.8rem 1rem;
+    background: var(--color-background-secondary);
+    border-radius: var(--border-radius-md);
+    margin-top: 1.25rem;
+    font-size: 13px;
+    line-height: 1.7;
+    color: var(--color-text-secondary);
+    border: 0.5px solid var(--color-border-tertiary);
+  }
+
+  .fun-icon { font-size: 18px; line-height: 1.4; flex-shrink: 0; }
+
+  .divider {
+    text-align: center;
+    color: var(--color-text-tertiary);
+    font-size: 18px;
+    letter-spacing: 0.3em;
+    padding: 1rem 0;
+    margin: 1rem 0;
+    border-top: 0.5px solid var(--color-border-tertiary);
+    border-bottom: 0.5px solid var(--color-border-tertiary);
+  }
+
+  .finale {
+    text-align: center;
+    padding: 2rem 1rem 1.5rem;
+    border-top: 0.5px solid var(--color-border-tertiary);
+    margin-top: 1rem;
+  }
+
+  .finale-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+  }
+
+  .finale-text {
+    font-size: 14px;
+    line-height: 1.8;
+    color: var(--color-text-secondary);
+    max-width: 460px;
+    margin: 0 auto 1.25rem;
+  }
+
+  .ask-btn {
+    font-family: 'Lora', serif;
+    font-size: 14px;
+    padding: 10px 22px;
+    border-radius: 999px;
+    border: 0.5px solid var(--color-border-secondary);
+    background: var(--color-background-secondary);
+    color: var(--color-text-primary);
+    cursor: pointer;
+    transition: background 0.18s;
+  }
+
+  .ask-btn:hover { background: var(--color-background-tertiary); }
+</style>
+
+<div class="book">
+  <h2 class="sr-only">A beginner's storybook guide to mathematical symbols — π, e, log, ln, Σ, ∫ and more explained simply</h2>
+
+  <div class="hero">
+    <p class="hero-eyebrow">a storybook for curious minds</p>
+    <h1 class="hero-title">Maths is Just<br><em>Stories in Disguise</em></h1>
+    <p class="hero-sub">Those scary-looking symbols? They're just shortcuts that mathematicians invented because they got tired of writing the same long sentences over and over. Let's meet them — one story at a time.</p>
+    <div class="toc">
+      <span class="toc-chip" onclick="document.getElementById('ch-pi').scrollIntoView({behavior:'smooth'})">π Pi</span>
+      <span class="toc-chip" onclick="document.getElementById('ch-e').scrollIntoView({behavior:'smooth'})">e Euler</span>
+      <span class="toc-chip" onclick="document.getElementById('ch-log').scrollIntoView({behavior:'smooth'})">log</span>
+      <span class="toc-chip" onclick="document.getElementById('ch-ln').scrollIntoView({behavior:'smooth'})">ln</span>
+      <span class="toc-chip" onclick="document.getElementById('ch-sigma').scrollIntoView({behavior:'smooth'})">Σ Sigma</span>
+      <span class="toc-chip" onclick="document.getElementById('ch-int').scrollIntoView({behavior:'smooth'})">∫ Integral</span>
+      <span class="toc-chip" onclick="document.getElementById('ch-sqrt').scrollIntoView({behavior:'smooth'})">√ Root</span>
+      <span class="toc-chip" onclick="document.getElementById('ch-inf').scrollIntoView({behavior:'smooth'})">∞ Infinity</span>
+    </div>
+  </div>
+
+  <div class="chapter" id="ch-pi">
+    <div class="chapter-header">
+      <div class="symbol-badge badge-pi">π</div>
+      <div class="chapter-meta">
+        <p class="chapter-num">Chapter 1</p>
+        <p class="chapter-title">Pi — The Circle's Secret</p>
+        <p class="chapter-tagline">≈ 3.14159… the number that never ends</p>
+      </div>
+    </div>
+    <div class="chapter-body">
+      <p class="story-para">Imagine you find a perfectly round plate. You want to know — how long is the edge of this plate? And how does that compare to how wide it is?</p>
+      <p class="story-para">So you take a thread, wrap it around the plate's edge, then stretch that thread straight. Surprise! That thread is always <em>exactly 3.14 times</em> the width of the plate. Always. For every circle in the universe. A coin, a pizza, the sun, a tiny button — all of them, same ratio.</p>
+
+      <div class="callout callout-pi">
+        <p class="callout-label">The secret in plain words</p>
+        <strong>π = how many times the width fits into the edge.</strong><br>
+        Wrap a thread around any circle. Straighten it. Divide by the width. You always get 3.14159…
+      </div>
+
+      <p class="story-para">Ancient people discovered this thousands of years ago. They noticed it was always the same mysterious number — never exactly 3, never exactly 3.2 — and its decimal digits go on <em>forever, never repeating</em>. So they gave it a special name from the Greek alphabet: <strong>π (pi)</strong>.</p>
+
+      <div class="example-box">
+        <p class="example-label">Real life example</p>
+        <p>Your bicycle tyre has a width (diameter) of 60 cm.<br>
+        How far do you travel in one full rotation of the wheel?</p>
+        <p class="math-display">Distance = π × 60 = 3.14159 × 60 ≈ 188 cm</p>
+        <p>One spin of the wheel carries you about 188 cm — almost 2 metres. That's π doing its job.</p>
+      </div>
+
+      <div class="fun-fact">
+        <span class="fun-icon"><i class="ti ti-bulb" aria-hidden="true"></i></span>
+        <span>People have memorised π to over 100,000 decimal places as a hobby. The digits go on forever — 3.14159265358979… — and no pattern ever repeats. It's a little bit magic.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="chapter" id="ch-e">
+    <div class="chapter-header">
+      <div class="symbol-badge badge-e">e</div>
+      <div class="chapter-meta">
+        <p class="chapter-num">Chapter 2</p>
+        <p class="chapter-title">e — The Superpower of Growth</p>
+        <p class="chapter-tagline">≈ 2.71828… the number hiding inside every living thing</p>
+      </div>
+    </div>
+    <div class="chapter-body">
+      <p class="story-para">Imagine you have ₹100 in a bank. The bank gives you 100% interest per year. At the end of the year — great, you have ₹200. Simple.</p>
+      <p class="story-para">Now what if the bank gives you 50% every 6 months instead? You'd have more than ₹200 because the interest is growing on itself too. What if they gave interest every day? Every second? Every single tiny moment?</p>
+      <p class="story-para">When you keep splitting the interest into tinier and tinier chunks — approaching every <em>instant</em> — the answer doesn't shoot to infinity. It settles perfectly at one special number:</p>
+
+      <div class="callout callout-e">
+        <p class="callout-label">e in plain words</p>
+        <strong>e ≈ 2.71828…</strong><br>
+        It is what ₹1 grows to when interest is compounded every single instant for one year at 100%. Nature uses this number to grow everything — bacteria, populations, radioactive decay, even your savings.
+      </div>
+
+      <p class="story-para">A single bacterium becomes 2 after an hour, 4 after two hours, 8 after three… This <em>doubling growth</em> is powered by <strong>e</strong>. The formula for any growing thing — cells, epidemics, investments, star explosions — almost always has <strong>e</strong> hiding somewhere inside it.</p>
+
+      <div class="example-box">
+        <p class="example-label">Zombie apocalypse analogy</p>
+        <p>One zombie appears in a city. Each zombie creates one new zombie every hour continuously. After just 3 hours:</p>
+        <p class="math-display">Zombies = e³ ≈ 20 zombies</p>
+        <p>That's the power of <em>e</em>. Continuous, relentless, exponential growth. Replace "zombie" with "bacteria" or "rupees" — same formula.</p>
+      </div>
+
+      <div class="fun-fact">
+        <span class="fun-icon"><i class="ti ti-plant" aria-hidden="true"></i></span>
+        <span>Snail shells spiral, flowers arrange their petals, and populations explode — all following patterns rooted in <em>e</em>. It is, perhaps, the most naturally occurring number in the universe.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="chapter" id="ch-log">
+    <div class="chapter-header">
+      <div class="symbol-badge badge-log">log</div>
+      <div class="chapter-meta">
+        <p class="chapter-num">Chapter 3</p>
+        <p class="chapter-title">Logarithm — The "How Many Times?" Question</p>
+        <p class="chapter-tagline">The undo button for multiplication</p>
+      </div>
+    </div>
+    <div class="chapter-body">
+      <p class="story-para">You know multiplication. 10 × 10 = 100. 10 × 10 × 10 = 1000. But what if someone gives you 1,000,000 and asks — "how many times did someone multiply 10 by itself to get here?"</p>
+      <p class="story-para">You already know the answer — 6 times. That's exactly what <strong>log</strong> does. It asks: <em>how many times was this number multiplied by itself?</em></p>
+
+      <div class="callout callout-log">
+        <p class="callout-label">log in plain words</p>
+        <strong>log₁₀(1000) = 3</strong> means "10 was multiplied by itself 3 times to make 1000."<br><br>
+        Think of it as the reverse of a power. If powers are <em>stairs going up</em>, log is <em>counting how many stairs you climbed</em>.
+      </div>
+
+      <p class="story-para">Why is this useful? Because the real world often grows in <em>multiplications</em>, not additions. An earthquake 100× stronger than another? Richter scale uses logs. Sound 1000× louder? Decibels use logs. The human ear itself perceives loudness on a log scale — that's why a whisper and a shout feel "not that different" even though the sound energy is astronomically different.</p>
+
+      <div class="example-box">
+        <p class="example-label">The Richter scale story</p>
+        <p>A magnitude 5 earthquake is not "1 more" than magnitude 4.</p>
+        <p class="math-display">Magnitude 5 = 10× more powerful than Magnitude 4</p>
+        <p>Magnitude 6 = 100× more. Magnitude 7 = 1000× more. Log compresses these enormous differences into small, human-readable numbers.</p>
+      </div>
+
+      <div class="fun-fact">
+        <span class="fun-icon"><i class="ti ti-ear" aria-hidden="true"></i></span>
+        <span>Your brain is a log calculator. When music goes from 1× to 10× louder, you don't feel it as "10 times louder" — you feel it as "a little bit louder." Evolution built logarithms right into your senses.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="chapter" id="ch-ln">
+    <div class="chapter-header">
+      <div class="symbol-badge badge-ln">ln</div>
+      <div class="chapter-meta">
+        <p class="chapter-num">Chapter 4</p>
+        <p class="chapter-title">ln — The Natural Log, Log's Cooler Sibling</p>
+        <p class="chapter-tagline">log with e as the base — growth's own reverse gear</p>
+      </div>
+    </div>
+    <div class="chapter-body">
+      <p class="story-para">Remember our friend <strong>e</strong>? The number of continuous growth? Well, <strong>ln</strong> (the natural logarithm) is simply the log that uses <em>e</em> as its base instead of 10.</p>
+      <p class="story-para">If log asks "how many times was 10 multiplied?", ln asks "how many times was <em>e</em> multiplied?" And since <em>e</em> is the number behind all natural growth, <em>ln</em> is the number behind all natural <em>reversal</em> of growth.</p>
+
+      <div class="callout callout-ln">
+        <p class="callout-label">ln in plain words</p>
+        <strong>ln(x)</strong> = "How long did it take for continuous growth to reach x, starting from 1?"<br><br>
+        If <em>e</em> is the accelerator pedal, <em>ln</em> is the odometer — it tells you how far you've come.
+      </div>
+
+      <div class="example-box">
+        <p class="example-label">Carbon dating — real world superpower</p>
+        <p>Scientists use ln to figure out how old ancient bones are. Radioactive carbon decays naturally (following e), and ln reverses that to calculate time:</p>
+        <p class="math-display">Age = ln(remaining carbon / original) ÷ decay rate</p>
+        <p>They found that a pharaoh's mummy has 60% of its original carbon. ln tells us exactly how many years ago it was alive. That's ln solving a 3,000-year-old mystery.</p>
+      </div>
+
+      <div class="fun-fact">
+        <span class="fun-icon"><i class="ti ti-atom" aria-hidden="true"></i></span>
+        <span>ln is the most "natural" of all logarithms. It appears in physics, biology, economics, and information theory. Wherever e shows up — and that's everywhere — ln is right around the corner.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="chapter" id="ch-sigma">
+    <div class="chapter-header">
+      <div class="symbol-badge badge-sigma">Σ</div>
+      <div class="chapter-meta">
+        <p class="chapter-num">Chapter 5</p>
+        <p class="chapter-title">Sigma — The Lazy Mathematician's Best Friend</p>
+        <p class="chapter-tagline">Because nobody wants to write "add everything" fifty times</p>
+      </div>
+    </div>
+    <div class="chapter-body">
+      <p class="story-para">Imagine you're a teacher and you want to add up the marks of 50 students. You could write:</p>
+      <p class="story-para" style="text-align:center; font-style: italic; color: var(--color-text-secondary);">marks₁ + marks₂ + marks₃ + marks₄ + … + marks₅₀</p>
+      <p class="story-para">That's exhausting just to write. So mathematicians invented a shorthand. They took the Greek letter <strong>Σ (Sigma)</strong> — which looks like a big S, standing for "Sum" — and turned it into a command:</p>
+
+      <div class="callout callout-sigma">
+        <p class="callout-label">Σ in plain words</p>
+        <strong>Σ means "add up all of these."</strong><br><br>
+        The numbers on top and bottom tell you where to start and stop. The expression after it tells you what to add. It's like a "for loop" in coding — a compact instruction to repeat something many times.
+      </div>
+
+      <div class="example-box">
+        <p class="example-label">What Σ actually says</p>
+        <p>Instead of 1 + 2 + 3 + 4 + 5, a mathematician writes:</p>
+        <p class="math-display">Σ (from i=1 to 5) of i</p>
+        <p>Translation: "Start at 1, go to 5, add each number along the way." Result: 15.<br><br>
+        In machine learning, when AI calculates your recommendation feed — it adds up weighted scores of hundreds of videos. That entire process is one big Σ.</p>
+      </div>
+
+      <p class="story-para">Every average you've ever calculated — your CGPA, a cricket batting average, a movie rating — uses Σ behind the scenes. It's the most quietly used symbol in all of mathematics.</p>
+
+      <div class="fun-fact">
+        <span class="fun-icon"><i class="ti ti-cpu" aria-hidden="true"></i></span>
+        <span>Every neural network — the technology inside ChatGPT, image recognition, voice assistants — is essentially a chain of Σ operations happening millions of times per second. Σ is the heartbeat of modern AI.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="chapter" id="ch-int">
+    <div class="chapter-header">
+      <div class="symbol-badge badge-int">∫</div>
+      <div class="chapter-meta">
+        <p class="chapter-num">Chapter 6</p>
+        <p class="chapter-title">Integral — Counting the Uncountable</p>
+        <p class="chapter-tagline">Like Σ but for infinitely thin slices</p>
+      </div>
+    </div>
+    <div class="chapter-body">
+      <p class="story-para">You know how to find the area of a rectangle — length × width. Easy. But what's the area of a curved shape? Like the area under a curvy hill? There are no straight edges to multiply.</p>
+      <p class="story-para">Here's a clever trick: slice the curved shape into thousands of super-thin rectangles. Each is so thin it's nearly a line. Find the area of each tiny rectangle. Add them all up. The more slices you use, the more accurate your answer gets.</p>
+      <p class="story-para">The <strong>∫ (integral)</strong> symbol is Σ taken to the extreme — it's "add up infinitely many, infinitely thin slices." The symbol itself is literally a stretched-out S, for "Sum."</p>
+
+      <div class="callout callout-int">
+        <p class="callout-label">∫ in plain words</p>
+        <strong>∫ means "slice into infinite tiny pieces and add them all up."</strong><br><br>
+        If Σ is adding 50 student marks, ∫ is adding up every single point in a continuous curve — infinitely many of them.
+      </div>
+
+      <div class="example-box">
+        <p class="example-label">How your Uber knows the fare</p>
+        <p>Your Uber doesn't just measure straight-line distance. Your car curves, turns, slows down, speeds up. The app calculates the total distance by slicing your journey into thousands of tiny segments and adding them up:</p>
+        <p class="math-display">Total distance = ∫ (speed at each tiny moment × that tiny moment of time)</p>
+        <p>Every GPS navigation, every animation in a video game, every prediction of where a rocket lands — all powered by integration.</p>
+      </div>
+
+      <div class="fun-fact">
+        <span class="fun-icon"><i class="ti ti-rocket" aria-hidden="true"></i></span>
+        <span>When NASA calculates a rocket's trajectory to Mars, they're solving enormous integrals — adding up millions of tiny forces (gravity, thrust, solar pressure) acting on the rocket over the course of months. ∫ sends things to space.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="chapter" id="ch-sqrt">
+    <div class="chapter-header">
+      <div class="symbol-badge badge-sqrt">√</div>
+      <div class="chapter-meta">
+        <p class="chapter-num">Chapter 7</p>
+        <p class="chapter-title">Square Root — Finding the Original</p>
+        <p class="chapter-tagline">If squaring is the question, √ is the answer</p>
+      </div>
+    </div>
+    <div class="chapter-body">
+      <p class="story-para">You have a square room with an area of 25 square metres. What is the length of one wall? That's it. That's the square root. √25 = 5. Simple as that.</p>
+      <p class="story-para">√ (read as "root") asks: <em>what number, when multiplied by itself, gives me this?</em> It's the undo button for squaring. If squaring is "fold the number onto itself," the root is "unfold it back."</p>
+
+      <div class="callout callout-sqrt">
+        <p class="callout-label">√ in plain words</p>
+        <strong>√9 = 3</strong> because 3 × 3 = 9.<br>
+        <strong>√100 = 10</strong> because 10 × 10 = 100.<br><br>
+        Think of it as finding the side of a square, if you already know its area.
+      </div>
+
+      <div class="example-box">
+        <p class="example-label">The WhatsApp group photo problem</p>
+        <p>You want to arrange 36 friends in a perfect square photo grid. How many columns and rows?</p>
+        <p class="math-display">√36 = 6 rows × 6 columns = 36 friends ✓</p>
+        <p>Engineers use this to split workloads evenly, designers use it to build perfect grids, architects use it to plan tiling — √ is quietly everywhere.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="chapter" id="ch-inf">
+    <div class="chapter-header">
+      <div class="symbol-badge badge-inf">∞</div>
+      <div class="chapter-meta">
+        <p class="chapter-num">Chapter 8</p>
+        <p class="chapter-title">Infinity — Not a Number, a Direction</p>
+        <p class="chapter-tagline">The concept that broke and rebuilt mathematics</p>
+      </div>
+    </div>
+    <div class="chapter-body">
+      <p class="story-para">Here's a question a child once asked a mathematician: "What's the biggest number?" The mathematician smiled and said, "There isn't one." Add 1 to any number, and you get a bigger number. Always. Forever.</p>
+      <p class="story-para"><strong>∞ (infinity)</strong> is not a number you can reach or touch. It's a <em>direction</em>. Like "north" — you can keep walking north forever, but "north" is not a place you arrive at. ∞ is the mathematical way of saying "keeps going, without stopping, forever."</p>
+
+      <div class="callout callout-inf">
+        <p class="callout-label">∞ in plain words</p>
+        <strong>∞ is a concept, not a quantity.</strong><br><br>
+        You can't add ∞ + 1 and get "infinity plus one." That's why ∞ is written separately — it behaves by completely different rules than normal numbers.
+      </div>
+
+      <div class="example-box">
+        <p class="example-label">The hotel with infinite rooms</p>
+        <p>Imagine a hotel with infinite rooms, all occupied. A new guest arrives. Can they get a room?</p>
+        <p>Yes! Move every guest from room N to room N+1. Room 1 is now free. This thought experiment — Hilbert's Hotel — shows that infinity + 1 = infinity. Infinity is wonderfully, maddingly weird.</p>
+      </div>
+
+      <div class="fun-fact">
+        <span class="fun-icon"><i class="ti ti-infinity" aria-hidden="true"></i></span>
+        <span>There are different <em>sizes</em> of infinity. The infinity of whole numbers (1, 2, 3…) is actually smaller than the infinity of all decimal numbers between 0 and 1. Georg Cantor proved this in 1891 and it drove him a little bit mad. Infinity is not simple.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider">· · · · ·</div>
+
+  <div class="finale">
+    <p class="finale-title">You just met the whole gang.</p>
+    <p class="finale-text">π lives in every circle. <em>e</em> lives in every growing thing. log and ln reverse that growth. Σ adds everything up. ∫ adds up the infinitely tiny. √ unravels squares. And ∞ reminds us that maths is bigger than any answer we can write down.</p>
+    <p class="finale-text" style="font-style: italic;">Maths was never meant to be scary. It was meant to be <em>wonder</em>, written in shorthand.</p>
+    <button class="ask-btn" onclick="sendPrompt('Can you explain one of these symbols with a more detailed example or story? I want to go deeper.')">Go deeper into any symbol ↗</button>
+  </div>
+</div>
+
+<script>
+const chapters = document.querySelectorAll('.chapter');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.08 });
+chapters.forEach(c => observer.observe(c));
+</script>

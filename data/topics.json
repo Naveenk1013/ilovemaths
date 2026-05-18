@@ -12,6 +12,18 @@
     "unit": 1
   },
   {
+    "id": "story-of-symbols",
+    "title": "Story of Symbols",
+    "description": "Understand what π, e, log, ln, Σ, ∫, √, and ∞ actually mean through stories and visual sandbox labs.",
+    "category": "Foundation",
+    "icon": "∞",
+    "difficulty": "beginner",
+    "status": "live",
+    "path": "symbols.html",
+    "questionsCount": 0,
+    "unit": 1.5
+  },
+  {
     "id": "number-systems",
     "title": "Number Systems",
     "description": "Natural, whole, integer, rational, irrational, and real numbers — understand each type clearly.",

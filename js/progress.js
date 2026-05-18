@@ -52,6 +52,19 @@ const ProgressTracker = (function () {
   return {
     /** Mark a topic as completed with a score */
     markComplete(topicId, scorePct = 100) {
+      if (!topicId || topicId === '') {
+        try {
+          const path = window.location.pathname;
+          const file = path.substring(path.lastIndexOf('/') + 1);
+          let parsed = file.replace('.html', '');
+          if (parsed === 'foundation') parsed = 'basic-foundation';
+          if (parsed === 'symbols') parsed = 'story-of-symbols';
+          topicId = parsed || 'basic-foundation';
+        } catch (e) {
+          topicId = 'basic-foundation';
+        }
+      }
+
       const data = _read();
       
       // Log topic score
