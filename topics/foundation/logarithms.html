@@ -73,6 +73,7 @@
         
         <div class="tab-nav">
           <button class="tab-btn active" data-target="ref">Concept Reference</button>
+          <button class="tab-btn" data-target="solved">Solved Examples</button>
           <button class="tab-btn" data-target="quiz">Interactive Quiz</button>
           <button class="tab-btn" data-target="tips">Tips & Tricks</button>
         </div>
@@ -175,6 +176,101 @@
         <!-- =========================================
              TAB 2: INTERACTIVE QUIZ
              ========================================= -->
+        
+        <!-- SOLVED EXAMPLES -->
+        <div class="tab-pane" id="pane-solved">
+          <div class="solved-examples-container">
+            
+          <!-- Example 1 -->
+          <div class="solved-example-card">
+            <div class="solved-example-header">
+              <span class="solved-badge">Example 1 · Solve Logarithmic Equation</span>
+              <div class="solved-timer" id="timer-1">
+                <span class="timer-display">00:00</span>
+                <button class="timer-btn" onclick="toggleTimer(1)">Start Timer ⏱️</button>
+              </div>
+            </div>
+            <div class="solved-question">
+              Solve the equation for $x$:<br>$\log_2(x - 3) = 4$
+            </div>
+            <div class="solved-solution-wrap" id="solution-1">
+              <button class="btn btn-primary btn-reveal" onclick="revealSolution(1)">Reveal Step-by-Step Solution 👁️</button>
+              <div class="solved-steps" style="display: none;">
+                
+                <div class="solved-step">
+                  <div class="step-num">Step 1</div>
+                  <div class="step-content">
+                    <div class="step-math">$2^4 = x - 3$</div>
+                    <div class="step-desc">Convert the logarithmic equation into its equivalent exponential form.</div>
+                  </div>
+                </div>
+                <div class="solved-step">
+                  <div class="step-num">Step 2</div>
+                  <div class="step-content">
+                    <div class="step-math">$16 = x - 3$</div>
+                    <div class="step-desc">Evaluate $2^4$, which is $2 \times 2 \times 2 \times 2 = 16$.</div>
+                  </div>
+                </div>
+                <div class="solved-step">
+                  <div class="step-num">Step 3</div>
+                  <div class="step-content">
+                    <div class="step-math">$x = 16 + 3 = 19$</div>
+                    <div class="step-desc">Isolate $x$ by adding 3 to both sides of the equation.</div>
+                  </div>
+                </div>
+                <div class="solved-success-box">
+                  <strong>Final Answer:</strong> $x = 19$
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Example 2 -->
+          <div class="solved-example-card">
+            <div class="solved-example-header">
+              <span class="solved-badge">Example 2 · Expanding Logarithms</span>
+              <div class="solved-timer" id="timer-2">
+                <span class="timer-display">00:00</span>
+                <button class="timer-btn" onclick="toggleTimer(2)">Start Timer ⏱️</button>
+              </div>
+            </div>
+            <div class="solved-question">
+              Expand the expression into sum and differences of simpler logarithms:<br>$\log\left(\frac{x^3 y}{z^2}\right)$
+            </div>
+            <div class="solved-solution-wrap" id="solution-2">
+              <button class="btn btn-primary btn-reveal" onclick="revealSolution(2)">Reveal Step-by-Step Solution 👁️</button>
+              <div class="solved-steps" style="display: none;">
+                
+                <div class="solved-step">
+                  <div class="step-num">Step 1</div>
+                  <div class="step-content">
+                    <div class="step-math">$\log(x^3 y) - \log(z^2)$</div>
+                    <div class="step-desc">Apply the Quotient Rule: $\log(A/B) = \log A - \log B$.</div>
+                  </div>
+                </div>
+                <div class="solved-step">
+                  <div class="step-num">Step 2</div>
+                  <div class="step-content">
+                    <div class="step-math">$\log(x^3) + \log(y) - \log(z^2)$</div>
+                    <div class="step-desc">Apply the Product Rule to the numerator: $\log(AB) = \log A + \log B$.</div>
+                  </div>
+                </div>
+                <div class="solved-step">
+                  <div class="step-num">Step 3</div>
+                  <div class="step-content">
+                    <div class="step-math">$3\log(x) + \log(y) - 2\log(z)$</div>
+                    <div class="step-desc">Apply the Power Rule: $\log(A^c) = c\log A$ for both exponential terms.</div>
+                  </div>
+                </div>
+                <div class="solved-success-box">
+                  <strong>Final Answer:</strong> $3\log(x) + \log(y) - 2\log(z)$
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+  
         <div class="tab-pane" id="pane-quiz">
           <div class="quiz-engine">
             <div class="qe-header">
@@ -287,6 +383,54 @@
     });
 
     window.logarithmsQuiz.start();
+  
+    /* ── Solved Examples Active Logic ── */
+    const timers = {};
+    window.toggleTimer = function(id) {
+      const btn = document.querySelector(`#timer-${id} .timer-btn`);
+      const display = document.querySelector(`#timer-${id} .timer-display`);
+      
+      if (timers[id]) {
+        // Stop timer
+        clearInterval(timers[id].interval);
+        timers[id] = null;
+        btn.textContent = 'Start Timer ⏱️';
+        btn.classList.remove('running');
+      } else {
+        // Start timer
+        let seconds = 0;
+        btn.textContent = 'Pause ⏱️';
+        btn.classList.add('running');
+        
+        const interval = setInterval(() => {
+          seconds++;
+          const mins = Math.floor(seconds / 60).toString().padStart(2, '0');
+          const secs = (seconds % 60).toString().padStart(2, '0');
+          display.textContent = `${mins}:${secs}`;
+        }, 1000);
+        
+        timers[id] = { interval, seconds };
+      }
+    };
+
+    window.revealSolution = function(id) {
+      const wrap = document.getElementById(`solution-${id}`);
+      const btn = wrap.querySelector('.btn-reveal');
+      const steps = wrap.querySelector('.solved-steps');
+      
+      if (steps.style.display === 'none') {
+        steps.style.display = 'flex';
+        btn.innerHTML = 'Hide Solution 👁️';
+        btn.style.background = 'var(--color-surface-hover)';
+        btn.style.color = 'var(--color-text-primary)';
+      } else {
+        steps.style.display = 'none';
+        btn.innerHTML = 'Reveal Step-by-Step Solution 👁️';
+        btn.style.background = 'var(--color-accent)';
+        btn.style.color = '#ffffff';
+      }
+    };
+  
   </script>
 
 </body>

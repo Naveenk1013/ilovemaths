@@ -54,6 +54,7 @@
         <p class="topic-desc">Using a small sample to predict the behavior of an entire population.</p>
         <div class="tab-nav">
           <button class="tab-btn active" data-target="ref">Concept Reference</button>
+          <button class="tab-btn" data-target="solved">Solved Examples</button>
           <button class="tab-btn" data-target="quiz">Interactive Quiz</button>
         </div>
       </header>
@@ -84,6 +85,57 @@
           </div>
         </div>
 
+        
+        <!-- SOLVED EXAMPLES -->
+        <div class="tab-pane" id="pane-solved">
+          <div class="solved-examples-container">
+            
+          <!-- Example 1 -->
+          <div class="solved-example-card">
+            <div class="solved-example-header">
+              <span class="solved-badge">Example 1 · Confidence Interval</span>
+              <div class="solved-timer" id="timer-1">
+                <span class="timer-display">00:00</span>
+                <button class="timer-btn" onclick="toggleTimer(1)">Start Timer ⏱️</button>
+              </div>
+            </div>
+            <div class="solved-question">
+              Find a 95% Confidence Interval for sample mean $\bar{x} = 50$, standard deviation $\sigma = 10$, and sample size $n = 100$. (Use $z = 1.96$)
+            </div>
+            <div class="solved-solution-wrap" id="solution-1">
+              <button class="btn btn-primary btn-reveal" onclick="revealSolution(1)">Reveal Step-by-Step Solution 👁️</button>
+              <div class="solved-steps" style="display: none;">
+                
+                <div class="solved-step">
+                  <div class="step-num">Step 1</div>
+                  <div class="step-content">
+                    <div class="step-math">$\text{Margin of Error } E = z \cdot \frac{\sigma}{\sqrt{n}}$</div>
+                    <div class="step-desc">State the confidence interval error margin formula.</div>
+                  </div>
+                </div>
+                <div class="solved-step">
+                  <div class="step-num">Step 2</div>
+                  <div class="step-content">
+                    <div class="step-math">$E = 1.96 \cdot \frac{10}{\sqrt{100}} = 1.96 \cdot 1 = 1.96$</div>
+                    <div class="step-desc">Substitute the given values into the formula and solve.</div>
+                  </div>
+                </div>
+                <div class="solved-step">
+                  <div class="step-num">Step 3</div>
+                  <div class="step-content">
+                    <div class="step-math">$\text{CI} = [50 - 1.96, \, 50 + 1.96] = [48.04, \, 51.96]$</div>
+                    <div class="step-desc">Subtract and add the margin of error from the sample mean.</div>
+                  </div>
+                </div>
+                <div class="solved-success-box">
+                  <strong>Final Answer:</strong> $[48.04, \, 51.96]$
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+  
         <!-- INTERACTIVE QUIZ -->
         <div class="tab-pane" id="pane-quiz">
           <div class="quiz-engine">
@@ -124,6 +176,54 @@
       }
     });
     window.estQuiz.start();
+  
+    /* ── Solved Examples Active Logic ── */
+    const timers = {};
+    window.toggleTimer = function(id) {
+      const btn = document.querySelector(`#timer-${id} .timer-btn`);
+      const display = document.querySelector(`#timer-${id} .timer-display`);
+      
+      if (timers[id]) {
+        // Stop timer
+        clearInterval(timers[id].interval);
+        timers[id] = null;
+        btn.textContent = 'Start Timer ⏱️';
+        btn.classList.remove('running');
+      } else {
+        // Start timer
+        let seconds = 0;
+        btn.textContent = 'Pause ⏱️';
+        btn.classList.add('running');
+        
+        const interval = setInterval(() => {
+          seconds++;
+          const mins = Math.floor(seconds / 60).toString().padStart(2, '0');
+          const secs = (seconds % 60).toString().padStart(2, '0');
+          display.textContent = `${mins}:${secs}`;
+        }, 1000);
+        
+        timers[id] = { interval, seconds };
+      }
+    };
+
+    window.revealSolution = function(id) {
+      const wrap = document.getElementById(`solution-${id}`);
+      const btn = wrap.querySelector('.btn-reveal');
+      const steps = wrap.querySelector('.solved-steps');
+      
+      if (steps.style.display === 'none') {
+        steps.style.display = 'flex';
+        btn.innerHTML = 'Hide Solution 👁️';
+        btn.style.background = 'var(--color-surface-hover)';
+        btn.style.color = 'var(--color-text-primary)';
+      } else {
+        steps.style.display = 'none';
+        btn.innerHTML = 'Reveal Step-by-Step Solution 👁️';
+        btn.style.background = 'var(--color-accent)';
+        btn.style.color = '#ffffff';
+      }
+    };
+  
   </script>
 </body>
 </html>

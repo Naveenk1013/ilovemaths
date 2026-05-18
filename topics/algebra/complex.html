@@ -54,6 +54,7 @@
         <p class="topic-desc">What happens when you take the square root of a negative number? Enter the imaginary unit $i$.</p>
         <div class="tab-nav">
           <button class="tab-btn active" data-target="ref">Concept Reference</button>
+          <button class="tab-btn" data-target="solved">Solved Examples</button>
           <button class="tab-btn" data-target="quiz">Interactive Quiz</button>
         </div>
       </header>
@@ -99,6 +100,64 @@
           </div>
         </div>
 
+        
+        <!-- SOLVED EXAMPLES -->
+        <div class="tab-pane" id="pane-solved">
+          <div class="solved-examples-container">
+            
+          <!-- Example 1 -->
+          <div class="solved-example-card">
+            <div class="solved-example-header">
+              <span class="solved-badge">Example 1 · Division of Complex Numbers</span>
+              <div class="solved-timer" id="timer-1">
+                <span class="timer-display">00:00</span>
+                <button class="timer-btn" onclick="toggleTimer(1)">Start Timer ⏱️</button>
+              </div>
+            </div>
+            <div class="solved-question">
+              Divide $3 + 2i$ by $1 - i$ and express in standard form $a + bi$.
+            </div>
+            <div class="solved-solution-wrap" id="solution-1">
+              <button class="btn btn-primary btn-reveal" onclick="revealSolution(1)">Reveal Step-by-Step Solution 👁️</button>
+              <div class="solved-steps" style="display: none;">
+                
+                <div class="solved-step">
+                  <div class="step-num">Step 1</div>
+                  <div class="step-content">
+                    <div class="step-math">$\frac{3 + 2i}{1 - i} \cdot \frac{1 + i}{1 + i}$</div>
+                    <div class="step-desc">Multiply numerator and denominator by the conjugate of the denominator.</div>
+                  </div>
+                </div>
+                <div class="solved-step">
+                  <div class="step-num">Step 2</div>
+                  <div class="step-content">
+                    <div class="step-math">$\text{Num} = 3(1) + 3(i) + 2i(1) + 2i(i) = 3 + 5i - 2 = 1 + 5i$</div>
+                    <div class="step-desc">Expand the numerator using FOIL and simplify using $i^2 = -1$.</div>
+                  </div>
+                </div>
+                <div class="solved-step">
+                  <div class="step-num">Step 3</div>
+                  <div class="step-content">
+                    <div class="step-math">$\text{Denom} = 1^2 - i^2 = 1 - (-1) = 2$</div>
+                    <div class="step-desc">Multiply the difference of squares in the denominator.</div>
+                  </div>
+                </div>
+                <div class="solved-step">
+                  <div class="step-num">Step 4</div>
+                  <div class="step-content">
+                    <div class="step-math">$\text{Result} = \frac{1 + 5i}{2} = \frac{1}{2} + \frac{5}{2}i$</div>
+                    <div class="step-desc">Separate into real and imaginary components.</div>
+                  </div>
+                </div>
+                <div class="solved-success-box">
+                  <strong>Final Answer:</strong> $\frac{1}{2} + \frac{5}{2}i$
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+  
         <!-- INTERACTIVE QUIZ -->
         <div class="tab-pane" id="pane-quiz">
           <div class="quiz-engine">
@@ -140,6 +199,54 @@
       }
     });
     window.complexQuiz.start();
+  
+    /* ── Solved Examples Active Logic ── */
+    const timers = {};
+    window.toggleTimer = function(id) {
+      const btn = document.querySelector(`#timer-${id} .timer-btn`);
+      const display = document.querySelector(`#timer-${id} .timer-display`);
+      
+      if (timers[id]) {
+        // Stop timer
+        clearInterval(timers[id].interval);
+        timers[id] = null;
+        btn.textContent = 'Start Timer ⏱️';
+        btn.classList.remove('running');
+      } else {
+        // Start timer
+        let seconds = 0;
+        btn.textContent = 'Pause ⏱️';
+        btn.classList.add('running');
+        
+        const interval = setInterval(() => {
+          seconds++;
+          const mins = Math.floor(seconds / 60).toString().padStart(2, '0');
+          const secs = (seconds % 60).toString().padStart(2, '0');
+          display.textContent = `${mins}:${secs}`;
+        }, 1000);
+        
+        timers[id] = { interval, seconds };
+      }
+    };
+
+    window.revealSolution = function(id) {
+      const wrap = document.getElementById(`solution-${id}`);
+      const btn = wrap.querySelector('.btn-reveal');
+      const steps = wrap.querySelector('.solved-steps');
+      
+      if (steps.style.display === 'none') {
+        steps.style.display = 'flex';
+        btn.innerHTML = 'Hide Solution 👁️';
+        btn.style.background = 'var(--color-surface-hover)';
+        btn.style.color = 'var(--color-text-primary)';
+      } else {
+        steps.style.display = 'none';
+        btn.innerHTML = 'Reveal Step-by-Step Solution 👁️';
+        btn.style.background = 'var(--color-accent)';
+        btn.style.color = '#ffffff';
+      }
+    };
+  
   </script>
 </body>
 </html>

@@ -73,6 +73,7 @@
         
         <div class="tab-nav">
           <button class="tab-btn active" data-target="ref">Concept Reference</button>
+          <button class="tab-btn" data-target="solved">Solved Examples</button>
           <button class="tab-btn" data-target="quiz">Interactive Quiz</button>
           <button class="tab-btn" data-target="tips">Tips & Tricks</button>
         </div>
@@ -183,6 +184,78 @@
         <!-- =========================================
              TAB 2: INTERACTIVE QUIZ
              ========================================= -->
+        
+        <!-- SOLVED EXAMPLES -->
+        <div class="tab-pane" id="pane-solved">
+          <div class="solved-examples-container">
+            
+          <!-- Example 1 -->
+          <div class="solved-example-card">
+            <div class="solved-example-header">
+              <span class="solved-badge">Example 1 · Radix Conversion</span>
+              <div class="solved-timer" id="timer-1">
+                <span class="timer-display">00:00</span>
+                <button class="timer-btn" onclick="toggleTimer(1)">Start Timer ⏱️</button>
+              </div>
+            </div>
+            <div class="solved-question">
+              Convert decimal number $25_{10}$ to binary.
+            </div>
+            <div class="solved-solution-wrap" id="solution-1">
+              <button class="btn btn-primary btn-reveal" onclick="revealSolution(1)">Reveal Step-by-Step Solution 👁️</button>
+              <div class="solved-steps" style="display: none;">
+                
+                <div class="solved-step">
+                  <div class="step-num">Step 1</div>
+                  <div class="step-content">
+                    <div class="step-math">$25 \div 2 = 12 \quad R = 1$</div>
+                    <div class="step-desc">Divide 25 by 2. Record quotient 12 and remainder 1.</div>
+                  </div>
+                </div>
+                <div class="solved-step">
+                  <div class="step-num">Step 2</div>
+                  <div class="step-content">
+                    <div class="step-math">$12 \div 2 = 6 \quad R = 0$</div>
+                    <div class="step-desc">Divide 12 by 2. Record quotient 6 and remainder 0.</div>
+                  </div>
+                </div>
+                <div class="solved-step">
+                  <div class="step-num">Step 3</div>
+                  <div class="step-content">
+                    <div class="step-math">$6 \div 2 = 3 \quad R = 0$</div>
+                    <div class="step-desc">Divide 6 by 2. Record quotient 3 and remainder 0.</div>
+                  </div>
+                </div>
+                <div class="solved-step">
+                  <div class="step-num">Step 4</div>
+                  <div class="step-content">
+                    <div class="step-math">$3 \div 2 = 1 \quad R = 1$</div>
+                    <div class="step-desc">Divide 3 by 2. Record quotient 1 and remainder 1.</div>
+                  </div>
+                </div>
+                <div class="solved-step">
+                  <div class="step-num">Step 5</div>
+                  <div class="step-content">
+                    <div class="step-math">$1 \div 2 = 0 \quad R = 1$</div>
+                    <div class="step-desc">Divide 1 by 2. Record quotient 0 and remainder 1. (Stop when quotient is 0)</div>
+                  </div>
+                </div>
+                <div class="solved-step">
+                  <div class="step-num">Step 6</div>
+                  <div class="step-content">
+                    <div class="step-math">$\text{Binary} = 11001_2$</div>
+                    <div class="step-desc">Read the remainders from bottom to top to assemble the binary value.</div>
+                  </div>
+                </div>
+                <div class="solved-success-box">
+                  <strong>Final Answer:</strong> $11001_2$
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+  
         <div class="tab-pane" id="pane-quiz">
           <div class="quiz-engine">
             <div class="qe-header">
@@ -301,6 +374,54 @@
     });
 
     window.numberSystemsQuiz.start();
+  
+    /* ── Solved Examples Active Logic ── */
+    const timers = {};
+    window.toggleTimer = function(id) {
+      const btn = document.querySelector(`#timer-${id} .timer-btn`);
+      const display = document.querySelector(`#timer-${id} .timer-display`);
+      
+      if (timers[id]) {
+        // Stop timer
+        clearInterval(timers[id].interval);
+        timers[id] = null;
+        btn.textContent = 'Start Timer ⏱️';
+        btn.classList.remove('running');
+      } else {
+        // Start timer
+        let seconds = 0;
+        btn.textContent = 'Pause ⏱️';
+        btn.classList.add('running');
+        
+        const interval = setInterval(() => {
+          seconds++;
+          const mins = Math.floor(seconds / 60).toString().padStart(2, '0');
+          const secs = (seconds % 60).toString().padStart(2, '0');
+          display.textContent = `${mins}:${secs}`;
+        }, 1000);
+        
+        timers[id] = { interval, seconds };
+      }
+    };
+
+    window.revealSolution = function(id) {
+      const wrap = document.getElementById(`solution-${id}`);
+      const btn = wrap.querySelector('.btn-reveal');
+      const steps = wrap.querySelector('.solved-steps');
+      
+      if (steps.style.display === 'none') {
+        steps.style.display = 'flex';
+        btn.innerHTML = 'Hide Solution 👁️';
+        btn.style.background = 'var(--color-surface-hover)';
+        btn.style.color = 'var(--color-text-primary)';
+      } else {
+        steps.style.display = 'none';
+        btn.innerHTML = 'Reveal Step-by-Step Solution 👁️';
+        btn.style.background = 'var(--color-accent)';
+        btn.style.color = '#ffffff';
+      }
+    };
+  
   </script>
 
 </body>

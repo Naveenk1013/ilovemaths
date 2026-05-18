@@ -54,6 +54,7 @@
         <p class="topic-desc">The opposite of differentiation. Finding the area under a curve by slicing it into infinite rectangles.</p>
         <div class="tab-nav">
           <button class="tab-btn active" data-target="ref">Concept Reference</button>
+          <button class="tab-btn" data-target="solved">Solved Examples</button>
           <button class="tab-btn" data-target="quiz">Interactive Quiz</button>
         </div>
       </header>
@@ -90,6 +91,64 @@
           </div>
         </div>
 
+        
+        <!-- SOLVED EXAMPLES -->
+        <div class="tab-pane" id="pane-solved">
+          <div class="solved-examples-container">
+            
+          <!-- Example 1 -->
+          <div class="solved-example-card">
+            <div class="solved-example-header">
+              <span class="solved-badge">Example 1 · Indefinite Integration</span>
+              <div class="solved-timer" id="timer-1">
+                <span class="timer-display">00:00</span>
+                <button class="timer-btn" onclick="toggleTimer(1)">Start Timer ⏱️</button>
+              </div>
+            </div>
+            <div class="solved-question">
+              Evaluate the indefinite integral:<br>$\int (3x^2 + 4x - 5) \, dx$
+            </div>
+            <div class="solved-solution-wrap" id="solution-1">
+              <button class="btn btn-primary btn-reveal" onclick="revealSolution(1)">Reveal Step-by-Step Solution 👁️</button>
+              <div class="solved-steps" style="display: none;">
+                
+                <div class="solved-step">
+                  <div class="step-num">Step 1</div>
+                  <div class="step-content">
+                    <div class="step-math">$\int 3x^2 \, dx = 3 \cdot \frac{x^3}{3} = x^3$</div>
+                    <div class="step-desc">Integrate the first term using the power rule of integration.</div>
+                  </div>
+                </div>
+                <div class="solved-step">
+                  <div class="step-num">Step 2</div>
+                  <div class="step-content">
+                    <div class="step-math">$\int 4x \, dx = 4 \cdot \frac{x^2}{2} = 2x^2$</div>
+                    <div class="step-desc">Integrate the second term.</div>
+                  </div>
+                </div>
+                <div class="solved-step">
+                  <div class="step-num">Step 3</div>
+                  <div class="step-content">
+                    <div class="step-math">$\int -5 \, dx = -5x$</div>
+                    <div class="step-desc">Integrate the constant term.</div>
+                  </div>
+                </div>
+                <div class="solved-step">
+                  <div class="step-num">Step 4</div>
+                  <div class="step-content">
+                    <div class="step-math">$x^3 + 2x^2 - 5x + C$</div>
+                    <div class="step-desc">Combine all integrated terms together and append the constant of integration ($C$).</div>
+                  </div>
+                </div>
+                <div class="solved-success-box">
+                  <strong>Final Answer:</strong> $x^3 + 2x^2 - 5x + C$
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+  
         <!-- INTERACTIVE QUIZ -->
         <div class="tab-pane" id="pane-quiz">
           <div class="quiz-engine">
@@ -152,6 +211,54 @@
       }
     });
     window.intQuiz.start();
+  
+    /* ── Solved Examples Active Logic ── */
+    const timers = {};
+    window.toggleTimer = function(id) {
+      const btn = document.querySelector(`#timer-${id} .timer-btn`);
+      const display = document.querySelector(`#timer-${id} .timer-display`);
+      
+      if (timers[id]) {
+        // Stop timer
+        clearInterval(timers[id].interval);
+        timers[id] = null;
+        btn.textContent = 'Start Timer ⏱️';
+        btn.classList.remove('running');
+      } else {
+        // Start timer
+        let seconds = 0;
+        btn.textContent = 'Pause ⏱️';
+        btn.classList.add('running');
+        
+        const interval = setInterval(() => {
+          seconds++;
+          const mins = Math.floor(seconds / 60).toString().padStart(2, '0');
+          const secs = (seconds % 60).toString().padStart(2, '0');
+          display.textContent = `${mins}:${secs}`;
+        }, 1000);
+        
+        timers[id] = { interval, seconds };
+      }
+    };
+
+    window.revealSolution = function(id) {
+      const wrap = document.getElementById(`solution-${id}`);
+      const btn = wrap.querySelector('.btn-reveal');
+      const steps = wrap.querySelector('.solved-steps');
+      
+      if (steps.style.display === 'none') {
+        steps.style.display = 'flex';
+        btn.innerHTML = 'Hide Solution 👁️';
+        btn.style.background = 'var(--color-surface-hover)';
+        btn.style.color = 'var(--color-text-primary)';
+      } else {
+        steps.style.display = 'none';
+        btn.innerHTML = 'Reveal Step-by-Step Solution 👁️';
+        btn.style.background = 'var(--color-accent)';
+        btn.style.color = '#ffffff';
+      }
+    };
+  
   </script>
 </body>
 </html>
