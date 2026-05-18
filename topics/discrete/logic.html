@@ -100,6 +100,7 @@
         </div>
 
         
+        
         <!-- SOLVED EXAMPLES -->
         <div class="tab-pane" id="pane-solved">
           <div class="solved-examples-container">
@@ -107,12 +108,164 @@
           <!-- Example 1 -->
           <div class="solved-example-card">
             <div class="solved-example-header">
-              <span class="solved-badge">Example 1 · Truth Value Evaluation</span>
+              <span class="solved-badge">Example 1 · Concept Application</span>
               <div class="solved-timer" id="timer-1">
                 <span class="timer-display">00:00</span>
                 <button class="timer-btn" onclick="toggleTimer(1)">Start Timer ⏱️</button>
               </div>
             </div>
+            <div class="solved-question">
+              If P is True and Q is False, what is the value of $ P \land Q $?
+              
+            </div>
+            <div class="solved-solution-wrap" id="solution-1">
+              <button class="btn btn-primary btn-reveal" onclick="revealSolution(1)">Reveal Step-by-Step Solution 👁️</button>
+              <div class="solved-steps" style="display: none;">
+                
+                <div class="solved-step">
+                  <div class="step-num">Step 1</div>
+                  <div class="step-content">
+                    <div class="step-desc">
+                      Analyze the given options:
+                      <ul style="margin-top:0.5rem; padding-left:1.2rem; list-style-type: none;">
+                        <li style="margin-bottom:0.4rem;text-align:left;"><strong>Option A:</strong> True</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option B:</strong> False</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="solved-step">
+                  <div class="step-num">Step 2</div>
+                  <div class="step-content">
+                    <div class="step-math">$\text{Apply Core Principles}$</div>
+                    <div class="step-desc">AND ($ \land $) requires both to be True.</div>
+                  </div>
+                </div>
+
+                <div class="solved-step">
+                  <div class="step-num">Step 3</div>
+                  <div class="step-content">
+                    <div class="step-desc">
+                      Cross-reference choices to select the valid deduction. Option <strong>B</strong> perfectly aligns with the principles analyzed.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="solved-success-box">
+                  <strong>Final Answer:</strong> Option B (False)
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Example 2 -->
+          <div class="solved-example-card">
+            <div class="solved-example-header">
+              <span class="solved-badge">Example 2 · Concept Application</span>
+              <div class="solved-timer" id="timer-2">
+                <span class="timer-display">00:00</span>
+                <button class="timer-btn" onclick="toggleTimer(2)">Start Timer ⏱️</button>
+              </div>
+            </div>
+            <div class="solved-question">
+              When is the implication $ P \implies Q $ FALSE?
+              
+            </div>
+            <div class="solved-solution-wrap" id="solution-2">
+              <button class="btn btn-primary btn-reveal" onclick="revealSolution(2)">Reveal Step-by-Step Solution 👁️</button>
+              <div class="solved-steps" style="display: none;">
+                
+                <div class="solved-step">
+                  <div class="step-num">Step 1</div>
+                  <div class="step-content">
+                    <div class="step-desc">
+                      Analyze the given options:
+                      <ul style="margin-top:0.5rem; padding-left:1.2rem; list-style-type: none;">
+                        <li style="margin-bottom:0.4rem;text-align:left;"><strong>Option A:</strong> When P is F and Q is F</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option B:</strong> When P is T and Q is T</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option C:</strong> When P is T and Q is F</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option D:</strong> When P is F and Q is T</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="solved-step">
+                  <div class="step-num">Step 2</div>
+                  <div class="step-content">
+                    <div class="step-math">$\text{Apply Core Principles}$</div>
+                    <div class="step-desc">An implication is only broken if the premise (P) happens but the promise (Q) does not.</div>
+                  </div>
+                </div>
+
+                <div class="solved-step">
+                  <div class="step-num">Step 3</div>
+                  <div class="step-content">
+                    <div class="step-desc">
+                      Cross-reference choices to select the valid deduction. Option <strong>C</strong> perfectly aligns with the principles analyzed.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="solved-success-box">
+                  <strong>Final Answer:</strong> Option C (When P is T and Q is F)
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Example 3 -->
+          <div class="solved-example-card">
+            <div class="solved-example-header">
+              <span class="solved-badge">Example 3 · Concept Application</span>
+              <div class="solved-timer" id="timer-3">
+                <span class="timer-display">00:00</span>
+                <button class="timer-btn" onclick="toggleTimer(3)">Start Timer ⏱️</button>
+              </div>
+            </div>
+            <div class="solved-question">
+              What does $ \neg (\neg P) $ equal?
+              
+            </div>
+            <div class="solved-solution-wrap" id="solution-3">
+              <button class="btn btn-primary btn-reveal" onclick="revealSolution(3)">Reveal Step-by-Step Solution 👁️</button>
+              <div class="solved-steps" style="display: none;">
+                
+                <div class="solved-step">
+                  <div class="step-num">Step 1</div>
+                  <div class="step-content">
+                    <div class="step-desc">
+                      Analyze the given options:
+                      <ul style="margin-top:0.5rem; padding-left:1.2rem; list-style-type: none;">
+                        <li style="margin-bottom:0.4rem;text-align:left;"><strong>Option A:</strong> $ P $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option B:</strong> $ \neg P $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option C:</strong> True</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option D:</strong> False</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="solved-step">
+                  <div class="step-num">Step 2</div>
+                  <div class="step-content">
+                    <div class="step-math">$\text{Apply Core Principles}$</div>
+                    <div class="step-desc">Double negation brings you back to the original value.</div>
+                  </div>
+                </div>
+
+                <div class="solved-step">
+                  <div class="step-num">Step 3</div>
+                  <div class="step-content">
+                    <div class="step-desc">
+                      Cross-reference choices to select the valid deduction. Option <strong>A</strong> perfectly aligns with the principles analyzed.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="solved-success-box">
+                  <strong>Final Answer:</strong> Option A ($ P $)
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+  
             <div class="solved-question">
               Construct a truth value analysis for the logical implication:<br>$P \to (Q \lor \neg P)$ when $P$ is True ($T$) and $Q$ is False ($F$).
             </div>

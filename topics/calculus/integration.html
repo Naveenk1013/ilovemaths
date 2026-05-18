@@ -92,6 +92,7 @@
         </div>
 
         
+        
         <!-- SOLVED EXAMPLES -->
         <div class="tab-pane" id="pane-solved">
           <div class="solved-examples-container">
@@ -99,12 +100,217 @@
           <!-- Example 1 -->
           <div class="solved-example-card">
             <div class="solved-example-header">
-              <span class="solved-badge">Example 1 · Indefinite Integration</span>
+              <span class="solved-badge">Example 1 · Concept Application</span>
               <div class="solved-timer" id="timer-1">
                 <span class="timer-display">00:00</span>
                 <button class="timer-btn" onclick="toggleTimer(1)">Start Timer ⏱️</button>
               </div>
             </div>
+            <div class="solved-question">
+              What is the integral of $ f(x) = 3x^2 $?
+              
+            </div>
+            <div class="solved-solution-wrap" id="solution-1">
+              <button class="btn btn-primary btn-reveal" onclick="revealSolution(1)">Reveal Step-by-Step Solution 👁️</button>
+              <div class="solved-steps" style="display: none;">
+                
+                <div class="solved-step">
+                  <div class="step-num">Step 1</div>
+                  <div class="step-content">
+                    <div class="step-desc">
+                      Analyze the given options:
+                      <ul style="margin-top:0.5rem; padding-left:1.2rem; list-style-type: none;">
+                        <li style="margin-bottom:0.4rem;text-align:left;"><strong>Option A:</strong> $ x^3 + C $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option B:</strong> $ 6x + C $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option C:</strong> $ 3x^3 + C $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option D:</strong> $ \frac{x^3}{3} + C $</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="solved-step">
+                  <div class="step-num">Step 2</div>
+                  <div class="step-content">
+                    <div class="step-math">$\text{Apply Core Principles}$</div>
+                    <div class="step-desc">Using the power rule: add 1 to power (3), divide by new power (3). $ \frac{3x^3}{3} = x^3 + C $.</div>
+                  </div>
+                </div>
+
+                <div class="solved-step">
+                  <div class="step-num">Step 3</div>
+                  <div class="step-content">
+                    <div class="step-desc">
+                      Cross-reference choices to select the valid deduction. Option <strong>A</strong> perfectly aligns with the principles analyzed.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="solved-success-box">
+                  <strong>Final Answer:</strong> Option A ($ x^3 + C $)
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Example 2 -->
+          <div class="solved-example-card">
+            <div class="solved-example-header">
+              <span class="solved-badge">Example 2 · Concept Application</span>
+              <div class="solved-timer" id="timer-2">
+                <span class="timer-display">00:00</span>
+                <button class="timer-btn" onclick="toggleTimer(2)">Start Timer ⏱️</button>
+              </div>
+            </div>
+            <div class="solved-question">
+              Why do we add $ + C $ to indefinite integrals?
+              
+            </div>
+            <div class="solved-solution-wrap" id="solution-2">
+              <button class="btn btn-primary btn-reveal" onclick="revealSolution(2)">Reveal Step-by-Step Solution 👁️</button>
+              <div class="solved-steps" style="display: none;">
+                
+                <div class="solved-step">
+                  <div class="step-num">Step 1</div>
+                  <div class="step-content">
+                    <div class="step-desc">
+                      Analyze the given options:
+                      <ul style="margin-top:0.5rem; padding-left:1.2rem; list-style-type: none;">
+                        <li style="margin-bottom:0.4rem;text-align:left;"><strong>Option A:</strong> Because C stands for Calculus</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option B:</strong> To account for any constant that was lost during differentiation</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option C:</strong> It makes the equation solvable</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option D:</strong> It's a placeholder for zero</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="solved-step">
+                  <div class="step-num">Step 2</div>
+                  <div class="step-content">
+                    <div class="step-math">$\text{Apply Core Principles}$</div>
+                    <div class="step-desc">The derivative of any constant is 0. So when integrating backwards, we add C to represent that unknown constant.</div>
+                  </div>
+                </div>
+
+                <div class="solved-step">
+                  <div class="step-num">Step 3</div>
+                  <div class="step-content">
+                    <div class="step-desc">
+                      Cross-reference choices to select the valid deduction. Option <strong>B</strong> perfectly aligns with the principles analyzed.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="solved-success-box">
+                  <strong>Final Answer:</strong> Option B (To account for any constant that was lost during differentiation)
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Example 3 -->
+          <div class="solved-example-card">
+            <div class="solved-example-header">
+              <span class="solved-badge">Example 3 · Concept Application</span>
+              <div class="solved-timer" id="timer-3">
+                <span class="timer-display">00:00</span>
+                <button class="timer-btn" onclick="toggleTimer(3)">Start Timer ⏱️</button>
+              </div>
+            </div>
+            <div class="solved-question">
+              A student integrated $ \int 4x^3 \, dx $. Find the mistake.
+              
+            </div>
+            <div class="solved-solution-wrap" id="solution-3">
+              <button class="btn btn-primary btn-reveal" onclick="revealSolution(3)">Reveal Step-by-Step Solution 👁️</button>
+              <div class="solved-steps" style="display: none;">
+                
+                <div class="solved-step">
+                  <div class="step-num">Step 1</div>
+                  <div class="step-content">
+                    <div class="step-desc">
+                      Analyze the given options:
+                      <ul style="margin-top:0.5rem; padding-left:1.2rem; list-style-type: none;">
+                        <li style="margin-bottom:0.4rem;text-align:left;"><strong>Option A:</strong> Yes</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option B:</strong> No</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="solved-step">
+                  <div class="step-num">Step 2</div>
+                  <div class="step-content">
+                    <div class="step-math">$\text{Apply Core Principles}$</div>
+                    <div class="step-desc">Step 4 forgot the $ + C $. Every indefinite integral must include the constant of integration.</div>
+                  </div>
+                </div>
+
+                <div class="solved-step">
+                  <div class="step-num">Step 3</div>
+                  <div class="step-content">
+                    <div class="step-desc">
+                      Cross-reference choices to select the valid deduction. Option <strong>D</strong> perfectly aligns with the principles analyzed.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="solved-success-box">
+                  <strong>Final Answer:</strong> Option D (Correct Option)
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Example 4 -->
+          <div class="solved-example-card">
+            <div class="solved-example-header">
+              <span class="solved-badge">Example 4 · Concept Application</span>
+              <div class="solved-timer" id="timer-4">
+                <span class="timer-display">00:00</span>
+                <button class="timer-btn" onclick="toggleTimer(4)">Start Timer ⏱️</button>
+              </div>
+            </div>
+            <div class="solved-question">
+              You need to integrate $ \int 5x^4 \, dx $. What is the correct first step?
+              
+            </div>
+            <div class="solved-solution-wrap" id="solution-4">
+              <button class="btn btn-primary btn-reveal" onclick="revealSolution(4)">Reveal Step-by-Step Solution 👁️</button>
+              <div class="solved-steps" style="display: none;">
+                
+                <div class="solved-step">
+                  <div class="step-num">Step 1</div>
+                  <div class="step-content">
+                    <div class="step-desc">
+                      Analyze the given options:
+                      <ul style="margin-top:0.5rem; padding-left:1.2rem; list-style-type: none;">
+                        <li style="margin-bottom:0.4rem;text-align:left;"><strong>Option A:</strong> Multiply the exponent by the coefficient: $ 20x^3 $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option B:</strong> Add 1 to the exponent: $ 5x^5 $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option C:</strong> Divide by the coefficient: $ x^4 $</li><li style="margin-bottom:0.4rem;text-align:left;"><strong>Option D:</strong> Take the square root</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="solved-step">
+                  <div class="step-num">Step 2</div>
+                  <div class="step-content">
+                    <div class="step-math">$\text{Apply Core Principles}$</div>
+                    <div class="step-desc">First add 1 to the exponent (4 → 5), giving $ 5x^5 $. Then divide by 5: $ x^5 + C $.</div>
+                  </div>
+                </div>
+
+                <div class="solved-step">
+                  <div class="step-num">Step 3</div>
+                  <div class="step-content">
+                    <div class="step-desc">
+                      Cross-reference choices to select the valid deduction. Option <strong>B</strong> perfectly aligns with the principles analyzed.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="solved-success-box">
+                  <strong>Final Answer:</strong> Option B (Add 1 to the exponent: $ 5x^5 $)
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+  
             <div class="solved-question">
               Evaluate the indefinite integral:<br>$\int (3x^2 + 4x - 5) \, dx$
             </div>
